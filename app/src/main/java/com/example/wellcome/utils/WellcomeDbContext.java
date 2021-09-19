@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
 import com.example.wellcome.enums.Gender;
-import com.example.wellcome.models.User;
 
 public class WellcomeDbContext {
     private WellcomeDbHelper dbHelper;
@@ -16,6 +15,8 @@ public class WellcomeDbContext {
     {
         dbHelper = new WellcomeDbHelper(context);
     }
+
+
 
     public long insertUser(User user){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
