@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">wellcome</string>
+<<<<<<< HEAD
+    <string name="title_activity_maps">MapsActivity</string>
+||||||| parent of b08b2c6 (Create Button for liste annonce)
+=======
+    <string name="button">Button</string>
+>>>>>>> b08b2c6 (Create Button for liste annonce)
+</resources>
