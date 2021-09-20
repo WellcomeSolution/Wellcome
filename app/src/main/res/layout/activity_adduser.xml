@@ -158,9 +158,10 @@
             android:gravity="center"
             android:text="Enregistrer" />
         <Button
+            android:id="@+id/ret"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/ret"
+            android:layout_below="@+id/RegisterBtnF"
             android:text="Return"/>
     </LinearLayout>
 
