@@ -1,5 +1,5 @@
 
-Idée
+
 
                                           # Wellcome
 Welcome est une application mobile qui se base sur le principe la rencontre entre les particuliers
@@ -48,6 +48,15 @@ Proposer les annonces de logement
 Gérer mes annonces de logement
 côté application:
 Bouton pour accéder l’article “description de notre application”
+
+#Installation
+•git clone https://github.com/JialeiSUN/Wellcome
+
+Installation de gradle : https://gradle.org/install/
+
+•Gradle build
+
+•install ADB : https://www.xda-developers.com/install-adb-windows-macos-linux/
 
 
 
