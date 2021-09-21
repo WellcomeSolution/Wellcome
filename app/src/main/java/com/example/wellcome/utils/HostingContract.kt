@@ -6,11 +6,11 @@ import android.provider.BaseColumns
 object HostingContract {
     object HostingEntry : BaseColumns {
         const val TABLE_NAME = "hosting"
-        const val COLUMN_NAME_FIRST_NAME = "country"
-        const val COLUMN_NAME_LAST_NAME = "city"
-        const val COLUMN_NAME_ADDRESS = "street"
-        const val COLUMN_NAME_EMAIL = "additionalAddress"
-        const val COLUMN_NAME_PHONE = "hosterEmail"
+        const val COLUMN_NAME_FIRST_NAME = "firstName"
+        const val COLUMN_NAME_LAST_NAME = "lastName"
+        const val COLUMN_NAME_ADDRESS = "address"
+        const val COLUMN_NAME_EMAIL = "email"
+        const val COLUMN_NAME_PHONE = "phone"
     }
 
     const val SQL_CREATE_ENTRIES = "CREATE TABLE " + HostingEntry.TABLE_NAME + " (" +

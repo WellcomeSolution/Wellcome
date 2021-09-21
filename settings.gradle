@@ -1,2 +1,3 @@
+include ':wellcomelibrary'
 include ':app'
 rootProject.name = "wellcome"
