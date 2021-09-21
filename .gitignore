@@ -13,6 +13,7 @@
 /captures
 .externalNativeBuild
 .cxx
+.idea/gradle.xml
 local.properties
 
 
