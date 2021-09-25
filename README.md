@@ -1,86 +1,102 @@
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-
-## Wellcome
-Welcome est une application mobile qui se base sur le principe la rencontre entre les particuliers
-pour êtres logés gratuitement.Elle servira aussi à proposer des services basique comme servir un verre
-d'eau.Ou inversement a déposé une annonce de nos besoins.
+<!-- ABOUT THE PROJECT -->
+## About The Project
+Welcome est une application mobile qui se base sur le principe de rencontre entre les particuliers
+afin d'êtres logés gratuitement.Elle servira aussi à proposer des services basique comme prendre des cours de piano, Ou inversement a déposé une annonce de nos besoins.
 Les utilisateurs devront se connecter via un compte Wellcome. Au départ les utilisateurs auront un
 compte non certifié. Les comptes non certifiés  ne pourraient pas communiquer avec les autres participants.
 Pour enlever le mode restreint les utilisateurs devront envoyer leur carte d’identité qui sera validé par l’administrateur et stocker.
 
-__Outil de développement et choix technologique :__
+### Built With
+* [Gradle](https://gradle.org/)
+* [Kotlin](https://kotlinlang.org/)
 
-Pour le développement de notre application nous avons choisie d'utiliser android car il y a beaucoup de ressources et documentation sur internet et c’est le logiciel adéquat pour programmer cette application mobile. La version d’api 28 est la plus récente, la plus performante et la plus stable.
-On avait le choix entre java et kotlin. Notre choix s'est porté naturellement vers kotlin car sa requiers moins de code que java, 70% des applications mobile sont construit via kotlin.  
-Pour pouvoir avoir des statistiques d’analyse pertinente sur la qualité du code source nous avons choisis sonarqube.
-Pour le serveur rest service on a utilisé la technologie web api de dotNet. Étant donné c’est performance et la documentation claire et concise ce qui fait de lui un langage moderne permettant d'écrire du code claire et simple.
+## Getting Started
+### Installation
+1. Clone the repo
+   ```sh
+   git clone https://github.com/JialeiSUN/Wellcome
+   ```
+2. Build with gradle
+   ```gradle
+   gradle build
+   ```
+3. Create the APK
+   ```gradle
+   adb -d install path/to/your_app.apk
+   ```
+   
+   <!-- USAGE EXAMPLES -->
+## Usage
 
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-__1. Module Recherche Logement :__
-<br/>
-Quand le client cliquera sur le module -> Formulaire pour choisir la destination + Date + Nombre de personne (information age)
-Ensuite une liste d'annonces avec page de filtres d’autre particulière qui offre le service de logement.
-Photos
-Adresse
-Type de logement(une chambre/une appartement )
-Système de messageries pour les utilisateurs
-pour faciliter la partage d’annonce et poser des questions aux propriétaires
-Publier les annonces
-fonctionnement de notre site
-Si il n'y a pas d’annonce l'utilisateur pourras déposer une annonce de demande + système d’email pour les particuliers ayant accepté les notifications et habitant dans la zone
-Système de pourboire facultatif
+_For more examples, please refer to the [Documentation](https://example.com)_
 
-Pour les voyageurs qui se situent dans une ville et qui voudraient camper quelque part, l’application leur montrera l’endroit le plus proche ou il pourrait passer la nuit.
+<!-- ROADMAP -->
+## Roadmap
 
-
-
-__2. Chat avec propriétaire :__
-<br/>
-Il permet de communiquer avec les propriétaires et d’avoir une notification quand il reçoit un message du propriétaire.
-
-__3. Gestion de profile :__
-<br/>
-côté client :
-Modifier les informations personnelles
-Consulter les voyages historiques
-Bouton de déconnection
-côté propriétaire :
-Bouton pour accéder l’article “comment devenir le propriétaire”
-Proposer les annonces de logement
-Gérer mes annonces de logement
-côté application:
-Bouton pour accéder l’article “description de notre application”
-
-## Installation
-### Récuperation du code source
-> git clone https://github.com/JialeiSUN/Wellcome
-
-### Installez gradle 
-__Lien vers Gradle : https://gradle.org/install/__
-
-> gradle build
-
-### Installez ADB : https://www.xda-developers.com/install-adb-windows-macos-linux/
-> adb -d install path/to/your_app.apk
-
-## Liste de tâches Feature V0.1
-- [ ] Localisation GPS : __Jialei__
-- [ ] Base de données SQLite : __Rayhane__
-- [ ] Récuperer et afficher les logements : __Ahmed__
-- [ ] Formulaire ajouter logement : __Amadou__
-
-*Pour mardi:
-<br/>
-__Localisation Gps__ : Jialei
-Créer une classe outil permettant via une entrée(adresse) nous donne une liste de logement proche de cette adresse.
-<br/>
-__Data Sql light :__ Rayahne
-<br/>
-__Page liste de logement :__ Ahmed Benali
-<br/>
-__Formulaire ajouter logement :__ Amadou
-Nom prénom e-mail adresse.*
+See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
 
 
+<!-- LICENSE -->
+## License
 
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- CONTACT -->
+## Contact
+
+Wellcome - WellcomeMyContact@gmail.com
+
+Project Link: [https://github.com/JialeiSUN/Wellcome](https://github.com/JialeiSUN/Wellcome)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/JialeiSUN/Wellcome.svg?style=for-the-badge
+[contributors-url]: https://github.com/JialeiSUN/Wellcome/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/JialeiSUN/Wellcome.svg?style=for-the-badge
+[forks-url]: https://github.com/JialeiSUN/Wellcome/network/members
+[stars-shield]: https://img.shields.io/github/stars/JialeiSUN/Wellcome.svg?style=for-the-badge
+[stars-url]: https://github.com/JialeiSUN/Wellcome/stargazers
+[issues-shield]: https://img.shields.io/github/issues/JialeiSUN/Wellcome.svg?style=for-the-badge
+[issues-url]: https://github.com/JialeiSUN/Wellcome/issues
+[license-shield]: https://img.shields.io/github/license/JialeiSUN/Wellcome.svg?style=for-the-badge
+[license-url]: https://github.com/JialeiSUN/Wellcome/blob/master/LICENSE.txt
