@@ -20,16 +20,16 @@ class AddUserActivity: AppCompatActivity() {
         var add_phone: EditText = findViewById(R.id.editphone)
         var btnretour: Button = findViewById(R.id.ret)
         var btnenregistre: Button = findViewById(R.id.RegisterBtnF)
-        btnretour.setOnClickListener(){
+        btnretour.setOnClickListener {
             var intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
-        btnenregistre.setOnClickListener(){
-            var nom: String = add_nom.getText().toString()
-            var prenom: String = add_prenom.getText().toString()
-            var adresse: String = add_adresse.getText().toString()
-            var email: String = add_email.getText().toString()
-            var phone: String = add_phone.getText().toString()
+        btnenregistre.setOnClickListener {
+            var nom: String = add_nom.text.toString()
+            var prenom: String = add_prenom.text.toString()
+            var adresse: String = add_adresse.text.toString()
+            var email: String = add_email.text.toString()
+            var phone: String = add_phone.text.toString()
             var number: Int = phone.toInt()
             var user = User(nom,prenom,adresse,email,number)
             //db.insert(user)
