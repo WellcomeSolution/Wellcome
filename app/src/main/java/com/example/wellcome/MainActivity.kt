@@ -52,9 +52,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googlemap: GoogleMap) {
         val latLng = LatLng(currentLocation.latitude, currentLocation.longitude)
         val makerOptions = MarkerOptions().position(latLng).title("hello")
-        googlemap?.animateCamera(CameraUpdateFactory.newLatLng(latLng))
-        googlemap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5f))
-        googlemap?.addMarker(makerOptions)
+        googlemap.animateCamera(CameraUpdateFactory.newLatLng(latLng))
+        googlemap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5f))
+        googlemap.addMarker(makerOptions)
     }
 
     override fun onRequestPermissionsResult(

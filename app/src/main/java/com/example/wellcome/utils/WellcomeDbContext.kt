@@ -10,7 +10,7 @@ class WellcomeDbContext(context:Context) {
     val dpHelper = WellcomeDbHelper(context)
 
     fun insertHosting(hosting: com.example.wellcome.models.Hosting): Long? {
-        val db = dpHelper.writableDatabase;
+        val db = dpHelper.writableDatabase
 
         val values = ContentValues()
             values.put(HostingContract.HostingEntry.COLUMN_NAME_FIRST_NAME, hosting.firstName)
