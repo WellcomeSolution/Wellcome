@@ -1,6 +1,5 @@
 package com.example.wellcome
 
-import android.app.Activity
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private  val permissionCode = 101
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_gps)
 
         fusedLocationProvider = LocationServices.getFusedLocationProviderClient(this)
         fetchLocation()

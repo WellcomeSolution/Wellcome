@@ -13,11 +13,11 @@ class WellcomeDbContext(context:Context) {
         val db = dpHelper.writableDatabase;
 
         val values = ContentValues()
-            values.put(HostingContract.HostingEntry.COLUMN_NAME_FIRST_NAME, hosting.lastName)
+            values.put(HostingContract.HostingEntry.COLUMN_NAME_FIRST_NAME, hosting.firstName)
             values.put(HostingContract.HostingEntry.COLUMN_NAME_LAST_NAME, hosting.lastName)
-            values.put(HostingContract.HostingEntry.COLUMN_NAME_ADDRESS, hosting.lastName)
-            values.put(HostingContract.HostingEntry.COLUMN_NAME_EMAIL, hosting.lastName)
-            values.put(HostingContract.HostingEntry.COLUMN_NAME_PHONE, hosting.lastName)
+            values.put(HostingContract.HostingEntry.COLUMN_NAME_ADDRESS, hosting.address)
+            values.put(HostingContract.HostingEntry.COLUMN_NAME_EMAIL, hosting.email)
+            values.put(HostingContract.HostingEntry.COLUMN_NAME_PHONE, hosting.phone)
 
         return db?.insert(HostingContract.HostingEntry.TABLE_NAME, null, values)
     }

@@ -1,11 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/page_1"
+            android:id="@+id/hosts"
             android:enabled="true"
             android:icon="@drawable/outline_home_black_24"
             android:title="Hosts"/>
     <item
-            android:id="@+id/page_2"
+            android:id="@+id/add_hosts"
             android:enabled="true"
             android:icon="@drawable/outline_control_point_24"
             android:title="Add Hosts" />
