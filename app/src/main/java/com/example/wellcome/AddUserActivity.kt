@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wellcome.model.User
+
 //import base de donne
 class AddUserActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
