@@ -1,0 +1,47 @@
+image::https://travis-ci.org/asciidoctor/asciidoctor-gradle-examples.svg?branch=master[Build Status,link=https://travis-ci.org/asciidoctor/asciidoctor-gradle-examples]
+
+= Asciidoctor Gradle Plugin: Examples
+
+This repository contains a collection of sample projects that demonstrate numerous ways to use the Asciidoctor Gradle
+plugin in a Gradle project.
+
+== Browsing the examples
+
+You can browse the github pages to view the examples, the code, and sample output at
+
+https://asciidoctor.github.io/asciidoctor-gradle-examples/
+
+== Getting the examples
+
+Clone the example repository using git:
+
+ $ git clone https://github.com/asciidoctor/asciidoctor-gradle-examples
+ 
+== Setting up IntelliJ
+
+If you are using IntelliJ, you can generate the relevant IDE files using:
+
+ $ ./gradlew idea
+ 
+== Example catalog
+
+You can optionally run all of examples at once using the following command from the repository root:
+
+ $ ./gradlew asciidoctor
+
+Alternatively, you can treat each project as a distinct module. Refer to the README file in each individual project to
+learn how to run it.
+
+
+link:asciidoc-to-html-example/README.adoc[asciidoc-to-html-example]::
+An example project that demonstrates how to convert AsciiDoc to HTML5 using the Asciidoctor Gradle plugin.
+
+link:asciidoc-to-revealjs-example/README.adoc[asciidoc-to-revealjs-example]::
+Demonstrates how to convert AsciiDoc to reveal.js using Asciidoctor revealjs with the Asciidoctor Gradle plugin.
+
+== Copyright and Licensing
+
+Copyright (C) 2020 The Asciidoctor Project.
+Free use of this software is granted under the terms of the MIT License.
+
+See the link:LICENSE.adoc[] file for details.

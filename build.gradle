@@ -1,6 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.5.21"
+    ext.kotlin_version = "1.5.30"
+    ext.pdf_version = "3.3.0"
     repositories {
         google()
         jcenter()
@@ -8,19 +9,88 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
+        classpath "org.asciidoctor:asciidoctor-gradle-jvm-pdf:$pdf_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
+plugins {
+  id 'com.github.ben-manes.versions' version '0.14.0'
+}
 
+apply plugin: 'idea'
+idea {
+    project {
+        ipr {
+            withXml { provider ->
+                def node = provider.asNode()
+                //configure git support for the project in idea
+                node.component.find { it.'@name' == 'VcsDirectoryMappings' }?.mapping[0].'@vcs' = 'Git'
+            }
+        }
+    }
+}
 allprojects {
     repositories {
         google()
         jcenter()
     }
 }
+task publish {
+    File index = new File("$rootDir/build/test1.adoc")
+    index.parentFile.mkdirs()
+    def header = """= Asciidoctor Gradle Examples
+Rob Winch <https://github.com/rwinch[@rwinch]>; Dan Hyun <https://github.com/danhyun[@danhyun]>
+:icons: font
+:toc: left
+:numbered:
+:github_url: https://github.com/asciidoctor/asciidoctor-gradle-examples
+:github_project_path: {github_url}/tree/master
+:github_fork_badge: https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png
 
+[.badge]
+image::{github_fork_badge}[link="{github_url}"]
+
+[discrete]
+== About
+
+This repository contains examples on how to use Gradle and Asciidoctor to create html5, pdf, epub, deck.js, and reveal.js outputs.
+
+"""
+    index.text = header
+    new File("$rootDir/build/docinfo.html").text = '<style>.badge { position: fixed; top: 0; right: 0; }</style>'
+}
+
+subprojects {
+    task copyOutput(type: Copy, dependsOn: ["asciidoctor"]) {
+        from "$project.buildDir/docs"
+        into "$project.projectDir"
+    }
+
+    task publish(dependsOn: "copyOutput") {
+        doLast {
+            File index = new File("$rootDir/build/index.adoc")
+            def projectName = project.projectDir.name
+            def content = """include::{rootDir}/$projectName/README.adoc[leveloffset=+1]
+
+=== Source
+
+* {github_project_path}/$projectName[View source]
+
+=== Outputs
+"""
+            index << content
+            def outputs = []
+            new File("$project.buildDir/docs").eachDir { dir ->
+                dir.eachFileMatch(~/.*\.(html|pdf|epub|mobi|app)/) { f ->
+                    def dirName = dir.name
+                    outputs << "* link:./$projectName/$dirName/$f.name[$dirName]\n"
+                }
+            }
+            index << outputs.join('\n') << "\n"
+        }
+    }
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
