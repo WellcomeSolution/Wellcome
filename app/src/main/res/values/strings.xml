@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">wellcome</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_menu">Menu</string>
 </resources>
