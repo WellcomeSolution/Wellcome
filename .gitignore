@@ -1,6 +1,11 @@
 *.iml
-.idea
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/Project.xml
+.idea/.name
+.idea/kotlinc.xml
+.idea/templateLanguages.xml
 .gradle
+.idea/misc.xml
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -13,6 +18,7 @@
 /captures
 .externalNativeBuild
 .cxx
+.idea/gradle.xml
 local.properties
 
 
