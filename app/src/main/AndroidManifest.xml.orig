@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wellcome">
+<<<<<<< HEAD
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -19,6 +20,12 @@
             android:name=".MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps" />
+||||||| parent of b08b2c6 (Create Button for liste annonce)
+=======
+        <activity
+            android:name="com.Main2Activity"
+            android:exported="true" />
+>>>>>>> b08b2c6 (Create Button for liste annonce)
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
