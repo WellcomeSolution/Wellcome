@@ -1,21 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-<<<<<<< HEAD
+    id 'kotlin-android-extensions'
     id 'org.asciidoctor.jvm.pdf'
     id 'org.asciidoctor.jvm.gems' version '3.3.0'
 }
-apply plugin: 'kotlin-android'
-apply plugin: "org.asciidoctor.jvm.pdf"
-version = '1.0.0-SNAPSHOT'
+
 repositories {
     jcenter()
     ruby.gems()
-||||||| parent of 999b5a8 (Hosts + AddHosts)
-=======
-    id 'kotlin-android-extensions'
->>>>>>> 999b5a8 (Hosts + AddHosts)
 }
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
