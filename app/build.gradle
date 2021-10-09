@@ -2,13 +2,10 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
-    id 'org.asciidoctor.jvm.pdf'
-    id 'org.asciidoctor.jvm.gems' version '3.3.0'
 }
 
 repositories {
     jcenter()
-    ruby.gems()
 }
 
 android {
@@ -44,7 +41,6 @@ android {
 }
 
 dependencies {
-    asciidoctorGems 'rubygems:rouge:3.15.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation "androidx.recyclerview:recyclerview:1.2.1"
@@ -64,25 +60,3 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
-asciidoctorPdf {
-    dependsOn asciidoctorGemsPrepare
-
-    baseDirFollowsSourceFile()
-
-    asciidoctorj {
-        requires 'rouge'
-        attributes 'build-gradle': file('build.gradle'),
-                //'sourcedir': project.sourceSets.main.java.srcDirs[0],
-                'sourcedir' : file("$rootDir/build"),
-                'endpoint-url': 'http://example.org',
-                'source-highlighter': 'rouge',
-                'imagesdir': './images',
-                'toc': 'left',
-                'icons': 'font',
-                'idprefix': '',
-                'idseparator': '-'
-    }
-}
-
-// alias
-task asciidoctor(dependsOn: asciidoctorPdf)

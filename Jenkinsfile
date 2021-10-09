@@ -1,26 +1,22 @@
 pipeline {
-    agent anystages{
-       stage("checkout") {
-            steps{
-                ... // in this stage, I put the git repository that will be pulled.
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh './gradlew clean test' //run a gradle task
             }
         }
-        stage("build") {
-            steps{
-                sh '''./gradlew build clean'''
-                echo "The build stage passed..."
+        stage('Test') {
+            steps {
+                echo 'Testing..'
             }
         }
-        stage("test") {
-            steps{
-                echo "The test stage passed..."
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
-        }
-    }post{
-        always{
-            echo "post-build will always run after build completed"
-            // Jenkins cleans the workspace
-            cleanWs()  
         }
     }
 }
