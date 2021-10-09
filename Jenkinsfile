@@ -2,7 +2,6 @@ pipeline {
     agent anystages{
        stage("checkout") {
             steps{
-                ... // in this stage, I put the git repository that will be pulled.
             }
         }
         stage("build") {
