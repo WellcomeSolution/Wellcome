@@ -5,8 +5,18 @@
             android:icon="@drawable/outline_home_black_24"
             android:title="Hosts"/>
     <item
+        android:id="@+id/search_services"
+        android:enabled="true"
+        android:icon="@drawable/outline_control_point_24"
+        android:title="Search Services" />
+    <item
             android:id="@+id/add_hosts"
             android:enabled="true"
             android:icon="@drawable/outline_control_point_24"
             android:title="Add Hosts" />
+    <item
+        android:id="@+id/add_services"
+        android:enabled="true"
+        android:icon="@drawable/outline_control_point_24"
+        android:title="Add Services" />
 </menu>

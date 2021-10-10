@@ -19,8 +19,16 @@ class MenuActivity : AppCompatActivity() {
                     launchHostsFragment()
                     true
                 }
+                com.example.wellcome.R.id.search_services -> {
+                    launchAddServicesFragment()
+                    true
+                }
                 com.example.wellcome.R.id.add_hosts -> {
                     launchAddHostsFragment()
+                    true
+                }
+                com.example.wellcome.R.id.add_services -> {
+                    launchAddServicesFragment()
                     true
                 }
                 else -> false
@@ -32,7 +40,10 @@ class MenuActivity : AppCompatActivity() {
         supportFragmentManager.
         beginTransaction().replace(com.example.wellcome.R.id.content, HostsFragment()).commit()
     }
-
+    private fun launchAddServicesFragment(){
+        supportFragmentManager.
+        beginTransaction().replace(com.example.wellcome.R.id.content,AddServicesFragment()).commit()
+    }
     private fun launchAddHostsFragment(){
         supportFragmentManager.
         beginTransaction().replace(com.example.wellcome.R.id.content, AddHostsFragment()).commit()

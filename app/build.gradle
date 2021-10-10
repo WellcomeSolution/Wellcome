@@ -5,7 +5,7 @@ plugins {
     id 'org.asciidoctor.jvm.pdf'
     id 'org.asciidoctor.jvm.gems' version '3.3.0'
 }
-
+apply plugin: 'kotlin-android-extensions'
 repositories {
     jcenter()
     ruby.gems()

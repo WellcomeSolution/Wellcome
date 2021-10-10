@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_adduser.xml" value="0.25416666666666665" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_maps.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_menu.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_hosts.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services_assistance.xml" value="0.20572916666666666" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services_cours.xml" value="0.20572916666666666" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services_logement.xml" value="0.20572916666666666" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_hosts.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_search_services.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.4" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_control_point_24.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_home_24.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_adduser.xml" value="0.20520833333333333" />
