@@ -121,14 +121,15 @@
         </TextView>
 
         <include
-            android:id="@+id/services_cours"
+            android:id="@+id/services_cours_include"
             layout="@layout/fragment_add_services_cours"></include>
         <include
-            android:id="@+id/services_logement"
+            android:id="@+id/services_logement_include"
             layout="@layout/fragment_add_services_logement"></include>
+
         <include
-            android:id="@+id/services_assistance"
-            layout="@layout/fragment_add_services_assistance"></include>
+            android:id="@+id/services_assistance_include"
+            layout="@layout/fragment_add_services_assistance" />
         <Button
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
