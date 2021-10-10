@@ -3,7 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
 }
-
+apply plugin: 'kotlin-android-extensions'
 repositories {
     jcenter()
 }
