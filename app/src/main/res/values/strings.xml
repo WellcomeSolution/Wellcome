@@ -91,4 +91,6 @@
     <string name="cat_textfield_toast_error_icon_click" description="Announcement for when error icon is clicked.[CHAR_LIMIT=NONE]">Error icon clicked.</string>
     <string name="cat_textfield_toast_error_icon_long_click" description="Announcement for when error icon is long clicked.[CHAR_LIMIT=NONE]">Error icon long clicked.</string>
     <string name="host_added">The hosts has been added succesfuly !</string>
+    <string name="assistance_added">The assistance has been added succesfuly !</string>
+    <string name="cours_added">The assistance has been added succesfuly !</string>
 </resources>

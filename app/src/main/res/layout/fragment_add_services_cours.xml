@@ -13,17 +13,20 @@
         android:layout_marginRight="9dp"
         android:id="@+id/checkbox_cours">
         <CheckBox
+            android:id="@+id/checkbox1_cours"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
             android:checked="true"
             android:text="Informatique"/>
         <CheckBox
+            android:id="@+id/checkbox2_cours"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
             android:text="Marking"/>
         <CheckBox
+            android:id="@+id/checkbox3_cours"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.0"

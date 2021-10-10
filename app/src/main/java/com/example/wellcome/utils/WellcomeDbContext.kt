@@ -21,6 +21,19 @@ class WellcomeDbContext(context:Context) {
 
         return db?.insert(HostingContract.HostingEntry.TABLE_NAME, null, values)
     }
+    fun insertAssistance(assistance: com.example.wellcome.models.Assistance): Long? {
+        val db = dpHelper.writableDatabase
+        var tags_string:String = assistance.tags.joinToString()
+        val values = ContentValues()
+        values.put(Assistance.AssistanceEntry.COLUMN_NAME_TITRE_SERVICE, assistance.title)
+        values.put(Assistance.AssistanceEntry.COLUMN_NAME_DESCRIPTION, assistance.description)
+        values.put(Assistance.AssistanceEntry.COLUMN_NAME_ADDRESS, assistance.address)
+        values.put(Assistance.AssistanceEntry.COLUMN_NAME_TELEPHONE, assistance.phone)
+        values.put(Assistance.AssistanceEntry.COLUMN_NAME_TAGS, tags_string)
+        values.put(Assistance.AssistanceEntry.COLUMN_NAME_PRIORITY, assistance.priority)
+
+        return db?.insert(Assistance.AssistanceEntry.TABLE_NAME, null, values)
+    }
 
     fun getHostings(): List<com.example.wellcome.models.Hosting> {
         val db = dpHelper.readableDatabase

@@ -13,17 +13,20 @@
         android:layout_marginRight="9dp"
         android:id="@+id/checkbox_logement">
         <CheckBox
+            android:id="@+id/checkbox1_logement"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
             android:checked="true"
             android:text="Baby"/>
         <CheckBox
+            android:id="@+id/checkbox2_logement"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
             android:text="Animal"/>
         <CheckBox
+            android:id="@+id/checkbox3_logement"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
