@@ -20,7 +20,7 @@ class MenuActivity : AppCompatActivity() {
                     true
                 }
                 com.example.wellcome.R.id.search_services -> {
-                    launchSearchFragment()
+                    launchAddServicesFragment()
                     true
                 }
                 com.example.wellcome.R.id.add_hosts -> {

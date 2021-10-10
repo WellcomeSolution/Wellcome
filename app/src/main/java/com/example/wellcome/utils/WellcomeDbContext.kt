@@ -19,10 +19,9 @@ class WellcomeDbContext(context:Context) {
 
         return db?.insert(HostingContract.HostingEntry.TABLE_NAME, null, values)
     }
-
     fun insertAssistance(assistance: com.example.wellcome.models.Assistance): Long? {
         val db = dpHelper.writableDatabase
-        var tags_string: String = assistance.tags.joinToString()
+        var tags_string:String = assistance.tags.joinToString()
         val values = ContentValues()
         values.put(Assistance.AssistanceEntry.COLUMN_NAME_TITRE_SERVICE, assistance.title)
         values.put(Assistance.AssistanceEntry.COLUMN_NAME_DESCRIPTION, assistance.description)
@@ -33,10 +32,9 @@ class WellcomeDbContext(context:Context) {
 
         return db?.insert(Assistance.AssistanceEntry.TABLE_NAME, null, values)
     }
-
     fun insertCours(cours: com.example.wellcome.models.Lesson): Long? {
         val db = dpHelper.writableDatabase
-        var tags_string: String = cours.tags.joinToString()
+        var tags_string:String = cours.tags.joinToString()
         val values = ContentValues()
         values.put(Cours.CoursEntry.COLUMN_NAME_TITRE_SERVICE, cours.title)
         values.put(Cours.CoursEntry.COLUMN_NAME_DESCRIPTION, cours.description)
@@ -47,10 +45,9 @@ class WellcomeDbContext(context:Context) {
 
         return db?.insert(Cours.CoursEntry.TABLE_NAME, null, values)
     }
-
-    fun insertLogement(logement: com.example.wellcome.models.Host): Long? {
+    fun insertLogement(logement: com.example.wellcome.models.Logement): Long? {
         val db = dpHelper.writableDatabase
-        var tags_string: String = logement.tags.joinToString()
+        var tags_string:String = logement.tags.joinToString()
         val values = ContentValues()
         values.put(Logement.LogementEntry.COLUMN_NAME_TITRE_SERVICE, logement.title)
         values.put(Logement.LogementEntry.COLUMN_NAME_DESCRIPTION, logement.description)
@@ -63,7 +60,6 @@ class WellcomeDbContext(context:Context) {
 
         return db?.insert(Logement.LogementEntry.TABLE_NAME, null, values)
     }
-
     fun getHostings(): List<com.example.wellcome.models.Hosting> {
         val db = dpHelper.readableDatabase
         val sortOrder = "${HostingContract.HostingEntry.COLUMN_NAME_FIRST_NAME} DESC"
