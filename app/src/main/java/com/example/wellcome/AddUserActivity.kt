@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.example.wellcome.model.User
+//import com.example.wellcome.model.User
 
 //import base de donne
 class AddUserActivity: AppCompatActivity() {
@@ -31,7 +31,7 @@ class AddUserActivity: AppCompatActivity() {
             var email: String = add_email.text.toString()
             var phone: String = add_phone.text.toString()
             var number: Int = phone.toInt()
-            var user = User(nom,prenom,adresse,email,number)
+            //var user = User(nom,prenom,adresse,email,number)
             //db.insert(user)
         }
     }
