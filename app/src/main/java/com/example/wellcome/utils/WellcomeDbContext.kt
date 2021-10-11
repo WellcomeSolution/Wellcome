@@ -3,8 +3,6 @@ package com.example.wellcome.utils
 import android.content.ContentValues
 import android.content.Context
 import android.provider.BaseColumns
-import com.example.wellcome.models.Hosting
-import java.util.*
 
 class WellcomeDbContext(context:Context) {
     val dpHelper = WellcomeDbHelper(context)
@@ -49,7 +47,10 @@ class WellcomeDbContext(context:Context) {
 
         return db?.insert(Cours.CoursEntry.TABLE_NAME, null, values)
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b882673 (Unit tests)
     fun insertLogement(logement: com.example.wellcome.models.Host): Long? {
         val db = dpHelper.writableDatabase
         var tags_string: String = logement.tags.joinToString()
