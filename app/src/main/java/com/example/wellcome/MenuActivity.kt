@@ -20,7 +20,7 @@ class MenuActivity : AppCompatActivity() {
                     true
                 }
                 com.example.wellcome.R.id.search_services -> {
-                    launchAddServicesFragment()
+                    launchSearchFragment()
                     true
                 }
                 com.example.wellcome.R.id.add_hosts -> {
@@ -47,5 +47,9 @@ class MenuActivity : AppCompatActivity() {
     private fun launchAddHostsFragment(){
         supportFragmentManager.
         beginTransaction().replace(com.example.wellcome.R.id.content, AddHostsFragment()).commit()
+    }
+    private fun launchSearchFragment(){
+        supportFragmentManager.
+        beginTransaction().replace(com.example.wellcome.R.id.content, SearchFragment()).commit()
     }
 }
