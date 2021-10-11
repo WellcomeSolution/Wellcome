@@ -8,6 +8,8 @@ import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.Toast
 import com.example.wellcome.models.Assistance
+import com.example.wellcome.models.Lesson
+import com.example.wellcome.models.Logement
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_hosts.*
 import kotlinx.android.synthetic.main.fragment_add_services.*
@@ -82,10 +84,21 @@ class AddServicesFragment: BaseFragment()  {
 
         }
         suivantButton.setOnClickListener{
-            dbContext.insertAssistance(retrieveAssistance())
-            //testaffiche()
-            clearTextEdit()
-           // showSnackBar()
+            if(servicePosition==0){
+                dbContext.insertCours(retrieveCours())
+                clearTextEdit()
+                Toast.makeText(context,"cours ajouté!!!",Toast.LENGTH_SHORT).show()
+            }
+            if(servicePosition==1){
+                dbContext.insertLogement(retrieveLogement())
+                clearTextEdit()
+                Toast.makeText(context,"logement ajouté!!!",Toast.LENGTH_SHORT).show()
+            }
+            if(servicePosition==2){
+                dbContext.insertAssistance(retrieveAssistance())
+                clearTextEdit()
+                Toast.makeText(context,"assistance ajouté!!!",Toast.LENGTH_SHORT).show()
+            }
         }
 
 
@@ -147,6 +160,38 @@ class AddServicesFragment: BaseFragment()  {
         var ret_assistance = Assistance(services_titre.text.toString(),services_description.text.toString(),services_address.text.toString(),
         services_phone.text.toString(),list,assistancePriority)
         return ret_assistance
+    }
+    private fun retrieveCours(): Lesson{
+        var mlist = mutableListOf<String>()
+        if(checkbox1_cours.isChecked){
+            mlist.add(checkbox1_cours.text.toString())
+        }
+        if(checkbox2_cours.isChecked){
+            mlist.add(checkbox2_cours.text.toString())
+        }
+        if(checkbox3_cours.isChecked){
+            mlist.add(checkbox3_cours.text.toString())
+        }
+        var list = mlist.toList()
+        var ret_cours = Lesson(services_titre.text.toString(),services_description.text.toString(),services_address.text.toString(),
+            services_phone.text.toString(),list,cours_sessionduree.text.toString())
+        return ret_cours
+    }
+    private fun retrieveLogement(): Logement{
+        var mlist = mutableListOf<String>()
+        if(checkbox1_logement.isChecked){
+            mlist.add(checkbox1_logement.text.toString())
+        }
+        if(checkbox2_logement.isChecked){
+            mlist.add(checkbox2_logement.text.toString())
+        }
+        if(checkbox3_logement.isChecked){
+            mlist.add(checkbox3_logement.text.toString())
+        }
+        var list = mlist.toList()
+        var ret_logement = Logement(services_titre.text.toString(),services_description.text.toString(),services_address.text.toString(),
+            services_phone.text.toString(),list,logement_nombre_persone.text.toString(),logement_nombre_piece.text.toString())
+        return ret_logement
     }
     private fun testaffiche() {
 

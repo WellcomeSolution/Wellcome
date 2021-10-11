@@ -12,7 +12,7 @@ object Cours {
         const val COLUMN_NAME_DURATION = "duration"
     }
 
-    const val SQL_CREATE_ENTRIES = "CREATE TABLE " + CoursEntry.TABLE_NAME + " (" +
+    const val SQL_COURS_CREATE_ENTRIES = "CREATE TABLE " + CoursEntry.TABLE_NAME + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY," +
             CoursEntry.COLUMN_NAME_TITRE_SERVICE + " TEXT," +
             CoursEntry.COLUMN_NAME_TELEPHONE + " TEXT," +
@@ -21,5 +21,5 @@ object Cours {
             CoursEntry.COLUMN_NAME_TAGS + " TEXT," +
             CoursEntry.COLUMN_NAME_DURATION  + " TEXT)"
 
-    const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + CoursEntry.TABLE_NAME
+    const val SQL_COURS_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + CoursEntry.TABLE_NAME
 }
