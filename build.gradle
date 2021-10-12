@@ -37,4 +37,3 @@ sonarqube {
         property 'sonar.projectKey', 'JialeiSUN_Wellcome'
     }
 }
-
