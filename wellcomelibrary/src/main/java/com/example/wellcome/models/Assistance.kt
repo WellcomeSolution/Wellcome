@@ -3,7 +3,7 @@ package com.example.wellcome.models
 class Assistance(title: String, description: String, address: String,phone: String, tags: List<String>, val priority: String) :
     Service(title, description, address,phone, tags)
 {
-    override fun isTagsExist(tagsv: List<String>): Boolean {
+    /*override fun isTagsExist(tagsv: List<String>): Boolean {
         var count = 0
        for(tb in tagsv){
            for(ta in this.tags){
@@ -16,5 +16,5 @@ class Assistance(title: String, description: String, address: String,phone: Stri
             return true
         }
         return false
-    }
+    }*/
 }
