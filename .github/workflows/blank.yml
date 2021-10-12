@@ -84,6 +84,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.latest_release_info.outputs.upload_url }}
-          asset_path: documentation.pdf
+          asset_path: docs/documentation.pdf
           asset_name: documentation.pdf
           asset_content_type: application/pdf
