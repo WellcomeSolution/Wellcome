@@ -71,9 +71,19 @@ jobs:
       - name: Build PDF
         uses: avattathil/asciidoctor-action@master
         with:
-          program: "asciidoctor-pdf documentation.adoc"
+          program: "asciidoctor-pdf docs/documentation.adoc"
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v2
         with:
           name: PDF document
-          path: documentation.pdf
+          path: docs/documentation.pdf
+      - name: Upload Release Docs
+        id: upload_release_docs
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.latest_release_info.outputs.upload_url }}
+          asset_path: docs/documentation.pdf
+          asset_name: documentation.pdf
+          asset_content_type: application/pdf

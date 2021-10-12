@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 
     <application
             android:allowBackup="true"
@@ -28,10 +29,6 @@
                 android:name="com.google.android.geo.API_KEY"
                 android:value="@string/google_maps_key" />
 
-        <activity
-                android:name=".MapsActivity"
-                android:exported="true"
-                android:label="@string/title_activity_maps" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
