@@ -3,6 +3,7 @@ package com.example.wellcome.models
 class Host(title: String, description: String, address: String, phone: String, tags: List<String>, val nombrePersonne: String, val nombrePiece:String) : Service(title, description,
     address,phone, tags)
 {
+    /*
     override fun isTagsExist(tagsv: List<String>): Boolean {
         var count = 0
         for(tb in tagsv){
@@ -16,5 +17,5 @@ class Host(title: String, description: String, address: String, phone: String, t
             return true
         }
         return false
-    }
+    }*/
 }
