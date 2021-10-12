@@ -10,18 +10,17 @@ import com.example.wellcome.utils.WellcomeDbContext
 import com.example.wellcome.utils.WellcomeDbHelper
 import org.junit.After
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
 
 class SQLiteTest {
     private lateinit var dbContext: WellcomeDbContext
     private lateinit var context:Context
 
-class ServiceTests {
-    @Test
-    fun serviceContainsTagTest(){
-        var assistance = Assistance("title", "description", "address", "phone", listOf("babe", "handicape"), "1")
-        val result = assistance.isTagExist("babe")
-        assertTrue(result)
+    @Before
+    fun setup(){
+        context = InstrumentationRegistry.getInstrumentation().targetContext
+        dbContext = WellcomeDbContext(context)
     }
 
      @After
@@ -71,32 +70,4 @@ class ServiceTests {
          val id = dbContext.insertAssistance(assistance)
          Assert.assertNotNull(id)
      }
-
-    @Test
-    fun serviceContainsTagsTest(){
-        var assistance = Assistance("title", "description", "address", "phone", listOf("babe", "handicape"), "1")
-        val result = assistance.isTagsExist(listOf("babe", "handicape"))
-        assertTrue(result)
-    }
-
-    @Test
-    fun serviceNotContainsTagTest(){
-        var assistance = Assistance("title", "description", "address", "phone", listOf("babe", "handicape"), "1")
-        val result = assistance.isTagExist("random")
-        assertFalse(result)
-    }
-
-    @Test
-    fun serviceNotContainsTagsTest(){
-        var assistance = Assistance("title", "description", "address", "phone", listOf("babe", "handicape"), "1")
-        val result = assistance.isTagsExist(listOf("random", "random2"))
-        assertFalse(result)
-    }
-
-    @Test
-    fun serviceContainsAnyTagsTest(){
-        var assistance = Assistance("title", "description", "address", "phone", listOf("babe", "handicape"), "1")
-        val result = assistance.isTagsExist(listOf("babe", "random2"))
-        assertTrue(result)
-    }
 }
