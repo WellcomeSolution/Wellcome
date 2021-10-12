@@ -20,20 +20,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-            <TextView
-                android:id="@+id/title_cours"
-                android:text="Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:layout_weight="1.0"
-                />
+                <TextView
+                    android:id="@+id/title_cours"
+                    android:text="Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:layout_weight="1.0"
+                    />
                 <TextView
                     android:text="address_cours"
                     android:id="@+id/address_cours"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary"
                     android:layout_weight="1.0"

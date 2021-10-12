@@ -16,7 +16,32 @@ class SQLiteTest {
     private lateinit var dbContext: WellcomeDbContext
     private lateinit var context:Context
 
-class ServiceTests {
+    @Before
+    fun setup(){
+        context = InstrumentationRegistry.getInstrumentation().targetContext
+        dbContext = WellcomeDbContext(context)
+    }
+
+    @After
+    fun clean(){
+        context.deleteDatabase(WellcomeDbHelper.DATABASE_NAME)
+    }
+/*
+    @Test
+    fun createLogementTest(){
+        val host = Host(
+            "title",
+            "description",
+            "9 rue du puits grenet Ermont 95120",
+            "0668319800",
+            listOf("baby", "handicape"),
+            "3",
+            "2"
+        )
+        val id = dbContext.insertLogement(host)
+        Assert.assertNotNull(id)
+    }
+
     @Test
     fun serviceContainsTagTest(){
         var assistance = Assistance("title", "description", "address", "phone", listOf("babe", "handicape"), "1")
@@ -71,7 +96,7 @@ class ServiceTests {
          val id = dbContext.insertAssistance(assistance)
          Assert.assertNotNull(id)
      }
-
+*/
     @Test
     fun serviceContainsTagsTest(){
         var assistance = Assistance("title", "description", "address", "phone", listOf("babe", "handicape"), "1")

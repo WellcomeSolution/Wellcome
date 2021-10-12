@@ -3,12 +3,18 @@ package com.example.wellcome.models
 class Host(title: String, description: String, address: String, phone: String, tags: List<String>, val nombrePersonne: String, val nombrePiece:String) : Service(title, description,
     address,phone, tags)
 {
-    val title = title
-    val description = description
-    val address = address
-    val phone = phone
-    val tags = tags
-    val nombrePiece = nombrePiece
-    val nombrePersonne = nombrePersonne
-
+    override fun isTagsExist(tagsv: List<String>): Boolean {
+        var count = 0
+        for(tb in tagsv){
+            for(ta in this.tags){
+                if(ta == tb){
+                    count+=1
+                }
+            }
+        }
+        if(tagsv.size == count){
+            return true
+        }
+        return false
+    }
 }

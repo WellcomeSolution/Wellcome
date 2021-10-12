@@ -4,5 +4,6 @@ abstract class Service(val title: String, val description: String, val address: 
 
     fun isTagExist(tag: String) : Boolean = tags.contains(tag)
 
-    fun isTagsExist(tags : List<String>) : Boolean = this.tags.intersect(tags).isNotEmpty()
+    //fun isTagsExist(tags : List<String>) : Boolean = this.tags.intersect(tags).isNotEmpty()
+    abstract fun isTagsExist(tags : List<String>) : Boolean
 }

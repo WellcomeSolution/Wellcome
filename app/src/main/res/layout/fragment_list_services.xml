@@ -6,6 +6,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/contextViewService">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +30,103 @@
             android:entries="@array/services"
             android:spinnerMode="dropdown">
         </Spinner>
+        <TextView
+            android:id="@+id/search_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Choisir votre tags"
+            android:textSize="18dp">
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:id="@+id/checkbox_assistance">
+            <CheckBox
+                android:id="@+id/checkbox1_assistance_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Maintenance"/>
+            <CheckBox
+                android:id="@+id/checkbox2_assistance_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Décoration"/>
+            <CheckBox
+                android:id="@+id/checkbox3_assistance_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Livaison"/>
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:id="@+id/checkbox_cours">
+            <CheckBox
+                android:id="@+id/checkbox1_cours_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Informatique"/>
+            <CheckBox
+                android:id="@+id/checkbox2_cours_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Marking"/>
+            <CheckBox
+                android:id="@+id/checkbox3_cours_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Bac"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:id="@+id/checkbox_logement">
+            <CheckBox
+                android:id="@+id/checkbox1_logement_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Baby"/>
+            <CheckBox
+                android:id="@+id/checkbox2_logement_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Animal"/>
+            <CheckBox
+                android:id="@+id/checkbox3_logement_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Wifi"/>
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/search_tags_button"
+            android:layout_width="wrap_content"
+            android:text="Search by tags"
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="15dp"
             android:id="@+id/recycler_view"
@@ -38,13 +138,27 @@
             android:id="@+id/recycler_view_host"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />        <androidx.recyclerview.widget.RecyclerView
+            />
+        <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="15dp"
         android:id="@+id/recycler_view_assistance"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
-
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:id="@+id/checkbox_test">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="15dp"
+            android:id="@+id/recycler_view_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
     </LinearLayout>
-
+    </LinearLayout>
+    </ScrollView>
 </FrameLayout>
