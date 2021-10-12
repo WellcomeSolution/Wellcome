@@ -4,7 +4,12 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+||||||| dcf2382
+=======
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+>>>>>>> Feature_PhoneCall
 
     <application
             android:allowBackup="true"

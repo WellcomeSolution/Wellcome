@@ -23,10 +23,47 @@ allprojects {
         jcenter()
     }
 }
+<<<<<<< HEAD
 
 jacocoTestReport {
     reports {
         xml.enabled true
+||||||| dcf2382
+task publish {
+    File index = new File("$rootDir/build/test1.adoc")
+    index.parentFile.mkdirs()
+    def header = """= Asciidoctor Gradle Examples
+Rob Winch <https://github.com/rwinch[@rwinch]>; Dan Hyun <https://github.com/danhyun[@danhyun]>
+:icons: font
+:toc: left
+:numbered:
+:github_url: https://github.com/asciidoctor/asciidoctor-gradle-examples
+:github_project_path: {github_url}/tree/master
+:github_fork_badge: https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png
+
+[.badge]
+image::{github_fork_badge}[link="{github_url}"]
+
+[discrete]
+== About
+
+This repository contains examples on how to use Gradle and Asciidoctor to create html5, pdf, epub, deck.js, and reveal.js outputs.
+
+"""
+    index.text = header
+    new File("$rootDir/build/docinfo.html").text = '<style>.badge { position: fixed; top: 0; right: 0; }</style>'
+}
+
+subprojects {
+    task copyOutput(type: Copy, dependsOn: ["asciidoctor"]) {
+        from "$project.buildDir/docs"
+        into "$project.projectDir"
+=======
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+>>>>>>> Feature_PhoneCall
     }
 }
 
@@ -37,4 +74,11 @@ sonarqube {
         property 'sonar.projectKey', 'JialeiSUN_Wellcome'
     }
 }
+<<<<<<< HEAD
 
+||||||| dcf2382
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+=======
+>>>>>>> Feature_PhoneCall
