@@ -76,7 +76,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: PDF document
-          path: documentation.pdf
+          path: docs/documentation.pdf
       - name: Upload Release Docs
         id: upload_release_docs
         uses: actions/upload-release-asset@v1.0.1
