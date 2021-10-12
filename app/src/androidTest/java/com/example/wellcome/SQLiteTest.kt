@@ -71,6 +71,49 @@ class SQLiteTest {
         Assert.assertNotNull(id)
     }
 
+     @Test
+     fun createLogementTest(){
+         val host = Host(
+             "title",
+             "description",
+             "9 rue du puits grenet Ermont 95120",
+             "0668319800",
+             listOf("baby", "handicape"),
+             "3",
+            "2"
+         )
+         val id = dbContext.insertLogement(host)
+         Assert.assertNotNull(id)
+     }
+
+     @Test
+     fun createCoursTest(){
+         val cours = Lesson(
+             "title",
+             "description",
+             "9 rue du puits grenet Ermont 95120",
+             "0668319800",
+             listOf("baby", "handicape"),
+             "3"
+         )
+         val id = dbContext.insertCours(cours)
+         Assert.assertNotNull(id)
+     }
+
+     @Test
+     fun createAssistanceTest(){
+         val assistance = Assistance(
+             "title",
+             "description",
+             "9 rue du puits grenet Ermont 95120",
+             "0668319800",
+             listOf("baby", "handicape"),
+             "urgent"
+         )
+         val id = dbContext.insertAssistance(assistance)
+         Assert.assertNotNull(id)
+     }
+
     @Test
     fun createHostingTest(){
         val hosting = Hosting(
