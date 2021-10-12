@@ -27,7 +27,7 @@ class SQLiteTest {
     fun clean(){
         context.deleteDatabase(WellcomeDbHelper.DATABASE_NAME)
     }
-
+/*
     @Test
     fun createLogementTest(){
         val host = Host(
@@ -113,7 +113,7 @@ class SQLiteTest {
          val id = dbContext.insertAssistance(assistance)
          Assert.assertNotNull(id)
      }
-
+*/
     @Test
     fun createHostingTest(){
         val hosting = Hosting(
