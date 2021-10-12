@@ -1,5 +1,9 @@
 
-= Wellcome
+= Wellcome 
+
+image::logo.png[width=30%,align=center]
+
+
 
 Welcome est une application mobile qui se base sur le principe de rencontre entre les 
 particuliers afin d'êtres logés gratuitement.Elle servira aussi à proposer des services comme 
@@ -36,11 +40,11 @@ utilisation concrète de celle-ci.
 
 == Logical Architecture 
 
-image::logicalArchitecture.png[width=30%]
+image::logicalArchitecture.jpg[width=60%]
 
 == CI 
 
-image::CI.png[width=30%]
+image::CI.png[width=60%]
 
 == Features
 [square]
