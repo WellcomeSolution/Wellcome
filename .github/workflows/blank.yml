@@ -77,3 +77,13 @@ jobs:
         with:
           name: PDF document
           path: documentation.pdf
+      - name: Upload Release Docs
+        id: upload_release_docs
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.latest_release_info.outputs.upload_url }}
+          asset_path: documentation.pdf
+          asset_name: documentation.pdf
+          asset_content_type: application/pdf
