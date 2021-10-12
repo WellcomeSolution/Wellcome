@@ -11,6 +11,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 ![Build][build-url]
+![Relealse][release-url]
 [![MIT License][license-shield]][license-url]
 <br>
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=metamug_mason&metric=alert_status)](https://sonarcloud.io/dashboard?id=metamug_mason) 
@@ -108,3 +109,4 @@ Project Link: [https://github.com/JialeiSUN/Wellcome](https://github.com/JialeiS
 [license-shield]: https://img.shields.io/github/license/JialeiSUN/Wellcome.svg?style=for-the-badge
 [license-url]: https://github.com/JialeiSUN/Wellcome/blob/master/LICENSE.txt
 [build-url]: https://img.shields.io/github/workflow/status/JialeiSUN/Wellcome/CI?style=for-the-badge
+[release-url]: https://img.shields.io/github/v/release/JialeiSun/Wellcome?style=for-the-badge
