@@ -4,9 +4,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.R
-import com.example.wellcome.models.Hosting
 
-class HostsAdapter(private val dataSet: List<Hosting>) :
+class HostsAdapter() :
     RecyclerView.Adapter<HostsAdapter.ViewHolder>() {
 
     /**
@@ -30,11 +29,14 @@ class HostsAdapter(private val dataSet: List<Hosting>) :
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.email.text = dataSet[position].email
+        /*viewHolder.email.text = dataSet[position].email
         viewHolder.phone.text = dataSet[position].phone
-        viewHolder.address.text = dataSet[position].address
+        viewHolder.address.text = dataSet[position].address*/
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = dataSet.size
+    override fun getItemCount() : Int{
+        //dataSet.size
+        return 1;
+    }
 }

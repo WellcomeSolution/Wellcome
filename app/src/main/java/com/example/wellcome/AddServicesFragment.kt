@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.example.wellcome.models.Assistance
 import com.example.wellcome.models.Lesson
 import com.example.wellcome.models.Host
+import com.example.wellcome.models.Priority
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_hosts.*
 import kotlinx.android.synthetic.main.fragment_add_services.*
@@ -84,21 +85,21 @@ class AddServicesFragment: BaseFragment()  {
 
         }
         suivantButton.setOnClickListener{
-            if(servicePosition==0){
+            /*if(servicePosition==0){
                 dbContext.insertCours(retrieveCours())
                 clearTextEdit()
                 Toast.makeText(context,"cours ajouté!!!",Toast.LENGTH_SHORT).show()
             }
-            if(servicePosition==1){
+            /*if(servicePosition==1){
                 dbContext.insertLogement(retrieveLogement())
                 clearTextEdit()
                 Toast.makeText(context,"logement ajouté!!!",Toast.LENGTH_SHORT).show()
-            }
+            }*/
             if(servicePosition==2){
                 dbContext.insertAssistance(retrieveAssistance())
                 clearTextEdit()
                 Toast.makeText(context,"assistance ajouté!!!",Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
 
 
@@ -145,7 +146,7 @@ class AddServicesFragment: BaseFragment()  {
             checkbox3_assistance.isChecked = false
         }
     }
-    private fun retrieveAssistance(): Assistance{
+    /*private fun retrieveAssistance(): Assistance{
         var mlist = mutableListOf<String>()
         if(checkbox1_assistance.isChecked){
             mlist.add(checkbox1_assistance.text.toString())
@@ -158,10 +159,10 @@ class AddServicesFragment: BaseFragment()  {
         }
         var list = mlist.toList()
         var ret_assistance = Assistance(services_titre.text.toString(),services_description.text.toString(),services_address.text.toString(),
-        services_phone.text.toString(),list,assistancePriority)
+        services_phone.text.toString(),list,Priority.High)
         return ret_assistance
-    }
-    private fun retrieveCours(): Lesson{
+    }*/
+    /*private fun retrieveCours(): Lesson{
         var mlist = mutableListOf<String>()
         if(checkbox1_cours.isChecked){
             mlist.add(checkbox1_cours.text.toString())
@@ -176,8 +177,8 @@ class AddServicesFragment: BaseFragment()  {
         var ret_cours = Lesson(services_titre.text.toString(),services_description.text.toString(),services_address.text.toString(),
             services_phone.text.toString(),list,cours_sessionduree.text.toString())
         return ret_cours
-    }
-    private fun retrieveLogement(): Host{
+    }*/
+    /*private fun retrieveLogement(): Host{
         var mlist = mutableListOf<String>()
         if(checkbox1_logement.isChecked){
             mlist.add(checkbox1_logement.text.toString())
@@ -190,11 +191,11 @@ class AddServicesFragment: BaseFragment()  {
         }
         var list = mlist.toList()
         var ret_logement = Host(services_titre.text.toString(),services_description.text.toString(),services_address.text.toString(),
-            services_phone.text.toString(),list,logement_nombre_persone.text.toString(),logement_nombre_piece.text.toString())
+            services_phone.text.toString(),list,1,1)
         return ret_logement
     }
     private fun testaffiche() {
 
         Toast.makeText(context, services_titre.text.toString(), Toast.LENGTH_SHORT).show()
-    }
+    }*/
 }
