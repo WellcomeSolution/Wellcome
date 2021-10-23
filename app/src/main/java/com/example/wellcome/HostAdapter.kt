@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellcome.R
 import com.example.wellcome.models.Host
 import com.example.wellcome.utils.call
 
@@ -42,10 +41,10 @@ class HostAdapter(private val dataSet: List<Host>):
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.title.text = dataSet[position].title
         viewHolder.phone.text = dataSet[position].phone
-        viewHolder.address.text = dataSet[position].address
+        //viewHolder.address.text = dataSet[position].address
         viewHolder.tags.text = dataSet[position].tags.toString()
-        viewHolder.nomberOfPeople.text = dataSet[position].nombrePersonne
-        viewHolder.nomberOfPiece.text = dataSet[position].nombrePiece
+        //viewHolder.nomberOfPeople.text = dataSet[position].maxPeople
+        //viewHolder.nomberOfPiece.text = dataSet[position].maxRoom
     }
 
     override fun getItemCount() = dataSet.size

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.wellcome.models.Hosting
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_hosts.*
 
@@ -13,7 +12,7 @@ class AddHostsFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         containedButton.setOnClickListener{
-            dbContext.insertHosting(retrieveHost())
+            //dbContext.insertHosting(retrieveHost())
             clearTextEdit()
             showSnackBar()
         }
@@ -44,6 +43,6 @@ class AddHostsFragment : BaseFragment() {
         address.text?.clear()
     }
 
-    private fun retrieveHost():Hosting
-        = Hosting(lastName.text.toString(), firstName.text.toString(), address.text.toString(), email.text.toString(), phone.text.toString())
+    /*private fun retrieveHost():Hosting
+        = Hosting(lastName.text.toString(), firstName.text.toString(), address.text.toString(), email.text.toString(), phone.text.toString())*/
 }

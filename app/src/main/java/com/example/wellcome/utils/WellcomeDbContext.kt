@@ -7,7 +7,7 @@ import android.provider.BaseColumns
 class WellcomeDbContext(context:Context) {
     val dpHelper = WellcomeDbHelper(context)
 
-    fun insertHosting(hosting: com.example.wellcome.models.Hosting): Long? {
+    /*fun insertHosting(hosting: com.example.wellcome.models.Hosting): Long? {
         val db = dpHelper.writableDatabase
 
         val values = ContentValues()
@@ -56,8 +56,8 @@ class WellcomeDbContext(context:Context) {
         values.put(Logement.LogementEntry.COLUMN_NAME_ADDRESS, logement.address)
         values.put(Logement.LogementEntry.COLUMN_NAME_TELEPHONE, logement.phone)
         values.put(Logement.LogementEntry.COLUMN_NAME_TAGS, tags_string)
-        values.put(Logement.LogementEntry.COLUMN_NAME_PERSONE, logement.nombrePersonne)
-        values.put(Logement.LogementEntry.COLUMN_NAME_PIECE, logement.nombrePiece)
+        values.put(Logement.LogementEntry.COLUMN_NAME_PERSONE, logement.maxPeople)
+        values.put(Logement.LogementEntry.COLUMN_NAME_PIECE, logement.maxRoom)
 
 
         return db?.insert(Logement.LogementEntry.TABLE_NAME, null, values)
@@ -460,5 +460,5 @@ class WellcomeDbContext(context:Context) {
         cursor.close()
         return hosts
     }
-
+    */
 }

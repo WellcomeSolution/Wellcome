@@ -39,7 +39,7 @@ class CoursAdapter(private val dataSet: List<Lesson>):
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.title.text = dataSet[position].title
         viewHolder.phone.text = dataSet[position].phone
-        viewHolder.address.text = dataSet[position].address
+        //viewHolder.address.text = dataSet[position].address
         viewHolder.tags.text = dataSet[position].tags.toString()
         viewHolder.sessionDuration.text = dataSet[position].sessionDuration
     }

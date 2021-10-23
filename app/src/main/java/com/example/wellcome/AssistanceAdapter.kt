@@ -37,11 +37,11 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
         return ViewHolder(view)
     }
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.title.text = dataSet[position].title
+        /*viewHolder.title.text = dataSet[position].title
         viewHolder.phone.text = dataSet[position].phone
         viewHolder.address.text = dataSet[position].address
         viewHolder.tags.text = dataSet[position].tags.toString()
-        viewHolder.priority.text = dataSet[position].priority
+        viewHolder.priority.text = dataSet[position].priority*/
     }
 
     override fun getItemCount() = dataSet.size
