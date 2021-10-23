@@ -7,7 +7,7 @@ import org.junit.Test
 import org.junit.Assert.*
 
 class ServiceTests {
-    @Test
+    /*@Test
     fun serviceContainsTagTest(){
         var assistance = Assistance("title", "description", getHostAddress(), "phone", listOf("babe", "handicape"), "1")
         val result = assistance.isTagExist("babe")
@@ -53,5 +53,5 @@ class ServiceTests {
             )
         )
     )
-    )
+    )*/
 }

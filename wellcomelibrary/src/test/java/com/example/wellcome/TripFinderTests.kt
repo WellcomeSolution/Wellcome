@@ -16,7 +16,7 @@ class TripFinderTests {
             = Host("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
             getHostSlotsDate(), getHostRestriction(), getHostConfiguration())
         val trip : Trip =
-            Trip(getTripSlotsDate(), TripCity("France", "Soisy", "95230"), 1.0, -1,
+            Trip(getTripSlotDate(), TripCity("France", "Soisy", "95230"), 1.0, -1,
                 getTripHostConfiguration(), 2, false, true, false)
 
         assertTrue(tripFinder.isHostMatching(trip, host))
@@ -39,9 +39,8 @@ class TripFinderTests {
             SlotDate(DateUtils.asDate("2018-12-16" ), DateUtils.asDate("2018-12-18"))
             )
 
-    private fun getTripSlotsDate() : SlotDate
+    private fun getTripSlotDate() : SlotDate
             = SlotDate(DateUtils.asDate("2018-12-12" ), DateUtils.asDate("2018-12-15"))
-    )
 
     private fun getHostRestriction() : HostRestrictions
         = HostRestrictions(2, true, false, false)

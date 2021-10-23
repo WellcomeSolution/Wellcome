@@ -33,15 +33,15 @@ class SearchFragment : BaseFragment() {
         search_spinner.setSelection(1)
         recycler_view.apply {
             layoutManager=LinearLayoutManager(activity)
-            adapter=CoursAdapter(dbContext.getCours())
+            //adapter=CoursAdapter(dbContext.getCours())
         }
         recycler_view_host.apply {
             layoutManager=LinearLayoutManager(activity)
-            adapter=HostAdapter(dbContext.getHosts())
+            //adapter=HostAdapter(dbContext.getHosts())
         }
         recycler_view_assistance.apply {
             layoutManager=LinearLayoutManager(activity)
-            adapter=AssistanceAdapter(dbContext.getAssistances())
+            //adapter=AssistanceAdapter(dbContext.getAssistances())
         }
         search_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
@@ -101,7 +101,7 @@ class SearchFragment : BaseFragment() {
                 recycler_view.visibility = View.GONE
                 recycler_view_test.apply {
                     layoutManager=LinearLayoutManager(activity)
-                    adapter=CoursAdapter(dbContext.searchCoursByTags(listtags))
+                    //adapter=CoursAdapter(dbContext.searchCoursByTags(listtags))
                 }
             }
             if(pos == 1){
@@ -119,7 +119,7 @@ class SearchFragment : BaseFragment() {
                 recycler_view_host.visibility = View.GONE
                 recycler_view_test.apply {
                     layoutManager=LinearLayoutManager(activity)
-                    adapter=HostAdapter(dbContext.searchHostsByTags(listtags))
+                    //adapter=HostAdapter(dbContext.searchHostsByTags(listtags))
                 }
             }
             if(pos == 2){
@@ -137,7 +137,7 @@ class SearchFragment : BaseFragment() {
                 recycler_view_assistance.visibility = View.GONE
                 recycler_view_test.apply {
                     layoutManager=LinearLayoutManager(activity)
-                    adapter=AssistanceAdapter(dbContext.searchAssistancesByTags(listtags))
+                    //adapter=AssistanceAdapter(dbContext.searchAssistancesByTags(listtags))
                 }
             }
 
