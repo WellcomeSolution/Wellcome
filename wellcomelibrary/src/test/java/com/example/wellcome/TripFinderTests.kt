@@ -1,8 +1,7 @@
 package com.example.wellcome
 
 import com.example.wellcome.models.*
-import com.example.wellcome.models.utils.DateUtils
-import org.junit.Before
+import utils.DateUtils
 import org.junit.Test
 import org.junit.Assert.*
 import kotlin.collections.ArrayList
@@ -95,12 +94,12 @@ class TripFinderTests {
         ))
 
     private fun getHostSlotsDate() : List<SlotDate>
-        = listOf(SlotDate(DateUtils.asDate("2018-12-12" ), DateUtils.asDate("2018-12-15")),
-            SlotDate(DateUtils.asDate("2018-12-16" ), DateUtils.asDate("2018-12-18"))
+        = listOf(SlotDate(DateUtils.asLocalDate("2018-12-12" ), DateUtils.asLocalDate("2018-12-15")),
+            SlotDate(DateUtils.asLocalDate("2018-12-16" ), DateUtils.asLocalDate("2018-12-18"))
             )
 
     private fun getTripSlotDate() : SlotDate
-            = SlotDate(DateUtils.asDate("2018-12-12" ), DateUtils.asDate("2018-12-15"))
+            = SlotDate(DateUtils.asLocalDate("2018-12-12" ), DateUtils.asLocalDate("2018-12-15"))
 
     private fun getHostRestriction() : HostRestrictions
         = HostRestrictions(2, true, false, false)

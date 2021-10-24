@@ -1,15 +1,12 @@
 package com.example.wellcome
 
 import android.content.Context
+import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
-import com.example.wellcome.models.Assistance
-import com.example.wellcome.models.Hosting
-import com.example.wellcome.models.Host
-import com.example.wellcome.models.Lesson
-import com.example.wellcome.utils.WellcomeDbContext
-import com.example.wellcome.utils.WellcomeDbHelper
+import com.example.wellcome.models.Equipments
+import utils.DateUtils
+import com.example.wellcome.utils.*
 import org.junit.After
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
@@ -28,7 +25,7 @@ class SQLiteTest {
         context.deleteDatabase(WellcomeDbHelper.DATABASE_NAME)
     }
 
-    @Test
+   /* @Test
     fun createLogementTest(){
         val host = Host(
             "title",
@@ -69,6 +66,32 @@ class SQLiteTest {
         )
         val id = dbContext.insertAssistance(assistance)
         Assert.assertNotNull(id)
+    }*/
+
+    @Test
+    fun test(){
+        val db = Room.databaseBuilder(
+            context,
+            AppDatabase::class.java, "wellcome"
+        ).build()
+
+        db.clearAllTables()
+
+        val trip : Trip =
+            Trip(getSlotDate(), getTripCity(), getHostConfiguration(),
+                2, false, false, false)
+
+        db.tripDao().insertAll(trip)
+        val t = db.tripDao().getAll()
+
     }
 
+    private fun getSlotDate() : SlotDate
+            = SlotDate(DateUtils.asLocalDate("12/12/2018"), DateUtils.asLocalDate("15/12/2018"))
+
+    private fun getHostConfiguration() : HostConfiguration
+            = HostConfiguration(2, 1, 1, listOf(Equipments.Wifi))
+
+    private fun getTripCity() : TripCity
+            = TripCity("France", "Soisy", "95230")
 }
