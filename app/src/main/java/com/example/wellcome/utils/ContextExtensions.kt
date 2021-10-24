@@ -17,11 +17,11 @@ import androidx.core.content.ContextCompat
                 42)
             Toast.makeText(this, "Please grant My App permission to call.", Toast.LENGTH_SHORT).show()
         } else {
-            startCallActivity()
+            startCallActivity(phone)
         }
     }
 
-    private fun Context.startCallActivity(){
-        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "Your Phone_number"))
+    private fun Context.startCallActivity(phone: Number){
+        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$phone"))
         startActivity(intent)
     }

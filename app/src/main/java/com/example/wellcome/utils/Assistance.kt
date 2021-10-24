@@ -4,8 +4,8 @@ import android.provider.BaseColumns
 object Assistance {
     object AssistanceEntry : BaseColumns {
         const val TABLE_NAME = "assistance"
-        const val COLUMN_NAME_TITRE_SERVICE = "titre"
-        const val COLUMN_NAME_TELEPHONE = "telephone"
+        const val COLUMN_NAME_TITLE_SERVICE = "title"
+        const val COLUMN_NAME_PHONE = "phone"
         const val COLUMN_NAME_ADDRESS = "address"
         const val COLUMN_NAME_DESCRIPTION = "description"
         const val COLUMN_NAME_TAGS = "tags"
@@ -14,8 +14,8 @@ object Assistance {
 
     const val SQL_ASSISTANCE_CREATE_ENTRIES = "CREATE TABLE " + AssistanceEntry.TABLE_NAME + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY," +
-            AssistanceEntry.COLUMN_NAME_TITRE_SERVICE + " TEXT," +
-            AssistanceEntry.COLUMN_NAME_TELEPHONE + " TEXT," +
+            AssistanceEntry.COLUMN_NAME_TITLE_SERVICE + " TEXT," +
+            AssistanceEntry.COLUMN_NAME_PHONE + " TEXT," +
             AssistanceEntry.COLUMN_NAME_ADDRESS + " TEXT," +
             AssistanceEntry.COLUMN_NAME_DESCRIPTION + " TEXT," +
             AssistanceEntry.COLUMN_NAME_TAGS + " TEXT," +

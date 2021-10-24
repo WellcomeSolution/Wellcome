@@ -1,7 +1,5 @@
 package com.example.wellcome.models
 
-import java.util.*
-
 class Host(title: String, description: String, address:Address, phone: String,
            tags: List<String>, val slotsDate : List<SlotDate>, private val hostRestriction: HostRestrictions,
            private val hostConfiguration: HostConfiguration): Service(title, description,
@@ -16,19 +14,19 @@ class Host(title: String, description: String, address:Address, phone: String,
     }
 
     private fun isBabiesValid(hasBabies : Boolean) : Boolean {
-        if(!hostRestriction.IsBabiesAllowed && hasBabies)
+        if(!hostRestriction.isBabiesAllowed && hasBabies)
             return false;
         return true;
     }
 
     private fun isDogsValid(hasDogs: Boolean) : Boolean {
-        if(!hostRestriction.IsDogsAllowed && hasDogs)
+        if(!hostRestriction.isDogsAllowed && hasDogs)
             return false;
         return true;
     }
 
     private fun isChildsValid(hasChilds: Boolean) : Boolean {
-        if(!hostRestriction.IsChildsAllowed && hasChilds)
+        if(!hostRestriction.isChildsAllowed && hasChilds)
             return false;
         return true;
     }
