@@ -1,15 +1,21 @@
 package com.example.wellcome
 import android.content.Context
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.models.Host
 import com.example.wellcome.utils.call
 
 
-class HostAdapter(private val dataSet: List<Host>):
+class HostAdapter(val context: Context,private val dataSet: List<Host>):
     RecyclerView.Adapter<HostAdapter.ViewHolder>()
 {
     private lateinit var context: Context
@@ -21,13 +27,8 @@ class HostAdapter(private val dataSet: List<Host>):
         val tags: TextView = itemView.findViewById(R.id.tags_host)
         val nomberOfPeople: TextView = itemView.findViewById(R.id.nomber_people_host)
         val nomberOfPiece: TextView = itemView.findViewById(R.id.nomber_piece_host)
+        val call_button: Button = itemView.findViewById(R.id.call_button_host)
 
-        init {
-            val callButton : TextView =  itemView.findViewById(R.id.call_button_host)
-            callButton.setOnClickListener{
-                context.call(Integer.parseInt(phone.text.toString()))
-            }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HostAdapter.ViewHolder {
@@ -38,15 +39,23 @@ class HostAdapter(private val dataSet: List<Host>):
 
         return ViewHolder(view)
     }
+
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.title.text = dataSet[position].title
         viewHolder.phone.text = dataSet[position].phone
         //viewHolder.address.text = dataSet[position].address
         viewHolder.tags.text = dataSet[position].tags.toString()
-        //viewHolder.nomberOfPeople.text = dataSet[position].maxPeople
-        //viewHolder.nomberOfPiece.text = dataSet[position].maxRoom
+        viewHolder.nomberOfPeople.text = dataSet[position].nombrePersonne
+        viewHolder.nomberOfPiece.text = dataSet[position].nombrePiece
+        val tele = viewHolder.phone.text
+        viewHolder.call_button.setOnClickListener {
+            var intent = Intent()
+              intent.action = Intent.ACTION_DIAL
+              intent.data = Uri.parse("tel:$tele")
+              context.startActivity(intent)
+        }
+
     }
 
     override fun getItemCount() = dataSet.size
-
 }

@@ -13,16 +13,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".FirstMenuActivity"
+            android:exported="true"
+            android:label="Firstmenu"
+            android:theme="@style/Theme.Wellcome.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-                android:name=".MenuActivity"
+                android:name=".MenuLesson"
                 android:exported="true"
                 android:label="@string/title_activity_menu"
                 android:theme="@style/Theme.Wellcome.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -36,6 +41,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MenuAssistance"
+            android:exported="true"
+            android:label="MenuAssistance"
+            android:theme="@style/Theme.Wellcome.NoActionBar">
+
         </activity>
     </application>
 
