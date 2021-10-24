@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AddServicesFragment"
+    tools:context=".AddLessonFragment"
     android:orientation="vertical"
     android:id="@+id/contextViewService">
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,18 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Choisir votre service"
-        android:textSize="18dp">
+        android:text="Lesson"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+        android:textSize="24dp">
         </TextView>
-
-        <Spinner
-        android:id="@+id/services_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below ="@id/services_type"
-        android:entries="@array/services"
-        android:spinnerMode="dropdown">
-        </Spinner>
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -46,7 +39,7 @@
             android:layout_marginLeft="9dp"
             android:layout_marginRight="9dp"
             android:layout_gravity="center_horizontal"
-            android:hint="Titre de service"
+            android:hint="Title of lesson"
             app:counterEnabled="true"
             app:counterMaxLength="15"
             app:errorEnabled="true"
@@ -116,20 +109,61 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Choisir vos tags"
+            android:text="Chose your tags"
             android:textSize="18dp">
         </TextView>
 
-        <include
-            android:id="@+id/services_cours_include"
-            layout="@layout/fragment_add_services_cours"></include>
-        <include
-            android:id="@+id/services_logement_include"
-            layout="@layout/fragment_add_services_logement"></include>
-
-        <include
-            android:id="@+id/services_assistance_include"
-            layout="@layout/fragment_add_services_assistance" />
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:id="@+id/checkbox_cours">
+            <CheckBox
+                android:id="@+id/checkbox1_cours"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:checked="true"
+                android:text="Informatique"/>
+            <CheckBox
+                android:id="@+id/checkbox2_cours"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Marking"/>
+            <CheckBox
+                android:id="@+id/checkbox3_cours"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Bac"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0.0dip" android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginRight="9dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="Duration"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
+                app:errorEnabled="true"
+                app:helperTextEnabled="true"
+                android:layout_weight="1.0">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/cours_sessionduree"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
         <Button
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
@@ -138,7 +172,7 @@
             android:layout_gravity="center_horizontal"
             android:id="@+id/suivantButton"
             android:layout_width="wrap_content"
-            android:text="Suivant"
+            android:text="Add"
             />
     </LinearLayout>
     </ScrollView>

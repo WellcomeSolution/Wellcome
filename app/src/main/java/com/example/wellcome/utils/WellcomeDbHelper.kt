@@ -33,7 +33,7 @@ class WellcomeDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NA
     }
     companion object {
         // If you change the database schema, you must increment the database version.
-        const val DATABASE_VERSION = 3
+        const val DATABASE_VERSION = 4
         const val DATABASE_NAME = "Wellcome.db"
     }
 }
