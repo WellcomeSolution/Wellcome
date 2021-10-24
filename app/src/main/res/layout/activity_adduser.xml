@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="15dp"
+    android:orientation="horizontal"
+    tools:context=".AddUserActivity">
+
+    <LinearLayout
+        android:id="@+id/col1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nom"
+            android:layout_width="101dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Nom"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/prenom"
+            android:layout_width="101dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/nom"
+            android:gravity="center"
+            android:text="Prenom"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="101dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/prenom"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="adresse"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="101dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/address"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="Adresse"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="101dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/email"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="Phone"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/col2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical"
+        android:layout_marginStart="5dp">
+
+        <EditText
+            android:id="@+id/editnom"
+            android:layout_width="267dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editprenom"
+            android:layout_width="267dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editnom"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:inputType="text"
+            android:autofillHints="Prix" />
+
+
+        <EditText
+            android:id="@+id/editaddress"
+            android:layout_width="267dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editprenom"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editemail"
+            android:layout_width="267dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editaddress"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editphone"
+            android:layout_width="267dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editemail"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            android:inputType="number" />
+
+
+        <Button
+            android:id="@+id/RegisterBtnF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editphone"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Enregistrer" />
+        <Button
+            android:id="@+id/ret"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/RegisterBtnF"
+            android:text="Return"/>
+    </LinearLayout>
+
+
+</LinearLayout>

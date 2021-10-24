@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AddServicesFragment"
+    android:orientation="vertical"
+    android:id="@+id/contextViewService">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+        android:id="@+id/services_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Choisir votre service"
+        android:textSize="18dp">
+        </TextView>
+
+        <Spinner
+        android:id="@+id/services_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below ="@id/services_type"
+        android:entries="@array/services"
+        android:spinnerMode="dropdown">
+        </Spinner>
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp">
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0.0dip" android:layout_height="fill_parent"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_gravity="center_horizontal"
+            android:hint="Titre de service"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:errorEnabled="true"
+            app:helperTextEnabled="true"
+            android:layout_weight="1.0">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/services_titre"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0.0dip" android:layout_height="fill_parent"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_gravity="center_horizontal"
+            android:hint="Telephone"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:errorEnabled="true"
+            app:helperTextEnabled="true"
+            android:layout_weight="1.0">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/services_phone"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_gravity="center_horizontal"
+            android:hint="Address"
+            app:counterEnabled="true"
+            app:counterMaxLength="70"
+            app:errorEnabled="true"
+            app:helperTextEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:inputType="textMultiLine"
+                android:id="@+id/services_address"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_gravity="center_horizontal"
+            android:hint="Description"
+            app:counterEnabled="true"
+            app:counterMaxLength="200"
+            app:errorEnabled="true"
+            app:helperTextEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:inputType="textMultiLine"
+                android:id="@+id/services_description"
+                android:layout_height="200dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/services_titre_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Choisir vos tags"
+            android:textSize="18dp">
+        </TextView>
+
+        <include
+            android:id="@+id/services_cours_include"
+            layout="@layout/fragment_add_services_cours"></include>
+        <include
+            android:id="@+id/services_logement_include"
+            layout="@layout/fragment_add_services_logement"></include>
+
+        <include
+            android:id="@+id/services_assistance_include"
+            layout="@layout/fragment_add_services_assistance" />
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/suivantButton"
+            android:layout_width="wrap_content"
+            android:text="Suivant"
+            />
+    </LinearLayout>
+    </ScrollView>
+</FrameLayout>
