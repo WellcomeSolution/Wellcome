@@ -11,7 +11,7 @@ class MenuLesson : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(com.example.wellcome.R.layout.activity_menu)
         setSupportActionBar(findViewById(com.example.wellcome.R.id.my_toolbar))
-        launchAddServicesFragment()
+        launchSearchFragment()
 
         bottom_navigation.setOnItemSelectedListener  { item ->
             when(item.itemId) {
