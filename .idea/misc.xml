@@ -13,6 +13,7 @@
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/cours_card_view.xml" value="0.1" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragement_add_assistance.xml" value="0.2359375" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_hosts.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_lesson.xml" value="0.12447916666666667" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services.xml" value="0.19166666666666668" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services_assistance.xml" value="0.20572916666666666" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services_cours.xml" value="0.20572916666666666" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_hosts.xml" value="0.19166666666666668" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_list_services.xml" value="0.22864583333333333" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_search_assistance.xml" value="0.2359375" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_search_lesson.xml" value="0.15989583333333332" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_search_services.xml" value="0.19166666666666668" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_tags_lesson.xml" value="0.24427083333333333" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/host_card_view.xml" value="0.48293963254593175" />

@@ -29,6 +29,11 @@ class SearchAssistanceFragment : BaseFragment() {
         tags_assistance.setOnClickListener{
             withMultiChoiceList(it)
         }
+        search_bar_assistance.setOnClickListener{
+            val titleAssistance = services_titre.text.toString()
+            recycler_view_assistance.adapter = AssistanceAdapter(dbContext.searchAssistancesByNames(titleAssistance))
+
+        }
     }
     fun withMultiChoiceList(view: View){
         val items = arrayOf("Maintenance","Décoration","Livaison")

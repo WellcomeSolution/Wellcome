@@ -400,12 +400,13 @@ class WellcomeDbContext(context:Context) {
         cursor.close()
         return assistances
     }
-    fun searchHostsByTags(tagsv: List<String>): List<com.example.wellcome.models.Host> {
+
+    fun searchAssistancesByNames(name : String): List<com.example.wellcome.models.Assistance> {
         val db = dpHelper.readableDatabase
-        val sortOrder = "${Logement.LogementEntry.COLUMN_NAME_TITRE_SERVICE} DESC"
+        val sortOrder = "${Assistance.AssistanceEntry.COLUMN_NAME_TITRE_SERVICE} DESC"
 
         val cursor = db.query(
-            Logement.LogementEntry.TABLE_NAME,
+            Assistance.AssistanceEntry.TABLE_NAME,
             null,
             null,
             null,
@@ -414,26 +415,25 @@ class WellcomeDbContext(context:Context) {
             sortOrder
         )
 
-        val hosts = arrayListOf<com.example.wellcome.models.Host>()
+        val assistances = arrayListOf<com.example.wellcome.models.Assistance>()
         with(cursor) {
             while (moveToNext()) {
                 val id = getLong(getColumnIndexOrThrow(BaseColumns._ID))
                 val title =
-                    getString(getColumnIndexOrThrow(Logement.LogementEntry.COLUMN_NAME_TITRE_SERVICE))
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_TITRE_SERVICE))
                 val description =
-                    getString(getColumnIndexOrThrow(Logement.LogementEntry.COLUMN_NAME_DESCRIPTION))
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_DESCRIPTION))
                 val address =
-                    getString(getColumnIndexOrThrow(Logement.LogementEntry.COLUMN_NAME_ADDRESS))
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_ADDRESS))
                 val phone =
-                    getString(getColumnIndexOrThrow(Logement.LogementEntry.COLUMN_NAME_TELEPHONE))
-                val tags = getString(getColumnIndexOrThrow(Logement.LogementEntry.COLUMN_NAME_TAGS))
-                val nombrePersonne =
-                    getString(getColumnIndexOrThrow(Logement.LogementEntry.COLUMN_NAME_PERSONE))
-                val nombrePiece =
-                    getString(getColumnIndexOrThrow(Logement.LogementEntry.COLUMN_NAME_PIECE))
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_TELEPHONE))
+                val tags =
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_TAGS))
+                val priority =
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_PRIORITY))
                 var mlist = mutableListOf<String>()
-                var count = 0
                 var newTags = tags.replace("\\s".toRegex(), "")
+                var count = 0
                 for (x in newTags) {
                     if (x == ',') {
                         count = 1
@@ -445,23 +445,78 @@ class WellcomeDbContext(context:Context) {
                     mlist.add(newTags)
                 }
                 var listtags = mlist.toList()
-                val host = com.example.wellcome.models.Host(
+                val assistance = com.example.wellcome.models.Assistance(
                     title,
                     description,
                     address,
                     phone,
                     listtags,
-                    nombrePersonne,
-                    nombrePiece
+                    priority
                 )
-                if(host.isTagsExist(tagsv)){
-                    hosts.add(host)
+                if(title.contains(name)){
+                    assistances.add(assistance)
                 }
-
             }
         }
         cursor.close()
-        return hosts
+        return assistances
     }
+    fun searchLessonByNames(name:String): List<com.example.wellcome.models.Lesson> {
+        val db = dpHelper.readableDatabase
+        val sortOrder = "${Cours.CoursEntry.COLUMN_NAME_TITRE_SERVICE} DESC"
 
+        val cursor = db.query(
+            Cours.CoursEntry.TABLE_NAME,
+            null,
+            null,
+            null,
+            null,
+            null,
+            sortOrder
+        )
+
+        val Courss = arrayListOf<com.example.wellcome.models.Lesson>()
+        with(cursor) {
+            while (moveToNext()) {
+                val id = getLong(getColumnIndexOrThrow(BaseColumns._ID))
+                val title =
+                    getString(getColumnIndexOrThrow(Cours.CoursEntry.COLUMN_NAME_TITRE_SERVICE))
+                val description =
+                    getString(getColumnIndexOrThrow(Cours.CoursEntry.COLUMN_NAME_DESCRIPTION))
+                val address = getString(getColumnIndexOrThrow(Cours.CoursEntry.COLUMN_NAME_ADDRESS))
+                val phone = getString(getColumnIndexOrThrow(Cours.CoursEntry.COLUMN_NAME_TELEPHONE))
+                val tags = getString(getColumnIndexOrThrow(Cours.CoursEntry.COLUMN_NAME_TAGS))
+                val duration =
+                    getString(getColumnIndexOrThrow(Cours.CoursEntry.COLUMN_NAME_DURATION))
+                var mlist = mutableListOf<String>()
+                var newTags = tags.replace("\\s".toRegex(), "")
+
+                var count = 0
+                for (x in newTags) {
+                    if (x == ',') {
+                        count = 1
+                    }
+                }
+                if (count == 1) {
+                    mlist = newTags.split(',').toMutableList()
+                } else {
+                    mlist.add(newTags)
+                }
+                var listtags = mlist.toList()
+                val cours = com.example.wellcome.models.Lesson(
+                    title,
+                    description,
+                    address,
+                    phone,
+                    listtags,
+                    duration
+                )
+                if(title.contains(name)){
+                    Courss.add(cours)
+                }
+            }
+        }
+        cursor.close()
+        return Courss
+    }
 }

@@ -28,6 +28,11 @@ class SearchLessonFragment : BaseFragment() {
         tags_lesson.setOnClickListener{
             withMultiChoiceList(it)
         }
+        search_bar_lesson.setOnClickListener{
+            val titleLesson = lesson_titre.text.toString()
+            recycler_view.adapter = CoursAdapter(dbContext.searchLessonByNames(titleLesson))
+
+        }
         }
     fun withMultiChoiceList(view: View){
         val items = arrayOf("Informatique","Marking","Bac")

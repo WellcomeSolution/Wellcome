@@ -34,7 +34,7 @@
                 android:layout_weight="1.0">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:id="@+id/services_titre"
+                    android:id="@+id/lesson_titre"
                     android:layout_height="wrap_content"/>
             </com.google.android.material.textfield.TextInputLayout>
             <Button
