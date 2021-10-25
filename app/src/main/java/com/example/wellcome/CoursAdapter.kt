@@ -41,7 +41,7 @@ class CoursAdapter(private val dataSet: List<Lesson>):
         viewHolder.phone.text = dataSet[position].phone
         //viewHolder.address.text = dataSet[position].address
         viewHolder.tags.text = dataSet[position].tags.toString()
-        viewHolder.sessionDuration.text = dataSet[position].sessionDuration
+        viewHolder.sessionDuration.text = dataSet[position].sessionDuration.toString()
     }
 
     override fun getItemCount() = dataSet.size

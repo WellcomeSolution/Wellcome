@@ -3,87 +3,88 @@ package com.example.wellcome
 import android.content.Context
 import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
+
 import com.example.wellcome.models.Equipments
+import com.example.wellcome.models.Priority
 import utils.DateUtils
-import com.example.wellcome.utils.*
+import com.example.wellcome.utils.db.*
 import org.junit.After
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
 class SQLiteTest {
-    private lateinit var dbContext: WellcomeDbContext
+    private lateinit var db : AppDatabase
     private lateinit var context:Context
 
     @Before
     fun setup(){
         context = InstrumentationRegistry.getInstrumentation().targetContext
-        dbContext = WellcomeDbContext(context)
+        db = Room.databaseBuilder(
+            context,
+            AppDatabase::class.java, "wellcome"
+        ).fallbackToDestructiveMigration().build()
     }
 
     @After
     fun clean(){
-        context.deleteDatabase(WellcomeDbHelper.DATABASE_NAME)
-    }
-
-   /* @Test
-    fun createLogementTest(){
-        val host = Host(
-            "title",
-            "description",
-            "9 rue du puits grenet Ermont 95120",
-            "0668319800",
-            listOf("baby", "handicape"),
-            "3",
-            "2"
-        )
-        val id = dbContext.insertLogement(host)
-        Assert.assertNotNull(id)
+        db.clearAllTables()
     }
 
     @Test
-    fun createCoursTest(){
-        val cours = Lesson(
+    fun lessonInsertTest(){
+        val lesson = Lesson(
             "title",
             "description",
-            "9 rue du puits grenet Ermont 95120",
+            getAddress(),
             "0668319800",
             listOf("baby", "handicape"),
-            "3"
+            3
         )
-        val id = dbContext.insertCours(cours)
-        Assert.assertNotNull(id)
+
+        db.lessonDao().insert(lesson)
+        val lessons = db.lessonDao().getAll()
+        Assert.assertEquals(1, lessons.size)
     }
 
     @Test
-    fun createAssistanceTest(){
+    fun assistanceInsertTest(){
         val assistance = Assistance(
             "title",
             "description",
-            "9 rue du puits grenet Ermont 95120",
+            getAddress(),
             "0668319800",
             listOf("baby", "handicape"),
-            "urgent"
+            Priority.High
         )
-        val id = dbContext.insertAssistance(assistance)
-        Assert.assertNotNull(id)
-    }*/
+
+        db.assistanceDao().insert(assistance)
+        val assistances = db.assistanceDao().getAll()
+        Assert.assertEquals(1, assistances.size)
+    }
+
+    private fun getAddress() : Address
+            = Address(country = Country(
+        addressLine = "France",
+        administrativeArea = AdministrativeArea(
+            addressLine = "Val d'oise", locality = Locality(
+                addressLine = "Soisy",
+                thoroughfare = Thoroughfare(addressLine = "9 rue du puits grenet"),
+                postalCode = PostalCode(addressLine = "95230")
+            )
+        )
+    )
+    )
 
     @Test
-    fun test(){
-        val db = Room.databaseBuilder(
-            context,
-            AppDatabase::class.java, "wellcome"
-        ).build()
-
-        db.clearAllTables()
-
+    fun tripInsertTest(){
         val trip : Trip =
             Trip(getSlotDate(), getTripCity(), getHostConfiguration(),
                 2, false, false, false)
 
-        db.tripDao().insertAll(trip)
-        val t = db.tripDao().getAll()
-
+        db.tripDao().insert(trip)
+        val trips = db.tripDao().getAll()
+        Assert.assertEquals(1, trips.size)
     }
 
     private fun getSlotDate() : SlotDate

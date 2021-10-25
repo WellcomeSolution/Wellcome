@@ -2,14 +2,17 @@ package com.example.wellcome
 
 import android.content.Context
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
-import com.example.wellcome.utils.WellcomeDbContext
+import androidx.room.Room
+import com.example.wellcome.utils.db.AppDatabase
 
 abstract class BaseFragment : Fragment() {
-    protected lateinit var dbContext: WellcomeDbContext
+    protected lateinit var db: AppDatabase
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        dbContext = WellcomeDbContext(context)
+        db = Room.databaseBuilder(
+            context,
+            AppDatabase::class.java, "wellcome"
+        ).build()
     }
 }
