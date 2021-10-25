@@ -1,15 +1,16 @@
 package com.example.wellcome
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.R
 import com.example.wellcome.models.Assistance
-import com.example.wellcome.utils.call
-
-class AssistanceAdapter(private val dataSet: List<Assistance>):
+class AssistanceAdapter(val context : Context, private val dataSet: List<Assistance>):
     RecyclerView.Adapter<AssistanceAdapter.ViewHolder>()
 {
     private lateinit var context: Context
@@ -20,13 +21,7 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
         val phone: TextView = itemView.findViewById(R.id.phone_assistance)
         val tags: TextView = itemView.findViewById(R.id.tags_assistance)
         val priority: TextView = itemView.findViewById(R.id.priority_assistance)
-
-        init {
-            val callButton : TextView =  itemView.findViewById(R.id.call_button_assistance)
-            callButton.setOnClickListener{
-                context.call(Integer.parseInt(phone.text.toString()))
-            }
-        }
+        val call_button: Button = itemView.findViewById(R.id.call_button_assistance)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssistanceAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -41,7 +36,14 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
         viewHolder.phone.text = dataSet[position].phone
         viewHolder.address.text = dataSet[position].address
         viewHolder.tags.text = dataSet[position].tags.toString()
-        viewHolder.priority.text = dataSet[position].priority*/
+        viewHolder.priority.text = dataSet[position].priority
+        val tele = viewHolder.phone.text
+        viewHolder.call_button.setOnClickListener {
+            var intent = Intent()
+            intent.action = Intent.ACTION_DIAL
+            intent.data = Uri.parse("tel:$tele")
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount() = dataSet.size

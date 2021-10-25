@@ -24,14 +24,14 @@ class SearchAssistanceFragment : BaseFragment() {
         super.onViewCreated(itemView, savedInstanceState)
         recycler_view_assistance.apply {
             layoutManager=LinearLayoutManager(activity)
-            adapter=AssistanceAdapter(dbContext.getAssistances())
+            adapter=AssistanceAdapter(context,dbContext.getAssistances())
         }
         tags_assistance.setOnClickListener{
             withMultiChoiceList(it)
         }
         search_bar_assistance.setOnClickListener{
             val titleAssistance = services_titre.text.toString()
-            recycler_view_assistance.adapter = AssistanceAdapter(dbContext.searchAssistancesByNames(titleAssistance))
+            recycler_view_assistance.adapter = context?.let { it1 -> AssistanceAdapter(it1,dbContext.searchAssistancesByNames(titleAssistance)) }
 
         }
     }
@@ -60,7 +60,7 @@ class SearchAssistanceFragment : BaseFragment() {
             }
             Toast.makeText(context,"Items are :"+ Arrays.toString(selectedString.toTypedArray()),Toast.LENGTH_SHORT).show()
             var listTag = mlist.toList()
-            recycler_view_assistance.adapter = AssistanceAdapter(dbContext.searchAssistancesByTags(listTag))
+            recycler_view_assistance.adapter = context?.let { AssistanceAdapter(it,dbContext.searchAssistancesByTags(listTag)) }
         }
         builder.show()
     }
