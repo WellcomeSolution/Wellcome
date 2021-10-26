@@ -72,7 +72,7 @@ Improve offers visualisations
 
 User is now able to visualize the details regarding the services : Host, Lesson, Assistance inside a page that appear after clicking on the current service.
 
-image::c3.png[width=30%,align=center] 
+image::c4.jpg[width=30%,align=center] 
 
 == Architecture
 
