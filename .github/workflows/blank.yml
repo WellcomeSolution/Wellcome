@@ -77,9 +77,9 @@ jobs:
       - name: Build PDF
         uses: avattathil/asciidoctor-action@master
         with:
-          program: "asciidoctor-pdf docs/documentation.adoc"
+          program: "asciidoctor-pdf docs/Documentation.adoc"
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v2
         with:
           name: PDF document
-          path: docs/documentation.pdf
+          path: docs/Documentation.pdf
