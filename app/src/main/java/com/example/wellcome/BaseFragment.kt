@@ -2,8 +2,7 @@ package com.example.wellcome
 
 import android.content.Context
 import androidx.fragment.app.Fragment
-import androidx.room.Room
-import com.example.wellcome.utils.db.AppDatabase
+import com.example.wellcome.utils.WellcomeDbContext
 
 abstract class BaseFragment : Fragment() {
     protected lateinit var db: AppDatabase
