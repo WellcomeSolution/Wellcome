@@ -110,7 +110,7 @@ Project Link: [https://github.com/JialeiSUN/Wellcome](https://github.com/JialeiS
 [issues-url]: https://github.com/JialeiSUN/Wellcome/issues
 [license-shield]: https://img.shields.io/github/license/JialeiSUN/Wellcome.svg?style=for-the-badge
 [license-url]: https://github.com/JialeiSUN/Wellcome/blob/master/LICENSE.txt
-[build-url]: https://github.com/JialeiSUN/Wellcome/actions/workflows/blank.yml/badge.svg
+[build-url]: https://github.com/JialeiSun/Wellcome/actions?query=workflow%3ACI
 [build-shield]: https://img.shields.io/github/workflow/status/JialeiSUN/Wellcome/CI?style=for-the-badge
 [release-url]: https://github.com/JialeiSUN/Wellcome/releases/latest
 [release-shield]: https://img.shields.io/github/v/release/JialeiSun/Wellcome?style=for-the-badge
