@@ -37,25 +37,7 @@
                     android:layout_toEndOf= "@id/cours_text"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     />
-                <TextView
-                    android:id="@+id/address_text"
-                    android:text="Address:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    />
-                <TextView
-                    android:text="address_cours"
-                    android:id="@+id/address_cours"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_toEndOf= "@id/address_text"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    />
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,69 +49,59 @@
                 android:id="@+id/phone_cours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
+                android:layout_weight="0.75"
                 />
                 <Button
                     android:id="@+id/call_button_cours"
                     android:layout_width="50dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="40dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/ic_baseline_phone_24"
                     android:text="Call"
-                    android:textSize="4dp" />
+                    android:textSize="6dp"
+                    android:layout_weight="0.25"/>
+                <Button
+                    android:id="@+id/consulter_button_cours"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf= "@id/call_button_cours"
+                    android:text="Consulter"
+                    android:textSize="6dp"
+                    android:layout_weight="0.25"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_gravity="left">
                 <TextView
-                    android:text="Tags:"
-                    android:id="@+id/tags_text"
+                    android:id="@+id/address_text"
+                    android:text="Address:"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary"
                     />
-            <TextView
-                android:text="Tags"
-                android:id="@+id/tags_cours"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_toEndOf = "@id/tags_text"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                />
+                <TextView
+                    android:text="address_cours"
+                    android:id="@+id/address_cours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf= "@id/address_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
-                android:text="SessionDuration(hour):"
-                android:id="@+id/sse_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                />
-            <TextView
-                android:text="sessionDuration"
-                android:id="@+id/sessionDuration_cours"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                />
-            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

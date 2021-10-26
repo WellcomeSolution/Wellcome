@@ -17,8 +17,8 @@ class AssistanceAdapter(val context : Context, private val dataSet: List<Assista
         val title: TextView = itemView.findViewById(R.id.title_assistance)
         val address: TextView = itemView.findViewById(R.id.address_assistance)
         val phone: TextView = itemView.findViewById(R.id.phone_assistance)
-        val tags: TextView = itemView.findViewById(R.id.tags_assistance)
-        val priority: TextView = itemView.findViewById(R.id.priority_assistance)
+        //val tags: TextView = itemView.findViewById(R.id.tags_assistance)
+        //val priority: TextView = itemView.findViewById(R.id.priority_assistance)
         val call_button: Button = itemView.findViewById(R.id.call_button_assistance)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssistanceAdapter.ViewHolder {
@@ -30,8 +30,8 @@ class AssistanceAdapter(val context : Context, private val dataSet: List<Assista
         viewHolder.title.text = dataSet[position].title
         viewHolder.phone.text = dataSet[position].phone
         viewHolder.address.text = dataSet[position].address
-        viewHolder.tags.text = dataSet[position].tags.toString()
-        viewHolder.priority.text = dataSet[position].priority
+        //viewHolder.tags.text = dataSet[position].tags.toString()
+        //viewHolder.priority.text = dataSet[position].priority
         val tele = viewHolder.phone.text
         viewHolder.call_button.setOnClickListener {
             var intent = Intent()
