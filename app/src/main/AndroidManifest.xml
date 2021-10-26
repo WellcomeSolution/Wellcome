@@ -49,6 +49,13 @@
             android:theme="@style/Theme.Wellcome.NoActionBar">
 
         </activity>
+        <activity
+            android:name=".activity_consult_lesson"
+            android:exported="true"
+            android:label="MenuAssistance"
+            android:theme="@style/Theme.Wellcome.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
