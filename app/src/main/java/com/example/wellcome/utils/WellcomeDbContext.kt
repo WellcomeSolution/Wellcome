@@ -3,10 +3,9 @@ package com.example.wellcome.utils
 import android.content.ContentValues
 import android.content.Context
 import android.provider.BaseColumns
-import com.example.wellcome.models.Hosting
-import java.util.*
+import com.example.wellcome.activity_consult_lesson
 
-class WellcomeDbContext(context:Context) {
+class WellcomeDbContext(context: Context) {
     val dpHelper = WellcomeDbHelper(context)
 
     fun insertHosting(hosting: com.example.wellcome.models.Hosting): Long? {
@@ -565,12 +564,72 @@ class WellcomeDbContext(context:Context) {
                     listtags,
                     duration
                 )
-                if (phone.contains(phoneLesson)) {
+                if (phone == phoneLesson) {
                     Courss.add(cours)
                 }
             }
         }
         cursor.close()
         return Courss[0]
+    }
+    fun searchAssistancesByPhone(phoneAssistance : String): com.example.wellcome.models.Assistance {
+        val db = dpHelper.readableDatabase
+        val sortOrder = "${Assistance.AssistanceEntry.COLUMN_NAME_TITRE_SERVICE} DESC"
+
+        val cursor = db.query(
+            Assistance.AssistanceEntry.TABLE_NAME,
+            null,
+            null,
+            null,
+            null,
+            null,
+            sortOrder
+        )
+
+        val assistances = arrayListOf<com.example.wellcome.models.Assistance>()
+        with(cursor) {
+            while (moveToNext()) {
+                val id = getLong(getColumnIndexOrThrow(BaseColumns._ID))
+                val title =
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_TITRE_SERVICE))
+                val description =
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_DESCRIPTION))
+                val address =
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_ADDRESS))
+                val phone =
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_TELEPHONE))
+                val tags =
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_TAGS))
+                val priority =
+                    getString(getColumnIndexOrThrow(Assistance.AssistanceEntry.COLUMN_NAME_PRIORITY))
+                var mlist = mutableListOf<String>()
+                var newTags = tags.replace("\\s".toRegex(), "")
+                var count = 0
+                for (x in newTags) {
+                    if (x == ',') {
+                        count = 1
+                    }
+                }
+                if (count == 1) {
+                    mlist = newTags.split(',').toMutableList()
+                } else {
+                    mlist.add(newTags)
+                }
+                var listtags = mlist.toList()
+                val assistance = com.example.wellcome.models.Assistance(
+                    title,
+                    description,
+                    address,
+                    phone,
+                    listtags,
+                    priority
+                )
+                if(phone == phoneAssistance){
+                    assistances.add(assistance)
+                }
+            }
+        }
+        cursor.close()
+        return assistances[0]
     }
 }

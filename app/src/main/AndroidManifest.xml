@@ -58,6 +58,13 @@
             android:theme="@style/Theme.Wellcome.NoActionBar">
 
         </activity>
+        <activity
+            android:name=".ActivityConsultAssistance"
+            android:exported="true"
+            android:label="MenuAssistance"
+            android:theme="@style/Theme.Wellcome.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
