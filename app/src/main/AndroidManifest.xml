@@ -28,21 +28,7 @@
                 android:theme="@style/Theme.Wellcome.NoActionBar">
 
         </activity>
-
-        <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="@string/google_maps_key" />
-
-        <activity
-                android:name=".MapsActivity"
-                android:exported="true"
-                android:label="@string/title_activity_maps" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MenuAssistance"
