@@ -23,14 +23,14 @@ class SearchLessonFragment : BaseFragment() {
         super.onViewCreated(itemView, savedInstanceState)
         recycler_view.apply {
             layoutManager=LinearLayoutManager(activity)
-            adapter=CoursAdapter(context,dbContext.getCours())
+            adapter=LessonAdapter(db.lessonDao().getAll())
      }
         tags_lesson.setOnClickListener{
             withMultiChoiceList(it)
         }
         search_bar_lesson.setOnClickListener{
             val titleLesson = lesson_titre.text.toString()
-            recycler_view.adapter = this.context?.let { it1 -> CoursAdapter(it1,dbContext.searchLessonByNames(titleLesson)) }
+            recycler_view.adapter = this.context?.let { it1 -> LessonAdapter(db.lessonDao().findLessonByTitle(titleLesson)) }
 
         }
         }
@@ -59,7 +59,7 @@ class SearchLessonFragment : BaseFragment() {
             }
             Toast.makeText(context,"Items are :"+ Arrays.toString(selectedString.toTypedArray()),Toast.LENGTH_SHORT).show()
             var listTag = mlist.toList()
-            recycler_view.adapter = context?.let { CoursAdapter(it,dbContext.searchCoursByTags(listTag)) }
+            recycler_view.adapter = context?.let { LessonAdapter(db.lessonDao().findLessonByTags(listTag)) }
         }
         builder.show()
     }

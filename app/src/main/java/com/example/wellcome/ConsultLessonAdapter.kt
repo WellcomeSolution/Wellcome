@@ -11,7 +11,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellcome.models.Lesson
+import com.example.wellcome.utils.db.Lesson
 
 class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
     RecyclerView.Adapter<ConsultLessonAdapter.ViewHolder>() {
@@ -37,7 +37,7 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
 
     override fun onBindViewHolder(v: ConsultLessonAdapter.ViewHolder, position: Int) {
         v.title.text = dataSet.title
-        v.address.text = dataSet.address
+        v.address.text = dataSet.address.toString()
         v.phone.text = dataSet.phone
         v.description.setText(dataSet.description)
         v.duration.setText(dataSet.sessionDuration)

@@ -5,18 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.Spinner
 import android.widget.Toast
-import com.example.wellcome.models.Assistance
-import com.example.wellcome.models.Lesson
-import com.example.wellcome.models.Host
-import com.google.android.material.snackbar.Snackbar
+import com.example.wellcome.models.Priority
+import com.example.wellcome.utils.db.Address
+import com.example.wellcome.utils.db.Assistance
 import kotlinx.android.synthetic.main.fragement_add_assistance.*
 
 
 
 class AddAssistanceFragment: BaseFragment()  {
-    var assistancePriority = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,7 +27,7 @@ class AddAssistanceFragment: BaseFragment()  {
         super.onViewCreated(view, savedInstanceState)
         assistance_add_button.setOnClickListener{
 
-            dbContext.insertAssistance(retrieveAssistance())
+            db.assistanceDao().insert(retrieveAssistance())
             clearTextEdit()
             Toast.makeText(context,"Assistance added",Toast.LENGTH_SHORT).show()
         }
@@ -41,7 +38,7 @@ class AddAssistanceFragment: BaseFragment()  {
                 position: Int,
                 id: Long
             ) {
-                assistancePriority = assistance_priority.selectedItem.toString()
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -62,7 +59,7 @@ class AddAssistanceFragment: BaseFragment()  {
 
     }
 
-    private fun retrieveAssistance(): Assistance{
+    private fun retrieveAssistance(): Assistance {
         var mlist = mutableListOf<String>()
         if(checkbox1_assistance.isChecked){
             mlist.add(checkbox1_assistance.text.toString())
@@ -74,8 +71,8 @@ class AddAssistanceFragment: BaseFragment()  {
             mlist.add(checkbox3_assistance.text.toString())
         }
         var list = mlist.toList()
-        var ret_assistance = Assistance(assistance_titre.text.toString(),assistance_description.text.toString(),assistance_address.text.toString(),
-            assistance_phone.text.toString(),list,assistancePriority)
+        var ret_assistance = Assistance(assistance_titre.text.toString(),assistance_description.text.toString(), Address(null),
+            assistance_phone.text.toString(),list, Priority.Low)
         return ret_assistance
     }
 }

@@ -9,17 +9,17 @@ class MenuLesson : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.example.wellcome.R.layout.activity_menu)
-        setSupportActionBar(findViewById(com.example.wellcome.R.id.my_toolbar))
+        setContentView(R.layout.activity_menu)
+        setSupportActionBar(findViewById(R.id.my_toolbar))
         launchSearchFragment()
 
         bottom_navigation.setOnItemSelectedListener  { item ->
             when(item.itemId) {
-                com.example.wellcome.R.id.search_services -> {
+                R.id.search_services -> {
                     launchSearchFragment()
                     true
                 }
-                com.example.wellcome.R.id.add_services -> {
+                R.id.add_services -> {
                     launchAddServicesFragment()
                     true
                 }
@@ -30,10 +30,10 @@ class MenuLesson : AppCompatActivity() {
 
     private fun launchAddServicesFragment(){
         supportFragmentManager.
-        beginTransaction().replace(com.example.wellcome.R.id.content,AddLessonFragment()).commit()
+        beginTransaction().replace(R.id.content,AddLessonFragment()).commit()
     }
     private fun launchSearchFragment(){
         supportFragmentManager.
-        beginTransaction().replace(com.example.wellcome.R.id.content, SearchLessonFragment()).commit()
+        beginTransaction().replace(R.id.content, SearchLessonFragment()).commit()
     }
 }

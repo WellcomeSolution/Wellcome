@@ -9,17 +9,17 @@ class MenuAssistance : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.example.wellcome.R.layout.activity_assistance_menu)
-        setSupportActionBar(findViewById(com.example.wellcome.R.id.assistance_toolbar))
+        setContentView(R.layout.activity_assistance_menu)
+        setSupportActionBar(findViewById(R.id.assistance_toolbar))
         launchSearchFragment()
 
         assistance_bottom_navigation.setOnItemSelectedListener  { item ->
             when(item.itemId) {
-                com.example.wellcome.R.id.search_assistance -> {
+                R.id.search_assistance -> {
                     launchSearchFragment()
                     true
                 }
-                com.example.wellcome.R.id.add_assistance -> {
+                R.id.add_assistance -> {
                     launchAddServicesFragment()
                     true
                 }
@@ -30,10 +30,10 @@ class MenuAssistance : AppCompatActivity() {
 
     private fun launchAddServicesFragment(){
         supportFragmentManager.
-        beginTransaction().replace(com.example.wellcome.R.id.assistance_content,AddAssistanceFragment()).commit()
+        beginTransaction().replace(R.id.assistance_content,AddAssistanceFragment()).commit()
     }
     private fun launchSearchFragment(){
         supportFragmentManager.
-        beginTransaction().replace(com.example.wellcome.R.id.assistance_content, SearchAssistanceFragment()).commit()
+        beginTransaction().replace(R.id.assistance_content, SearchAssistanceFragment()).commit()
     }
 }

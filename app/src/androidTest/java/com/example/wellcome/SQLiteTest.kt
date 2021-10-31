@@ -3,13 +3,14 @@ package com.example.wellcome
 import android.content.Context
 import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
-import com.example.wellcome.models.Hosting
-import com.example.wellcome.utils.WellcomeDbContext
-import com.example.wellcome.utils.WellcomeDbHelper
+import com.example.wellcome.models.Equipments
+import com.example.wellcome.models.Priority
+import com.example.wellcome.utils.db.*
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import utils.DateUtils
 
 class SQLiteTest {
     private lateinit var db : AppDatabase
@@ -62,7 +63,8 @@ class SQLiteTest {
     }
 
     private fun getAddress() : Address
-            = Address(country = Country(
+            = Address(
+        country = Country(
         addressLine = "France",
         administrativeArea = AdministrativeArea(
             addressLine = "Val d'oise", locality = Locality(

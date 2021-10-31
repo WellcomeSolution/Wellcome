@@ -6,7 +6,7 @@ import androidx.room.Entity
 
 @Entity
 data class Address(
-    @Embedded val country: Country
+    @Embedded val country: Country?
 )
 
 @Entity

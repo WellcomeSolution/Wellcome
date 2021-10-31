@@ -11,7 +11,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellcome.models.Assistance
+import com.example.wellcome.utils.db.Assistance
 
 
 class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assistance):
@@ -42,10 +42,10 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
 
     override fun onBindViewHolder(v: ViewHolder, position: Int) {
         v.title.text = dataSet.title
-        v.address.text = dataSet.address
+        v.address.text = dataSet.address.toString()
         v.phone.text = dataSet.phone
         v.description.setText(dataSet.description)
-        v.priority.setText(dataSet.priority)
+        v.priority.setText(dataSet.priority.toString())
         if(dataSet.tags.toString().contains(v.checkbox1.text)){
             v.checkbox1.isChecked
         }

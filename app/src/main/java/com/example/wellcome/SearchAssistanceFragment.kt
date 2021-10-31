@@ -17,24 +17,26 @@ class SearchAssistanceFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_search_assistance, container, false)
     }
+
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
         recycler_view_assistance.apply {
             layoutManager=LinearLayoutManager(activity)
-            adapter=AssistanceAdapter(context,dbContext.getAssistances())
+            adapter=AssistanceAdapter(db.assistanceDao().getAll())
         }
         tags_assistance.setOnClickListener{
             withMultiChoiceList(it)
         }
         search_bar_assistance.setOnClickListener{
             val titleAssistance = services_titre.text.toString()
-            recycler_view_assistance.adapter = context?.let { it1 -> AssistanceAdapter(it1,dbContext.searchAssistancesByNames(titleAssistance)) }
-
+            recycler_view_assistance.adapter = context?.let { it1
+                -> AssistanceAdapter(db.assistanceDao().findAssistanceByTitle(titleAssistance))}
         }
     }
+
     fun withMultiChoiceList(view: View){
         val items = arrayOf("Maintenance","Décoration","Livaison")
         val selectedList = ArrayList<Int>()
@@ -60,7 +62,7 @@ class SearchAssistanceFragment : BaseFragment() {
             }
             Toast.makeText(context,"Items are :"+ Arrays.toString(selectedString.toTypedArray()),Toast.LENGTH_SHORT).show()
             var listTag = mlist.toList()
-            recycler_view_assistance.adapter = context?.let { AssistanceAdapter(it,dbContext.searchAssistancesByTags(listTag)) }
+            recycler_view_assistance.adapter = context?.let { AssistanceAdapter( db.assistanceDao().findAssistanceByTags(listTag)) }
         }
         builder.show()
     }

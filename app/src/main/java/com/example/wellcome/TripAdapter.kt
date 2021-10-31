@@ -1,22 +1,18 @@
 package com.example.wellcome
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.models.Host
-import com.example.wellcome.utils.call
 
 
-class HostAdapter(val context: Context,private val dataSet: List<Host>):
-    RecyclerView.Adapter<HostAdapter.ViewHolder>()
+class TripAdapter(private val dataSet: List<Host>):
+    RecyclerView.Adapter<TripAdapter.ViewHolder>()
 {
     private lateinit var context: Context
 
@@ -28,10 +24,9 @@ class HostAdapter(val context: Context,private val dataSet: List<Host>):
         val nomberOfPeople: TextView = itemView.findViewById(R.id.nomber_people_host)
         val nomberOfPiece: TextView = itemView.findViewById(R.id.nomber_piece_host)
         val call_button: Button = itemView.findViewById(R.id.call_button_host)
-
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HostAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.host_card_view, parent, false)
 
@@ -45,8 +40,8 @@ class HostAdapter(val context: Context,private val dataSet: List<Host>):
         viewHolder.phone.text = dataSet[position].phone
         //viewHolder.address.text = dataSet[position].address
         viewHolder.tags.text = dataSet[position].tags.toString()
-        viewHolder.nomberOfPeople.text = dataSet[position].nombrePersonne
-        viewHolder.nomberOfPiece.text = dataSet[position].nombrePiece
+        //viewHolder.nomberOfPeople.text = dataSet[position].per
+        //viewHolder.nomberOfPiece.text = dataSet[position].nombrePiece
         val tele = viewHolder.phone.text
         viewHolder.call_button.setOnClickListener {
             var intent = Intent()

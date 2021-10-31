@@ -2,7 +2,8 @@ package com.example.wellcome
 
 import android.content.Context
 import androidx.fragment.app.Fragment
-import com.example.wellcome.utils.WellcomeDbContext
+import androidx.room.Room
+import com.example.wellcome.utils.db.AppDatabase
 
 abstract class BaseFragment : Fragment() {
     protected lateinit var db: AppDatabase
@@ -12,6 +13,6 @@ abstract class BaseFragment : Fragment() {
         db = Room.databaseBuilder(
             context,
             AppDatabase::class.java, "wellcome"
-        ).build()
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
     }
 }

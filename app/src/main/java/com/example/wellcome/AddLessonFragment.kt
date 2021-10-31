@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.wellcome.models.Lesson
+import com.example.wellcome.utils.db.Address
+import com.example.wellcome.utils.db.Lesson
 import kotlinx.android.synthetic.main.fragment_add_lesson.*
 
 
@@ -16,15 +17,13 @@ class AddLessonFragment: BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_lesson, container, false)
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         suivantButton.setOnClickListener {
 
-            dbContext.insertCours(retrieveCours())
+            db.lessonDao().insert(retrieveCours())
             clearTextEdit()
             Toast.makeText(context, "lesson added", Toast.LENGTH_SHORT).show()
             /*
@@ -39,8 +38,6 @@ class AddLessonFragment: BaseFragment() {
                 Toast.makeText(context,"assistance ajouté!!!",Toast.LENGTH_SHORT).show()
             }*/
         }
-
-
     }
 
     private fun clearTextEdit() {
@@ -68,10 +65,10 @@ class AddLessonFragment: BaseFragment() {
             var ret_cours = Lesson(
                 services_titre.text.toString(),
                 services_description.text.toString(),
-                services_address.text.toString(),
+                Address(null),
                 services_phone.text.toString(),
                 list,
-                cours_sessionduree.text.toString()
+                1
             )
             return ret_cours
         }

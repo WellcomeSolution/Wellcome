@@ -10,14 +10,17 @@ class FirstMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(com.example.wellcome.R.layout.activity_firstmenu)
+
         lesson_button.setOnClickListener(){
             val intent = Intent(this,MenuLesson::class.java)
             startActivity(intent)
         }
+
         trip_button.setOnClickListener(){
            /* val intent = Intent(this,MenuActivity::class.java)
             startActivity(intent)*/
         }
+
         assistance_button.setOnClickListener(){
             val intent = Intent(this,MenuAssistance::class.java)
             startActivity(intent)

@@ -10,4 +10,6 @@ interface TripDao {
     fun insert(vararg trips: Trip)
     @Query("SELECT * FROM trip")
     fun getAll(): List<Trip>
+    @Query("SELECT * FROM trip WHERE id=:id ")
+    fun findTripById(id: String): Trip
 }
