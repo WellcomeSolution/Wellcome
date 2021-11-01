@@ -27,7 +27,7 @@ class LessonAdapter(private val dataSet: List<Lesson>):
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.cours_card_view, parent, false)
+            .inflate(R.layout.lesson_card_view, parent, false)
 
         context = parent.context
 

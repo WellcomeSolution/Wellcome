@@ -3,6 +3,7 @@ package com.example.wellcome.utils.db
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
+import kotlinx.serialization.Serializable
 
 @Entity
 data class Address(

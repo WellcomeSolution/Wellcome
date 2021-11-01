@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:minHeight="80dp">
+        <ImageView
+                android:id="@+id/mtrl_list_item_icon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:layout_gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp" />
+        <TextView
+                android:id="@+id/mtrl_list_item_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:maxLines="1"
+                android:textSize="22dp"
+                android:fontFamily="@font/ralewaysemibold" />
+    </LinearLayout>
+    <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerInsetStart="22dp"
+            app:dividerInsetEnd="22dp"
+            app:dividerColor="@color/divider"/>
+</LinearLayout>

@@ -25,3 +25,4 @@ import androidx.core.content.ContextCompat
         val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$phone"))
         startActivity(intent)
     }
+

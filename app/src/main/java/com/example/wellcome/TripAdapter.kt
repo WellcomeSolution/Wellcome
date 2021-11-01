@@ -32,6 +32,8 @@ class TripAdapter(private val dataSet: List<Host>):
 
         context = parent.context
 
+
+
         return ViewHolder(view)
     }
 
