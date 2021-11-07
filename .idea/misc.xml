@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/activity_consult_lesson_page.xml" value="0.20520833333333333" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/activity_found_city.xml" value="0.1" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/assistance_card_view.xml" value="0.536" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/cours_card_view.xml" value="0.20520833333333333" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/fragement_add_assistance.xml" value="0.20520833333333333" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/fragment_add_lesson.xml" value="0.36666666666666664" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/fragment_search_assistance.xml" value="0.20520833333333333" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_adduser.xml" value="0.25416666666666665" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_assistance_menu.xml" value="0.20520833333333333" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_consult_assistance.xml" value="0.15729166666666666" />

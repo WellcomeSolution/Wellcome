@@ -29,7 +29,7 @@
                     android:textColor="?android:attr/textColorSecondary"
                     />
                 <TextView
-                    android:id="@+id/title_cours"
+                    android:id="@+id/title_lesson"
                     android:text="Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                 >
             <TextView
                 android:text="phone"
-                android:id="@+id/phone_cours"
+                android:id="@+id/phone_lesson"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -55,7 +55,7 @@
                 android:layout_weight="0.75"
                 />
                 <Button
-                    android:id="@+id/call_button_cours"
+                    android:id="@+id/call_button_lesson"
                     android:layout_width="50dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="40dp"
@@ -65,12 +65,12 @@
                     android:textSize="6dp"
                     android:layout_weight="0.25"/>
                 <Button
-                    android:id="@+id/consulter_button_cours"
+                    android:id="@+id/consulter_button_lesson"
                     android:layout_width="50dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="8dp"
-                    android:layout_toEndOf= "@id/call_button_cours"
+                    android:layout_toEndOf= "@id/call_button_lesson"
                     android:text="Consulter"
                     android:textSize="6dp"
                     android:layout_weight="0.25"/>
@@ -78,8 +78,101 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="left">
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/country_text"
+                    android:text="Country:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
+                    />
+                <TextView
+                    android:text="address"
+                    android:id="@+id/country_lesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf= "@id/country_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
+                    />
+                <TextView
+                    android:id="@+id/department_text"
+                    android:text="Address:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
+                    />
+                <TextView
+                    android:text="address"
+                    android:id="@+id/department_lesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf= "@id/department_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/city_text"
+                    android:text="City:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
+                    />
+                <TextView
+                    android:text="address"
+                    android:id="@+id/city_lesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf= "@id/city_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
+                    />
+                <TextView
+                    android:id="@+id/postalcode_text"
+                    android:text="Address:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
+                    />
+                <TextView
+                    android:text="address"
+                    android:id="@+id/postalcode_lesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf= "@id/postalcode_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <TextView
                     android:id="@+id/address_text"
                     android:text="Address:"
@@ -88,17 +181,18 @@
                     android:layout_marginTop="8dp"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
                     />
                 <TextView
-                    android:text="address_cours"
-                    android:id="@+id/address_cours"
+                    android:text="address"
+                    android:id="@+id/address_lesson"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_toEndOf= "@id/address_text"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary"
+                    android:layout_weight="1.0"
                     />
             </LinearLayout>
 

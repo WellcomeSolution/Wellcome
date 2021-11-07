@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.wellcome.utils.db.Address
-import com.example.wellcome.utils.db.Lesson
+import com.example.wellcome.utils.db.*
 import kotlinx.android.synthetic.main.fragment_add_lesson.*
 
 
@@ -26,24 +25,17 @@ class AddLessonFragment: BaseFragment() {
             db.lessonDao().insert(retrieveCours())
             clearTextEdit()
             Toast.makeText(context, "lesson added", Toast.LENGTH_SHORT).show()
-            /*
-            if(servicePosition==1){
-                dbContext.insertLogement(retrieveLogement())
-                clearTextEdit()
-                Toast.makeText(context,"logement ajouté!!!",Toast.LENGTH_SHORT).show()
-            }
-            if(servicePosition==2){
-                dbContext.insertAssistance(retrieveAssistance())
-                clearTextEdit()
-                Toast.makeText(context,"assistance ajouté!!!",Toast.LENGTH_SHORT).show()
-            }*/
         }
     }
 
     private fun clearTextEdit() {
         services_titre.text?.clear()
         services_phone.text?.clear()
-        services_address.text?.clear()
+        lesson_address_1.text?.clear()
+        lesson_country.text?.clear()
+        lesson_city.text?.clear()
+        lesson_department.text?.clear()
+        lesson_postalcode.text?.clear()
         services_description.text?.clear()
         cours_sessionduree.text?.clear()
         checkbox1_cours.isChecked = false
@@ -65,11 +57,24 @@ class AddLessonFragment: BaseFragment() {
             var ret_cours = Lesson(
                 services_titre.text.toString(),
                 services_description.text.toString(),
-                Address(null),
+                getAddress(),
                 services_phone.text.toString(),
                 list,
                 1
             )
             return ret_cours
         }
+        fun getAddress(): Address
+        = Address(
+            country = Country(
+                addressLine = lesson_country.text.toString(),
+                administrativeArea = AdministrativeArea(
+                    addressLine = lesson_department.text.toString(),locality = Locality(
+                        addressLine = lesson_city.text.toString(),
+                        thoroughfare = Thoroughfare(addressLine = lesson_address_1.text.toString()),
+                        postalCode = PostalCode(addressLine = lesson_postalcode.text.toString())
+                    )
+                )
+            )
+        )
     }

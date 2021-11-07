@@ -7,9 +7,8 @@ import com.google.common.reflect.TypeToken
 import utils.DateUtils
 import java.time.LocalDate
 import kotlin.collections.ArrayList
-import com.google.gson.Gson
 import java.lang.reflect.Type
-
+import com.google.gson.Gson
 
 class Converters {
     @TypeConverter
@@ -52,8 +51,8 @@ class Converters {
     }
 
     @TypeConverter
-    fun toDate(dateString: String): LocalDate = DateUtils.Companion.asLocalDate(dateString)
+    fun toDate(dateString: String): LocalDate = DateUtils.asLocalDate(dateString)
 
     @TypeConverter
-    fun fromDate(date: LocalDate): String = DateUtils.Companion.asString(date)
+    fun fromDate(date: LocalDate): String = DateUtils.asString(date)
 }
