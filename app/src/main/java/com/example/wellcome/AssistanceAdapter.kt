@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.utils.db.Assistance
+import kotlinx.android.synthetic.main.assistance_card_view.view.*
 
 class AssistanceAdapter(private val dataSet: List<Assistance>):
     RecyclerView.Adapter<AssistanceAdapter.ViewHolder>()
@@ -17,11 +18,16 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
     private lateinit var context: Context
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = itemView.findViewById(R.id.title_assistance)
+        val title: TextView = itemView.title_assistance
+        val phone: TextView = itemView.phone_assistance
+        val callButton: Button = itemView.call_button_assistance
+        val assistanceButton: Button = itemView.consulter_button_assistance
+        val country: TextView = itemView.country_assistance
+        val department: TextView = itemView.department_assistance
+        val city: TextView = itemView.city_assistance
+        val postalCode: TextView =itemView.postalcode_assistance
+
         val address: TextView = itemView.findViewById(R.id.address_assistance)
-        val phone: TextView = itemView.findViewById(R.id.phone_assistance)
-        val call_button: Button = itemView.findViewById(R.id.call_button_assistance)
-        val assistance_button: Button = itemView.findViewById(R.id.consulter_button_assistance)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssistanceAdapter.ViewHolder {
@@ -36,19 +42,22 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.title.text = dataSet[position].title
         viewHolder.phone.text = dataSet[position].phone
-        viewHolder.address.text = dataSet[position].address.toString()
-        //viewHolder.tags.text = dataSet[position].tags.toString()
-        //viewHolder.priority.text = dataSet[position].priority
+        viewHolder.country.text = dataSet[position].address.country?.addressLine
+        viewHolder.department.text = dataSet[position].address.country?.administrativeArea?.addressLine
+        viewHolder.city.text = dataSet[position].address.country?.administrativeArea?.locality?.addressLine
+        viewHolder.postalCode.text = dataSet[position].address.country?.administrativeArea?.locality?.postalCode?.addressLine
+        viewHolder.address.text = dataSet[position].address.country?.administrativeArea?.locality?.thoroughfare?.addressLine
+
         val tele = viewHolder.phone.text
 
-        viewHolder.call_button.setOnClickListener {
+        viewHolder.callButton.setOnClickListener {
             var intent = Intent()
             intent.action = Intent.ACTION_DIAL
             intent.data = Uri.parse("tel:$tele")
             context.startActivity(intent)
         }
 
-        viewHolder.assistance_button.setOnClickListener{
+        viewHolder.assistanceButton.setOnClickListener{
             val bundle = Bundle()
             bundle.putInt("id",dataSet[position].id)
             val intent = Intent(context, ActivityConsultAssistance::class.java)

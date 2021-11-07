@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
 import com.example.wellcome.models.Priority
-import com.example.wellcome.utils.db.Address
-import com.example.wellcome.utils.db.Assistance
+import com.example.wellcome.utils.db.*
 import kotlinx.android.synthetic.main.fragement_add_assistance.*
-
+import kotlinx.android.synthetic.main.fragment_add_lesson.*
 
 
 class AddAssistanceFragment: BaseFragment()  {
@@ -52,6 +51,10 @@ class AddAssistanceFragment: BaseFragment()  {
         assistance_titre.text?.clear()
         assistance_phone.text?.clear()
         assistance_address.text?.clear()
+        assistance_country.text?.clear()
+        assistance_city.text?.clear()
+        assistance_department.text?.clear()
+        assistance_postalcode.text?.clear()
         assistance_description.text?.clear()
         checkbox1_assistance.isChecked = false
         checkbox2_assistance.isChecked = false
@@ -71,8 +74,21 @@ class AddAssistanceFragment: BaseFragment()  {
             mlist.add(checkbox3_assistance.text.toString())
         }
         var list = mlist.toList()
-        var ret_assistance = Assistance(assistance_titre.text.toString(),assistance_description.text.toString(), Address(null),
+        var ret_assistance = Assistance(assistance_titre.text.toString(),assistance_description.text.toString(), getAddress(),
             assistance_phone.text.toString(),list, Priority.Low)
         return ret_assistance
     }
+    fun getAddress(): Address
+            = Address(
+        country = Country(
+            addressLine = assistance_country.text.toString(),
+            administrativeArea = AdministrativeArea(
+                addressLine = assistance_department.text.toString(),locality = Locality(
+                    addressLine = assistance_city.text.toString(),
+                    thoroughfare = Thoroughfare(addressLine = assistance_address.text.toString()),
+                    postalCode = PostalCode(addressLine = assistance_postalcode.text.toString())
+                )
+            )
+        )
+    )
 }
