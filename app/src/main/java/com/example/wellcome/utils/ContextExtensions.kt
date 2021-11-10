@@ -9,6 +9,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
+
+
+
 
     fun Context.call(phone:Number){
         if (ContextCompat.checkSelfPermission(this,android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -25,3 +29,10 @@ import androidx.core.content.ContextCompat
         val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$phone"))
         startActivity(intent)
     }
+
+    fun Context.searchAddress(address:String){
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/?q=$address"))
+        startActivity(this, browserIntent, null)
+    }
+
+

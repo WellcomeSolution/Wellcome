@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.utils.db.Assistance
+import com.example.wellcome.utils.searchAddress
 import kotlinx.android.synthetic.main.assistance_card_view.view.*
 
 class AssistanceAdapter(private val dataSet: List<Assistance>):
@@ -26,7 +27,6 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
         val department: TextView = itemView.department_assistance
         val city: TextView = itemView.city_assistance
         val postalCode: TextView =itemView.postalcode_assistance
-
         val address: TextView = itemView.findViewById(R.id.address_assistance)
     }
 

@@ -8,15 +8,18 @@ import com.example.wellcome.utils.db.AppDatabase
 import kotlinx.android.synthetic.main.activity_consult_assistance.*
 
 class ActivityConsultAssistance : AppCompatActivity() {
-    val db = Room.databaseBuilder(
-        this,
-        AppDatabase::class.java, "wellcome"
-    ).fallbackToDestructiveMigration().build()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_consult_assistance)
         val bundle = intent.extras
+
+        val db = Room.databaseBuilder(
+            this,
+            AppDatabase::class.java, "wellcome"
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+
         recycler_view_c_page_assistance.apply {
             layoutManager= LinearLayoutManager(context)
             adapter=ConsultAssistanceAdapter(context,

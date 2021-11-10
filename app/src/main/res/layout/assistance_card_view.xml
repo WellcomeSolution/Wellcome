@@ -57,7 +57,7 @@
                 <Button
                     android:id="@+id/call_button_assistance"
                     android:layout_width="50dp"
-                    android:layout_height="25dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="8dp"
                     android:drawableLeft="@drawable/ic_baseline_phone_24"
@@ -67,7 +67,7 @@
                 <Button
                     android:id="@+id/consulter_button_assistance"
                     android:layout_width="50dp"
-                    android:layout_height="25dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="8dp"
                     android:layout_toEndOf= "@id/call_button_assistance"
