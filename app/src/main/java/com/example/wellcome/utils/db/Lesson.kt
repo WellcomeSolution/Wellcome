@@ -9,6 +9,7 @@ data class Lesson(
     val description: String,
     @Embedded val address: Address,
     val phone: String,
+    val isAvailable: Boolean,
     var tags: List<String>,
     val sessionDuration: Int) {
     @PrimaryKey(autoGenerate = true)

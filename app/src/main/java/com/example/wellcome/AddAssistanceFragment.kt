@@ -75,9 +75,10 @@ class AddAssistanceFragment: BaseFragment()  {
         }
         var list = mlist.toList()
         var ret_assistance = Assistance(assistance_titre.text.toString(),assistance_description.text.toString(), getAddress(),
-            assistance_phone.text.toString(),list, Priority.Low)
+            assistance_phone.text.toString(),list, true, Priority.Low)
         return ret_assistance
     }
+
     fun getAddress(): Address
             = Address(
         country = Country(

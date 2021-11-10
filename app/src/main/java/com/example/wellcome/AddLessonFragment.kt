@@ -59,6 +59,7 @@ class AddLessonFragment: BaseFragment() {
                 services_description.text.toString(),
                 getAddress(),
                 services_phone.text.toString(),
+                true,
                 list,
                 1
             )

@@ -14,6 +14,7 @@ data class Assistance(
     @Embedded val address: Address,
     val phone: String,
     val tags: List<String>,
+    val isAvailable: Boolean,
     val priority: Priority) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

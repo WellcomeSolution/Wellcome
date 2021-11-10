@@ -16,4 +16,6 @@ interface LessonDao {
     fun findLessonByTitle(title: String): List<Lesson>
     @Query("SELECT * FROM lesson WHERE tags IN (:tags)")
     fun findLessonByTags(tags: List<String>): List<Lesson>
+    @Query("UPDATE lesson SET isAvailable=:isAvailable WHERE id = :id")
+    fun update(isAvailable: Boolean?, id: Int)
 }

@@ -10,16 +10,18 @@ import kotlinx.android.synthetic.main.activity_consult_lesson.*
 
 
 class ActivityConsultLesson: AppCompatActivity() {
-    val db = Room.databaseBuilder(
-        this,
-        AppDatabase::class.java, "wellcome"
-    ).fallbackToDestructiveMigration().build()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_consult_lesson)
 
         val bundle = intent.extras
+
+        val db = Room.databaseBuilder(
+            this,
+            AppDatabase::class.java, "wellcome"
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
         recycler_view_page.apply {
             layoutManager= LinearLayoutManager(context)
