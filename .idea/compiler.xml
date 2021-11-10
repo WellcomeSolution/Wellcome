@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="wellcome" target="17" />
       <module name="wellcome.app" target="17" />
+      <module name="wellcome.loc" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

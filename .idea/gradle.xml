@@ -13,6 +13,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/carte" />
+            <option value="$PROJECT_DIR$/geolocalisation" />
+            <option value="$PROJECT_DIR$/loc" />
+            <option value="$PROJECT_DIR$/localisation" />
+            <option value="$PROJECT_DIR$/map" />
+            <option value="$PROJECT_DIR$/myapplication" />
+            <option value="$PROJECT_DIR$/testcard" />
             <option value="$PROJECT_DIR$/wellcomelibrary" />
           </set>
         </option>

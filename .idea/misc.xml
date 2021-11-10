@@ -36,6 +36,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/annoncelogement.xml" value="0.5" />
+        <entry key="loc/src/main/res/drawable/android.xml" value="0.18958333333333333" />
+        <entry key="loc/src/main/res/layout/activity_maps.xml" value="0.1734375" />
+        <entry key="localisation/src/main/res/layout/activity_main.xml" value="0.159375" />
+        <entry key="testcard/src/main/res/layout/activity_maps.xml" value="0.13134057971014493" />
       </map>
     </option>
   </component>

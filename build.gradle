@@ -5,8 +5,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -36,5 +36,14 @@ sonarqube {
         property 'sonar.organization', 'wellcome'
         property 'sonar.projectKey', 'JialeiSUN_Wellcome'
     }
+    dependencies {
+        implementation fileTree(include: ['*.jar'], dir: 'libs')
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        implementation 'com.android.support:appcompat-v7:26.1.0'
+        implementation 'com.google.android.gms:play-services-maps:11.8.0'
+        implementation 'com.google.android.gms:play-services-location:11.8.0'
+        testImplementation 'junit:junit:4.12'
+    }
+
 }
 

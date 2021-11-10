@@ -1,3 +1,10 @@
 include ':wellcomelibrary'
 include ':app'
 rootProject.name = "wellcome"
+include ':myapplication'
+include ':testcard'
+include ':geolocalisation'
+include ':localisation'
+include ':map'
+include ':carte'
+include ':loc'

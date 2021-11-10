@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">loc</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="dropped_pin" />
+</resources>
