@@ -13,7 +13,10 @@
 [![Build][build-shield]][build-url]
 [![Release][release-shield]][release-url]
 [![MIT License][license-shield]][license-url]
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JialeiSUN_Wellcome&metric=alert_status)](https://sonarcloud.io/dashboard?id=JialeiSUN_Wellcome)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JialeiSUN_Wellcome&metric=alert_status)](https://sonarcloud.io/dashboard?id=JialeiSUN_Wellcome) 
+[![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=JialeiSUN_Wellcome&metric=coverage)](https://sonarcloud.io/component_measures/metric/coverage/list?id=JialeiSUN_Wellcome)
+[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=JialeiSUN_Wellcome&metric=bugs)](https://sonarcloud.io/component_measures/metric/reliability_rating/list?id=JialeiSUN_Wellcome)
+[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=JialeiSUN_Wellcome&metric=vulnerabilities)](https://sonarcloud.io/component_measures/metric/security_rating/list?id=JialeiSUN_Wellcome)
 
 <br>
 <!-- TABLE OF CONTENTS -->
