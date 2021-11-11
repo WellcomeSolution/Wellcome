@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Wellcome" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/crane_purple_800</item>
+        <item name="colorPrimaryDark">@color/crane_purple_900</item>
+    </style>
+
+    <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
+        <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
+        <item name="tabIndicatorAnimationMode">linear</item>
+        <item name="tabIndicator">@drawable/mtrl_tabs_default_indicator</item>
+    </style>
+
+    <style name="TextAppearance.Design.Tab" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/ralewaysemibold</item>
+        <item name="textAllCaps">true</item>
+    </style>
+</resources>

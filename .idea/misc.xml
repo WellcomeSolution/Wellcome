@@ -33,14 +33,26 @@
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/menu/bottom_navigation_assistance.xml" value="0.20520833333333333" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.4" />
         <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/menu/top_navigation_menu.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_date_range_24.xml" value="0.29270833333333335" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_hotel_24.xml" value="0.29270833333333335" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_person_24.xml" value="0.2682291666666667" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/corner.xml" value="0.2682291666666667" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.2682291666666667" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2682291666666667" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/mtrl_tabs_default_indicator.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_control_point_24.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_home_24.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/round_corner_toggle.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_adduser.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_maps.xml" value="0.1828125" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/bottom_navigation_menu.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/card_perta.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/content_host_restrictions.xml" value="0.2520833333333333" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/content_main.xml" value="0.2520833333333333" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_add_hosts.xml" value="0.4" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_hosts.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_window.xml" value="0.2520833333333333" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/material_card_view.xml" value="0.2" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/material_list_item_single_line.xml" value="0.1828125" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/material_list_item_two_line.xml" value="0.1828125" />

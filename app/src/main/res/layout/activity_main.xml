@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_container"
+        tools:context=".MainActivity">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/crane_purple_800">
+
+    <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@color/crane_purple_800"
+            >
+
+        <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trip"
+                />
+
+        <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lesson"
+                />
+
+        <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Help"
+                />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textField_restrictions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="25dp"
+                app:boxBackgroundMode="filled"
+                app:startIconTint="@color/grey"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:startIconDrawable="@drawable/baseline_person_24">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner_toggle"
+                    android:padding="15dp"
+                    android:text="@string/host_restrictions"
+                    android:textColor="@color/grey"
+                    android:fontFamily="@font/ralewaymedium"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textField_dates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="25dp"
+                app:boxBackgroundMode="filled"
+                app:startIconTint="@color/grey"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:startIconDrawable="@drawable/baseline_date_range_24">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_dates"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner_toggle"
+                    android:padding="15dp"
+                    android:text="@string/dates"
+                    android:textColor="@color/grey"
+                    android:fontFamily="@font/ralewaymedium"
+                    android:focusable="false"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textField_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="25dp"
+                app:boxBackgroundMode="filled"
+                app:startIconTint="@color/grey"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:startIconDrawable="@drawable/baseline_hotel_24">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner_toggle"
+                    android:padding="15dp"
+                    android:text="@string/Location"
+                    android:textColor="@color/grey"
+                    android:fontFamily="@font/ralewaymedium"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        <fragment
+                android:elevation="1dp"
+                android:id="@+id/filter_fragment"
+                android:name="com.example.wellcome.WindowFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:behavior_skipCollapsed="true"
+                app:layout_behavior=".GestureLockedBottomSheetBehavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

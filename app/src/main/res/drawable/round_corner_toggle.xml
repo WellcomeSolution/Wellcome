@@ -1,0 +1,10 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape android:shape="rectangle" >
+            <size android:height="25dp" />
+            <solid android:color="@color/crane_purple_700" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+
+</layer-list>
