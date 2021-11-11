@@ -12,4 +12,6 @@
     <color name="crane_purple_700">#720D5D</color>
     <color name="crane_red_700">#E30425</color>
     <color name="grey">#aeaeae</color>
+    <color name="text_view">#757575</color>
+    <color name="divider">#e0e0e0</color>
 </resources>

@@ -12,7 +12,7 @@
             android:animateLayoutChanges="true"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="63dp"
             android:elevation="10dp"
             android:layout_marginBottom="-20dp"
             android:background="@drawable/corner"
@@ -21,14 +21,13 @@
             app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
+                android:theme="@style/TextView"
                 android:id="@+id/textResult"
-                android:layout_marginStart="15dp"
-                android:layout_gravity="center|start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/host_restrictions_form"
-                android:textColor="#2B2B2B"
-                android:textSize="20sp" />
+                android:layout_gravity="start|center"
+                android:layout_marginStart="20dp"
+                android:text="@string/host_restrictions_form"/>
 
         <ImageButton
                 android:background="@android:color/transparent"

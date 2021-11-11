@@ -16,4 +16,11 @@
         <item name="android:fontFamily">@font/ralewaysemibold</item>
         <item name="textAllCaps">true</item>
     </style>
+
+    <style name="TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/text_view</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:fontFamily">@font/ralewaysemibold</item>
+    </style>
 </resources>

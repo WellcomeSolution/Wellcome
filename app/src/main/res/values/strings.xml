@@ -98,5 +98,5 @@
     <string name="host_restrictions" translatable="false">Select Restrictions</string>
     <string name="dates" translatable="false">Select Dates</string>
     <string name="Location" translatable="false">Select Location</string>
-    <string name="host_restrictions_form" translatable="false">Select the restrictions needed</string>
+    <string name="host_restrictions_form" translatable="false">Select Restrictions</string>
 </resources>
