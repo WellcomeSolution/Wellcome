@@ -1,3 +1,5 @@
 include ':WellcomeLibrary'
 include ':app'
 rootProject.name = "wellcome"
+include ':backdrop'
+include ':backdrop'
