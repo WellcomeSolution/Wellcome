@@ -1,4 +1,4 @@
-<LinearLayout android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
@@ -6,6 +6,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+            android:id="@+id/app_bar"
             android:layout_height="wrap_content"
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -25,8 +26,9 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
+            android:layout_below="@id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="23dp"
             android:orientation="vertical">
         <LinearLayout
@@ -38,10 +40,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_gravity="center_vertical"
-                    android:layout_centerInParent="true">
+                    android:layout_gravity="center_vertical">
                 <TextView
-                        android:text="Adultes"
+                        android:text="@string/restrictions_adults"
                         android:textSize="18dp"
                         android:fontFamily="@font/ralewaybold"
                         android:textColor="@color/black"
@@ -50,7 +51,7 @@
                 <TextView
                         android:textSize="13dp"
                         android:fontFamily="@font/ralewaymedium"
-                        android:text="13 ans et plus"
+                        android:text="@string/restrictions_adults_details"
                         android:textColor="@color/text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -88,11 +89,209 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.google.android.material.divider.MaterialDivider
+        <include layout="@layout/divider"/>
+
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:dividerInsetStart="22dp"
-                app:dividerInsetEnd="22dp"
-                app:dividerColor="@color/divider"/>
+                android:orientation="horizontal"
+                android:layout_marginBottom="23dp">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                <TextView
+                        android:text="@string/restrictions_childrens"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginBottom="1dp"/>
+                <TextView
+                        android:textSize="13dp"
+                        android:fontFamily="@font/ralewaymedium"
+                        android:text="@string/restrictions_childrens_details"
+                        android:textColor="@color/text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+                <ImageButton
+                        android:id="@+id/remove_childrens"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/roundedbutton"
+                        android:src="@drawable/baseline_remove_24" />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                </TextView>
+                <ImageButton
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/roundedbutton"
+                        android:src="@drawable/baseline_add_24" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/divider"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="23dp">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                <TextView
+                        android:text="@string/restrictions_babies"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginBottom="1dp"/>
+                <TextView
+                        android:textSize="13dp"
+                        android:fontFamily="@font/ralewaymedium"
+                        android:text="@string/restrictions_babies_details"
+                        android:textColor="@color/text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+                <ImageButton
+                        android:id="@+id/remove_babies"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/roundedbutton"
+                        android:src="@drawable/baseline_remove_24" />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                </TextView>
+                <ImageButton
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/roundedbutton"
+                        android:src="@drawable/baseline_add_24" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/divider"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="23dp">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                <TextView
+                        android:text="@string/restrictions_pets"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginBottom="1dp"/>
+                <TextView
+                        android:textSize="13dp"
+                        android:fontFamily="@font/ralewaymedium"
+                        android:text="@string/restrictions_pets_details"
+                        android:textColor="@color/text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+                <ImageButton
+                        android:id="@+id/remove_pets"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/roundedbutton"
+                        android:src="@drawable/baseline_remove_24" />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                </TextView>
+                <ImageButton
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:background="@drawable/roundedbutton"
+                        android:src="@drawable/baseline_add_24" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="vertical">
+        <com.google.android.material.divider.MaterialDivider
+                app:dividerColor="@color/divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dividerThickness="0.8dp"></com.google.android.material.divider.MaterialDivider>
+        <Button
+                android:id="@+id/search_button"
+                android:enabled="false"
+                android:layout_marginRight="23dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="Search"
+                android:textAppearance="@style/TabTextAppearence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/baseline_search_24"
+                style="@style/MaterialButtonStyle" />
+    </RelativeLayout>
+
+</RelativeLayout>

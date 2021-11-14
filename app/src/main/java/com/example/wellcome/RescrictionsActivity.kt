@@ -2,6 +2,8 @@ package com.example.wellcome
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -14,6 +16,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.wellcome.databinding.ActivityRescrictionsBinding
 import com.example.wellcome.utils.Animations
+import com.example.wellcome.utils.disable
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import kotlinx.android.synthetic.main.activity_rescrictions.*
@@ -54,6 +57,13 @@ class RescrictionsActivity : AppCompatActivity() {
 
         remove_adult.setOnClickListener{
             Animations.getScaleDownAnimation(remove_adult).start()
+        }
+
+        search_button.setOnClickListener{
+            val b = search_button.background
+            b.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_ATOP)
+            search_button.background = b
+            search_button.disable()
         }
     }
 }
