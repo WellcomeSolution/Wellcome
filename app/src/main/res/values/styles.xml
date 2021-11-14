@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Wellcome" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/crane_purple_800</item>
+    <style name="Theme.Wellcome" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimaryDark">@color/crane_purple_900</item>
     </style>
 
     <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
-        <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
         <item name="tabIndicatorAnimationMode">linear</item>
         <item name="tabIndicator">@drawable/mtrl_tabs_default_indicator</item>
     </style>
 
-    <style name="TextAppearance.Design.Tab" parent="TextAppearance.AppCompat.Button">
-        <item name="android:textColor">@color/white</item>
+    <style name="TabTextAppearence" parent="TextAppearance.AppCompat.Button">
         <item name="android:fontFamily">@font/ralewaysemibold</item>
-        <item name="textAllCaps">true</item>
     </style>
 
     <style name="TextView" parent="Widget.AppCompat.TextView">
@@ -22,5 +18,23 @@
         <item name="android:textColor">@color/text_view</item>
         <item name="android:textSize">16dp</item>
         <item name="android:fontFamily">@font/ralewaysemibold</item>
+    </style>
+
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">40dp</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="iconSize">24dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.Button.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

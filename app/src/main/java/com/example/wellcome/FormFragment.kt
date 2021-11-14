@@ -17,7 +17,6 @@ class FormFragment : Fragment() {
         enterTransition = MaterialFadeThrough().apply {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
         }
-
     }
 
     override fun onCreateView(

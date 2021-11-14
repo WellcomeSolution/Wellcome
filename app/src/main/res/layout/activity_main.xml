@@ -5,14 +5,8 @@
         android:layout_height="match_parent"
         android:id="@+id/main_container"
         android:animateLayoutChanges="true"
-        tools:context=".MainActivity" android:background="@color/crane_purple_800">
-
-    <Button
-            android:id="@+id/b"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />
+        tools:context=".MainActivity"
+        android:background="@color/crane_purple_800">
 
     <fragment
             android:id="@+id/nav_host_fragment"
@@ -23,16 +17,13 @@
             app:navGraph="@navigation/navigation_graph"
             app:layout_constraintTop_toTopOf="parent"/>
 
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/test"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment"
-            android:animateLayoutChanges="true">
+            app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment">
         <fragment
-                app:layout_constraintTop_toBottomOf="parent"
+
                 android:elevation="1dp"
                 app:behavior_peekHeight="63dp"
                 android:id="@+id/filter_fragment"
@@ -40,8 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:behavior_skipCollapsed="true"
-                app:layout_behavior=".GestureLockedBottomSheetBehavior" />
+                app:layout_behavior=".GestureLockedBottomSheetBehavior"
+                />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

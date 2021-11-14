@@ -1,0 +1,17 @@
+<com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/crane_purple_700">
+    <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            app:navigationIcon="@drawable/baseline_clear_24"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+        <EditText
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"/>
+    </com.google.android.material.appbar.MaterialToolbar>
+</com.google.android.material.appbar.AppBarLayout>

@@ -4,7 +4,23 @@
         android:orientation="vertical"
         android:background="@color/crane_purple_800"
         xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:background="@color/crane_purple_700">
+        <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                app:navigationIcon="@drawable/baseline_clear_24"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+            <EditText
+                    android:id="@+id/searchBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"/>
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
@@ -37,7 +53,7 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="15dp"
             android:orientation="vertical">
@@ -92,9 +108,59 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField_location"
+                android:id="@+id/sqdqsdq"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="25dp"
+                app:boxBackgroundMode="filled"
+                app:startIconTint="@color/grey"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:startIconDrawable="@drawable/baseline_person_24">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/sqdqsdqsdqsqsd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner_toggle"
+                    android:padding="15dp"
+                    android:text="qsdqsdqddddddds"
+                    android:textColor="@color/grey"
+                    android:fontFamily="@font/ralewaymedium"
+                    android:focusable="false"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/qsdqsdqsd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="25dp"
+                app:boxBackgroundMode="filled"
+                app:startIconTint="@color/grey"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:startIconDrawable="@drawable/baseline_person_24">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/sqdqsdsqd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner_toggle"
+                    android:padding="15dp"
+                    android:text="qsdqsdqddddddds"
+                    android:textColor="@color/grey"
+                    android:fontFamily="@font/ralewaymedium"
+                    android:focusable="false"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textField_location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="25dp"
@@ -103,6 +169,7 @@
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
                 app:startIconDrawable="@drawable/baseline_hotel_24">
+
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -110,8 +177,7 @@
                     android:padding="15dp"
                     android:text="qsdqsdqsdq"
                     android:textColor="@color/grey"
-                    android:fontFamily="@font/ralewaymedium"
-                    />
+                    android:fontFamily="@font/ralewaymedium" />
 
             <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ddddd"
@@ -125,6 +191,7 @@
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
                     app:startIconDrawable="@drawable/baseline_person_24">
+
                 <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sqdqsd"
                         android:layout_width="match_parent"
@@ -134,58 +201,7 @@
                         android:text="qsdqsdqddddddds"
                         android:textColor="@color/grey"
                         android:fontFamily="@font/ralewaymedium"
-                        android:focusable="false"
-                        />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/qsddd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="25dp"
-                    app:boxBackgroundMode="filled"
-                    app:startIconTint="@color/grey"
-                    app:boxStrokeWidth="0dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:startIconDrawable="@drawable/baseline_person_24">
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/qsdd"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/round_corner_toggle"
-                        android:padding="15dp"
-                        android:text="qsdqsdqddddddds"
-                        android:textColor="@color/grey"
-                        android:fontFamily="@font/ralewaymedium"
-                        android:focusable="false"
-                        />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/sqd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="25dp"
-                    app:boxBackgroundMode="filled"
-                    app:startIconTint="@color/grey"
-                    app:boxStrokeWidth="0dp"
-                    app:boxStrokeWidthFocused="0dp"
-                    app:startIconDrawable="@drawable/baseline_person_24">
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/qsdqdd"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/round_corner_toggle"
-                        android:padding="15dp"
-                        android:text="qsdqsdqddddddds"
-                        android:textColor="@color/grey"
-                        android:fontFamily="@font/ralewaymedium"
-                        android:focusable="false"
-                        />
+                        android:focusable="false" />
             </com.google.android.material.textfield.TextInputLayout>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

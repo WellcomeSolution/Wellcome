@@ -14,6 +14,11 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Wellcome">
         <activity
+                android:name=".RescrictionsActivity"
+                android:exported="true"
+                android:label="@string/title_activity_rescrictions"
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
+        <activity
                 android:name=".MainActivity"
                 android:exported="true">
             <intent-filter>
@@ -26,13 +31,12 @@
                 android:name=".FirstMenuActivity"
                 android:exported="true"
                 android:label="Firstmenu"
-                android:theme="@style/Theme.Wellcome.NoActionBar">
-        </activity>
+                android:theme="@style/Theme.Wellcome.NoActionBar"></activity>
         <activity
                 android:name=".MenuLesson"
                 android:exported="true"
                 android:label="@string/title_activity_menu"
-                android:theme="@style/Theme.Wellcome.NoActionBar"></activity>
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
 
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
@@ -42,12 +46,12 @@
                 android:name=".MenuAssistance"
                 android:exported="true"
                 android:label="MenuAssistance"
-                android:theme="@style/Theme.Wellcome.NoActionBar"></activity>
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
         <activity
                 android:name=".ActivityConsultAssistance"
                 android:exported="true"
                 android:label="MenuAssistance"
-                android:theme="@style/Theme.Wellcome.NoActionBar"></activity>
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
     </application>
 
 </manifest>
