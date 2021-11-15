@@ -15,7 +15,7 @@
 
     <style name="TextView" parent="Widget.AppCompat.TextView">
         <item name="android:maxLines">1</item>
-        <item name="android:textColor">@color/text_view</item>
+        <item name="android:textColor">@color/grey_200</item>
         <item name="android:textSize">16dp</item>
         <item name="android:fontFamily">@font/ralewaysemibold</item>
     </style>
@@ -40,5 +40,11 @@
 
     <style name="MaterialButtonStyle" parent="Widget.MaterialComponents.Button.Icon">
         <item name="backgroundTint">@color/color_states_materialbutton</item>
+    </style>
+
+    <style name="ImageButtonAddRemove" parent="Widget.AppCompat.ImageButton">
+        <item name="tint">@color/black</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:background">@drawable/rounded_button</item>
     </style>
 </resources>

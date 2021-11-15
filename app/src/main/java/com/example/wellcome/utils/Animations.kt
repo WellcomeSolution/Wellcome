@@ -3,7 +3,6 @@ package com.example.wellcome.utils
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.view.View
-import kotlinx.android.synthetic.main.activity_rescrictions.*
 
 class Animations {
     companion object{

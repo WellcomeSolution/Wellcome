@@ -1,38 +1,13 @@
 package com.example.wellcome
 
-import android.animation.LayoutTransition
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.activity_main.*
-import android.text.InputType
-import android.transition.AutoTransition
-import android.transition.ChangeBounds
-import android.transition.Transition
-import android.transition.TransitionManager
-import android.util.AttributeSet
 
-import android.view.MotionEvent
-
-import android.view.View.OnTouchListener
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import com.google.android.material.transition.MaterialElevationScale
-import com.google.android.material.transition.MaterialFadeThrough
-import androidx.constraintlayout.motion.widget.MotionLayout
-import android.view.animation.AnticipateOvershootInterpolator
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import kotlinx.android.synthetic.main.fragment_form.*
-import android.animation.ValueAnimator
-import android.app.ActivityOptions
 import android.content.Intent
-import android.view.Window
-import androidx.constraintlayout.widget.ConstraintSet
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 
 
 class MainActivity : AppCompatActivity() {
@@ -44,25 +19,20 @@ class MainActivity : AppCompatActivity() {
             ?.fragments
             ?.first()
 
-    private val currentTopBarNavigationFragment: Fragment?
-        get() = supportFragmentManager.findFragmentById(R.id.top_bar_fragment)
-            ?.childFragmentManager
-            ?.fragments
-            ?.first()
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
-        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
-        window.sharedElementsUseOverlay = false
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        currentNavigationFragment?.apply {
-            exitTransition = MaterialFadeThrough().apply {
-                duration = resources.getInteger(R.integer.reply_motion_duration_medium).toLong()
-            }
-        }
+        /*sharedE = MaterialContainerTransform().apply {
+            // The drawing view is the id of the view above which the container transform
+            // will play in z-space.
+            drawingViewId = R.id.nav_host_fragment
+            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+            // Set the color of the scrim to transparent as we also want to animate the
+            // list fragment out of view
+            scrimColor = Color.TRANSPARENT
+            setAllContainerColors(requireContext().themeColor(R.attr.colorSurface))
+        }*/
 
         //test.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 
@@ -78,13 +48,8 @@ class MainActivity : AppCompatActivity() {
             //TransitionManager.beginDelayedTransition(main_container, autoTransition)
             //closeBottomSheet()
 
-            val intent = Intent(this, RescrictionsActivity::class.java)
 
-            /*val options = ActivityOptions.makeSceneTransitionAnimation(
-                this,
-                editText_restrictions,
-                "shared_element_container" // The transition name to be matched in Activity B.
-            )*/
+            val intent = Intent(this, RescrictionsActivityForm::class.java)
             startActivity(intent, null)
         }
 

@@ -7,8 +7,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class HostRestrictions(
-    val travelers :Int,
-    val isBabiesAllowed :Boolean,
-    val isDogsAllowed: Boolean,
-    val isChildsAllowed : Boolean) {
-}
+    val travelers :Int = 0,
+    val childs: Int,
+    val pets: Int,
+    val babies: Int)

@@ -65,7 +65,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="25dp"
                 app:boxBackgroundMode="filled"
-                app:startIconTint="@color/grey"
+                app:startIconTint="@color/grey_100"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
                 app:startIconDrawable="@drawable/baseline_person_24">
@@ -76,7 +76,7 @@
                     android:background="@drawable/round_corner_toggle"
                     android:padding="15dp"
                     android:text="qsdqsdqddddddds"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/grey_100"
                     android:fontFamily="@font/ralewaymedium"
                     android:focusable="false"
                     />
@@ -90,7 +90,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="25dp"
                 app:boxBackgroundMode="filled"
-                app:startIconTint="@color/grey"
+                app:startIconTint="@color/grey_100"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
                 app:startIconDrawable="@drawable/baseline_date_range_24">
@@ -101,7 +101,7 @@
                     android:background="@drawable/round_corner_toggle"
                     android:padding="15dp"
                     android:text="qsdsqdqdqsq"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/grey_100"
                     android:fontFamily="@font/ralewaymedium"
                     android:focusable="false"
                     />
@@ -115,7 +115,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="25dp"
                 app:boxBackgroundMode="filled"
-                app:startIconTint="@color/grey"
+                app:startIconTint="@color/grey_100"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
                 app:startIconDrawable="@drawable/baseline_person_24">
@@ -126,7 +126,7 @@
                     android:background="@drawable/round_corner_toggle"
                     android:padding="15dp"
                     android:text="qsdqsdqddddddds"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/grey_100"
                     android:fontFamily="@font/ralewaymedium"
                     android:focusable="false"
                     />
@@ -140,7 +140,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="25dp"
                 app:boxBackgroundMode="filled"
-                app:startIconTint="@color/grey"
+                app:startIconTint="@color/grey_100"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
                 app:startIconDrawable="@drawable/baseline_person_24">
@@ -151,7 +151,7 @@
                     android:background="@drawable/round_corner_toggle"
                     android:padding="15dp"
                     android:text="qsdqsdqddddddds"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/grey_100"
                     android:fontFamily="@font/ralewaymedium"
                     android:focusable="false"
                     />
@@ -165,7 +165,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="25dp"
                 app:boxBackgroundMode="filled"
-                app:startIconTint="@color/grey"
+                app:startIconTint="@color/grey_100"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
                 app:startIconDrawable="@drawable/baseline_hotel_24">
@@ -176,7 +176,7 @@
                     android:background="@drawable/round_corner_toggle"
                     android:padding="15dp"
                     android:text="qsdqsdqsdq"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/grey_100"
                     android:fontFamily="@font/ralewaymedium" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -187,7 +187,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="25dp"
                     app:boxBackgroundMode="filled"
-                    app:startIconTint="@color/grey"
+                    app:startIconTint="@color/grey_100"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
                     app:startIconDrawable="@drawable/baseline_person_24">
@@ -199,7 +199,7 @@
                         android:background="@drawable/round_corner_toggle"
                         android:padding="15dp"
                         android:text="qsdqsdqddddddds"
-                        android:textColor="@color/grey"
+                        android:textColor="@color/grey_100"
                         android:fontFamily="@font/ralewaymedium"
                         android:focusable="false" />
             </com.google.android.material.textfield.TextInputLayout>

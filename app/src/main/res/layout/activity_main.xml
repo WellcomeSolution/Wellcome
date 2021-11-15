@@ -9,6 +9,7 @@
         android:background="@color/crane_purple_800">
 
     <fragment
+            android:transitionName="shared_element_container"
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"

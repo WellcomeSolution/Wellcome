@@ -14,7 +14,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Wellcome">
         <activity
-                android:name=".RescrictionsActivity"
+                android:name=".RescrictionsActivityForm"
                 android:exported="true"
                 android:label="@string/title_activity_rescrictions"
                 android:theme="@style/Theme.Wellcome.NoActionBar" />
