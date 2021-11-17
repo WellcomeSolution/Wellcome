@@ -42,9 +42,8 @@
         <item name="backgroundTint">@color/color_states_materialbutton</item>
     </style>
 
-    <style name="ImageButtonAddRemove" parent="Widget.AppCompat.ImageButton">
-        <item name="tint">@color/black</item>
-        <item name="android:padding">3dp</item>
-        <item name="android:background">@drawable/rounded_button</item>
+    <style name="ImageButtonAddRemove" parent="Widget.MaterialComponents.Button.OutlinedButton.Icon">
+        <item name="iconTint">@color/black</item>
+        <item name="backgroundColor">@color/black</item>
     </style>
 </resources>

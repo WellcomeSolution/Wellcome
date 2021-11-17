@@ -40,6 +40,7 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_hotel_24.xml" value="0.29270833333333335" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_person_24.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_search_24.xml" value="0.29270833333333335" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/btn_disable.xml" value="0.36574074074074076" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/button.xml" value="0.29270833333333335" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/button_state.xml" value="0.29270833333333335" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/corner.xml" value="0.2682291666666667" />
@@ -58,7 +59,7 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_maps.xml" value="0.1828125" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_rescrictions.xml" value="0.33" />
-        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_rescrictions_form.xml" value="0.33" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_rescrictions_form.xml" value="0.5" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/bottom_navigation_menu.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/card_perta.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/content_host_restrictions.xml" value="0.2520833333333333" />

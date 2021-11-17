@@ -66,13 +66,22 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="end">
-                    <ImageButton
-                            android:id="@+id/remove_adult"
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                    <com.google.android.material.button.MaterialButton
+
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             style="@style/ImageButtonAddRemove"
-                            android:src="@drawable/baseline_remove_24" />
+                            app:icon="@drawable/baseline_remove_24"
+                            app:iconSize="24dp"
+                            app:iconGravity="textStart"
+                            android:padding="0dp"
+                            app:iconPadding="0dp"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                            />
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -82,12 +91,21 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp">
                     </TextView>
-                    <ImageButton
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             style="@style/ImageButtonAddRemove"
-                            android:src="@drawable/baseline_add_24" />
+                            app:icon="@drawable/baseline_add_24"
+                            app:iconSize="24dp"
+                            app:iconGravity="textStart"
+                            android:padding="0dp"
+                            app:iconPadding="0dp"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                            />
                 </LinearLayout>
             </LinearLayout>
 
@@ -124,13 +142,21 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="end">
-                    <ImageButton
-                            android:id="@+id/remove_childrens"
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             style="@style/ImageButtonAddRemove"
-                            android:src="@drawable/baseline_remove_24" />
+                            app:icon="@drawable/baseline_remove_24"
+                            app:iconSize="24dp"
+                            app:iconGravity="textStart"
+                            android:padding="0dp"
+                            app:iconPadding="0dp"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                            />
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -140,12 +166,21 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp">
                     </TextView>
-                    <ImageButton
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             style="@style/ImageButtonAddRemove"
-                            android:src="@drawable/baseline_add_24" />
+                            app:icon="@drawable/baseline_add_24"
+                            app:iconSize="24dp"
+                            app:iconGravity="textStart"
+                            android:padding="0dp"
+                            app:iconPadding="0dp"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                            />
                 </LinearLayout>
             </LinearLayout>
 
@@ -182,13 +217,23 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="end">
-                    <ImageButton
-                            android:id="@+id/remove_babies"
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             style="@style/ImageButtonAddRemove"
-                            android:src="@drawable/baseline_remove_24" />
+                            app:icon="@drawable/baseline_remove_24"
+                            app:iconSize="24dp"
+                            app:iconGravity="textStart"
+                            android:padding="0dp"
+                            app:iconPadding="0dp"
+                            android:insetLeft="0dp"
+                            android:enabled="false"
+                            app:strokeColor="@color/black"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                            />
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -198,12 +243,21 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp">
                     </TextView>
-                    <ImageButton
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             style="@style/ImageButtonAddRemove"
-                            android:src="@drawable/baseline_add_24" />
+                            app:icon="@drawable/baseline_add_24"
+                            app:iconSize="24dp"
+                            app:iconGravity="textStart"
+                            android:padding="0dp"
+                            app:iconPadding="0dp"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                            />
                 </LinearLayout>
             </LinearLayout>
 
@@ -240,13 +294,21 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="end">
-                    <ImageButton
-                            android:id="@+id/remove_pets"
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             style="@style/ImageButtonAddRemove"
-                            android:src="@drawable/baseline_remove_24" />
+                            app:icon="@drawable/baseline_remove_24"
+                            app:iconSize="24dp"
+                            app:iconGravity="textStart"
+                            android:padding="0dp"
+                            app:iconPadding="0dp"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                            />
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -256,12 +318,21 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp">
                     </TextView>
-                    <ImageButton
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             style="@style/ImageButtonAddRemove"
-                            android:src="@drawable/baseline_add_24" />
+                            app:icon="@drawable/baseline_add_24"
+                            app:iconSize="24dp"
+                            app:iconGravity="textStart"
+                            android:padding="0dp"
+                            app:iconPadding="0dp"
+                            android:insetLeft="0dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                            />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
