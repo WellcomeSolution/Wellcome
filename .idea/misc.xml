@@ -60,7 +60,18 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20520833333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_trip_menu.xml" value="0.10462962962962963" />
         <entry key="app/src/main/res/layout/annoncelogement.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/cours_card_view.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/fragement_add_assistance.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/fragement_add_trip.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/fragement_search_trip.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/fragment_search_assistance.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/menu/bottom_navigation_assistance.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_navigation_trip.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/top_navigation_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

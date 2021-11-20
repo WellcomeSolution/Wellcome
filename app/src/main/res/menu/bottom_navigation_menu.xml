@@ -9,4 +9,9 @@
         android:enabled="true"
         android:icon="@drawable/outline_control_point_24"
         android:title="Add Services" />
+    <item
+        android:id="@+id/Favorris"
+        android:enabled="true"
+        android:icon="@drawable/outline_control_point_24"
+        android:title="Favoris" />
 </menu>
