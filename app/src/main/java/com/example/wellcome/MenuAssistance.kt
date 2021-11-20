@@ -23,6 +23,9 @@ class MenuAssistance : AppCompatActivity() {
                     launchAddServicesFragment()
                     true
                 }
+
+
+
                 else -> false
             }
         }
@@ -36,4 +39,7 @@ class MenuAssistance : AppCompatActivity() {
         supportFragmentManager.
         beginTransaction().replace(R.id.assistance_content, SearchAssistanceFragment()).commit()
     }
+
+
+
 }
