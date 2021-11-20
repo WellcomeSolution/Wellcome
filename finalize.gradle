@@ -1,0 +1,36 @@
+plugins {
+    id 'org.asciidoctor.jvm.gems' version '3.3.0'
+    id 'org.asciidoctor.jvm.convert' version '3.3.0'
+}
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    ruby {
+        gems()
+    }
+}
+
+asciidoctor {
+    baseDirFollowsSourceDir()
+    sourceDir = file("$rootProject.buildDir")
+    fontsDir files('data/fonts')
+    sources {
+        include 'index.adoc'
+    }
+    attributes 'icons': 'font',
+               'setanchors': '',
+               'rootDir': file(rootDir),
+               'docinfo': 'shared'
+}
+
+task finalize(dependsOn: ['asciidoctor']) {
+    doLast{
+        copy {
+            from asciidoctor.getOutputs()
+            into "$rootDir"
+        }
+    }
+}

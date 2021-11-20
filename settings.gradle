@@ -1,0 +1,3 @@
+include ':WellcomeLibrary'
+include ':app'
+rootProject.name = "wellcome"
