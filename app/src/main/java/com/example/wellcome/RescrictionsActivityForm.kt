@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import android.view.Window
 import android.view.animation.AnimationUtils
@@ -27,6 +28,8 @@ class RescrictionsActivityForm : AppCompatActivity() {
     private lateinit var binding: ActivityRescrictionsFormBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        initAnimations()
+
         super.onCreate(savedInstanceState)
 
         val binding: ActivityRescrictionsFormBinding = DataBindingUtil.setContentView(
@@ -40,7 +43,25 @@ class RescrictionsActivityForm : AppCompatActivity() {
         }*/
 
         topAppBar.setNavigationOnClickListener {
-            finish()
+            dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK))
+            dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK))
         }
+    }
+
+    private fun initAnimations(){
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+
+        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 300L
+        }
+
+        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 300L
+        }
+
+        findViewById<View>(android.R.id.content).transitionName = "shared_element_container"
+        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
     }
 }

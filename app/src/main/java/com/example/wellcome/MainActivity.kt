@@ -8,6 +8,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_form.*
 import android.content.Intent
+import android.view.Window
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +22,11 @@ class MainActivity : AppCompatActivity() {
             ?.first()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        window.sharedElementsUseOverlay = false
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -37,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         //test.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 
 
-        editText_restrictions.setOnClickListener{
+        /*editText_restrictions.setOnClickListener{
             /*val constraintSet = ConstraintSet()
             constraintSet.clone(main_container)
             constraintSet.connect(R.id.test, ConstraintSet.TOP, R.id.main_container, ConstraintSet.TOP, 0)*/
@@ -49,9 +56,9 @@ class MainActivity : AppCompatActivity() {
             //closeBottomSheet()
 
 
-            val intent = Intent(this, RescrictionsActivityForm::class.java)
-            startActivity(intent, null)
-        }
+            //val intent = Intent(this, RescrictionsActivityForm::class.java)
+            //startActivity(intent, null)
+        }*/
 
 
         /*bb.setOnClickListener{

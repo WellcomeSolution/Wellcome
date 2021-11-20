@@ -38,6 +38,7 @@
                     app:startIconTint="@color/grey_100"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
+                    android:transitionName="shared_element_container"
                     app:startIconDrawable="@drawable/baseline_person_24">
                 <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editText_restrictions"
@@ -63,7 +64,8 @@
                     app:startIconTint="@color/grey_100"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    app:startIconDrawable="@drawable/baseline_date_range_24">
+                    app:startIconDrawable="@drawable/baseline_date_range_24"
+                    android:transitionName="shared_element_container">
                 <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editText_dates"
                         android:layout_width="match_parent"

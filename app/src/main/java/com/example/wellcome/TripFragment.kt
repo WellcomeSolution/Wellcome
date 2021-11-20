@@ -1,5 +1,6 @@
 package com.example.wellcome
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -23,7 +24,30 @@ class TripFragment : Fragment() {
     private var listener: OnBottomSheetCallbacks? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        editText_restrictions.setOnClickListener{
+            val intent = Intent(context, RescrictionsActivityForm::class.java)
+            val options =  ActivityOptions.makeSceneTransitionAnimation(
+                activity,
+                editText_restrictions,
+                "shared_element_container"  // The transition name to be matched in Activity B.
+            )
+            activity?.startActivity(intent, options.toBundle())
+        }
+
+        editText_dates.setOnClickListener{
+            val intent = Intent(context, DatesActivity::class.java)
+            val options =  ActivityOptions.makeSceneTransitionAnimation(
+                activity,
+                editText_restrictions,
+                "shared_element_container"  // The transition name to be matched in Activity B.
+            )
+            activity?.startActivity(intent, options.toBundle())
+        }
+
         super.onViewCreated(view, savedInstanceState)
+
+        sharedElementEnterTransition = MaterialContainerTransform().setDuration(300L)
+        sharedElementReturnTransition = MaterialContainerTransform().setDuration(300L)
     }
 
     override fun onCreateView(

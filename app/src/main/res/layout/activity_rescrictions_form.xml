@@ -3,7 +3,8 @@
     <data>
         <variable name="restrictions" type="com.example.wellcome.utils.db.HostRestrictions"/>
     </data>
-    <RelativeLayout android:layout_width="match_parent"
+    <RelativeLayout
+            android:id="@+id/content" android:layout_width="match_parent"
             android:layout_height="match_parent"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:orientation="vertical"
@@ -67,19 +68,8 @@
                         android:orientation="horizontal"
                         android:gravity="end">
                     <com.google.android.material.button.MaterialButton
-
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/ImageButtonAddRemove"
+                            style="@style/ButtonRemove"
                             app:icon="@drawable/baseline_remove_24"
-                            app:iconSize="24dp"
-                            app:iconGravity="textStart"
-                            android:padding="0dp"
-                            app:iconPadding="0dp"
-                            android:insetLeft="0dp"
-                            android:insetTop="0dp"
-                            android:insetRight="0dp"
-                            android:insetBottom="0dp"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
                             />
                     <TextView
@@ -92,18 +82,8 @@
                             android:layout_marginRight="10dp">
                     </TextView>
                     <com.google.android.material.button.MaterialButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/ImageButtonAddRemove"
+                            style="@style/ButtonAdd"
                             app:icon="@drawable/baseline_add_24"
-                            app:iconSize="24dp"
-                            app:iconGravity="textStart"
-                            android:padding="0dp"
-                            app:iconPadding="0dp"
-                            android:insetLeft="0dp"
-                            android:insetTop="0dp"
-                            android:insetRight="0dp"
-                            android:insetBottom="0dp"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
                             />
                 </LinearLayout>
@@ -143,18 +123,8 @@
                         android:orientation="horizontal"
                         android:gravity="end">
                     <com.google.android.material.button.MaterialButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/ImageButtonAddRemove"
+                            style="@style/ButtonRemove"
                             app:icon="@drawable/baseline_remove_24"
-                            app:iconSize="24dp"
-                            app:iconGravity="textStart"
-                            android:padding="0dp"
-                            app:iconPadding="0dp"
-                            android:insetLeft="0dp"
-                            android:insetTop="0dp"
-                            android:insetRight="0dp"
-                            android:insetBottom="0dp"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
                             />
                     <TextView
@@ -167,18 +137,8 @@
                             android:layout_marginRight="10dp">
                     </TextView>
                     <com.google.android.material.button.MaterialButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/ImageButtonAddRemove"
+                            style="@style/ButtonAdd"
                             app:icon="@drawable/baseline_add_24"
-                            app:iconSize="24dp"
-                            app:iconGravity="textStart"
-                            android:padding="0dp"
-                            app:iconPadding="0dp"
-                            android:insetLeft="0dp"
-                            android:insetTop="0dp"
-                            android:insetRight="0dp"
-                            android:insetBottom="0dp"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
                             />
                 </LinearLayout>
@@ -218,20 +178,8 @@
                         android:orientation="horizontal"
                         android:gravity="end">
                     <com.google.android.material.button.MaterialButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/ImageButtonAddRemove"
+                            style="@style/ButtonRemove"
                             app:icon="@drawable/baseline_remove_24"
-                            app:iconSize="24dp"
-                            app:iconGravity="textStart"
-                            android:padding="0dp"
-                            app:iconPadding="0dp"
-                            android:insetLeft="0dp"
-                            android:enabled="false"
-                            app:strokeColor="@color/black"
-                            android:insetTop="0dp"
-                            android:insetRight="0dp"
-                            android:insetBottom="0dp"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
                             />
                     <TextView
@@ -244,18 +192,8 @@
                             android:layout_marginRight="10dp">
                     </TextView>
                     <com.google.android.material.button.MaterialButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/ImageButtonAddRemove"
+                            style="@style/ButtonAdd"
                             app:icon="@drawable/baseline_add_24"
-                            app:iconSize="24dp"
-                            app:iconGravity="textStart"
-                            android:padding="0dp"
-                            app:iconPadding="0dp"
-                            android:insetLeft="0dp"
-                            android:insetTop="0dp"
-                            android:insetRight="0dp"
-                            android:insetBottom="0dp"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
                             />
                 </LinearLayout>
@@ -295,18 +233,8 @@
                         android:orientation="horizontal"
                         android:gravity="end">
                     <com.google.android.material.button.MaterialButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/ImageButtonAddRemove"
+                            style="@style/ButtonRemove"
                             app:icon="@drawable/baseline_remove_24"
-                            app:iconSize="24dp"
-                            app:iconGravity="textStart"
-                            android:padding="0dp"
-                            app:iconPadding="0dp"
-                            android:insetLeft="0dp"
-                            android:insetTop="0dp"
-                            android:insetRight="0dp"
-                            android:insetBottom="0dp"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
                             />
                     <TextView
@@ -319,18 +247,8 @@
                             android:layout_marginRight="10dp">
                     </TextView>
                     <com.google.android.material.button.MaterialButton
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            style="@style/ImageButtonAddRemove"
+                            style="@style/ButtonAdd"
                             app:icon="@drawable/baseline_add_24"
-                            app:iconSize="24dp"
-                            app:iconGravity="textStart"
-                            android:padding="0dp"
-                            app:iconPadding="0dp"
-                            android:insetLeft="0dp"
-                            android:insetTop="0dp"
-                            android:insetRight="0dp"
-                            android:insetBottom="0dp"
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
                             />
                 </LinearLayout>

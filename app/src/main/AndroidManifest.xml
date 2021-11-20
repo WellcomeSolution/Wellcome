@@ -14,6 +14,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Wellcome">
         <activity
+                android:name=".DatesActivity"
+                android:exported="true" />
+        <activity
                 android:name=".RescrictionsActivityForm"
                 android:exported="true"
                 android:label="@string/title_activity_rescrictions"
@@ -31,7 +34,7 @@
                 android:name=".FirstMenuActivity"
                 android:exported="true"
                 android:label="Firstmenu"
-                android:theme="@style/Theme.Wellcome.NoActionBar"></activity>
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
         <activity
                 android:name=".MenuLesson"
                 android:exported="true"

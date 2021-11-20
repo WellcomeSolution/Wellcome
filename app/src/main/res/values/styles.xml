@@ -41,9 +41,29 @@
     <style name="MaterialButtonStyle" parent="Widget.MaterialComponents.Button.Icon">
         <item name="backgroundTint">@color/color_states_materialbutton</item>
     </style>
+    
+    <style name="ButtonAddRemove" parent="Widget.MaterialComponents.Button.OutlinedButton.Icon">
+        <item name="iconSize">20dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:padding">0dp</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:layout_width">29dp</item>
+        <item name="android:layout_height">29dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetRight">0dp</item>
+    </style>
 
-    <style name="ImageButtonAddRemove" parent="Widget.MaterialComponents.Button.OutlinedButton.Icon">
+    <style name="ButtonRemove" parent="ButtonAddRemove">
+        <item name="iconTint">@color/grey_100</item>
+        <item name="strokeColor">@color/grey_100</item>
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="ButtonAdd" parent="ButtonAddRemove">
         <item name="iconTint">@color/black</item>
-        <item name="backgroundColor">@color/black</item>
+        <item name="android:enabled">true</item>
+        <item name="strokeColor">@color/black</item>
     </style>
 </resources>
