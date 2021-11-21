@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.utils.db.Lesson
 
-class FavoriteAssistanceAdapter(private val dataSet:List<Lesson>):RecyclerView.Adapter<FavoriteAssistanceAdapter.ViewHolder>() {
-    override fun onBindViewHolder(viewHolder: FavoriteAssistanceAdapter.ViewHolder, position: Int) {
+class FavoriteAssistanceAdapter(private val dataSet:List<Lesson>):RecyclerView.Adapter<FavoriteAssistanceAdapter.viewHolder>() {
+    override fun onBindViewHolder(viewHolder: FavoriteAssistanceAdapter.viewHolder, position: Int) {
         viewHolder.title.text = dataSet[position].title
     }
     inner class viewHolder(view: View):RecyclerView.ViewHolder(view){
