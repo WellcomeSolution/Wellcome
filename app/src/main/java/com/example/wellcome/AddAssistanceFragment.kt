@@ -74,7 +74,7 @@ class AddAssistanceFragment: BaseFragment()  {
             mlist.add(checkbox3_assistance.text.toString())
         }
         var list = mlist.toList()
-        var ret_assistance = Assistance(assistance_titre.text.toString(),assistance_description.text.toString(), getAddress(),
+        var ret_assistance = Assistance(false, assistance_titre.text.toString(),assistance_description.text.toString(), getAddress(),
             assistance_phone.text.toString(),list, true, Priority.Low)
         return ret_assistance
     }
