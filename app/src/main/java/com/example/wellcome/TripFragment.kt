@@ -14,16 +14,22 @@ import com.google.android.material.transition.MaterialFadeThrough
 import kotlinx.android.synthetic.main.fragment_trip.*
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.util.Pair
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.transition.MaterialContainerTransform
 import com.google.android.material.transition.MaterialElevationScale
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 
 
 class TripFragment : Fragment() {
     private var listener: OnBottomSheetCallbacks? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        sharedElementEnterTransition = MaterialContainerTransform().setDuration(300L)
+        sharedElementReturnTransition = MaterialContainerTransform().setDuration(300L)
+
         editText_restrictions.setOnClickListener{
             val intent = Intent(context, RescrictionsActivityForm::class.java)
             val options =  ActivityOptions.makeSceneTransitionAnimation(
@@ -35,19 +41,38 @@ class TripFragment : Fragment() {
         }
 
         editText_dates.setOnClickListener{
-            val intent = Intent(context, DatesActivity::class.java)
+            /*val intent = Intent(context, DatesActivity::class.java)
             val options =  ActivityOptions.makeSceneTransitionAnimation(
                 activity,
                 editText_restrictions,
                 "shared_element_container"  // The transition name to be matched in Activity B.
             )
-            activity?.startActivity(intent, options.toBundle())
+            activity?.startActivity(intent, options.toBundle())*/
+
+
+            exitTransition = MaterialElevationScale(/* growing= */ false)
+            reenterTransition = MaterialElevationScale(/* growing= */ true)
+
+            val dateRangePicker =
+                MaterialDatePicker.Builder.dateRangePicker()
+                    .setTitleText("Select dates")
+                    .setSelection(
+                        Pair(
+                            MaterialDatePicker.thisMonthInUtcMilliseconds(),
+                            MaterialDatePicker.todayInUtcMilliseconds()
+                        )
+                    )
+                    .build()
+
+
+            dateRangePicker.sharedElementEnterTransition = MaterialContainerTransform()
+
+            dateRangePicker.show(parentFragmentManager.addSha, "tag")
+
         }
 
         super.onViewCreated(view, savedInstanceState)
 
-        sharedElementEnterTransition = MaterialContainerTransform().setDuration(300L)
-        sharedElementReturnTransition = MaterialContainerTransform().setDuration(300L)
     }
 
     override fun onCreateView(

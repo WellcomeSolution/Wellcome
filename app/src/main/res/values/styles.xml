@@ -66,4 +66,15 @@
         <item name="android:enabled">true</item>
         <item name="strokeColor">@color/black</item>
     </style>
+
+    <style name="CustomThemeOverlay_MaterialCalendar_Fullscreen"
+            parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">
+        <item name="materialCalendarStyle">@style/Custom_MaterialCalendar.Fullscreen</item>
+    </style>
+
+    <style name="Custom_MaterialCalendar.Fullscreen"
+            parent="@style/Widget.MaterialComponents.MaterialCalendar.Fullscreen">
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowExitAnimation">@null</item>
+    </style>
 </resources>

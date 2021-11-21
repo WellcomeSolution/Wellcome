@@ -18,19 +18,9 @@ class DatesActivity : AppCompatActivity() {
 
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dates)
-        val dateRangePicker =
-            MaterialDatePicker.Builder.dateRangePicker()
-                .setTitleText("Select dates")
-                .setSelection(
-                    Pair(
-                        MaterialDatePicker.thisMonthInUtcMilliseconds(),
-                        MaterialDatePicker.todayInUtcMilliseconds()
-                    )
-                )
-                .build()
 
-        dateRangePicker.show(supportFragmentManager, "tag")
+        setContentView(R.layout.activity_dates)
+
 
     }
 
@@ -38,12 +28,6 @@ class DatesActivity : AppCompatActivity() {
 
 
         return super.onCreateView(name, context, attrs)
-
-
-    }
-
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
 
 
     }
