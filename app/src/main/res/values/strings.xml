@@ -95,4 +95,6 @@
     <string name="cours_added">The assistance has been added succesfuly !</string>
     <string name="yes">OK</string>
     <string name="no">Cancel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

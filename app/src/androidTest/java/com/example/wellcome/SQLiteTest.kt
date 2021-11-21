@@ -37,6 +37,7 @@ class SQLiteTest {
             "description",
             getAddress(),
             "0668319800",
+            false,
             listOf("baby", "handicape"),
             3
         )
@@ -49,11 +50,13 @@ class SQLiteTest {
     @Test
     fun assistanceInsertTest(){
         val assistance = Assistance(
+            isFavorite = false,
             "title",
             "description",
             getAddress(),
             "0668319800",
             listOf("baby", "handicape"),
+            true,
             Priority.High
         )
 

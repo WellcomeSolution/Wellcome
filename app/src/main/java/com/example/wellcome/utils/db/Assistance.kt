@@ -9,6 +9,7 @@ import com.example.wellcome.models.Priority
 
 @Entity
 data class Assistance(
+    val isFavorite:Boolean,
     val title: String,
     val description: String,
     @Embedded val address: Address,
@@ -18,4 +19,5 @@ data class Assistance(
     val priority: Priority) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
+
 }
