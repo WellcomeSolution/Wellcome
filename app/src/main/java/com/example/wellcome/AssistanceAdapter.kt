@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
+import com.example.wellcome.utils.db.AppDatabase
 import com.example.wellcome.utils.db.Assistance
 import com.example.wellcome.utils.searchAddress
 import kotlinx.android.synthetic.main.assistance_card_view.view.*
@@ -23,6 +25,7 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
         val phone: TextView = itemView.phone_assistance
         val callButton: Button = itemView.call_button_assistance
         val assistanceButton: Button = itemView.consulter_button_assistance
+        val addfavoritesButton:Button = itemView.add_favorites
         val country: TextView = itemView.country_assistance
         val department: TextView = itemView.department_assistance
         val city: TextView = itemView.city_assistance
@@ -63,6 +66,15 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
             val intent = Intent(context, ActivityConsultAssistance::class.java)
             intent.putExtras(bundle)
             context.startActivity(intent)
+        }
+
+        viewHolder.addfavoritesButton.setOnClickListener {
+            val db = Room.databaseBuilder(
+                context,
+                AppDatabase::class.java, "wellcome"
+            ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+
+            db.assistanceDao().update(true,dataSet[position].id)
         }
     }
 

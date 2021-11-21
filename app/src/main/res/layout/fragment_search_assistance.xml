@@ -55,6 +55,7 @@
                     android:textSize="24px"
                     android:text="tags"
                     android:layout_weight="0.2"/>
+
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
