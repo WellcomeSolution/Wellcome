@@ -22,5 +22,5 @@ interface LessonDao {
     fun update(value:Boolean,id:Int)
 
     @Query("SELECT * FROM assistance WHERE isFavorite=:value")
-    fun findAssistanceFavorites(value: Boolean=true): List<Lesson>
+    fun findLessonFavorites(value: Boolean=true): List<Lesson>
 }
