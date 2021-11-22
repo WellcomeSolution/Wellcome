@@ -18,9 +18,8 @@ interface LessonDao {
     fun findLessonByTags(tags: List<String>): List<Lesson>
     @Query("UPDATE lesson SET isAvailable=:isAvailable WHERE id = :id")
     fun update(isAvailable: Boolean?, id: Int)
-    @Query("UPDATE assistance SET isFavorite=:value WHERE id  = :id")
+    @Query("UPDATE lesson SET isFavorite=:value WHERE id  = :id")
     fun update(value:Boolean,id:Int)
-
-    @Query("SELECT * FROM assistance WHERE isFavorite=:value")
+    @Query("SELECT * FROM lesson WHERE isFavorite=:value")
     fun findLessonFavorites(value: Boolean=true): List<Lesson>
 }

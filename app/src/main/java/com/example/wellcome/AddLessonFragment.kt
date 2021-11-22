@@ -55,6 +55,7 @@ class AddLessonFragment: BaseFragment() {
             }
             var list = mlist.toList()
             var ret_cours = Lesson(
+                false,
                 services_titre.text.toString(),
                 services_description.text.toString(),
                 getAddress(),

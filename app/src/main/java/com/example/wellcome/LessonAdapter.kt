@@ -10,6 +10,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.utils.db.Lesson
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
+import kotlinx.android.synthetic.main.assistance_card_view.view.*
 import kotlinx.android.synthetic.main.cours_card_view.view.*
 
 class LessonAdapter(private val dataSet: List<Lesson>):
@@ -27,6 +30,7 @@ class LessonAdapter(private val dataSet: List<Lesson>):
         val city: TextView = itemView.city_lesson
         val postalCode: TextView =itemView.postalcode_lesson
         val address: TextView = itemView.address_lesson
+
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -38,6 +42,8 @@ class LessonAdapter(private val dataSet: List<Lesson>):
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+
+
         viewHolder.title.text = dataSet[position].title
         viewHolder.phone.text = dataSet[position].phone
         viewHolder.country.text = dataSet[position].address.country?.addressLine

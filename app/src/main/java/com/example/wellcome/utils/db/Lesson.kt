@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Lesson(
-    val isFavorites:Boolean,
+    val isFavorite:Boolean,
     val title: String,
     val description: String,
     @Embedded val address: Address,
