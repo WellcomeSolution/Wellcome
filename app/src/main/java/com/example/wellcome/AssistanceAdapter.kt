@@ -1,4 +1,5 @@
 package com.example.wellcome
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -13,6 +14,8 @@ import androidx.room.Room
 import com.example.wellcome.utils.db.AppDatabase
 import com.example.wellcome.utils.db.Assistance
 import com.example.wellcome.utils.searchAddress
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.assistance_card_view.view.*
 
 class AssistanceAdapter(private val dataSet: List<Assistance>):
@@ -22,15 +25,11 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = itemView.title_assistance
-        val phone: TextView = itemView.phone_assistance
+        val address: TextView = itemView.address
         val callButton: Button = itemView.call_button_assistance
         val assistanceButton: Button = itemView.consulter_button_assistance
-        val addfavoritesButton:Button = itemView.add_favorites
-        val country: TextView = itemView.country_assistance
-        val department: TextView = itemView.department_assistance
-        val city: TextView = itemView.city_assistance
-        val postalCode: TextView =itemView.postalcode_assistance
-        val address: TextView = itemView.findViewById(R.id.address_assistance)
+        val addfavoritesButton:Button = itemView.add_favorites_assitance
+        val chipGroup: ChipGroup = itemView.chipGroup
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssistanceAdapter.ViewHolder {
@@ -42,21 +41,26 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.title.text = dataSet[position].title
-        viewHolder.phone.text = dataSet[position].phone
-        viewHolder.country.text = dataSet[position].address.country?.addressLine
-        viewHolder.department.text = dataSet[position].address.country?.administrativeArea?.addressLine
-        viewHolder.city.text = dataSet[position].address.country?.administrativeArea?.locality?.addressLine
-        viewHolder.postalCode.text = dataSet[position].address.country?.administrativeArea?.locality?.postalCode?.addressLine
-        viewHolder.address.text = dataSet[position].address.country?.administrativeArea?.locality?.thoroughfare?.addressLine
+        dataSet[position].tags.forEach {
+            val chip = Chip(context)
+            chip.text = it
+            viewHolder.chipGroup.addView(chip)
+        }
 
-        val tele = viewHolder.phone.text
+        viewHolder.title.text = dataSet[position].title
+        val city = dataSet[position].address.country?.administrativeArea?.locality?.addressLine
+        val country = dataSet[position].address.country?.addressLine
+        viewHolder.address.text = "$city " +
+                "in $country"
+
+        val phone  = dataSet[position].phone
 
         viewHolder.callButton.setOnClickListener {
             var intent = Intent()
             intent.action = Intent.ACTION_DIAL
-            intent.data = Uri.parse("tel:$tele")
+            intent.data = Uri.parse("tel:$phone")
             context.startActivity(intent)
         }
 
