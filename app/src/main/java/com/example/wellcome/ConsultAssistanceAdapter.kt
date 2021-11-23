@@ -25,10 +25,13 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
     lateinit var db: AppDatabase
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = itemView.findViewById(R.id.title_assisstance_con)
-        val address: TextView = itemView.findViewById(R.id.address_assistance_con)
-        val phone: TextView = itemView.findViewById(R.id.phone_assistance_con)
+        val title: TextView = itemView.findViewById(R.id.title_assistance_con)
+        val phone: TextView = itemView.findViewById(R.id.phone_con)
         val callButton: Button = itemView.findViewById(R.id.call_button_assistance_con)
+        val country: TextView = itemView.findViewById(R.id.country_con)
+        val city: TextView = itemView.findViewById(R.id.city_con)
+        val postal_code: TextView = itemView.findViewById(R.id.postal_code_con)
+        val thoroughfare: TextView = itemView.findViewById(R.id.thoroughfare_con)
         val description: EditText = itemView.findViewById(R.id.assistance_description_con)
         val priority: EditText = itemView.findViewById(R.id.assistance_priority_con)
         val checkbox1: CheckBox = itemView.findViewById(R.id.checkbox1_assistance_con)
@@ -36,6 +39,7 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
         val checkbox3: CheckBox = itemView.findViewById(R.id.checkbox3_assistance_con)
         val reserve: Button = itemView.findViewById(R.id.reserve)
         val addressButton: Button = itemView.findViewById(R.id.search_address)
+        val saveButton:Button = itemView.findViewById(R.id.add_favorites_assitance_con)
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -58,7 +62,12 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
 
     override fun onBindViewHolder(v: ViewHolder, position: Int) {
         v.title.text = dataSet.title
-        v.address.text = getAddressRepresentation(dataSet.address)
+
+        v.country.text = dataSet.address.country?.addressLine
+        v.city.text = dataSet.address.country?.administrativeArea?.locality?.addressLine
+        v.postal_code.text = dataSet.address.country?.administrativeArea?.locality?.postalCode?.addressLine
+        v.thoroughfare.text = dataSet.address.country?.administrativeArea?.locality?.thoroughfare?.addressLine
+
         v.phone.text = dataSet.phone
         v.description.setText(dataSet.description)
         v.priority.setText(dataSet.priority.toString())
@@ -88,6 +97,10 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
 
         v.addressButton.setOnClickListener {
             context.searchAddress(getAddressRepresentation(dataSet.address))
+        }
+
+        v.saveButton.setOnClickListener{
+            db.assistanceDao().update(true, dataSet.id)
         }
     }
 

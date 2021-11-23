@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
+import com.example.wellcome.utils.db.AppDatabase
 import com.example.wellcome.utils.db.Lesson
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -22,14 +24,11 @@ class LessonAdapter(private val dataSet: List<Lesson>):
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = itemView.title_lesson
-        val phone: TextView = itemView.phone_lesson
+        val address: TextView = itemView.address_lesson
         val callButton: Button = itemView.call_button_lesson
         val consultButton: Button = itemView.consulter_button_lesson
-        val country: TextView = itemView.country_lesson
-        val department: TextView = itemView.department_lesson
-        val city: TextView = itemView.city_lesson
-        val postalCode: TextView =itemView.postalcode_lesson
-        val address: TextView = itemView.address_lesson
+        val addFavoriteButton: Button = itemView.add_favorites_lesson
+        val chipGroup : ChipGroup = itemView.chipGroup_lesson
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonAdapter.ViewHolder {
@@ -42,21 +41,24 @@ class LessonAdapter(private val dataSet: List<Lesson>):
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
+        dataSet[position].tags.forEach {
+            val chip = Chip(context)
+            chip.text = it
+            viewHolder.chipGroup.addView(chip)
+        }
 
         viewHolder.title.text = dataSet[position].title
-        viewHolder.phone.text = dataSet[position].phone
-        viewHolder.country.text = dataSet[position].address.country?.addressLine
-        viewHolder.department.text = dataSet[position].address.country?.administrativeArea?.addressLine
-        viewHolder.city.text = dataSet[position].address.country?.administrativeArea?.locality?.addressLine
-        viewHolder.postalCode.text = dataSet[position].address.country?.administrativeArea?.locality?.postalCode?.addressLine
-        viewHolder.address.text = dataSet[position].address.country?.administrativeArea?.locality?.thoroughfare?.addressLine
-        val tele = viewHolder.phone.text
+        val city = dataSet[position].address.country?.administrativeArea?.locality?.addressLine
+        val country = dataSet[position].address.country?.addressLine
+        viewHolder.address.text = "$city " +
+                "in $country"
+
+        val phone  = dataSet[position].phone
 
         viewHolder.callButton.setOnClickListener {
             var intent = Intent()
             intent.action = Intent.ACTION_DIAL
-            intent.data = Uri.parse("tel:$tele")
+            intent.data = Uri.parse("tel:$phone")
             context.startActivity(intent)
         }
 
@@ -66,6 +68,15 @@ class LessonAdapter(private val dataSet: List<Lesson>):
             val intent = Intent(context,ActivityConsultLesson::class.java)
             intent.putExtras(bundle)
             context.startActivity(intent)
+        }
+
+        viewHolder.addFavoriteButton.setOnClickListener {
+            val db = Room.databaseBuilder(
+                context,
+                AppDatabase::class.java, "wellcome"
+            ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+
+            db.lessonDao().update(true, dataSet[position].id)
         }
     }
 

@@ -53,7 +53,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:minHeight="38dp"
+                        android:minHeight="43dp"
                         android:text="Call"
                         android:layout_marginHorizontal="5dp"
                         />
@@ -63,7 +63,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:minHeight="38dp"
+                        android:minHeight="43dp"
                         android:text="Consult"
                         android:layout_marginHorizontal="5dp"
                         />
@@ -73,7 +73,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:minHeight="38dp"
+                        android:minHeight="43dp"
                         android:text="Save"
                         android:layout_marginHorizontal="5dp"
                         />

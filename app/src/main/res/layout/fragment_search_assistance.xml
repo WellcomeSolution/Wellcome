@@ -37,10 +37,12 @@
                     app:helperTextEnabled="true"
                     android:layout_weight="1.0">
                     <com.google.android.material.textfield.TextInputEditText
+                            android:layout_gravity="center"
+                            android:padding="0dp"
                             android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:id="@+id/services_titre"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="match_parent"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <LinearLayout
                         android:layout_marginTop="2.5dp"

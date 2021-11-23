@@ -16,6 +16,7 @@ import com.example.wellcome.utils.db.Address
 import com.example.wellcome.utils.db.AppDatabase
 import com.example.wellcome.utils.db.Lesson
 import com.example.wellcome.utils.searchAddress
+import com.google.android.material.chip.ChipGroup
 import java.lang.StringBuilder
 
 class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
@@ -24,15 +25,20 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
     lateinit var db: AppDatabase
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = itemView.findViewById(R.id.title_cours_con)
-        val address: TextView = itemView.findViewById(R.id.address_cours_con)
-        val phone: TextView = itemView.findViewById(R.id.phone_cours_con)
-        val callButton: Button = itemView.findViewById(R.id.call_button_cours_con)
-        val description: EditText = itemView.findViewById(R.id.services_description_con)
-        val duration: EditText = itemView.findViewById(R.id.cours_sessionduree_con)
-        val checkbox1: CheckBox = itemView.findViewById(R.id.checkbox1_cours_con)
-        val checkbox2: CheckBox = itemView.findViewById(R.id.checkbox2_cours_con)
-        val checkbox3: CheckBox = itemView.findViewById(R.id.checkbox3_cours_con)
+        val title: TextView = itemView.findViewById(R.id.title_lesson_con)
+        val country: TextView = itemView.findViewById(R.id.country_lesson_con)
+        val city: TextView = itemView.findViewById(R.id.city_lesson_con)
+        val postal_code: TextView = itemView.findViewById(R.id.postal_code_con)
+        val thoroughfare: TextView = itemView.findViewById(R.id.thoroughfare_con)
+        val chipGroup:ChipGroup = itemView.findViewById(R.id.chipGroup_lessonGroup)
+        val phone: TextView = itemView.findViewById(R.id.phone_lesson_con)
+        val callButton: Button = itemView.findViewById(R.id.call_button_lesson_con)
+        val addFavoriteButton: Button = itemView.findViewById(R.id.add_favorites_lesson_con)
+        val description: EditText = itemView.findViewById(R.id.lesson_description_con)
+        val duration: EditText = itemView.findViewById(R.id.lesson_sessionduree_con)
+        val checkbox1: CheckBox = itemView.findViewById(R.id.checkbox1_lesson_con)
+        val checkbox2: CheckBox = itemView.findViewById(R.id.checkbox2_lesson_con)
+        val checkbox3: CheckBox = itemView.findViewById(R.id.checkbox3_lesson_con)
         val reserve: Button = itemView.findViewById(R.id.reserve)
         val addressButton: Button = itemView.findViewById(R.id.search_address)
     }
@@ -60,8 +66,13 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
     }
 
     override fun onBindViewHolder(v: ConsultLessonAdapter.ViewHolder, position: Int) {
+
+        v.country.text = dataSet.address.country?.addressLine
+        v.city.text = dataSet.address.country?.administrativeArea?.locality?.addressLine
+        v.postal_code.text = dataSet.address.country?.administrativeArea?.locality?.postalCode?.addressLine
+        v.thoroughfare.text = dataSet.address.country?.administrativeArea?.locality?.thoroughfare?.addressLine
+
         v.title.text = dataSet.title
-        v.address.text = getAddressRepresentation(dataSet.address)
         v.phone.text = dataSet.phone
         v.description.setText(dataSet.description)
         v.duration.setText(dataSet.sessionDuration.toString())
@@ -74,6 +85,7 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
         if(dataSet.tags.toString().contains(v.checkbox3.text)){
             v.checkbox3.isChecked
         }
+
         val tele = v.phone.text
         v.callButton.setOnClickListener {
             var intent = Intent()
@@ -91,6 +103,10 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
 
         v.addressButton.setOnClickListener {
             context.searchAddress(getAddressRepresentation(dataSet.address))
+        }
+
+        v.addFavoriteButton.setOnClickListener{
+            db.assistanceDao().update(true, dataSet.id)
         }
     }
 

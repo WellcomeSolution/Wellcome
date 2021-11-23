@@ -23,6 +23,10 @@ class MenuLesson : AppCompatActivity() {
                     launchAddServicesFragment()
                     true
                 }
+                R.id.add_Favorris -> {
+                    launchFavorisLessonFragment()
+                    true
+                }
                 else -> false
             }
         }
@@ -32,8 +36,14 @@ class MenuLesson : AppCompatActivity() {
         supportFragmentManager.
         beginTransaction().replace(R.id.content,AddLessonFragment()).commit()
     }
+
     private fun launchSearchFragment(){
         supportFragmentManager.
         beginTransaction().replace(R.id.content, SearchLessonFragment()).commit()
+    }
+
+    private fun launchFavorisLessonFragment(){
+        supportFragmentManager.
+        beginTransaction().replace(R.id.content, FavoriteLessonFragment()).commit()
     }
 }

@@ -4,28 +4,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="hello world"/>
+    android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center_vertical">
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/trip_button"
-        android:text="trip"
-        />
+            android:layout_marginVertical="10dp"
+            android:textColor="@color/white"
+            app:iconTint="@color/white"
+            android:text="Trip"
+            android:backgroundTint="@color/purple_700"
+            android:id="@+id/trip_button"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/outline_flight_24"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+    />
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lesson_button"
-        android:text="lesson"
-        />
+            android:layout_marginVertical="10dp"
+            android:textColor="@color/white"
+            app:iconTint="@color/white"
+            android:text="Lesson"
+            android:backgroundTint="@color/purple_700"
+            android:id="@+id/lesson_button"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/outline_school_24"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            />
+
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/assistance_button"
-        android:text="assistance"
-        />
+            android:backgroundTint="@color/purple_700"
+            android:layout_marginVertical="10dp"
+            android:textColor="@color/white"
+            app:iconTint="@color/white"
+            android:text="Assistance"
+            android:id="@+id/assistance_button"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/outline_accessibility_new_24"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            />
 
 </LinearLayout>

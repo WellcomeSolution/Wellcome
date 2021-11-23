@@ -4,17 +4,17 @@
         android:id="@+id/search_assistance"
         android:enabled="true"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Search Assistacne" />
+        android:title="Search" />
     <item
         android:id="@+id/add_assistance"
         android:enabled="true"
         android:icon="@drawable/outline_control_point_24"
-        android:title="Add Assistance" />
+        android:title="Add" />
     <item
         android:id="@+id/Favoris"
         android:enabled="true"
         android:icon="@drawable/outline_favorite_24"
-        android:title="Favoris" />
+        android:title="Favorites" />
 
 
 
