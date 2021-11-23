@@ -2,7 +2,7 @@ package com.example.wellcome.utils
 
 import com.example.wellcome.utils.CalculDistance
 
-class CalculDistance private constructor() {
+class CalculDistance() {
     fun Distance(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
         val theta = lon1 - lon2
         var dist =

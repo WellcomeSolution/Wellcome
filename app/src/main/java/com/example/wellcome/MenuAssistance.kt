@@ -3,18 +3,13 @@ package com.example.wellcome
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_assistance_menu.*
-import android.location.LocationManager
 import android.location.Criteria
-import android.location.Location
+import android.location.LocationManager
+import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import java.lang.String
-import java.text.SimpleDateFormat
-import java.util.*
-
+import kotlinx.android.synthetic.main.activity_assistance_menu.*
 
 
 
