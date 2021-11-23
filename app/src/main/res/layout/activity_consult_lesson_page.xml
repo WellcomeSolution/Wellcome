@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-<com.google.android.material.card.MaterialCardView android:id="@+id/card_info"
+    <com.google.android.material.card.MaterialCardView android:id="@+id/card_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="20dp"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-        <LinearLayout
+            <LinearLayout
                 android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-            <TextView
+                <TextView
                     android:id="@+id/title_lesson_con"
                     android:text="Card title"
                     android:textSize="17dp"
                     android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-            </TextView>
-            <LinearLayout
+                </TextView>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                <TextView
+                    <TextView
                         android:id="@+id/phone_lesson_con"
                         android:textSize="14dp"
                         android:text="Secondary text"
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-            </LinearLayout>
+                </LinearLayout>
 
-            <com.google.android.material.chip.ChipGroup
+                <com.google.android.material.chip.ChipGroup
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:id="@+id/chipGroup_lessonGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-            </com.google.android.material.chip.ChipGroup>
-            <LinearLayout
+                </com.google.android.material.chip.ChipGroup>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:gravity="center">
-                <Button
+                    <Button
                         android:id="@+id/call_button_lesson_con"
                         android:textSize="10dp"
                         android:layout_width="0dp"
@@ -66,7 +66,7 @@ android:orientation="vertical">
                         android:text="Call"
                         android:layout_marginHorizontal="5dp"
                         />
-                <Button
+                    <Button
                         android:id="@+id/add_favorites_lesson_con"
                         android:textSize="10dp"
                         android:layout_width="0dp"
@@ -76,12 +76,12 @@ android:orientation="vertical">
                         android:text="Save"
                         android:layout_marginHorizontal="5dp"
                         />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 
-<com.google.android.material.card.MaterialCardView android:id="@+id/card_address"
+    <com.google.android.material.card.MaterialCardView android:id="@+id/card_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
@@ -89,32 +89,32 @@ android:orientation="vertical">
         android:layout_marginHorizontal="20dp"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-        <LinearLayout
+            <LinearLayout
                 android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-            <TextView
+                <TextView
                     android:id="@+id/country_lesson_con"
                     android:text="Card title"
                     android:textSize="17dp"
                     android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-            </TextView>
-            <LinearLayout
+                </TextView>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                <LinearLayout
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                    <TextView
+                        <TextView
                             android:id="@+id/city_lesson_con"
                             android:textSize="14dp"
                             android:text="Secondary text"
@@ -122,31 +122,31 @@ android:orientation="vertical">
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"/>
-                    <TextView
+                        <TextView
                             android:id="@+id/postal_code_con"
                             android:textSize="14dp"
                             android:text="Secondary text"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <TextView
+                    </LinearLayout>
+                    <TextView
                         android:id="@+id/thoroughfare_con"
                         android:textSize="14dp"
                         android:text="Secondary text"
                         android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
-<LinearLayout
+    </com.google.android.material.card.MaterialCardView>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -158,21 +158,21 @@ android:orientation="vertical">
             app:counterMaxLength="200"
             app:errorEnabled="true"
             app:helperTextEnabled="true">
-        <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:inputType="textMultiLine"
                 android:id="@+id/lesson_description_con"
                 android:editable="false"
                 android:layout_height="200dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-</LinearLayout>
-<LinearLayout
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="18dp"
         android:layout_marginHorizontal="20dp"
         android:id="@+id/checkbox_cours">
-    <CheckBox
+        <CheckBox
             android:id="@+id/checkbox1_lesson_con"
             android:layout_height="match_parent"
             android:layout_width="0dp"
@@ -180,7 +180,7 @@ android:orientation="vertical">
             android:checked="true"
             android:textSize="12dp"
             android:text="Informatique"/>
-    <CheckBox
+        <CheckBox
             android:textSize="12dp"
             android:id="@+id/checkbox2_lesson_con"
             android:layout_width="0dp"
@@ -188,21 +188,21 @@ android:orientation="vertical">
             android:layout_height="match_parent"
 
             android:text="Marking"/>
-    <CheckBox
+        <CheckBox
             android:textSize="12dp"
             android:id="@+id/checkbox3_lesson_con"
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:text="Bac"/>
-</LinearLayout>
-<LinearLayout
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="18dp"
         android:layout_marginBottom="8dp"
         android:layout_marginHorizontal="20dp">
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0.0dip"
             android:layout_height="wrap_content"
@@ -216,33 +216,33 @@ android:orientation="vertical">
             app:errorEnabled="true"
             app:helperTextEnabled="true"
             android:layout_weight="1.0">
-        <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:padding="8dp"
                 android:textSize="15dp"
                 android:layout_width="match_parent"
                 android:id="@+id/lesson_sessionduree_con"
                 android:layout_height="wrap_content"/>
-    </com.google.android.material.textfield.TextInputLayout>
-</LinearLayout>
-<LinearLayout
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <LinearLayout
         android:layout_marginBottom="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
-    <Button
+        <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Reserve"
             android:id="@+id/reserve"
             android:layout_margin="5dp">
-    </Button>
-    <Button
+        </Button>
+        <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Search Address"
             android:id="@+id/search_address"
             android:layout_margin="5dp">
-    </Button>
-</LinearLayout>
+        </Button>
+    </LinearLayout>
 </LinearLayout>

@@ -9,6 +9,8 @@ data class Trip(
     @Embedded val slotDate: SlotDate,
     @Embedded val tripCity : TripCity,
     @Embedded val hostConfiguration: HostConfiguration,
+    val phone: String,
+    val adress: String,
     val travelers: Int,
     val hasDogs : Boolean,
     val hasBabies:Boolean,

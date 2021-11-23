@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< Updated upstream
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_accessibility_new_24.xml" value="0.278125" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_consult_assistance_page.xml" value="0.33" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_firstmenu.xml" value="0.22" />
@@ -15,6 +16,76 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_favorite_assistance.xml" value="0.1" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_search_assistance.xml" value="0.1601123595505618" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_search_lesson.xml" value="0.25" />
+=======
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/layout/activity_consult_assistance.xml" value="0.1" />
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/layout/activity_consult_assistance_page.xml" value="0.1" />
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/layout/activity_consult_lesson.xml" value="0.1" />
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/layout/activity_consult_lesson_page.xml" value="0.1" />
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/layout/activity_trip_menu.xml" value="0.1" />
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/layout/assistance_card_view.xml" value="0.1" />
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/layout/fragement_add_trip.xml" value="0.1" />
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/layout/fragement_search_trip.xml" value="0.1" />
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/layout/trip_card_view.xml" value="0.1" />
+        <entry key="..\:/Aprojet/Feature_06/Wellcome/app/src/main/res/menu/bottom_navigation_trip.xml" value="0.1" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/activity_consult_lesson_page.xml" value="0.20520833333333333" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/activity_found_city.xml" value="0.1" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/assistance_card_view.xml" value="0.536" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/cours_card_view.xml" value="0.20520833333333333" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/fragement_add_assistance.xml" value="0.20520833333333333" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/fragment_add_lesson.xml" value="0.36666666666666664" />
+        <entry key="..\:/Aprojet/GIt/Feature0.4/Wellcome/app/src/main/res/layout/fragment_search_assistance.xml" value="0.20520833333333333" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_adduser.xml" value="0.25416666666666665" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_assistance_menu.xml" value="0.20520833333333333" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_consult_assistance.xml" value="0.15729166666666666" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_consult_assistance_page.xml" value="0.15729166666666666" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_consult_lesson.xml" value="0.24427083333333333" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_consult_lesson_page.xml" value="0.15729166666666666" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_firstmenu.xml" value="0.24427083333333333" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_gps.xml" value="0.24427083333333333" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_maps.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/activity_menu.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/assistance_card_view.xml" value="0.19114583333333332" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/cours_card_view.xml" value="0.3618881118881119" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragement_add_assistance.xml" value="0.2359375" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_hosts.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_lesson.xml" value="0.12447916666666667" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services_assistance.xml" value="0.20572916666666666" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services_cours.xml" value="0.20572916666666666" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_add_services_logement.xml" value="0.20572916666666666" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_hosts.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_list_services.xml" value="0.22864583333333333" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_search_assistance.xml" value="0.2359375" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_search_lesson.xml" value="0.15989583333333332" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_search_services.xml" value="0.19166666666666668" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/fragment_tags_lesson.xml" value="0.24427083333333333" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/host_card_view.xml" value="0.48293963254593175" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/layout/material_card_view.xml" value="0.22864583333333333" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/menu/bottom_navigation_assistance.xml" value="0.20520833333333333" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.4" />
+        <entry key="..\:/Aprojet/GIt/Wellcome/app/src/main/res/menu/top_navigation_menu.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_control_point_24.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_home_24.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_adduser.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_consult_assistance_page.xml" value="0.190625" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_consult_lesson.xml" value="0.190625" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_consult_lesson_page.xml" value="0.1" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_maps.xml" value="0.1828125" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/assistance_card_view.xml" value="0.2765625" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/bottom_navigation_menu.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/card_perta.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/cours_card_view.xml" value="0.2776268115942029" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_add_hosts.xml" value="0.4" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_hosts.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/material_card_view.xml" value="0.2" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/material_list_item_single_line.xml" value="0.1828125" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/material_list_item_two_line.xml" value="0.1828125" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/text_row_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/annoncelogement.xml" value="0.5" />
+>>>>>>> Stashed changes
       </map>
     </option>
   </component>

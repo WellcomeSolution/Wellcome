@@ -18,13 +18,14 @@ import com.example.wellcome.utils.db.Lesson
 import com.example.wellcome.utils.searchAddress
 import com.google.android.material.chip.ChipGroup
 import java.lang.StringBuilder
-
+import kotlinx.android.synthetic.main.activity_consult_lesson_page.view.*
 class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
     RecyclerView.Adapter<ConsultLessonAdapter.ViewHolder>() {
 
     lateinit var db: AppDatabase
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
         val title: TextView = itemView.findViewById(R.id.title_lesson_con)
         val country: TextView = itemView.findViewById(R.id.country_lesson_con)
         val city: TextView = itemView.findViewById(R.id.city_lesson_con)
@@ -39,6 +40,7 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
         val checkbox1: CheckBox = itemView.findViewById(R.id.checkbox1_lesson_con)
         val checkbox2: CheckBox = itemView.findViewById(R.id.checkbox2_lesson_con)
         val checkbox3: CheckBox = itemView.findViewById(R.id.checkbox3_lesson_con)
+
         val reserve: Button = itemView.findViewById(R.id.reserve)
         val addressButton: Button = itemView.findViewById(R.id.search_address)
     }

@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/search_trip"
+        android:enabled="true"
+        android:icon="@drawable/outline_control_point_24"
+        android:title="Search trip" />
+    <item
+        android:id="@+id/add_trip"
+        android:enabled="true"
+        android:icon="@drawable/outline_control_point_24"
+        android:title="Add trip" />
 </menu>

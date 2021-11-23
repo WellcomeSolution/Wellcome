@@ -17,10 +17,9 @@ import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.assistance_card_view.view.*
 import kotlinx.android.synthetic.main.cours_card_view.view.*
 
-class LessonAdapter(private val dataSet: List<Lesson>):
+class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
     RecyclerView.Adapter<LessonAdapter.ViewHolder>()
 {
-    private lateinit var context:Context
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = itemView.title_lesson
@@ -35,7 +34,6 @@ class LessonAdapter(private val dataSet: List<Lesson>):
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.cours_card_view, parent, false)
 
-        context = parent.context
 
         return ViewHolder(view)
     }

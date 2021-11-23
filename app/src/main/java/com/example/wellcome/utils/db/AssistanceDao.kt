@@ -12,12 +12,16 @@ interface AssistanceDao {
     fun getAll(): List<Assistance>
     @Query("SELECT * FROM assistance WHERE id=:id ")
     fun findAssistanceById(id: String): Assistance
-    @Query("SELECT * FROM assistance WHERE title=:title ")
+    @Query("SELECT * FROM assistance WHERE title like '%' || :title || '%' ")
     fun findAssistanceByTitle(title: String): List<Assistance>
     @Query("SELECT * FROM assistance WHERE tags IN (:tags)")
     fun findAssistanceByTags(tags: List<String>): List<Assistance>
+
     @Query("UPDATE assistance SET isFavorite=:value WHERE id  = :id")
      fun update(value:Boolean,id:Int)
     @Query("SELECT * FROM assistance WHERE isFavorite=:value")
     fun findAssistanceFavorites(value: Boolean=true): List<Assistance>
+
+    @Query("SELECT * FROM assistance WHERE tags like '%' || :tag || '%'")
+    fun findAssistanceByOneTag(tag: String): List<Assistance>
 }

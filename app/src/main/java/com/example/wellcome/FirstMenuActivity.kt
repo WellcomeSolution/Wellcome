@@ -17,8 +17,8 @@ class FirstMenuActivity : AppCompatActivity() {
         }
 
         trip_button.setOnClickListener(){
-           /* val intent = Intent(this,MenuActivity::class.java)
-            startActivity(intent)*/
+            val intent = Intent(this,MenuTrip::class.java)
+            startActivity(intent)
         }
 
         assistance_button.setOnClickListener(){

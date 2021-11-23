@@ -18,10 +18,9 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.assistance_card_view.view.*
 
-class AssistanceAdapter(private val dataSet: List<Assistance>):
+class AssistanceAdapter(val context: Context,private val dataSet: List<Assistance>):
     RecyclerView.Adapter<AssistanceAdapter.ViewHolder>()
 {
-    private lateinit var context: Context
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = itemView.title_assistance
@@ -35,8 +34,6 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssistanceAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.assistance_card_view, parent, false)
-
-        context = parent.context
 
         return ViewHolder(view)
     }
@@ -67,6 +64,7 @@ class AssistanceAdapter(private val dataSet: List<Assistance>):
         viewHolder.assistanceButton.setOnClickListener{
             val bundle = Bundle()
             bundle.putInt("id",dataSet[position].id)
+            bundle.putString("address",dataSet[position].address.country?.administrativeArea?.locality?.thoroughfare?.addressLine)
             val intent = Intent(context, ActivityConsultAssistance::class.java)
             intent.putExtras(bundle)
             context.startActivity(intent)

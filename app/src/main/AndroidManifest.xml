@@ -43,6 +43,13 @@
 
         </activity>
         <activity
+            android:name=".MenuTrip"
+            android:exported="true"
+            android:label="MenuAssistance"
+            android:theme="@style/Theme.Wellcome.NoActionBar">
+
+        </activity>
+        <activity
             android:name=".ActivityConsultLesson"
             android:exported="true"
             android:label="MenuAssistance"

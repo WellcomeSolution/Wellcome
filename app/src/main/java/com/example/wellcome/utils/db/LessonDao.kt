@@ -12,7 +12,7 @@ interface LessonDao {
     fun getAll(): List<Lesson>
     @Query("SELECT * FROM lesson WHERE id=:id ")
     fun findLessonById(id: String): Lesson
-    @Query("SELECT * FROM lesson WHERE title=:title ")
+    @Query("SELECT * FROM lesson WHERE title like '%' || :title || '%' ")
     fun findLessonByTitle(title: String): List<Lesson>
     @Query("SELECT * FROM lesson WHERE tags IN (:tags)")
     fun findLessonByTags(tags: List<String>): List<Lesson>
@@ -22,4 +22,6 @@ interface LessonDao {
     fun update(value:Boolean,id:Int)
     @Query("SELECT * FROM lesson WHERE isFavorite=:value")
     fun findLessonFavorites(value: Boolean=true): List<Lesson>
+    @Query("SELECT * FROM lesson WHERE tags like '%' || :tag || '%'")
+    fun findLessonByOneTag(tag: String): List<Lesson>
 }

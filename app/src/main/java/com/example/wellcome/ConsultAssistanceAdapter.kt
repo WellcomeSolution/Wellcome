@@ -17,7 +17,7 @@ import com.example.wellcome.utils.db.AppDatabase
 import com.example.wellcome.utils.db.Assistance
 import com.example.wellcome.utils.searchAddress
 import java.lang.StringBuilder
-
+import kotlinx.android.synthetic.main.activity_consult_assistance_page.view.*
 
 class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assistance):
     RecyclerView.Adapter<ConsultAssistanceAdapter.ViewHolder>() {
@@ -62,7 +62,6 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
 
     override fun onBindViewHolder(v: ViewHolder, position: Int) {
         v.title.text = dataSet.title
-
         v.country.text = dataSet.address.country?.addressLine
         v.city.text = dataSet.address.country?.administrativeArea?.locality?.addressLine
         v.postal_code.text = dataSet.address.country?.administrativeArea?.locality?.postalCode?.addressLine

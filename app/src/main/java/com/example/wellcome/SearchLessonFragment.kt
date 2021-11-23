@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_search_lesson.*
 
 import android.app.AlertDialog
+import com.example.wellcome.utils.db.Lesson
 import java.util.*
 import kotlin.collections.ArrayList
 class SearchLessonFragment : BaseFragment() {
@@ -23,14 +24,14 @@ class SearchLessonFragment : BaseFragment() {
         super.onViewCreated(itemView, savedInstanceState)
         recycler_view.apply {
             layoutManager=LinearLayoutManager(activity)
-            adapter=LessonAdapter(db.lessonDao().getAll())
+            adapter=LessonAdapter(context,db.lessonDao().getAll())
      }
         tags_lesson.setOnClickListener{
             withMultiChoiceList(it)
         }
         search_bar_lesson.setOnClickListener{
             val titleLesson = lesson_titre.text.toString()
-            recycler_view.adapter = this.context?.let { it1 -> LessonAdapter(db.lessonDao().findLessonByTitle(titleLesson)) }
+            recycler_view.adapter = this.context?.let { it1 -> LessonAdapter(it1,db.lessonDao().findLessonByTitle(titleLesson)) }
 
         }
         }
@@ -41,7 +42,7 @@ class SearchLessonFragment : BaseFragment() {
         builder.setTitle("Filters")
         builder.setMultiChoiceItems(items, null)
         {
-            dialog, which,isChecked ->
+                dialog, which,isChecked ->
             if(isChecked){
                 selectedList.add(which)
             }
@@ -50,7 +51,7 @@ class SearchLessonFragment : BaseFragment() {
             }
         }
         builder.setPositiveButton("Selected"){
-            dialogInterface, i ->
+                dialogInterface, i ->
             val selectedString = ArrayList<String>()
             var mlist = mutableListOf<String>()//list of tags
             for(j in selectedList.indices){
@@ -59,7 +60,12 @@ class SearchLessonFragment : BaseFragment() {
             }
             Toast.makeText(context,"Items are :"+ Arrays.toString(selectedString.toTypedArray()),Toast.LENGTH_SHORT).show()
             var listTag = mlist.toList()
-            recycler_view.adapter = context?.let { LessonAdapter(db.lessonDao().findLessonByTags(listTag)) }
+            var MLesson = mutableListOf<Lesson>()
+            for(x in listTag){
+                MLesson.addAll(db.lessonDao().findLessonByOneTag(x))
+            }
+            var listtest = MLesson.distinct().toList()
+            recycler_view.adapter = context?.let { it->LessonAdapter(it,listtest) }
         }
         builder.show()
     }

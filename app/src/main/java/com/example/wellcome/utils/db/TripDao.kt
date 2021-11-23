@@ -12,4 +12,6 @@ interface TripDao {
     fun getAll(): List<Trip>
     @Query("SELECT * FROM trip WHERE id=:id ")
     fun findTripById(id: String): Trip
+    @Query("SELECT * FROM trip WHERE adress like '%' || :email|| '%' ")
+    fun findTripByTitle(email: String): List<Trip>
 }

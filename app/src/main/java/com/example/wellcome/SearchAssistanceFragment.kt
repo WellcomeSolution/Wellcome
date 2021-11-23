@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.fragment_search_assistance.*
 
 
 import android.app.AlertDialog
+import com.example.wellcome.utils.db.Assistance
 import java.util.*
 import kotlin.collections.ArrayList
 class SearchAssistanceFragment : BaseFragment() {
@@ -25,7 +26,7 @@ class SearchAssistanceFragment : BaseFragment() {
         super.onViewCreated(itemView, savedInstanceState)
         recycler_view_assistance.apply {
             layoutManager=LinearLayoutManager(activity)
-            adapter=AssistanceAdapter(db.assistanceDao().getAll())
+            adapter=AssistanceAdapter(context,db.assistanceDao().getAll())
         }
         tags_assistance.setOnClickListener{
             withMultiChoiceList(it)
@@ -33,7 +34,7 @@ class SearchAssistanceFragment : BaseFragment() {
         search_bar_assistance.setOnClickListener{
             val titleAssistance = services_titre.text.toString()
             recycler_view_assistance.adapter = context?.let { it1
-                -> AssistanceAdapter(db.assistanceDao().findAssistanceByTitle(titleAssistance))}
+                -> AssistanceAdapter(it1,db.assistanceDao().findAssistanceByTitle(titleAssistance))}
         }
     }
 
@@ -62,7 +63,12 @@ class SearchAssistanceFragment : BaseFragment() {
             }
             Toast.makeText(context,"Items are :"+ Arrays.toString(selectedString.toTypedArray()),Toast.LENGTH_SHORT).show()
             var listTag = mlist.toList()
-            recycler_view_assistance.adapter = context?.let { AssistanceAdapter( db.assistanceDao().findAssistanceByTags(listTag)) }
+            var MAssistance = mutableListOf<Assistance>()
+            for( x in listTag){
+                MAssistance.addAll(db.assistanceDao().findAssistanceByOneTag(x))
+            }
+            var listtest =  MAssistance.distinct().toList()
+            recycler_view_assistance.adapter = context?.let { it -> AssistanceAdapter(it, listtest) }
         }
         builder.show()
     }
