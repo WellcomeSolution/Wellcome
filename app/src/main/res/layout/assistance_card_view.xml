@@ -78,6 +78,15 @@
                         android:layout_marginHorizontal="5dp"
                         />
             </LinearLayout>
+            <Button
+                    android:id="@+id/check_distances_assistance"
+                    android:textSize="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="43dp"
+                    android:text="Get Distance"
+                    android:layout_marginHorizontal="5dp"
+                    />
         </LinearLayout>
     </LinearLayout>
 
