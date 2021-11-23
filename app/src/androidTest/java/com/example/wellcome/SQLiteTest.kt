@@ -37,6 +37,7 @@ class SQLiteTest {
             "description",
             getAddress(),
             "0668319800",
+            true,
             listOf("baby", "handicape"),
             3
         )
@@ -54,6 +55,7 @@ class SQLiteTest {
             getAddress(),
             "0668319800",
             listOf("baby", "handicape"),
+            true,
             Priority.High
         )
 

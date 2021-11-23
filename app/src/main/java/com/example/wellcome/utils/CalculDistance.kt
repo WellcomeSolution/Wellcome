@@ -3,7 +3,7 @@ package com.example.wellcome.utils
 import com.example.wellcome.utils.CalculDistance
 
 class CalculDistance() {
-    fun Distance(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
+    fun distance(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
         val theta = lon1 - lon2
         var dist =
             Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(
