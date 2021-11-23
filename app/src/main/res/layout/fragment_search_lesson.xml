@@ -15,46 +15,62 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0.0dip" android:layout_height="fill_parent"
-                android:layout_marginLeft="9dp"
-                android:layout_marginRight="9dp"
-                android:layout_gravity="center_horizontal"
-                android:hint="Search"
-                app:counterEnabled="false"
-                app:counterMaxLength="15"
-                app:errorEnabled="true"
-                app:helperTextEnabled="true"
-                android:layout_weight="1.0">
-                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:id="@+id/lesson_titre"
-                    android:layout_height="wrap_content"/>
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:layout_gravity="center_vertical"
+                    android:hint="Search"
+                    app:counterEnabled="false"
+                    app:counterMaxLength="15"
+                    app:errorEnabled="true"
+                    app:helperTextEnabled="true"
+                    android:layout_weight="1.0">
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_gravity="center"
+                        android:padding="0dp"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:id="@+id/lesson_titre"
+                        android:layout_height="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
-            <Button
-                android:layout_width="5dp"
-                android:layout_height="55dp"
-                android:id="@+id/search_bar_lesson"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:textSize="24px"
-                android:text="Search"
-                android:layout_weight="0.25"/>
-            <Button
-                android:layout_width="5dp"
-                android:layout_height="55dp"
-                android:id="@+id/tags_lesson"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:textSize="24px"
-                android:text="tags"
-                android:layout_weight="0.2"/>
+            <LinearLayout
+                    android:layout_marginTop="2.5dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                <Button
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/search_bar_lesson"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/ic_search_black_24dp"
+                        style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                        />
+                <Button
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/tags_lesson"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        app:icon="@drawable/outline_tag_24"
+                        style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                        />
+            </LinearLayout>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

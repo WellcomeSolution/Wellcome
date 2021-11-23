@@ -3,17 +3,17 @@
         android:id="@+id/search_services"
         android:enabled="true"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Search Services" />
+        android:title="Search" />
     <item
         android:id="@+id/add_services"
         android:enabled="true"
             android:iconTint="@color/black"
         android:icon="@drawable/outline_control_point_24"
-        android:title="Add Services" />
+        android:title="Add" />
     <item
-        android:id="@+id/Favorris"
+        android:id="@+id/add_Favorris"
         android:enabled="true"
             android:iconTint="@color/black"
         android:icon="@drawable/outline_favorite_24"
-        android:title="Favoris" />
+        android:title="Favorites" />
 </menu>

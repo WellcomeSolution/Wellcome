@@ -25,17 +25,9 @@ class MenuAssistance : AppCompatActivity() {
                 }
 
                 R.id.Favoris -> {
-                    launchFavorisFragment()
-                    true
-                }
-                R.id.Favoris -> {
                     launchFavorisAssistanceFragment()
                     true
                 }
-
-
-
-
 
                 else -> false
             }
@@ -49,10 +41,6 @@ class MenuAssistance : AppCompatActivity() {
     private fun launchSearchFragment(){
         supportFragmentManager.
         beginTransaction().replace(R.id.assistance_content, SearchAssistanceFragment()).commit()
-    }
-    private fun launchFavorisFragment(){
-        supportFragmentManager.
-        beginTransaction().replace(R.id.assistance_content, FavoriteFragment()).commit()
     }
 
     private fun launchFavorisAssistanceFragment(){
