@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-<<<<<<< Updated upstream
-    <bytecodeTargetLevel target="1.7" />
-=======
     <bytecodeTargetLevel target="1.7">
       <module name="wellcome" target="11" />
       <module name="wellcome.app" target="11" />
-      <module name="wellcome.main" target="11" />
-      <module name="wellcome.test" target="11" />
     </bytecodeTargetLevel>
->>>>>>> Stashed changes
   </component>
 </project>
