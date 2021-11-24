@@ -63,6 +63,7 @@ class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
         viewHolder.consultButton.setOnClickListener {
             val bundle = Bundle()
             bundle.putInt("id",dataSet[position].id)
+            bundle.putString("address",dataSet[position].address.country?.administrativeArea?.locality?.thoroughfare?.addressLine)
             val intent = Intent(context,ActivityConsultLesson::class.java)
             intent.putExtras(bundle)
             context.startActivity(intent)
