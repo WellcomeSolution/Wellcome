@@ -11,12 +11,16 @@ class MenuTrip : AppCompatActivity(){
 
         trip_bottom_navigation.setOnItemSelectedListener  { item ->
             when(item.itemId) {
-                R.id.search_trip -> {
+                R.id.search_services -> {
                     launchSearchFragment()
                     true
                 }
-                R.id.add_trip -> {
+                R.id.add_services -> {
                     launchAddServicesFragment()
+                    true
+                }
+                R.id.Favoris -> {
+                   /* launchAddServicesFragment()*/
                     true
                 }
                 else -> false

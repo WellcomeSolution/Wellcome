@@ -1,12 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/search_trip"
+        android:id="@+id/search_services"
         android:enabled="true"
-        android:icon="@drawable/outline_control_point_24"
-        android:title="Search trip" />
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Search" />
     <item
-        android:id="@+id/add_trip"
+        android:id="@+id/add_services"
         android:enabled="true"
+        android:iconTint="@color/black"
         android:icon="@drawable/outline_control_point_24"
-        android:title="Add trip" />
+        android:title="Add" />
+    <item
+        android:id="@+id/add_Favorris"
+        android:enabled="true"
+        android:iconTint="@color/black"
+        android:icon="@drawable/outline_favorite_24"
+        android:title="Favorites" />
 </menu>
