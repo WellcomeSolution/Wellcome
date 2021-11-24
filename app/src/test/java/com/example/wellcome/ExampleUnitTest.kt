@@ -15,5 +15,3 @@ class ExampleUnitTest {
         assertEquals(4, 2 + 2)
     }
 }
-14351501
-258480

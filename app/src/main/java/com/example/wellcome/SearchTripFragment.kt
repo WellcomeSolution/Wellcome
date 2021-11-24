@@ -24,7 +24,7 @@ class SearchTripFragment : BaseFragment(){
         super.onViewCreated(itemView, savedInstanceState)
         recycler_view_trip.apply {
             layoutManager= LinearLayoutManager(activity)
-            adapter=TripAdapter(db.tripDao().getAll())
+            adapter=TripAdapter(context,db.tripDao().getAll())
         }
 
         tags_trip.setOnClickListener{
@@ -34,7 +34,7 @@ class SearchTripFragment : BaseFragment(){
         search_bar_trip.setOnClickListener{
             val titleTrip = trip_titre_search.text.toString()
             recycler_view_trip.adapter = context?.let { it1
-                -> TripAdapter(db.tripDao().findTripByTitle(titleTrip))}
+                -> TripAdapter(it1,db.tripDao().findTripByTitle(titleTrip))}
         }
     }
 
@@ -69,7 +69,7 @@ class SearchTripFragment : BaseFragment(){
                 if (x == "Child") MTrip.addAll(db.tripDao().findTripIncludeChild())
             }
             var listtest = MTrip.distinct().toList()
-            recycler_view_trip.adapter = context?.let { it -> TripAdapter(listtest) }
+            recycler_view_trip.adapter = context?.let { it -> TripAdapter(it,listtest) }
         }
         builder.show()
     }

@@ -2,6 +2,7 @@ package com.example.wellcome
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +13,9 @@ import kotlinx.android.synthetic.main.fragement_add_trip.view.*
 import kotlinx.android.synthetic.main.trip_card_view.view.*
 
 
-class TripAdapter(private val dataSet: List<com.example.wellcome.utils.db.Trip>):
+class TripAdapter(val context: Context,private val dataSet: List<com.example.wellcome.utils.db.Trip>):
     RecyclerView.Adapter<TripAdapter.ViewHolder>()
 {
-    private lateinit var context: Context
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val startD: TextView = itemView.stratdate_text
@@ -52,6 +52,14 @@ class TripAdapter(private val dataSet: List<com.example.wellcome.utils.db.Trip>)
             var intent = Intent()
             intent.action = Intent.ACTION_DIAL
             intent.data = Uri.parse("tel:$tele")
+            context.startActivity(intent)
+        }
+        viewHolder.consultButton.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("id",dataSet[position].id)
+            bundle.putString("address",dataSet[position].tripCity?.address)
+            val intent = Intent(context,ActivityConsultTrip::class.java)
+            intent.putExtras(bundle)
             context.startActivity(intent)
         }
 

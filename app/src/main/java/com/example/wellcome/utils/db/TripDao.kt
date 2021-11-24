@@ -20,4 +20,6 @@ interface TripDao {
     fun findTripIncludeDog(value : Boolean=true): List<Trip>
     @Query("SELECT * FROM trip WHERE hasChilds=:value ")
     fun findTripIncludeChild(value : Boolean=true): List<Trip>
+    @Query("UPDATE trip SET isAvailable=:isAvailable WHERE id = :id")
+    fun update(isAvailable: Boolean?, id: Int)
 }

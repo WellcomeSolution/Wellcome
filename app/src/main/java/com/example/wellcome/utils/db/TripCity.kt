@@ -6,4 +6,5 @@ import androidx.room.Entity
 @Entity
 class TripCity(val country : String,
                val city : String,
-               val postalCode:String)
+               val postalCode:String,
+               val address: String)

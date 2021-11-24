@@ -19,10 +19,7 @@ class AddTripFragment : BaseFragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragement_add_trip, container, false)
-
-
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,7 +30,6 @@ class AddTripFragment : BaseFragment(){
         trip_bathrooms.setMaxValue(10)
         trip_bathrooms.setMinValue(0)
         trip_add_button.setOnClickListener{
-
             db.tripDao().insert(retrieveTrip())
             clearTextEdit()
             Toast.makeText(context,"Assistance added", Toast.LENGTH_SHORT).show()
@@ -49,11 +45,10 @@ class AddTripFragment : BaseFragment(){
         trip_city.text?.clear()
         trip_travelers.text?.clear()
         trip_postalcode.text?.clear()
-
+        trip_addressline1.text?.clear()
         checkbox1_trip.isChecked = false
         checkbox2_trip.isChecked = false
         checkbox3_trip.isChecked = false
-
     }
     private fun retrieveTrip(): Trip {
         var fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd")
@@ -84,7 +79,8 @@ class AddTripFragment : BaseFragment(){
             ,travelers = trip_travelers.text.toString().toInt()
             ,hasDogs = hasDog
             ,hasBabies = hasBabies
-            ,hasChilds = hasChilds)
+            ,hasChilds = hasChilds,
+            true)
         return ret_trip
     }
 
@@ -97,7 +93,8 @@ class AddTripFragment : BaseFragment(){
             = TripCity(
         country = trip_country.text.toString(),
         city = trip_city.text.toString(),
-        postalCode = trip_postalcode.text.toString()
+        postalCode = trip_postalcode.text.toString(),
+        address = trip_addressline1.text.toString()
     )
     fun getHostConfiguration(equipments: List<Equipments>):HostConfiguration
             = HostConfiguration(
@@ -106,7 +103,4 @@ class AddTripFragment : BaseFragment(){
         bathrooms = trip_bathrooms.value.toInt(),
         equipments = equipments
     )
-
-
-
 }
