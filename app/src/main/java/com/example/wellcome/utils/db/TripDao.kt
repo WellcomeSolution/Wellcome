@@ -14,4 +14,10 @@ interface TripDao {
     fun findTripById(id: String): Trip
     @Query("SELECT * FROM trip WHERE adress like '%' || :email|| '%' ")
     fun findTripByTitle(email: String): List<Trip>
+    @Query("SELECT * FROM trip WHERE hasBabies=:value ")
+    fun findTripIncludeBaby(value : Boolean=true): List<Trip>
+    @Query("SELECT * FROM trip WHERE hasDogs=:value ")
+    fun findTripIncludeDog(value : Boolean=true): List<Trip>
+    @Query("SELECT * FROM trip WHERE hasChilds=:value ")
+    fun findTripIncludeChild(value : Boolean=true): List<Trip>
 }

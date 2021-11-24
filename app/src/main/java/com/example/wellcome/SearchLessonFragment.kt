@@ -58,7 +58,8 @@ class SearchLessonFragment : BaseFragment() {
                 selectedString.add(items[selectedList[j]])
                 mlist.add(items[selectedList[j]])
             }
-            Toast.makeText(context,"Items are :"+ Arrays.toString(selectedString.toTypedArray()),Toast.LENGTH_SHORT).show()
+           // Toast.makeText(context,"Items are :"+ Arrays.toString(selectedString.toTypedArray()),Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Items are :"+ mlist.toString(),Toast.LENGTH_SHORT).show()
             var listTag = mlist.toList()
             var MLesson = mutableListOf<Lesson>()
             for(x in listTag){

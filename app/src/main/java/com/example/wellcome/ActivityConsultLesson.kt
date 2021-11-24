@@ -22,7 +22,6 @@ class ActivityConsultLesson: AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_consult_lesson)
-
         val bundle = intent.extras
         val address = bundle?.getString("address")
         val db = Room.databaseBuilder(
