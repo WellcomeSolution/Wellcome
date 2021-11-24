@@ -1,6 +1,7 @@
 package com.example.wellcome
 import android.content.Context
 import android.content.Intent
+import android.location.Geocoder
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,18 +9,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.example.wellcome.utils.DistanceCalculator
 import com.example.wellcome.utils.db.AppDatabase
 import com.example.wellcome.utils.db.Lesson
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.assistance_card_view.view.*
 import kotlinx.android.synthetic.main.cours_card_view.view.*
+import java.util.*
 
 class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
     RecyclerView.Adapter<LessonAdapter.ViewHolder>()
 {
+    var latitude:Double = 48.9891
+    var longitude:Double = 2.2585
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = itemView.title_lesson
@@ -28,6 +34,7 @@ class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
         val consultButton: Button = itemView.consulter_button_lesson
         val addFavoriteButton: Button = itemView.add_favorites_lesson
         val chipGroup : ChipGroup = itemView.chipGroup_lesson
+        val checkDistanceButton:Button = itemView.check_distances_lesson
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonAdapter.ViewHolder {
@@ -76,6 +83,14 @@ class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
             ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
             db.lessonDao().update(true, dataSet[position].id)
+        }
+
+        viewHolder.checkDistanceButton.setOnClickListener{
+            //getLastKnownLocation()
+            val geo = Geocoder(context, Locale.getDefault())
+            val res = geo.getFromLocationName("Paris",1)
+            val distance = DistanceCalculator.Companion.getDistance(latitude, longitude, 48.8924,2.2153)
+            Toast.makeText(context, "The distance is ${distance.toInt()} km", Toast.LENGTH_LONG).show()
         }
     }
 

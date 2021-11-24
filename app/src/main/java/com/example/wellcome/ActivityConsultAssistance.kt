@@ -41,6 +41,7 @@ class ActivityConsultAssistance : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map_assis) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
+
     override fun onMapReady(googleMap: GoogleMap) {
         val appointLoc = LatLng(lat, lng)
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(appointLoc))
