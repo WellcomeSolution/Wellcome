@@ -3,16 +3,31 @@ package com.example.wellcome
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+<<<<<<< HEAD
 import android.location.Criteria
 import android.location.LocationManager
+=======
+>>>>>>> fede2ff (Change Myactivitymenu Location)
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import kotlinx.android.synthetic.main.activity_assistance_menu.*
+import android.location.LocationManager
+import android.location.Criteria
+import android.location.Location
+import android.util.Log
+import androidx.core.app.ActivityCompat
+import java.lang.String
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fede2ff (Change Myactivitymenu Location)
 class MenuAssistance : AppCompatActivity()
 {
     var locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
