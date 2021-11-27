@@ -14,6 +14,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Wellcome">
         <activity
+                android:name=".SearchCityActivity"
+                android:exported="true" />
+        <activity
                 android:name=".DatesActivity"
                 android:exported="true" />
         <activity
