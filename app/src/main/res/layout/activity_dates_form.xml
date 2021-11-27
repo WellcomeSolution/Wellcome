@@ -2,30 +2,22 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
-        android:background="@color/crane_purple_800"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:gravity="center_horizontal">
 
     <include android:id="@+id/top_app_bar_dates" layout="@layout/top_app_bar"/>
 
     <com.example.daterangepicker.CalendarPickerView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:paddingHorizontal="15.5dp"
             android:id="@+id/calendar_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/crane_purple_800"
             android:scrollbarStyle="outsideOverlay"
-            app:tsquare_displayHeader="true"
-            app:tsquare_titleTextColor="@color/white"
-            app:tsquare_dayBackground="@color/crane_purple_800"
-            android:clipToPadding="true"
-            app:tsquare_dayTextColor="@color/white"
+            android:clipToPadding="false"
+            app:tsquare_headerTextColor="@color/grey_200"
+            app:tsquare_titleTextColor="@color/black"
             app:tsquare_orientation_horizontal="false"
             app:tsquare_dividerColor="@android:color/transparent"
-            android:layout_marginHorizontal="15dp"
-            app:tsquare_headerTextColor="@color/grey_300"
-            android:layout_gravity="center_horizontal"
             />
 
 </LinearLayout>

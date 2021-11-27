@@ -1,41 +1,43 @@
 package com.example.wellcome
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.KeyEvent
 import android.view.View
 import android.view.Window
-import androidx.core.util.Pair
+import com.example.daterangepicker.CalendarPickerView
 import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
-import com.example.daterangepicker.CalendarPickerView
-import kotlinx.android.synthetic.main.activity_dates.*
-import kotlinx.android.synthetic.main.activity_rescrictions_form.*
+import kotlinx.android.synthetic.main.activity_dates_form.*
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.*
-import java.time.temporal.TemporalAdjusters.firstDayOfYear
-import java.time.temporal.TemporalAdjusters.lastDayOfYear
+import kotlin.collections.ArrayList
+
 
 class DatesActivity : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initAnimations()
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_dates_form)
+        initDates()
+        initClickListener()
+    }
 
-        setContentView(R.layout.activity_dates)
-        calendar_view.init(dates().startDate.time, dates().endDate.time) //
-            .inMode(CalendarPickerView.SelectionMode.RANGE)
-
+    private fun initClickListener(){
         top_app_bar_dates.findViewById<MaterialToolbar>(R.id.topAppBar).setNavigationOnClickListener {
             dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK))
             dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK))
         }
+    }
+
+    private fun initDates(){
+        val nextYear = Calendar.getInstance()
+        nextYear.add(Calendar.MONTH, 6)
+
+        calendar_view.init(Date(), nextYear.time, SimpleDateFormat("MMMM, YYYY", Locale.getDefault()))
+            .inMode(CalendarPickerView.SelectionMode.RANGE)
     }
 
     private fun dates() : DatesOffset {
@@ -50,6 +52,18 @@ class DatesActivity : AppCompatActivity() {
         lastDayOfNextYear[Calendar.YEAR] = Calendar.getInstance().get(Calendar.YEAR) + DatesOffset.maxDate
 
         return DatesOffset(firstDayOfLastYear, lastDayOfNextYear)
+    }
+
+    fun getDaysBetweenDates(startDate: Date?, endDate: Date?): List<Date>? {
+        val dates: MutableList<Date> = ArrayList()
+        val calendar: Calendar = GregorianCalendar()
+        calendar.time = startDate
+        while (calendar.time.before(endDate)) {
+            val result = calendar.time
+            dates.add(result)
+            calendar.add(Calendar.DATE, 1)
+        }
+        return dates
     }
 
     private fun initAnimations(){

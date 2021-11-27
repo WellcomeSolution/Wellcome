@@ -17,7 +17,7 @@
                 android:name=".DatesActivity"
                 android:exported="true" />
         <activity
-                android:name=".RescrictionsActivityForm"
+                android:name=".RescrictionsFormActivity"
                 android:exported="true"
                 android:label="@string/title_activity_rescrictions"
                 android:theme="@style/Theme.Wellcome.NoActionBar" />

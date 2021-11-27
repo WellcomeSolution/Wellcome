@@ -2,33 +2,13 @@ package com.example.wellcome
 
 import android.app.ActivityOptions
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.transition.Fade
-import android.transition.TransitionManager
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.transition.MaterialFadeThrough
 import kotlinx.android.synthetic.main.fragment_trip.*
-import android.widget.LinearLayout
-import androidx.annotation.NonNull
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.util.Pair
-import androidx.fragment.app.findFragment
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.transition.MaterialContainerTransform
-import com.google.android.material.transition.MaterialElevationScale
-import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
-import com.google.android.material.button.MaterialButton
-
-import androidx.annotation.StringRes
-import com.google.android.material.transition.SlideDistanceProvider
 
 
 class TripFragment : Fragment() {
@@ -39,7 +19,7 @@ class TripFragment : Fragment() {
         sharedElementReturnTransition = MaterialContainerTransform().setDuration(300L)
 
         editText_restrictions.setOnClickListener{
-            val intent = Intent(context, RescrictionsActivityForm::class.java)
+            val intent = Intent(context, RescrictionsFormActivity::class.java)
             val options =  ActivityOptions.makeSceneTransitionAnimation(
                 activity,
                 editText_restrictions,

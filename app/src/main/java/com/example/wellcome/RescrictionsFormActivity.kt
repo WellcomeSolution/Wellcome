@@ -25,7 +25,7 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import kotlinx.android.synthetic.main.activity_rescrictions_form.*
 
-class RescrictionsActivityForm : AppCompatActivity() {
+class RescrictionsFormActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRescrictionsFormBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
