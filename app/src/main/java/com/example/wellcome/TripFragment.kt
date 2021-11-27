@@ -38,6 +38,16 @@ class TripFragment : Fragment() {
             activity?.startActivity(intent, options.toBundle())
         }
 
+        editText_location.setOnClickListener{
+            val intent = Intent(context, SearchCityActivity::class.java)
+            val options =  ActivityOptions.makeSceneTransitionAnimation(
+                activity,
+                editText_location,
+                "shared_element_container_location"  // The transition name to be matched in Activity B.
+            )
+            activity?.startActivity(intent, options.toBundle())
+        }
+
         super.onViewCreated(view, savedInstanceState)
     }
 

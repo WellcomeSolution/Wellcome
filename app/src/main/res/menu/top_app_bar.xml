@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/clear"
+            android:icon="@drawable/baseline_clear_24"
+            android:tint="@color/white"
+            app:showAsAction="ifRoom"
+            android:title="Clear" />
+</menu>

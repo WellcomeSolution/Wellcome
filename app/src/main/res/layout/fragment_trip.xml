@@ -91,12 +91,15 @@
                     app:startIconTint="@color/grey_100"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
+                    android:transitionName="shared_element_container_location"
                     app:startIconDrawable="@drawable/baseline_hotel_24">
                 <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText_location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle"
                         android:padding="15dp"
+                        android:focusable="false"
                         android:text="@string/Location"
                         android:textColor="@color/grey_100"
                         android:fontFamily="@font/ralewaymedium"

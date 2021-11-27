@@ -1,5 +1,11 @@
 package com.example.wellcome
 
+import android.view.ViewGroup
+import android.widget.*
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+import com.example.wellcome.utils.City
+
 class CityAdapter(countries : Collection<City>) :
     RecyclerView.Adapter<ViewHolder>(), Filterable {
     var cities: ArrayList<String> = ArrayList()
@@ -19,7 +25,7 @@ class CityAdapter(countries : Collection<City>) :
 
     private fun bind(vh: SingleLineItemViewHolder, position: Int) {
         vh.text.text = filteredCities[position]
-        vh.icon.setImageResource(R.drawable.outline_share_location_24)
+        vh.icon.setImageResource(R.drawable.baseline_share_location_24)
     }
 
     override fun getItemCount() = filteredCities.size

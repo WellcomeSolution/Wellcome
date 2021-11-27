@@ -34,7 +34,7 @@ class DatesActivity : AppCompatActivity() {
 
     private fun initDates(){
         val nextYear = Calendar.getInstance()
-        nextYear.add(Calendar.MONTH, 6)
+        nextYear.add(Calendar.MONTH, 2)
 
         calendar_view.init(Date(), nextYear.time, SimpleDateFormat("MMMM, YYYY", Locale.getDefault()))
             .inMode(CalendarPickerView.SelectionMode.RANGE)
