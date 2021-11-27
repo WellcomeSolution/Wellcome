@@ -1,5 +1,6 @@
 include ':WellcomeLibrary'
 include ':app'
 rootProject.name = "wellcome"
-include ':backdrop'
-include ':backdrop'
+include ':RangeDatePicker'
+include ':myapplication'
+include ':DateRangePicker'

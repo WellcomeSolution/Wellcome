@@ -9,8 +9,6 @@ import androidx.core.util.Pair
 import com.google.android.material.datepicker.MaterialDatePicker
 
 class DatesFragment : Fragment() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,9 +21,10 @@ class DatesFragment : Fragment() {
                         MaterialDatePicker.todayInUtcMilliseconds()
                     )
                 )
-                .build()
 
-        dateRangePicker.show(childFragmentManager, "tag")
+        //return dateRangePicker.
+
+        //dateRangePicker.show(childFragmentManager, "tag")
     }
 
     override fun onCreateView(

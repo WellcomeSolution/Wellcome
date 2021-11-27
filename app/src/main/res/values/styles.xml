@@ -67,14 +67,27 @@
         <item name="strokeColor">@color/black</item>
     </style>
 
-    <style name="CustomThemeOverlay_MaterialCalendar_Fullscreen"
-            parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">
-        <item name="materialCalendarStyle">@style/Custom_MaterialCalendar.Fullscreen</item>
+    <style name="MyCustomTheme" parent="@android:style/Theme.Panel">
+        <item name="android:windowAnimationStyle">@style/MyAnimation.Window</item>
     </style>
 
-    <style name="Custom_MaterialCalendar.Fullscreen"
-            parent="@style/Widget.MaterialComponents.MaterialCalendar.Fullscreen">
-        <item name="android:windowEnterAnimation">@null</item>
-        <item name="android:windowExitAnimation">@null</item>
+    <style name="MyAnimation.Window" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_out</item>
+    </style>
+
+    <style name="CalendarTitle">
+        <item name="android:gravity">start</item>
+        <item name="fontFamily">@font/ralewaysemibold</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="CalendarCell.CalendarDate">
+        <item name="fontFamily">@font/ralewaybold</item>
+    </style>
+
+    <style name="CalendarCell.DayHeader">
+        <item name="android:textSize">11dp</item>
+        <item name="fontFamily">@font/ralewaymedium</item>
     </style>
 </resources>

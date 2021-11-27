@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.transition.Fade
 import android.transition.TransitionManager
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,9 +28,7 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
 import com.google.android.material.button.MaterialButton
 
 import androidx.annotation.StringRes
-
-
-
+import com.google.android.material.transition.SlideDistanceProvider
 
 
 class TripFragment : Fragment() {
@@ -44,45 +43,22 @@ class TripFragment : Fragment() {
             val options =  ActivityOptions.makeSceneTransitionAnimation(
                 activity,
                 editText_restrictions,
-                "shared_element_container"  // The transition name to be matched in Activity B.
+                "shared_element_container_restrictions"  // The transition name to be matched in Activity B.
             )
             activity?.startActivity(intent, options.toBundle())
         }
 
         editText_dates.setOnClickListener{
-            /*val intent = Intent(context, DatesActivity::class.java)
+            val intent = Intent(context, DatesActivity::class.java)
             val options =  ActivityOptions.makeSceneTransitionAnimation(
                 activity,
-                editText_restrictions,
-                "shared_element_container"  // The transition name to be matched in Activity B.
+                editText_dates,
+                "shared_element_container_dates"  // The transition name to be matched in Activity B.
             )
-            activity?.startActivity(intent, options.toBundle())*/
-
-            val fade = Fade()
-
-            TransitionManager.beginDelayedTransition(main_container, fade)
-
-            val dateRangePicker =
-                MaterialDatePicker.Builder.dateRangePicker()
-                    .setTitleText("Select dates")
-                    .setSelection(
-                        Pair(
-                            MaterialDatePicker.thisMonthInUtcMilliseconds(),
-                            MaterialDatePicker.todayInUtcMilliseconds()
-                        )
-                    )
-                    .build()
-
-
-
-            dateRangePicker.view?.visibility = View.GONE
-            dateRangePicker.show(parentFragmentManager, "tag")
-
-
+            activity?.startActivity(intent, options.toBundle())
         }
 
         super.onViewCreated(view, savedInstanceState)
-
     }
 
 

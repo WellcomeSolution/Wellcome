@@ -20,6 +20,7 @@ import com.example.wellcome.databinding.ActivityRescrictionsFormBinding
 import com.example.wellcome.utils.Animations
 import com.example.wellcome.utils.db.HostRestrictions
 import com.example.wellcome.utils.disable
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import kotlinx.android.synthetic.main.activity_rescrictions_form.*
@@ -42,7 +43,7 @@ class RescrictionsActivityForm : AppCompatActivity() {
             Animations.getScaleDownAnimation(remove_adult).start()
         }*/
 
-        topAppBar.setNavigationOnClickListener {
+        top_app_bar_restrictions.findViewById<MaterialToolbar>(R.id.topAppBar).setNavigationOnClickListener {
             dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK))
             dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK))
         }
@@ -61,7 +62,7 @@ class RescrictionsActivityForm : AppCompatActivity() {
             duration = 300L
         }
 
-        findViewById<View>(android.R.id.content).transitionName = "shared_element_container"
+        findViewById<View>(android.R.id.content).transitionName = "shared_element_container_restrictions"
         setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
     }
 }
