@@ -1,9 +1,9 @@
 package com.example.wellcome.models
 
-class HostRestrictions(
-    val travelers :Int,
-    val isBabiesAllowed :Boolean,
-    val isDogsAllowed: Boolean, val
-    isChildsAllowed : Boolean) {
+import java.io.Serializable
 
-}
+class HostRestrictions(
+    val travelers: Int?,
+    val babies: Int?,
+    val pets: Int?,
+    val childs: Int?) : Serializable

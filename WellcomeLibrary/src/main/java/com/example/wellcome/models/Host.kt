@@ -6,14 +6,15 @@ class Host(title: String, description: String, address:Address, phone: String,
     address,phone, tags), IHost {
 
     override fun isHostRestrictionValid(trip: Trip) : Boolean{
-        return when {
+        /*return when {
             isTravelersValid(trip.travelers) && isBabiesValid(trip.hasBabies)
                     && isDogsValid(trip.hasDogs) && isChildsValid(trip.hasChilds) -> true
             else -> false
-        }
+        }*/
+        return true
     }
 
-    private fun isBabiesValid(hasBabies : Boolean) : Boolean {
+    /*private fun isBabiesValid(hasBabies : Boolean) : Boolean {
         if(!hostRestriction.isBabiesAllowed && hasBabies)
             return false;
         return true;
@@ -29,9 +30,9 @@ class Host(title: String, description: String, address:Address, phone: String,
         if(!hostRestriction.isChildsAllowed && hasChilds)
             return false;
         return true;
-    }
+    }*/
 
-    private fun isTravelersValid(expectedTravelers : Int) : Boolean = hostRestriction.travelers >= expectedTravelers
+    //private fun isTravelersValid(expectedTravelers : Int) : Boolean = hostRestriction.travelers >= expectedTravelers
 
     override fun isHostConfigurationValid(expectedHostConfiguration: HostConfiguration): Boolean {
         return when {

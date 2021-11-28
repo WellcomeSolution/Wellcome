@@ -1,10 +1,13 @@
 package com.example.wellcome
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.view.Window
+import androidx.activity.result.ActivityResult
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
@@ -36,18 +39,28 @@ class RescrictionsFormActivity : AppCompatActivity() {
         initClickListeners()
     }
 
+    override fun onBackPressed() {
+        val bundle = Bundle()
+        bundle.putSerializable("Restrictions",
+            com.example.wellcome.models.HostRestrictions(
+                viewModel.travelers.value, viewModel.babies.value,
+                viewModel.pets.value, viewModel.childs.value))
+        setResult(Activity.RESULT_OK, intent.putExtras(bundle))
+        super.onBackPressed()
+    }
+
     private fun suscribeEvents(){
         RestrictionsFormViewModel.travelersRemoved += ::travelersRemoved
-        RestrictionsFormViewModel.travelersAdded += :: travelersAdded
+        RestrictionsFormViewModel.travelersAdded += ::travelersAdded
 
         RestrictionsFormViewModel.childsRemoved += ::childsRemoved
-        RestrictionsFormViewModel.childsAdded += :: childsAdded
+        RestrictionsFormViewModel.childsAdded += ::childsAdded
 
         RestrictionsFormViewModel.babiesRemoved += ::babiesRemoved
-        RestrictionsFormViewModel.babiesAdded += :: babiesAdded
+        RestrictionsFormViewModel.babiesAdded += ::babiesAdded
 
         RestrictionsFormViewModel.petsRemoved += ::petsRemoved
-        RestrictionsFormViewModel.petsAdded += :: petsAdded
+        RestrictionsFormViewModel.petsAdded += ::petsAdded
     }
 
     private fun travelersRemoved(int:Int) {

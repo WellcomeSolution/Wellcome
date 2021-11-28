@@ -1,9 +1,12 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/main_container">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="viewModel" type="com.example.wellcome.com.example.wellcome.data.TripFormViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/main_container">
 
     <LinearLayout
             android:id="@+id/main_content"
@@ -46,7 +49,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle"
                         android:padding="15dp"
-                        android:text="@string/host_restrictions"
+                        android:text='@{viewModel.hostRestrictions.travelers != 0 ?
+                        viewModel.hostRestrictions.travelers : 15}'
                         android:textColor="@color/grey_100"
                         android:fontFamily="@font/ralewaymedium"
                         android:focusable="false"
@@ -107,8 +111,5 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     </LinearLayout>
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
