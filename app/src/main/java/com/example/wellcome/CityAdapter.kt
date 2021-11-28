@@ -13,6 +13,7 @@ class CityAdapter(countries : Collection<City>) :
 
     init {
         cities = ArrayList(countries.map { it.name }.distinct())
+        filteredCities = cities.take(10) as ArrayList<String>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

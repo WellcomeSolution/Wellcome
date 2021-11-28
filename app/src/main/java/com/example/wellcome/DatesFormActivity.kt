@@ -1,5 +1,6 @@
 package com.example.wellcome
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
@@ -34,7 +35,7 @@ class DatesActivity : AppCompatActivity() {
 
     private fun initDates(){
         val nextYear = Calendar.getInstance()
-        nextYear.add(Calendar.MONTH, 2)
+        nextYear.add(Calendar.MONTH, 1)
 
         calendar_view.init(Date(), nextYear.time, SimpleDateFormat("MMMM, YYYY", Locale.getDefault()))
             .inMode(CalendarPickerView.SelectionMode.RANGE)
@@ -72,11 +73,15 @@ class DatesActivity : AppCompatActivity() {
         window.sharedElementEnterTransition = MaterialContainerTransform().apply {
             addTarget(android.R.id.content)
             duration = 300L
+            scrimColor = Color.TRANSPARENT
+            //setAllContainerColors(applicationContext.themeColor(R.attr.colorSurface))
         }
 
         window.sharedElementReturnTransition = MaterialContainerTransform().apply {
             addTarget(android.R.id.content)
             duration = 300L
+            scrimColor = Color.TRANSPARENT
+            //setAllContainerColors(applicationContext.themeColor(R.attr.colorSurface))
         }
 
         findViewById<View>(android.R.id.content).transitionName = "shared_element_container_dates"

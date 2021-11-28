@@ -8,7 +8,8 @@
     <include android:id="@+id/top_app_bar_dates" layout="@layout/top_app_bar"/>
 
     <com.example.daterangepicker.CalendarPickerView
-            android:paddingHorizontal="15.5dp"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="18dp"
             android:id="@+id/calendar_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

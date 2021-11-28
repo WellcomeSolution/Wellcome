@@ -1,5 +1,6 @@
 package com.example.wellcome
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextWatcher
@@ -10,7 +11,10 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.Window
 import android.widget.EditText
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.view.doOnPreDraw
 import com.example.wellcome.utils.CitiesHelper
+import com.example.wellcome.utils.themeColor
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
@@ -22,17 +26,20 @@ class SearchCityActivity : AppCompatActivity() {
         initAnimations()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_city)
-        val cityAdapter = CityAdapter(CitiesHelper.getCities(applicationContext))
+        recyclerView.setBackgroundResource(R.drawable.solid_background)
+        recyclerView.doOnPreDraw { startPostponedEnterTransition() }
+        val cityAdapter = CityAdapter(MainActivity.cities)
 
         recyclerView.apply {
             layoutManager= LinearLayoutManager(context)
             adapter= cityAdapter
         }
 
+
         val topAppBar = top_app_bar_search_city.findViewById<MaterialToolbar>(R.id.topAppBar)
         val searchBar = topAppBar.findViewById<EditText>(R.id.searchBar)
         searchBar.visibility = View.VISIBLE
-        //topAppBar.menu.findItem(R.id.clear).isVisible = true
+        topAppBar.menu.findItem(R.id.clear).isVisible = true
 
         topAppBar.setNavigationOnClickListener {
             dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK))
@@ -61,18 +68,23 @@ class SearchCityActivity : AppCompatActivity() {
 
     private fun initAnimations(){
         window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
-
+        postponeEnterTransition()
         window.sharedElementEnterTransition = MaterialContainerTransform().apply {
             addTarget(android.R.id.content)
             duration = 300L
+            scrimColor = Color.TRANSPARENT
+            //setAllContainerColors(applicationContext.themeColor(R.attr.colorSurface))
         }
 
         window.sharedElementReturnTransition = MaterialContainerTransform().apply {
             addTarget(android.R.id.content)
             duration = 300L
+            scrimColor = Color.TRANSPARENT
+            //setAllContainerColors(applicationContext.themeColor(R.attr.colorSurface))
         }
 
         findViewById<View>(android.R.id.content).transitionName = "shared_element_container_location"
         setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+
     }
 }

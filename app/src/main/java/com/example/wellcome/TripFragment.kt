@@ -7,17 +7,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import com.example.wellcome.com.example.wellcome.data.RestrictionsFormViewModel
+import com.example.wellcome.com.example.wellcome.data.TripFormViewModel
+import com.example.wellcome.databinding.ActivityRescrictionsFormBinding
+import com.example.wellcome.utils.City
+import com.example.wellcome.databinding.FragmentTripBinding
 import kotlinx.android.synthetic.main.fragment_trip.*
 import com.google.android.material.transition.MaterialContainerTransform
 
 
 class TripFragment : Fragment() {
-    private var listener: OnBottomSheetCallbacks? = null
+    private val viewModel by lazy { ViewModelProviders.of(this).get(TripFormViewModel::class.java) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        sharedElementEnterTransition = MaterialContainerTransform().setDuration(300L)
-        sharedElementReturnTransition = MaterialContainerTransform().setDuration(300L)
+        initAnimations()
+        initClickListeners()
 
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun initClickListeners(){
         editText_restrictions.setOnClickListener{
             val intent = Intent(context, RescrictionsFormActivity::class.java)
             val options =  ActivityOptions.makeSceneTransitionAnimation(
@@ -47,16 +58,22 @@ class TripFragment : Fragment() {
             )
             activity?.startActivity(intent, options.toBundle())
         }
-
-        super.onViewCreated(view, savedInstanceState)
     }
 
-
+    private fun initAnimations(){
+        sharedElementEnterTransition = MaterialContainerTransform().setDuration(300L)
+        sharedElementReturnTransition = MaterialContainerTransform().setDuration(300L)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_trip, container, false)
+        val binding = FragmentTripBinding.inflate(
+            inflater, container, false)
+
+        binding.view
+
+        return binding.root
     }
 }
