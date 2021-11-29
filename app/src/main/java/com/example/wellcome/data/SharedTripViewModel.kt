@@ -1,12 +1,21 @@
-package com.example.wellcome.com.example.wellcome.data
+package com.example.wellcome.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.wellcome.MainActivity
 import com.example.wellcome.com.example.wellcome.utils.Event
+import com.example.wellcome.models.HostRestrictions
+import com.example.wellcome.models.SlotDate
+import com.example.wellcome.models.TripCity
+import com.example.wellcome.utils.CitiesHelper
+import com.example.wellcome.utils.City
+import kotlinx.coroutines.launch
+import java.time.LocalDate
 
-class RestrictionsFormViewModel : ViewModel() {
-    companion object{
+class SharedTripViewModel : ViewModel() {
+    companion object {
         val travelersRemoved = Event<Int>()
         val travelersAdded = Event<Int>()
 
@@ -25,10 +34,26 @@ class RestrictionsFormViewModel : ViewModel() {
     private val _pets = MutableLiveData(0)
     private val _babies = MutableLiveData(0)
 
+    private val _startDate = MutableLiveData<LocalDate>(null)
+    private val _endDate = MutableLiveData<LocalDate>(null)
+
+    private val _country = MutableLiveData(String())
+    private val _city = MutableLiveData(String())
+    private val _postalCode = MutableLiveData(String())
+
     val travelers: LiveData<Int> = _travelers
     val childs: LiveData<Int> = _childs
     val pets: LiveData<Int> = _pets
     val babies: LiveData<Int> = _babies
+
+    val startDate: LiveData<LocalDate> = _startDate
+    val endDateDate: LiveData<LocalDate> = _endDate
+
+    val country: LiveData<String> = _country
+    val city: LiveData<String> = _city
+    val postalCode: LiveData<String> = _postalCode
+
+    var cities : Collection<City> = ArrayList()
 
     fun onAddTravelers(){
         _travelers.value = (_travelers.value ?: 0) + 1

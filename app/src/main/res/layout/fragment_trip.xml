@@ -1,6 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="viewModel" type="com.example.wellcome.com.example.wellcome.data.TripFormViewModel"/>
+        <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -49,8 +49,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle"
                         android:padding="15dp"
-                        android:text='@{viewModel.hostRestrictions.travelers != 0 ?
-                        viewModel.hostRestrictions.travelers : 15}'
+                        android:text="@string/restrictions_adults"
                         android:textColor="@color/grey_100"
                         android:fontFamily="@font/ralewaymedium"
                         android:focusable="false"

@@ -2,22 +2,18 @@ package com.example.wellcome
 
 import android.app.Activity
 import android.app.ActivityOptions
-import android.app.Instrumentation
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.core.app.ActivityOptionsCompat
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
-import com.example.wellcome.com.example.wellcome.data.RestrictionsFormViewModel
-import com.example.wellcome.com.example.wellcome.data.TripFormViewModel
-import com.example.wellcome.databinding.ActivityRescrictionsFormBinding
-import com.example.wellcome.utils.City
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.FragmentTripBinding
 import com.example.wellcome.models.HostRestrictions
 import kotlinx.android.synthetic.main.fragment_trip.*
@@ -28,20 +24,11 @@ import com.google.android.material.transition.MaterialContainerTransform
 
 
 class TripFragment : Fragment() {
-    private val viewModel by lazy { ViewModelProviders.of(this).get(TripFormViewModel::class.java) }
-
-    private val openRestrictionsFormActivity =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val bundle = result.data?.extras
-                viewModel.hostRestrictions.value = bundle?.getSerializable("Restrictions") as HostRestrictions
-            }
-        }
+    private val viewModel: SharedTripViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initAnimations()
         initClickListeners()
-
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -53,7 +40,7 @@ class TripFragment : Fragment() {
                 editText_restrictions,
                 "shared_element_container_restrictions"  // The transition name to be matched in Activity B.
             )
-            openRestrictionsFormActivity.launch(intent, options)
+            activity?.startActivity(intent, options.toBundle())
         }
 
         editText_dates.setOnClickListener{

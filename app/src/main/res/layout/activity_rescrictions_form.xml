@@ -1,7 +1,7 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="viewModel" type="com.example.wellcome.com.example.wellcome.data.RestrictionsFormViewModel"/>
+        <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
     </data>
     <RelativeLayout
             android:id="@+id/content" android:layout_width="match_parent"

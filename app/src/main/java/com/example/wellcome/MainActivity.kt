@@ -10,6 +10,9 @@ import kotlinx.android.synthetic.main.fragment_form.*
 import android.content.Intent
 import android.util.Log
 import android.view.Window
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
+import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.utils.CitiesHelper
 import com.example.wellcome.utils.City
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
@@ -21,38 +24,20 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private var listener: OnBottomSheetCallbacks? = null
-
-    companion object {
-        lateinit var cities : Collection<City>
-    }
-
-    private val currentNavigationFragment: Fragment?
-        get() = supportFragmentManager.findFragmentById(R.id.navigation_graph)
-            ?.childFragmentManager
-            ?.fragments
-            ?.first()
+    private val viewModel: SharedTripViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
-        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
-        window.sharedElementsUseOverlay = false
-
+        initAnimation()
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Launch a coroutine that by default goes to the main thread
-        GlobalScope.launch(Dispatchers.Main) {
-            // Switch to a background (IO) thread
-            val retval = withContext(Dispatchers.IO) {
-                Log.e("TASK", "Started background task")
-                val retval = "The value from background"
-                cities = CitiesHelper.getCities(applicationContext)
-                Log.e("TASK", "Finished background task with result: " + retval)
-                retval
-            }
-            // Now you're back the main thread
-            Log.e("TASK", "Started task in Main thread with result from Background: " + retval)
+        viewModelScope.launch {
+
+        }
+
+         .launch(Dispatchers.Main) {
+                viewModel.cities = CitiesHelper.getCities(applicationContext)
         }
 
         /*sharedE = MaterialContainerTransform().apply {
@@ -106,6 +91,13 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.elevation = 0f
         configureBackdrop()
     }
+
+    private fun initAnimation(){
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        window.sharedElementsUseOverlay = false
+    }
+
 
     fun setOnBottomSheetCallbacks(onBottomSheetCallbacks: OnBottomSheetCallbacks) {
         this.listener = onBottomSheetCallbacks

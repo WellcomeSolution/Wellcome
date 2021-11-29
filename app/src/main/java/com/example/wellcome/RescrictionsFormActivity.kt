@@ -1,19 +1,18 @@
 package com.example.wellcome
 
 import android.app.Activity
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.view.Window
-import androidx.activity.result.ActivityResult
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
-import com.example.wellcome.com.example.wellcome.data.RestrictionsFormViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.wellcome.com.example.wellcome.utils.disable
 import com.example.wellcome.com.example.wellcome.utils.enable
+import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.ActivityRescrictionsFormBinding
 import com.example.wellcome.utils.scaleDown
 import com.google.android.material.appbar.MaterialToolbar
@@ -23,7 +22,7 @@ import com.google.android.material.transition.platform.MaterialContainerTransfor
 import kotlinx.android.synthetic.main.activity_rescrictions_form.*
 
 class RescrictionsFormActivity : AppCompatActivity() {
-    private val viewModel by lazy { ViewModelProviders.of(this).get(RestrictionsFormViewModel::class.java) }
+    private val viewModel: SharedTripViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initAnimations()
@@ -50,17 +49,17 @@ class RescrictionsFormActivity : AppCompatActivity() {
     }
 
     private fun suscribeEvents(){
-        RestrictionsFormViewModel.travelersRemoved += ::travelersRemoved
-        RestrictionsFormViewModel.travelersAdded += ::travelersAdded
+        SharedTripViewModel.travelersRemoved += ::travelersRemoved
+        SharedTripViewModel.travelersAdded += ::travelersAdded
 
-        RestrictionsFormViewModel.childsRemoved += ::childsRemoved
-        RestrictionsFormViewModel.childsAdded += ::childsAdded
+        SharedTripViewModel.childsRemoved += ::childsRemoved
+        SharedTripViewModel.childsAdded += ::childsAdded
 
-        RestrictionsFormViewModel.babiesRemoved += ::babiesRemoved
-        RestrictionsFormViewModel.babiesAdded += ::babiesAdded
+        SharedTripViewModel.babiesRemoved += ::babiesRemoved
+        SharedTripViewModel.babiesAdded += ::babiesAdded
 
-        RestrictionsFormViewModel.petsRemoved += ::petsRemoved
-        RestrictionsFormViewModel.petsAdded += ::petsAdded
+        SharedTripViewModel.petsRemoved += ::petsRemoved
+        SharedTripViewModel.petsAdded += ::petsAdded
     }
 
     private fun travelersRemoved(int:Int) {

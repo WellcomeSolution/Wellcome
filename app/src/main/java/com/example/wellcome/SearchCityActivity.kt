@@ -11,8 +11,11 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.Window
 import android.widget.EditText
+import androidx.activity.viewModels
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.doOnPreDraw
+import androidx.lifecycle.ViewModelProvider
+import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.utils.CitiesHelper
 import com.example.wellcome.utils.themeColor
 import com.google.android.material.appbar.MaterialToolbar
@@ -22,13 +25,15 @@ import kotlinx.android.synthetic.main.activity_dates_form.*
 
 
 class SearchCityActivity : AppCompatActivity() {
+    private val viewModel: SharedTripViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         initAnimations()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_city)
         recyclerView.setBackgroundResource(R.drawable.solid_background)
         recyclerView.doOnPreDraw { startPostponedEnterTransition() }
-        val cityAdapter = CityAdapter(MainActivity.cities)
+        val cityAdapter = CityAdapter(viewModel.cities)
 
         recyclerView.apply {
             layoutManager= LinearLayoutManager(context)
