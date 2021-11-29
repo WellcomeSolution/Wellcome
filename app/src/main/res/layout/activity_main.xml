@@ -1,39 +1,28 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_container"
-        android:animateLayoutChanges="true"
-        tools:context=".MainActivity"
-        android:background="@color/crane_purple_800">
+        tools:context=".MainActivity">
 
-    <fragment
-            android:transitionName="shared_element_container"
+    <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:itemTextColor="@color/white"
+            app:itemIconTint="@color/white"
+            app:backgroundTint="@color/crane_purple_800"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/bottom_navigation"
+            android:backgroundTint="@color/crane_purple_800"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/navigation_graph"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:menu="@menu/bottom_nav_menu" />
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment">
-        <fragment
-
-                android:elevation="1dp"
-                app:behavior_peekHeight="63dp"
-                android:id="@+id/filter_fragment"
-                android:name="com.example.wellcome.WindowFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:behavior_skipCollapsed="true"
-                app:layout_behavior=".GestureLockedBottomSheetBehavior"
-                />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

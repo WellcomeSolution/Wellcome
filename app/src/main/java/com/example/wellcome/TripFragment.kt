@@ -2,6 +2,7 @@ package com.example.wellcome
 
 import android.app.Activity
 import android.app.ActivityOptions
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -33,15 +34,22 @@ class TripFragment : Fragment() {
     }
 
     private fun initClickListeners(){
-        editText_restrictions.setOnClickListener{
-            val intent = Intent(context, RescrictionsFormActivity::class.java)
+        /*editText_restrictions.setOnClickListener{
+            /*val intent = Intent(context, RescrictionsFormActivity::class.java)
             val options =  ActivityOptionsCompat.makeSceneTransitionAnimation(
                 requireActivity(),
                 editText_restrictions,
                 "shared_element_container_restrictions"  // The transition name to be matched in Activity B.
             )
             activity?.startActivity(intent, options.toBundle())
-        }
+*/
+            childFragmentManager
+                .beginTransaction()
+                // Map the start View in FragmentA and the transitionName of the end View in FragmentB
+                .replace(R.id.nav_host_fragment, FormFragment(), "WindowFragment.TAG")
+                .addToBackStack("FragmentB.TAG")
+                .commit()
+        }*/
 
         editText_dates.setOnClickListener{
             val intent = Intent(context, DatesActivity::class.java)

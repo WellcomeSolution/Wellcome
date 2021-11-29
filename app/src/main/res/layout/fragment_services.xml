@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ServicesFragment">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:backgroundTint="@color/crane_purple_700">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                    style="?attr/collapsingToolbarLayoutMediumStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/collapsingToolbarLayoutMediumSize">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                        android:elevation="0dp"
+                        android:backgroundTint="@color/crane_purple_700"
+                        android:id="@+id/topAppBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:menu="@menu/top_app_bar"
+                        app:navigationIconTint="@color/white"
+                        app:navigationIcon="@drawable/baseline_menu_24"
+                        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                        />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent" >
+
+                <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trips"
+                        />
+
+                <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/assitance"
+                        />
+
+                <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lesson"
+                        />
+
+            </com.google.android.material.tabs.TabLayout>
+    </LinearLayout>
+</FrameLayout>

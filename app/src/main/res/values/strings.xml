@@ -115,4 +115,11 @@
     <string name="previous">previous</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="saved">Saved</string>
+    <string name="services">Services</string>
+    <string name="services_app_bar">services_app_bar</string>
+    <string name="trips">Trips</string>
+  <string name="assitance">Assistance</string>
+  <string name="lesson">Lesson</string>
 </resources>

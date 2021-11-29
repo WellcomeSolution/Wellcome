@@ -33,7 +33,7 @@ class SearchCityActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search_city)
         recyclerView.setBackgroundResource(R.drawable.solid_background)
         recyclerView.doOnPreDraw { startPostponedEnterTransition() }
-        val cityAdapter = CityAdapter(viewModel.cities)
+        val cityAdapter = CityAdapter(SharedTripViewModel.cities)
 
         recyclerView.apply {
             layoutManager= LinearLayoutManager(context)

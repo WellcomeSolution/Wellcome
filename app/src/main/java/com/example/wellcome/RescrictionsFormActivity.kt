@@ -3,6 +3,7 @@ package com.example.wellcome
 import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.Window
@@ -27,7 +28,7 @@ class RescrictionsFormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         initAnimations()
         super.onCreate(savedInstanceState)
-
+        Log.e("tag", viewModel.travelers.value.toString())
         val binding :ActivityRescrictionsFormBinding = DataBindingUtil.setContentView(
             this, R.layout.activity_rescrictions_form)
 
