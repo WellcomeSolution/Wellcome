@@ -14,6 +14,6 @@ class TopBarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_top_bar, container, false)
+        return inflater.inflate(R.layout.services_top_bar, container, false)
     }
 }

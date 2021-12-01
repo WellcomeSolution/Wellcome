@@ -1,33 +1,14 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/main_container">
-
-    <LinearLayout
-            android:id="@+id/main_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/crane_purple_800">
-
-        <fragment android:id="@+id/top_bar_fragment"
-                android:name="com.example.wellcome.TopBarFragment"
-                android:label="TopBarFragment"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent">
-        </fragment>
-
         <LinearLayout
+                android:background="@color/crane_purple_800"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="15dp"
+                android:layout_height="match_parent"
+                android:paddingTop="15dp"
                 android:orientation="vertical"
                 >
             <com.google.android.material.textfield.TextInputLayout
@@ -49,7 +30,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle"
                         android:padding="15dp"
-                        android:text="@string/restrictions_adults"
+                        android:text="@string/host_restrictions"
                         android:textColor="@color/grey_100"
                         android:fontFamily="@font/ralewaymedium"
                         android:focusable="false"
@@ -108,7 +89,7 @@
                         android:fontFamily="@font/ralewaymedium"
                         />
             </com.google.android.material.textfield.TextInputLayout>
+
+
         </LinearLayout>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

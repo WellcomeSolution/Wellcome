@@ -28,7 +28,6 @@ class TripFragment : Fragment() {
     private val viewModel: SharedTripViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initAnimations()
         initClickListeners()
         super.onViewCreated(view, savedInstanceState)
     }
@@ -51,30 +50,17 @@ class TripFragment : Fragment() {
                 .commit()
         }*/
 
+        editText_restrictions.setOnClickListener{
+
+        }
+
         editText_dates.setOnClickListener{
-            val intent = Intent(context, DatesActivity::class.java)
-            val options =  ActivityOptions.makeSceneTransitionAnimation(
-                activity,
-                editText_dates,
-                "shared_element_container_dates"  // The transition name to be matched in Activity B.
-            )
-            activity?.startActivity(intent, options.toBundle())
+
         }
 
         editText_location.setOnClickListener{
-            val intent = Intent(context, SearchCityActivity::class.java)
-            val options =  ActivityOptions.makeSceneTransitionAnimation(
-                activity,
-                editText_location,
-                "shared_element_container_location"  // The transition name to be matched in Activity B.
-            )
-            activity?.startActivity(intent, options.toBundle())
-        }
-    }
 
-    private fun initAnimations(){
-        sharedElementEnterTransition = MaterialContainerTransform().setDuration(300L)
-        sharedElementReturnTransition = MaterialContainerTransform().setDuration(300L)
+        }
     }
 
     override fun onCreateView(

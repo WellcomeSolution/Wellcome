@@ -4,6 +4,11 @@
         <item name="colorPrimaryDark">@color/crane_purple_900</item>
     </style>
 
+    <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
+        <item name="tabIndicatorAnimationMode">linear</item>
+        <item name="tabIndicator">@drawable/mtrl_tabs_default_indicator</item>
+    </style>
+
     <style name="TabTextAppearence" parent="TextAppearance.AppCompat.Button">
         <item name="android:fontFamily">@font/ralewaysemibold</item>
     </style>

@@ -111,10 +111,7 @@ class RescrictionsFormActivity : AppCompatActivity() {
     }
 
     private fun initClickListeners() {
-        top_app_bar_restrictions.findViewById<MaterialToolbar>(R.id.topAppBar).setNavigationOnClickListener {
-            dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK))
-            dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK))
-        }
+
     }
 
     private fun initAnimations(){

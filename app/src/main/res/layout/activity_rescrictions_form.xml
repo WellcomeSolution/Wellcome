@@ -10,10 +10,7 @@
             android:orientation="vertical"
             android:background="@color/white">
 
-        <include android:id="@+id/top_app_bar_restrictions" layout="@layout/top_app_bar"/>
-
         <LinearLayout
-                android:layout_below="@id/top_app_bar_restrictions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="23dp"

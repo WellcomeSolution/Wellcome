@@ -3,7 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_gravity="start"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingBottom="1.5dp"
         app:tabTextAppearance="@style/TabTextAppearence"
         app:tabRippleColor="@null"
         app:tabIndicatorColor="@android:color/transparent"

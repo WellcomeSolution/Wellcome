@@ -6,60 +6,20 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ServicesFragment">
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-        <com.google.android.material.appbar.AppBarLayout
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fitsSystemWindows="true"
-                android:backgroundTint="@color/crane_purple_700">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                    style="?attr/collapsingToolbarLayoutMediumStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/collapsingToolbarLayoutMediumSize">
+                <include android:id="@+id/services_top_bar" layout="@layout/services_top_bar"/>
 
-                <com.google.android.material.appbar.MaterialToolbar
-                        android:elevation="0dp"
-                        android:backgroundTint="@color/crane_purple_700"
-                        android:id="@+id/topAppBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        app:menu="@menu/top_app_bar"
-                        app:navigationIconTint="@color/white"
-                        app:navigationIcon="@drawable/baseline_menu_24"
-                        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-                        />
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.google.android.material.appbar.AppBarLayout>
-
-            <com.google.android.material.tabs.TabLayout
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent" >
-
-                <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/trips"
-                        />
-
-                <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/assitance"
-                        />
-
-                <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lesson"
-                        />
-
-            </com.google.android.material.tabs.TabLayout>
-    </LinearLayout>
+                <androidx.fragment.app.FragmentContainerView
+                        android:backgroundTint="@color/crane_purple_800"
+                        android:id="@+id/nav_host_fragment"
+                        android:name="androidx.navigation.fragment.NavHostFragment"
+                        app:defaultNavHost="true"
+                        app:navGraph="@navigation/services_nav_graph"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"/>
+        </LinearLayout>
 </FrameLayout>
