@@ -4,18 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_accessibility_new_24.xml" value="0.278125" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_assistance_request.xml" value="0.25" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_consult_assistance.xml" value="0.12639311043566362" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_consult_assistance_page.xml" value="0.33" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_firstmenu.xml" value="0.22" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_lesson_request.xml" value="0.25" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_request.xml" value="0.1" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/assistance_card_view.xml" value="0.1" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/cours_card_view.xml" value="0.2" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/favorite_assistance_card_view.xml" value="0.22950819672131148" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/favorite_lesson_card_view.xml" value="0.10005065856129686" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragement_add_assistance.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragement_add_trip.xml" value="0.12031408308004053" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_add_lesson.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_favorite_assistance.xml" value="0.1" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_search_assistance.xml" value="0.1601123595505618" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_search_lesson.xml" value="0.25" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/trip_card_view.xml" value="0.24739583333333334" />
       </map>
     </option>
   </component>

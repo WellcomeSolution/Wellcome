@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="calendar_active_month_bg">#ffffff</color>
+    <color name="calendar_bg">#ffffff</color>
+    <color name="calendar_divider">#f5f5f5</color>
+    <color name="calendar_highlighted_day_bg">#E30425</color>
+    <color name="calendar_inactive_month_bg">#ffffff</color>
+    <color name="calendar_range_middle_deactivated_bg">@android:color/white</color>
+    <color name="calendar_range_middle_unavailable_bg">#ef5350</color>
+    <color name="calendar_selected_day_bg">#E30425</color>
+    <color name="calendar_selected_range_bg">#E30425</color>
+    <color name="calendar_text_active">#212121</color>
+    <color name="calendar_text_highlighted">#f5f5f5</color>
+    <color name="calendar_text_inactive">#ffffff</color>
+    <color name="calendar_text_selected">#ffffff</color>
+    <color name="calendar_text_unselected">#7ffefeff</color>
+    <color name="calendar_unavailable_bg">#ef5350</color>
+    <color name="dateTimeRangePickerHeaderTextColor">@android:color/black</color>
+    <color name="dateTimeRangePickerRangeTextColorActive">@android:color/white</color>
+    <color name="dateTimeRangePickerRangeTextColorInactive">#B9B9B9</color>
+    <color name="dateTimeRangePickerStateDefault">@android:color/black</color>
+    <color name="dateTimeRangePickerStateNonSelectable">@android:color/white</color>
+    <color name="dateTimeRangePickerStateToday">@android:color/black</color>
+    <color name="dateTimeRangePickerTitleTextColor">@android:color/black</color>
+    <dimen name="calendar_day_headers_paddingbottom">4dp</dimen>
+    <dimen name="calendar_month_title_bottommargin">20dp</dimen>
+    <dimen name="calendar_month_topmargin">16dp</dimen>
+    <dimen name="calendar_text_large">18sp</dimen>
+    <dimen name="calendar_text_medium">16sp</dimen>
+    <dimen name="calendar_text_small">12sp</dimen>
+    <dimen name="calendar_text_tiny">8sp</dimen>
+    <item name="day_view_adapter_class" type="id"/>
+    <string name="app_name">rangedatepicker</string>
+    <style name="CalendarCell">
+        <item name="android:fontFamily">@font/ralewaybold</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment" ns1:targetApi="jelly_bean_mr1">center</item>
+    </style>
+    <style name="CalendarCell.CalendarDate">
+        <item name="android:fontFamily">@font/ralewaybold</item>
+        <item name="android:textSize">@dimen/calendar_text_medium</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="CalendarCell.DayHeader">
+        <item name="android:fontFamily">@font/ralewaybold</item>
+        <item name="android:textSize">@dimen/calendar_text_small</item>
+    </style>
+    <style name="CalendarCell.SubTitle">
+        <item name="android:fontFamily">@font/ralewaybold</item>
+        <item name="android:textSize">@dimen/calendar_text_tiny</item>
+        <item name="android:textColor">@color/calendar_text_active</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">40dp</item>
+    </style>
+    <style name="CalendarTitle">
+        <item name="android:textSize">@dimen/calendar_text_large</item>
+    </style>
+    <declare-styleable name="CalendarPickerView">
+    <attr name="android:background"/>
+    <attr format="color" name="tsquare_dividerColor"/>
+    <attr format="reference" name="tsquare_dayBackground"/>
+    <attr format="color" name="tsquare_dayTextColor"/>
+    <attr format="color" name="tsquare_titleTextColor"/>
+    <attr format="boolean" name="tsquare_displayHeader"/>
+    <attr format="color" name="tsquare_headerTextColor"/>
+    <attr format="boolean" name="tsquare_orientation_horizontal"/>
+  </declare-styleable>
+    <declare-styleable name="calendar_cell">
+    <attr format="boolean" name="tsquare_state_selectable"/>
+    <attr format="boolean" name="tsquare_state_current_month"/>
+    <attr format="boolean" name="tsquare_state_today"/>
+    <attr format="boolean" name="tsquare_state_range_first"/>
+    <attr format="boolean" name="tsquare_state_range_middle"/>
+    <attr format="boolean" name="tsquare_state_range_last"/>
+    <attr format="boolean" name="tsquare_state_highlighted"/>
+    <attr format="boolean" name="tsquare_state_unavailable"/>
+    <attr format="boolean" name="tsquare_state_deactivated"/>
+  </declare-styleable>
+</resources>

@@ -99,8 +99,8 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
         v.reserve.isEnabled = dataSet.isAvailable
 
         v.reserve.setOnClickListener {
-            db.lessonDao().update(!v.reserve.isEnabled, dataSet.id)
-            v.reserve.isEnabled = false
+            val intent = Intent(context, LessonRequestActivity::class.java)
+            context.startActivity(intent)
         }
 
         v.addressButton.setOnClickListener {

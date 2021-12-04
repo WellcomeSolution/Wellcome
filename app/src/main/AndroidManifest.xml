@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
             android:allowBackup="true"
@@ -13,12 +13,23 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".FirstMenuActivity"
-            android:exported="true"
-            android:label="Firstmenu"
-            android:theme="@style/Theme.Wellcome.NoActionBar">
+        <activity
+                android:name=".AssistanceRequestActivity"
+                android:exported="true" />
+        <activity
+                android:name=".LessonRequestActivity"
+                android:exported="true" />
+        <activity
+                android:name=".RequestActivity"
+                android:exported="true" />
+        <activity
+                android:name=".FirstMenuActivity"
+                android:exported="true"
+                android:label="Firstmenu"
+                android:theme="@style/Theme.Wellcome.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,50 +37,37 @@
                 android:name=".MenuLesson"
                 android:exported="true"
                 android:label="@string/title_activity_menu"
-                android:theme="@style/Theme.Wellcome.NoActionBar">
-
-        </activity>
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
 
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
                 android:value="@string/google_maps_key" />
 
-
         <activity
-            android:name=".MenuAssistance"
-            android:exported="true"
-            android:label="MenuAssistance"
-            android:theme="@style/Theme.Wellcome.NoActionBar">
-
-        </activity>
+                android:name=".MenuAssistance"
+                android:exported="true"
+                android:label="MenuAssistance"
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
         <activity
-            android:name=".MenuTrip"
-            android:exported="true"
-            android:label="MenuAssistance"
-            android:theme="@style/Theme.Wellcome.NoActionBar">
-
-        </activity>
+                android:name=".MenuTrip"
+                android:exported="true"
+                android:label="MenuAssistance"
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
         <activity
-            android:name=".ActivityConsultLesson"
-            android:exported="true"
-            android:label="MenuAssistance"
-            android:theme="@style/Theme.Wellcome.NoActionBar">
-
-        </activity>
+                android:name=".ActivityConsultLesson"
+                android:exported="true"
+                android:label="MenuAssistance"
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
         <activity
-            android:name=".ActivityConsultAssistance"
-            android:exported="true"
-            android:label="MenuAssistance"
-            android:theme="@style/Theme.Wellcome.NoActionBar">
-
-        </activity>
+                android:name=".ActivityConsultAssistance"
+                android:exported="true"
+                android:label="MenuAssistance"
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
         <activity
-            android:name=".ActivityConsultTrip"
-            android:exported="true"
-            android:label="MenuAssistance"
-            android:theme="@style/Theme.Wellcome.NoActionBar">
-
-        </activity>
+                android:name=".ActivityConsultTrip"
+                android:exported="true"
+                android:label="MenuAssistance"
+                android:theme="@style/Theme.Wellcome.NoActionBar" />
     </application>
 
 </manifest>

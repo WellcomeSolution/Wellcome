@@ -2,6 +2,7 @@ package com.example.wellcome
 
 import android.content.Context
 import android.content.Intent
+import android.content.RestrictionEntry
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -96,10 +97,9 @@ class ConsultTripAdapter (val context: Context, private val dataSet: Trip):
              intent.data = Uri.parse("tel:$tele")
              context.startActivity(intent)
          }
-         v.reserve.isEnabled = dataSet.isAvailable
          v.reserve.setOnClickListener{
-             db.tripDao().update(!v.reserve.isEnabled, dataSet.id)
-             v.reserve.isEnabled=false
+             val intent = Intent(context, RequestActivity::class.java)
+             context.startActivity(intent)
          }
          v.addressButton.setOnClickListener{
              context.searchAddress(getAddressRepresentation(dataSet.tripCity))

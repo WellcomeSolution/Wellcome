@@ -90,8 +90,8 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
         v.reserve.isEnabled = dataSet.isAvailable
 
         v.reserve.setOnClickListener {
-            db.lessonDao().update(!v.reserve.isEnabled, dataSet.id)
-            v.reserve.isEnabled = false
+            val intent = Intent(context, AssistanceRequestActivity::class.java)
+            context.startActivity(intent)
         }
 
         v.addressButton.setOnClickListener {
