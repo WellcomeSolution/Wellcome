@@ -1,30 +1,27 @@
 package com.example.wellcome
 
-import android.app.Activity
-import android.app.ActivityOptions
-import android.content.ContentValues.TAG
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
-import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
+import com.example.wellcome.com.example.wellcome.DatesBottomSheet
+import com.example.wellcome.com.example.wellcome.RestrictionsBottomSheet
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.FragmentTripBinding
-import com.example.wellcome.models.HostRestrictions
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.fragment_trip.*
-import com.google.android.material.transition.MaterialContainerTransform
+import android.view.WindowManager
 
 
 
 
 
 class TripFragment : Fragment() {
+    private lateinit var bottomSheetBehavior:BottomSheetBehavior<View>
+
     private val viewModel: SharedTripViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,11 +48,13 @@ class TripFragment : Fragment() {
         }*/
 
         editText_restrictions.setOnClickListener{
-
+            val modalBottomSheet = RestrictionsBottomSheet()
+            modalBottomSheet.show(parentFragmentManager, RestrictionsBottomSheet.TAG)
         }
 
         editText_dates.setOnClickListener{
-
+            val modalBottomSheet = DatesBottomSheet()
+            modalBottomSheet.show(parentFragmentManager, DatesBottomSheet.TAG)
         }
 
         editText_location.setOnClickListener{
@@ -67,7 +66,7 @@ class TripFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentTripBinding.inflate(
+        var binding = FragmentTripBinding.inflate(
             inflater, container, false)
 
         binding.viewModel = viewModel

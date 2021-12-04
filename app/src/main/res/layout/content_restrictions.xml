@@ -1,0 +1,266 @@
+<LinearLayout android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:background="@color/white"
+        app:behavior_peekHeight="0dp"
+        app:behavior_hideable="false"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/top_app_bar"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="23dp"
+            android:orientation="vertical">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="23dp">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                <TextView
+                        android:text="@string/restrictions_adults"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginBottom="1dp"/>
+                <TextView
+                        android:textSize="13dp"
+                        android:fontFamily="@font/ralewaymedium"
+                        android:text="@string/restrictions_adults_details"
+                        android:textColor="@color/grey_200"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/remove_travelers"
+                        style="@style/ButtonRemove"
+                        android:onClick="@{() -> viewModel.onRemoveTravelers()}"
+                        app:icon="@drawable/baseline_remove_24"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                        />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{Integer.toString(viewModel.travelers)}"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                </TextView>
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_travelers"
+                        android:onClick="@{() -> viewModel.onAddTravelers()}"
+                        style="@style/ButtonAdd"
+                        app:icon="@drawable/baseline_add_24"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                        />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/divider"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="23dp">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                <TextView
+                        android:text="@string/restrictions_childrens"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginBottom="1dp"/>
+                <TextView
+                        android:textSize="13dp"
+                        android:fontFamily="@font/ralewaymedium"
+                        android:text="@string/restrictions_childrens_details"
+                        android:textColor="@color/grey_200"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/remove_children"
+                        style="@style/ButtonRemove"
+                        android:onClick="@{() -> viewModel.onRemoveChilds()}"
+                        app:icon="@drawable/baseline_remove_24"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                        />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{Integer.toString(viewModel.childs)}"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                </TextView>
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_children"
+                        style="@style/ButtonAdd"
+                        android:onClick="@{() -> viewModel.onAddChilds()}"
+                        app:icon="@drawable/baseline_add_24"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                        />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/divider"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="23dp">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                <TextView
+                        android:text="@string/restrictions_babies"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginBottom="1dp"/>
+                <TextView
+                        android:textSize="13dp"
+                        android:fontFamily="@font/ralewaymedium"
+                        android:text="@string/restrictions_babies_details"
+                        android:textColor="@color/grey_200"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/remove_baby"
+                        style="@style/ButtonRemove"
+                        app:icon="@drawable/baseline_remove_24"
+                        android:onClick="@{() -> viewModel.onRemoveBabies()}"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                        />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{Integer.toString(viewModel.babies)}"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                </TextView>
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_baby"
+                        android:onClick="@{() -> viewModel.onAddBabies()}"
+                        style="@style/ButtonAdd"
+                        app:icon="@drawable/baseline_add_24"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                        />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/divider"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="23dp">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                <TextView
+                        android:text="@string/restrictions_pets"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginBottom="1dp"/>
+                <TextView
+                        android:textSize="13dp"
+                        android:fontFamily="@font/ralewaymedium"
+                        android:text="@string/restrictions_pets_details"
+                        android:textColor="@color/grey_200"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/remove_pet"
+                        style="@style/ButtonRemove"
+                        app:icon="@drawable/baseline_remove_24"
+                        android:onClick="@{() -> viewModel.onRemovePets()}"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                        />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{Integer.toString(viewModel.pets)}"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+                </TextView>
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_pet"
+                        android:onClick="@{() -> viewModel.onAddPets()}"
+                        style="@style/ButtonAdd"
+                        app:icon="@drawable/baseline_add_24"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+                        />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="vertical">
+        <com.google.android.material.divider.MaterialDivider
+                app:dividerColor="@color/divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dividerThickness="0.8dp"></com.google.android.material.divider.MaterialDivider>
+    </RelativeLayout>
+
+</LinearLayout>

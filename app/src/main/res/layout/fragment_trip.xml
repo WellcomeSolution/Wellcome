@@ -3,6 +3,10 @@
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
     </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
         <LinearLayout
                 android:background="@color/crane_purple_800"
@@ -89,7 +93,9 @@
                         android:fontFamily="@font/ralewaymedium"
                         />
             </com.google.android.material.textfield.TextInputLayout>
-
-
         </LinearLayout>
+
+        <include layout="@layout/content_restrictions"
+                android:id="@+id/bottom_sheet_restrictions"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

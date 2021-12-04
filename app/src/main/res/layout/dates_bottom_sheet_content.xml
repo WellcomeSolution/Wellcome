@@ -1,0 +1,28 @@
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        app:behavior_peekHeight="0dp"
+        app:behavior_hideable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:gravity="center_horizontal"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dates_bottom_sheet">
+
+            <include android:id="@+id/top_app_bar_dates" layout="@layout/top_app_bar"/>
+
+            <com.example.daterangepicker.CalendarPickerView
+                    android:layout_margin="23dp"
+                    android:id="@+id/calendar_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:clipToPadding="false"
+                    app:tsquare_headerTextColor="@color/grey_200"
+                    app:tsquare_titleTextColor="@color/black"
+                    app:tsquare_orientation_horizontal="false"
+                    app:tsquare_dividerColor="@android:color/transparent"
+                    />
+
+        </LinearLayout>

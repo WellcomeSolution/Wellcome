@@ -4,7 +4,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_container"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:clipChildren="false">
 
     <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
@@ -19,20 +20,13 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
             app:itemTextColor="@color/white"
             app:itemIconTint="@color/white"
-            app:backgroundTint="@color/crane_purple_900"
+            app:elevation="50dp"
+            app:labelVisibilityMode="selected"
+            app:backgroundTint="@color/crane_purple_800"
             app:layout_constraintBottom_toBottomOf="@id/main_container"
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/bottom_nav_menu" />
-
-    <FrameLayout
-            android:id="@+id/standard_bottom_sheet"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-            android:layout_height="match_parent" android:layout_width="match_parent">
-
-        <include android:id="@+id/restrictions_form" layout="@layout/activity_rescrictions_form"/>
-
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

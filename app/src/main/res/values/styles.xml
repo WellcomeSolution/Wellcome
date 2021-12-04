@@ -82,12 +82,4 @@
         <item name="android:textSize">16dp</item>
     </style>
 
-    <style name="CalendarCell.CalendarDate">
-        <item name="fontFamily">@font/ralewaybold</item>
-    </style>
-
-    <style name="CalendarCell.DayHeader">
-        <item name="android:textSize">10dp</item>
-        <item name="fontFamily">@font/ralewaybold</item>
-    </style>
 </resources>
