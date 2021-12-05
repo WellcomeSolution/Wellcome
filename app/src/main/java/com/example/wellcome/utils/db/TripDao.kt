@@ -24,4 +24,8 @@ interface TripDao {
     fun update(isAvailable: Boolean?, id: Int)
     @Query("UPDATE trip SET like_trip= (like_trip+1) WHERE id = :id")
     fun updateLike(id: Int)
+    @Query("UPDATE trip SET isFavorite=:value WHERE id  = :id")
+    fun update(value:Boolean,id:Int)
+    @Query("SELECT * FROM trip WHERE isFavorite=:value")
+    fun findTripFavorites(value: Boolean=true): List<Trip>
 }

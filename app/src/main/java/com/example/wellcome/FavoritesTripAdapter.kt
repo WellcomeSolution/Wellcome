@@ -22,14 +22,14 @@ import java.lang.Exception
 import android.content.pm.PackageManager
 
 import android.os.Build
-import androidx.room.Room
-import com.example.wellcome.utils.db.AppDatabase
 
 
-class TripAdapter(val context: Context,private val dataSet: List<com.example.wellcome.utils.db.Trip>):
-    RecyclerView.Adapter<TripAdapter.ViewHolder>()
+
+
+
+class FavoritesTripAdapter(val context: Context,private val dataSet: List<com.example.wellcome.utils.db.Trip>):
+    RecyclerView.Adapter<FavoritesTripAdapter.ViewHolder>()
 {
-
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView:ImageView = itemView.image_trip
         val email: TextView = itemView.Email_trip
@@ -41,7 +41,7 @@ class TripAdapter(val context: Context,private val dataSet: List<com.example.wel
         val checkDistanceButton:Button = itemView.check_distances_trip
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritesTripAdapter.ViewHolder {
         if(!checkPermissionForReadExtertalStorage())
             requestPermissionForReadExtertalStorage()
 
@@ -69,14 +69,7 @@ class TripAdapter(val context: Context,private val dataSet: List<com.example.wel
             intent.putExtras(bundle)
             context.startActivity(intent)
         }
-        viewHolder.addFavoriteButton.setOnClickListener{
-            val db = Room.databaseBuilder(
-                context,
-                AppDatabase::class.java, "wellcome"
-            ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
-            db.tripDao().update(true, dataSet[position].id)
-        }
     }
 
     private val READ_STORAGE_PERMISSION_REQUEST_CODE = 41

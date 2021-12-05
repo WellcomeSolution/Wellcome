@@ -110,6 +110,7 @@ class AddTripFragment : BaseFragment(){
             ,hasBabies = hasBabies
             ,hasChilds = hasChilds,
             true,
+            false,
             0,
             image_view.tag.toString()
         )

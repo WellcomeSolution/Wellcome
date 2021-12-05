@@ -19,8 +19,8 @@ class MenuTrip : AppCompatActivity(){
                     launchAddServicesFragment()
                     true
                 }
-                R.id.Favoris -> {
-                   /* launchAddServicesFragment()*/
+                R.id.add_Favorris -> {
+                    launchFavorisTripFragment()
                     true
                 }
                 else -> false
@@ -35,5 +35,9 @@ class MenuTrip : AppCompatActivity(){
     private fun launchSearchFragment(){
         supportFragmentManager.
         beginTransaction().replace(R.id.trip_content, SearchTripFragment()).commit()
+    }
+    private fun launchFavorisTripFragment(){
+        supportFragmentManager.
+        beginTransaction().replace(R.id.trip_content, FavoriteTripFragment()).commit()
     }
 }
