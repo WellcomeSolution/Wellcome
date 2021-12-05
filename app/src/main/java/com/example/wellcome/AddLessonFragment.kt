@@ -81,6 +81,7 @@ class AddLessonFragment: BaseFragment() {
                 getAddress(),
                 services_phone.text.toString(),
                 true,
+                0,
                 list,
                 1,
                 image_view_lesson.tag.toString()

@@ -34,9 +34,9 @@ class ActivityConsultAssistance : AppCompatActivity(), OnMapReadyCallback {
             adapter=ConsultAssistanceAdapter(context,
                 db.assistanceDao().findAssistanceById(bundle?.getInt("id").toString()))
         }
-        test.setOnClickListener(){
+        /*test.setOnClickListener(){
             Toast.makeText(this,address,Toast.LENGTH_SHORT).show()
-        }
+        }*/
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map_assis) as SupportMapFragment
         mapFragment.getMapAsync(this)

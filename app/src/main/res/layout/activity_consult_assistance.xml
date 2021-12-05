@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 />
+
             <fragment xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
 
@@ -30,13 +31,7 @@
                 android:layout_gravity="center"
                 tools:context=".ActivityConsultAssistance"
                 android:name="com.google.android.gms.maps.SupportMapFragment" />
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/test"
-                android:text="test">
 
-            </Button>
         </LinearLayout>
     </ScrollView>
 

@@ -148,32 +148,36 @@
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginRight="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="18dp"
             android:hint="Description"
             app:counterEnabled="true"
             app:counterMaxLength="200"
             app:errorEnabled="true"
             app:helperTextEnabled="true">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:inputType="textMultiLine"
                 android:id="@+id/assistance_description_con"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:editable="false"
-                android:layout_height="200dp"/>
+                android:inputType="textMultiLine" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -253,5 +257,27 @@
             android:id="@+id/search_address"
             android:layout_margin="5dp">
         </Button>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:id="@+id/like_assistance"
+            android:text="like"
+            >
+        </Button>
+        <TextView
+            android:id="@+id/like_count_a"
+            android:textSize="16dp"
+            android:text="0"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/like_assistance"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"/>
     </LinearLayout>
 </LinearLayout>

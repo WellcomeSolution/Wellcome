@@ -11,6 +11,7 @@ data class Lesson(
     @Embedded val address: Address,
     val phone: String,
     val isAvailable: Boolean,
+    var like_lesson: Int = 0,
     var tags: List<String>,
     val sessionDuration: Int,
     val image: String) {

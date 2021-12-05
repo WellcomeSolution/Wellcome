@@ -12,6 +12,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.activity_consult_assistance.*
 import kotlinx.android.synthetic.main.activity_consult_lesson.*
 
 
@@ -28,7 +29,6 @@ class ActivityConsultLesson: AppCompatActivity(), OnMapReadyCallback {
             this,
             AppDatabase::class.java, "wellcome"
         ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
-
         recycler_view_page.apply {
             layoutManager= LinearLayoutManager(context)
             adapter=ConsultLessonAdapter(context, db.lessonDao().findLessonById(bundle?.getInt("id").toString()))

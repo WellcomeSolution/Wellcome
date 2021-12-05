@@ -41,6 +41,8 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
 
         val reserve: Button = itemView.findViewById(R.id.reserve)
         val addressButton: Button = itemView.findViewById(R.id.search_address)
+        val likeButton: Button = itemView.findViewById(R.id.like_lesson)
+        var likeCount: TextView =itemView.findViewById(R.id.like_count)
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -71,9 +73,10 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
         v.city.text = dataSet.address.country?.administrativeArea?.locality?.addressLine
         v.postal_code.text = dataSet.address.country?.administrativeArea?.locality?.postalCode?.addressLine
         v.thoroughfare.text = dataSet.address.country?.administrativeArea?.locality?.thoroughfare?.addressLine
-
+        var count  = dataSet.like_lesson
         v.title.text = dataSet.title
         v.phone.text = dataSet.phone
+        v.likeCount.text = dataSet.like_lesson.toString()
         v.description.setText(dataSet.description)
         v.duration.setText(dataSet.sessionDuration.toString())
         if(dataSet.tags.toString().contains(v.checkbox1.text)){
@@ -108,6 +111,13 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
         v.addFavoriteButton.setOnClickListener{
             db.assistanceDao().update(true, dataSet.id)
         }
+        v.likeButton.setOnClickListener{
+            db.lessonDao().updateLike(dataSet.id)
+            count +=1
+            v.likeCount.text = count.toString()
+        }
+
+
     }
 
     override fun getItemCount(): Int {

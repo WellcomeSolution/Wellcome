@@ -79,7 +79,6 @@ class SQLiteTest {
         )
     )
     )
-
     @Test
     fun tripInsertTest(){
         /*val trip : Trip =

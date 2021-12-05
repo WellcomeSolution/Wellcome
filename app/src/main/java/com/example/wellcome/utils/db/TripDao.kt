@@ -22,4 +22,6 @@ interface TripDao {
     fun findTripIncludeChild(value : Boolean=true): List<Trip>
     @Query("UPDATE trip SET isAvailable=:isAvailable WHERE id = :id")
     fun update(isAvailable: Boolean?, id: Int)
+    @Query("UPDATE trip SET like_trip= (like_trip+1) WHERE id = :id")
+    fun updateLike(id: Int)
 }

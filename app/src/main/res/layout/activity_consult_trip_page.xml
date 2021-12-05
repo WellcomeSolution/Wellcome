@@ -293,4 +293,25 @@
             android:layout_margin="5dp">
         </Button>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:id="@+id/like_trip"
+            android:text="like"
+            >
+        </Button>
+        <TextView
+            android:id="@+id/like_count_t"
+            android:textSize="16dp"
+            android:text="0"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/like_trip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"/>
+    </LinearLayout>
 </LinearLayout>

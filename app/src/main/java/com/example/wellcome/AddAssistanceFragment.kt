@@ -97,7 +97,7 @@ class AddAssistanceFragment: BaseFragment()  {
         }
         var list = mlist.toList()
         var ret_assistance = Assistance(false, assistance_titre.text.toString(),assistance_description.text.toString(), getAddress(),
-            assistance_phone.text.toString(),list, true, Priority.Low, image_view_assistance.tag.toString())
+            assistance_phone.text.toString(),0,list, true, Priority.Low, image_view_assistance.tag.toString())
         return ret_assistance
     }
 

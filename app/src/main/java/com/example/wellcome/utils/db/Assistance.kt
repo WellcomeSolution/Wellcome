@@ -14,6 +14,7 @@ data class Assistance(
     val description: String,
     @Embedded val address: Address,
     val phone: String,
+    var like_assistance: Int = 0,
     val tags: List<String>,
     val isAvailable: Boolean,
     val priority: Priority,

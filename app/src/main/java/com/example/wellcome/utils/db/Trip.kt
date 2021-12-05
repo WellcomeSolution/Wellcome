@@ -16,6 +16,7 @@ data class Trip(
     val hasBabies:Boolean,
     val hasChilds:Boolean,
     val isAvailable: Boolean,
+    var like_trip: Int = 0,
     val image: String) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

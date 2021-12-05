@@ -39,6 +39,9 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
         val reserve: Button = itemView.findViewById(R.id.reserve)
         val addressButton: Button = itemView.findViewById(R.id.search_address)
         val saveButton:Button = itemView.findViewById(R.id.add_favorites_assitance_con)
+
+        val likeButton: Button = itemView.findViewById(R.id.like_assistance)
+        var likeCount: TextView =itemView.findViewById(R.id.like_count_a)
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -66,7 +69,7 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
         v.city.text = dataSet.address.country?.administrativeArea?.locality?.addressLine
         v.postal_code.text = dataSet.address.country?.administrativeArea?.locality?.postalCode?.addressLine
         v.thoroughfare.text = dataSet.address.country?.administrativeArea?.locality?.thoroughfare?.addressLine
-
+        var count  = dataSet.like_assistance
         v.phone.text = dataSet.phone
         v.description.setText(dataSet.description)
         v.priority.setText(dataSet.priority.toString())
@@ -100,6 +103,11 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
 
         v.saveButton.setOnClickListener{
             db.assistanceDao().update(true, dataSet.id)
+        }
+        v.likeButton.setOnClickListener{
+            db.assistanceDao().updateLike(dataSet.id)
+            count +=1
+            v.likeCount.text = count.toString()
         }
     }
 

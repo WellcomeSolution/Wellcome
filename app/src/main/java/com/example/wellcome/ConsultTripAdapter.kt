@@ -46,6 +46,9 @@ class ConsultTripAdapter (val context: Context, private val dataSet: Trip):
         val checkbox6: CheckBox = itemView.checkbox3_equipment_con
         val reserve: Button = itemView.reserve_trip
         val addressButton: Button = itemView.search_trip_address
+
+        val likeButton: Button = itemView.findViewById(R.id.like_trip)
+        var likeCount: TextView =itemView.findViewById(R.id.like_count_t)
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -79,6 +82,8 @@ class ConsultTripAdapter (val context: Context, private val dataSet: Trip):
         v.Nbeds.text =dataSet.hostConfiguration.beds.toString()
          v.Nbathrooms.text = dataSet.hostConfiguration.bathrooms.toString()
          v.Nrooms.text = dataSet.hostConfiguration.rooms.toString()
+         var count  = dataSet.like_trip
+
          if(dataSet.hasBabies){
              v.checkbox1.isChecked
          }
@@ -107,6 +112,11 @@ class ConsultTripAdapter (val context: Context, private val dataSet: Trip):
          }
          v.addFavoriteButton.setOnClickListener{
              db.tripDao().update(true, dataSet.id)
+         }
+         v.likeButton.setOnClickListener{
+             db.tripDao().updateLike(dataSet.id)
+             count +=1
+             v.likeCount.text = count.toString()
          }
     }
 

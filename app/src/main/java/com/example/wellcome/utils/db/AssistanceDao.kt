@@ -16,7 +16,8 @@ interface AssistanceDao {
     fun findAssistanceByTitle(title: String): List<Assistance>
     @Query("SELECT * FROM assistance WHERE tags IN (:tags)")
     fun findAssistanceByTags(tags: List<String>): List<Assistance>
-
+    @Query("UPDATE assistance SET like_assistance= (like_assistance+1) WHERE id = :id")
+    fun updateLike(id: Int)
     @Query("UPDATE assistance SET isFavorite=:value WHERE id  = :id")
      fun update(value:Boolean,id:Int)
     @Query("SELECT * FROM assistance WHERE isFavorite=:value")
