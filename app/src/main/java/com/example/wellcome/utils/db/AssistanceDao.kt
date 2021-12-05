@@ -1,6 +1,7 @@
 package com.example.wellcome.utils.db
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -24,4 +25,8 @@ interface AssistanceDao {
 
     @Query("SELECT * FROM assistance WHERE tags like '%' || :tag || '%'")
     fun findAssistanceByOneTag(tag: String): List<Assistance>
+
+    @Query("DELETE  FROM assistance")
+    fun deleteAssistance()
+
 }

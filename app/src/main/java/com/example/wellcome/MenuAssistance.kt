@@ -3,6 +3,7 @@ package com.example.wellcome
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_assistance_menu.*
+import com.example.wellcome.utils.db.*
 
 
 class MenuAssistance : AppCompatActivity() {
@@ -29,6 +30,11 @@ class MenuAssistance : AppCompatActivity() {
                     true
                 }
 
+                R.id.Remove -> {
+                    launchRemoveAssistanceFragment()
+                    true
+                }
+
                 else -> false
             }
         }
@@ -47,6 +53,12 @@ class MenuAssistance : AppCompatActivity() {
         supportFragmentManager.
         beginTransaction().replace(R.id.assistance_content, FavoriteAssistanceFragment()).commit()
     }
+
+    private fun launchRemoveAssistanceFragment(){
+        supportFragmentManager.
+        beginTransaction().replace(R.id.assistance_content, RemoveAssistanceFragment()).commit()
+    }
+
 
 
 

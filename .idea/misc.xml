@@ -21,6 +21,28 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_search_assistance.xml" value="0.1601123595505618" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_search_lesson.xml" value="0.25" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/trip_card_view.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/activity_assistance_menu.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_assistance_request.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_consult_assistance.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_consult_assistance_page.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_consult_lesson.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_consult_lesson_page.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_consult_trip.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_consult_trip_page.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_firstmenu.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_found_city.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_gps.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_lesson_request.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_request.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/assistance_card_view.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/layout/favorite_assistance_card_view.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/layout/favorite_lesson_card_view.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/fragment_favorite_assistance.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/fragment_favorite_lesson.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/fragment_search_assistance.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/menu/bottom_navigation_assistance.xml" value="0.10462962962962963" />
       </map>
     </option>
   </component>
