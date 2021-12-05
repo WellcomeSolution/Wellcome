@@ -16,7 +16,8 @@ data class Assistance(
     val phone: String,
     val tags: List<String>,
     val isAvailable: Boolean,
-    val priority: Priority) {
+    val priority: Priority,
+    val image: String) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 

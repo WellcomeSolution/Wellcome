@@ -15,7 +15,8 @@ data class Trip(
     val hasDogs : Boolean,
     val hasBabies:Boolean,
     val hasChilds:Boolean,
-    val isAvailable: Boolean) {
+    val isAvailable: Boolean,
+    val image: String) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 }

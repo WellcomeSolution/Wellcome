@@ -12,7 +12,8 @@ data class Lesson(
     val phone: String,
     val isAvailable: Boolean,
     var tags: List<String>,
-    val sessionDuration: Int) {
+    val sessionDuration: Int,
+    val image: String) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 }

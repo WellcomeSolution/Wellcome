@@ -7,17 +7,17 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.wellcome.models.Equipments
 import com.example.wellcome.utils.db.*
 import com.example.wellcome.utils.searchAddress
 import com.google.android.material.chip.ChipGroup
+import kotlinx.android.synthetic.main.activity_consult_assistance_page.view.*
 import kotlinx.android.synthetic.main.activity_consult_trip_page.view.*
+import kotlinx.android.synthetic.main.cours_card_view.view.*
+import kotlinx.android.synthetic.main.fragement_add_trip.view.*
 import java.lang.StringBuilder
 
 class ConsultTripAdapter (val context: Context, private val dataSet: Trip):
@@ -25,7 +25,7 @@ class ConsultTripAdapter (val context: Context, private val dataSet: Trip):
     lateinit var db: AppDatabase
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+        val imageView: ImageView = itemView.image_trip_consult
         val email: TextView = itemView.email_trip_con
         val country: TextView = itemView.country_trip_con
         val city: TextView = itemView.city_trip_con
@@ -69,6 +69,7 @@ class ConsultTripAdapter (val context: Context, private val dataSet: Trip):
         return sb.toString()
     }
      override fun onBindViewHolder(v: ConsultTripAdapter.ViewHolder, position: Int) {
+         v.imageView.setImageURI(Uri.parse(dataSet.image))
          v.email.text = dataSet.adress
         v.country.text = dataSet.tripCity.country
          v.phone.text = dataSet.phone

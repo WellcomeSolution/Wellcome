@@ -1,5 +1,6 @@
 package com.example.wellcome
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,20 @@ import com.example.wellcome.utils.db.*
 import kotlinx.android.synthetic.main.fragement_add_trip.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
+import android.os.Environment
+import android.provider.MediaStore
+import androidx.activity.result.contract.ActivityResultContracts
+
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.ContextCompat.checkSelfPermission
+import androidx.core.content.FileProvider
+import java.io.File
+import java.util.jar.Manifest
+
 
 class AddTripFragment : BaseFragment(){
     override fun onCreateView(
@@ -34,7 +49,21 @@ class AddTripFragment : BaseFragment(){
             clearTextEdit()
             Toast.makeText(context,"Assistance added", Toast.LENGTH_SHORT).show()
         }
+        add_image_trip.setOnClickListener{
+            val pickPhoto = Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            resultLauncher.launch(pickPhoto)
+        }
     }
+
+    var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val selectedImage: Uri? = result.data?.data
+            image_view.setImageURI(selectedImage)
+            image_view.tag = selectedImage.toString()
+        }
+    }
+
     private fun clearTextEdit(){
         trip_startdate.text?.clear()
         trip_enddate.text?.clear()
@@ -80,7 +109,9 @@ class AddTripFragment : BaseFragment(){
             ,hasDogs = hasDog
             ,hasBabies = hasBabies
             ,hasChilds = hasChilds,
-            true)
+            true,
+            image_view.tag.toString()
+        )
         return ret_trip
     }
 

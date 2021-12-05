@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.assistance_card_view.view.*
 import kotlinx.android.synthetic.main.cours_card_view.view.*
+import kotlinx.android.synthetic.main.trip_card_view.view.*
 import java.util.*
 
 class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
@@ -28,6 +30,7 @@ class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
     var longitude:Double = 2.2585
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val imageView: ImageView = itemView.image_lesson
         val title: TextView = itemView.title_lesson
         val address: TextView = itemView.address_lesson
         val callButton: Button = itemView.call_button_lesson
@@ -46,6 +49,7 @@ class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        viewHolder.imageView.setImageURI(Uri.parse(dataSet[position].image))
         dataSet[position].tags.forEach {
             val chip = Chip(context)
             chip.text = it

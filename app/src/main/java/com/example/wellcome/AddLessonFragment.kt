@@ -1,11 +1,17 @@
 package com.example.wellcome
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.wellcome.utils.db.*
+import kotlinx.android.synthetic.main.fragement_add_trip.*
 import kotlinx.android.synthetic.main.fragment_add_lesson.*
 
 
@@ -25,6 +31,20 @@ class AddLessonFragment: BaseFragment() {
             db.lessonDao().insert(retrieveCours())
             clearTextEdit()
             Toast.makeText(context, "lesson added", Toast.LENGTH_SHORT).show()
+        }
+        add_image_lesson.setOnClickListener{
+            val pickPhoto = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            resultLauncher.launch(pickPhoto)
+        }
+    }
+
+    var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val selectedImage: Uri? = result.data?.data
+            image_view_lesson.setImageURI(selectedImage)
+            image_view_lesson.tag = selectedImage.toString()
         }
     }
 
@@ -62,7 +82,8 @@ class AddLessonFragment: BaseFragment() {
                 services_phone.text.toString(),
                 true,
                 list,
-                1
+                1,
+                image_view_lesson.tag.toString()
             )
             return ret_cours
         }

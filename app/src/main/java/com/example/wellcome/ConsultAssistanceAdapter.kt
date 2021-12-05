@@ -6,10 +6,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.wellcome.utils.db.Address
@@ -18,6 +15,7 @@ import com.example.wellcome.utils.db.Assistance
 import com.example.wellcome.utils.searchAddress
 import java.lang.StringBuilder
 import kotlinx.android.synthetic.main.activity_consult_assistance_page.view.*
+import kotlinx.android.synthetic.main.activity_consult_trip_page.view.*
 
 class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assistance):
     RecyclerView.Adapter<ConsultAssistanceAdapter.ViewHolder>() {
@@ -25,6 +23,7 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
     lateinit var db: AppDatabase
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val imageView: ImageView = itemView.image_assistance_consult
         val title: TextView = itemView.findViewById(R.id.title_assistance_con)
         val phone: TextView = itemView.findViewById(R.id.phone_con)
         val callButton: Button = itemView.findViewById(R.id.call_button_assistance_con)
@@ -61,6 +60,7 @@ class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assist
     }
 
     override fun onBindViewHolder(v: ViewHolder, position: Int) {
+        v.imageView.setImageURI(Uri.parse(dataSet.image))
         v.title.text = dataSet.title
         v.country.text = dataSet.address.country?.addressLine
         v.city.text = dataSet.address.country?.administrativeArea?.locality?.addressLine

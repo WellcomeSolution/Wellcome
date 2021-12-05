@@ -1,14 +1,20 @@
 package com.example.wellcome
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.wellcome.models.Priority
 import com.example.wellcome.utils.db.*
 import kotlinx.android.synthetic.main.fragement_add_assistance.*
+import kotlinx.android.synthetic.main.fragement_add_trip.*
 import kotlinx.android.synthetic.main.fragment_add_lesson.*
 
 
@@ -24,6 +30,13 @@ class AddAssistanceFragment: BaseFragment()  {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        add_image_assistance.setOnClickListener{
+            val pickPhoto = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            resultLauncher.launch(pickPhoto)
+        }
+
         assistance_add_button.setOnClickListener{
 
             db.assistanceDao().insert(retrieveAssistance())
@@ -47,6 +60,15 @@ class AddAssistanceFragment: BaseFragment()  {
         }
 
     }
+
+    var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val selectedImage: Uri? = result.data?.data
+            image_view_assistance.setImageURI(selectedImage)
+            image_view_assistance.tag = selectedImage.toString()
+        }
+    }
+
     private fun clearTextEdit(){
         assistance_titre.text?.clear()
         assistance_phone.text?.clear()
@@ -75,7 +97,7 @@ class AddAssistanceFragment: BaseFragment()  {
         }
         var list = mlist.toList()
         var ret_assistance = Assistance(false, assistance_titre.text.toString(),assistance_description.text.toString(), getAddress(),
-            assistance_phone.text.toString(),list, true, Priority.Low)
+            assistance_phone.text.toString(),list, true, Priority.Low, image_view_assistance.tag.toString())
         return ret_assistance
     }
 

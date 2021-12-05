@@ -6,10 +6,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.wellcome.utils.db.Address
@@ -17,6 +14,7 @@ import com.example.wellcome.utils.db.AppDatabase
 import com.example.wellcome.utils.db.Lesson
 import com.example.wellcome.utils.searchAddress
 import com.google.android.material.chip.ChipGroup
+import kotlinx.android.synthetic.main.activity_consult_assistance_page.view.*
 import java.lang.StringBuilder
 import kotlinx.android.synthetic.main.activity_consult_lesson_page.view.*
 class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
@@ -25,7 +23,7 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
     lateinit var db: AppDatabase
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+        val imageView: ImageView = itemView.image_lesson_consult
         val title: TextView = itemView.findViewById(R.id.title_lesson_con)
         val country: TextView = itemView.findViewById(R.id.country_lesson_con)
         val city: TextView = itemView.findViewById(R.id.city_lesson_con)
@@ -68,7 +66,7 @@ class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
     }
 
     override fun onBindViewHolder(v: ConsultLessonAdapter.ViewHolder, position: Int) {
-
+        v.imageView.setImageURI(Uri.parse(dataSet.image))
         v.country.text = dataSet.address.country?.addressLine
         v.city.text = dataSet.address.country?.administrativeArea?.locality?.addressLine
         v.postal_code.text = dataSet.address.country?.administrativeArea?.locality?.postalCode?.addressLine

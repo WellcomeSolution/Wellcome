@@ -13,6 +13,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+            <ImageView
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/image_assistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="194dp"
+                    android:scaleType="centerCrop"
+                    />
             <TextView
                     android:id="@+id/title_assistance"
                     android:text="Card title"

@@ -333,18 +333,38 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1.0"
                     android:text="WashingMachine?"/>
-
             </LinearLayout>
-            <Button
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/trip_add_button"
-                android:layout_width="wrap_content"
-                android:text="Add"
-                />
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                <ImageView
+                        android:layout_marginVertical="10dp"
+                        android:adjustViewBounds="true"
+                        android:id="@+id/image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                </ImageView>
+                <Button
+                        android:id="@+id/add_image_trip"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:text="Upload image"
+                        />
+                <Button
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/trip_add_button"
+                        android:layout_width="wrap_content"
+                        android:text="Add"
+                        />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
