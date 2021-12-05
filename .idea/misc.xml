@@ -42,7 +42,11 @@
         <entry key="app/src/main/res/layout/fragment_favorite_assistance.xml" value="0.10462962962962963" />
         <entry key="app/src/main/res/layout/fragment_favorite_lesson.xml" value="0.10462962962962963" />
         <entry key="app/src/main/res/layout/fragment_search_assistance.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/layout/fragment_search_lesson.xml" value="0.10462962962962963" />
         <entry key="app/src/main/res/menu/bottom_navigation_assistance.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/menu/bottom_navigation_trip.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/menu/top_navigation_menu.xml" value="0.10462962962962963" />
       </map>
     </option>
   </component>

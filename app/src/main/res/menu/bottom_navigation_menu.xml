@@ -16,4 +16,13 @@
             android:iconTint="@color/black"
         android:icon="@drawable/outline_favorite_24"
         android:title="Favorites" />
+
+    <item
+    android:id="@+id/add_Remove"
+    android:enabled="true"
+    android:iconTint="@color/black"
+    android:icon="@drawable/outline_favorite_24"
+    android:title="Remove" />
+
+
 </menu>

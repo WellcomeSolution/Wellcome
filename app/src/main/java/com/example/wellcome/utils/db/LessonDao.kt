@@ -24,4 +24,7 @@ interface LessonDao {
     fun findLessonFavorites(value: Boolean=true): List<Lesson>
     @Query("SELECT * FROM lesson WHERE tags like '%' || :tag || '%'")
     fun findLessonByOneTag(tag: String): List<Lesson>
+
+    @Query("DELETE  FROM lesson")
+    fun deleteLesson()
 }
