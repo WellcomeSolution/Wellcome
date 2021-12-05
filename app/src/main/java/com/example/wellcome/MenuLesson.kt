@@ -27,6 +27,12 @@ class MenuLesson : AppCompatActivity() {
                     launchFavorisLessonFragment()
                     true
                 }
+
+                R.id.Remove -> {
+                    lauchRemoveLessonFragment()
+
+                    true
+                }
                 else -> false
             }
         }
@@ -46,4 +52,10 @@ class MenuLesson : AppCompatActivity() {
         supportFragmentManager.
         beginTransaction().replace(R.id.content, FavoriteLessonFragment()).commit()
     }
+    private fun lauchRemoveLessonFragment(){
+        supportFragmentManager.
+        beginTransaction().replace(R.id.content, RemoveLessonFragment()).commit()
+
+    }
+
 }

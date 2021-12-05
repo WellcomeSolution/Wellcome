@@ -3,7 +3,6 @@ package com.example.wellcome
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_assistance_menu.*
-import com.example.wellcome.utils.db.*
 
 
 class MenuAssistance : AppCompatActivity() {
