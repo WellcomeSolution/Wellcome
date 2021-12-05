@@ -89,13 +89,23 @@ class AssistanceAdapter(val context: Context,private val dataSet: List<Assistanc
             context.startActivity(intent)
         }
 
-        viewHolder.addfavoritesButton.setOnClickListener {
-            val db = Room.databaseBuilder(
-                context,
-                AppDatabase::class.java, "wellcome"
-            ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+        val db = Room.databaseBuilder(
+            context,
+            AppDatabase::class.java, "wellcome"
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
-            db.assistanceDao().update(true,dataSet[position].id)
+        var isFavorite = dataSet[position].isFavorite
+        viewHolder.addfavoritesButton.setOnClickListener{
+            if(isFavorite){
+                db.assistanceDao().update(false, dataSet[position].id)
+                viewHolder.addfavoritesButton.text = "Save"
+                isFavorite = false
+            }
+            else {
+                db.assistanceDao().update(true, dataSet[position].id)
+                viewHolder.addfavoritesButton.text = "Unsave"
+                isFavorite = true
+            }
         }
 
         viewHolder.checkDistanceButton.setOnClickListener{

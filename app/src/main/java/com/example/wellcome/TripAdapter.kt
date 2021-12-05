@@ -69,13 +69,30 @@ class TripAdapter(val context: Context,private val dataSet: List<com.example.wel
             intent.putExtras(bundle)
             context.startActivity(intent)
         }
-        viewHolder.addFavoriteButton.setOnClickListener{
-            val db = Room.databaseBuilder(
-                context,
-                AppDatabase::class.java, "wellcome"
-            ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+        val db = Room.databaseBuilder(
+            context,
+            AppDatabase::class.java, "wellcome"
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
-            db.tripDao().update(true, dataSet[position].id)
+        var isFavorite = dataSet[position].isFavorite
+        viewHolder.addFavoriteButton.setOnClickListener{
+            if(isFavorite){
+                db.tripDao().update(false, dataSet[position].id)
+                viewHolder.addFavoriteButton.text = "Save"
+                isFavorite = false
+            }
+            else {
+                db.tripDao().update(true, dataSet[position].id)
+                viewHolder.addFavoriteButton.text = "Unsave"
+                isFavorite = true
+            }
+        }
+
+        if(dataSet[position].isFavorite) {
+            viewHolder.addFavoriteButton.text = "Unsave"
+        }
+        else {
+            viewHolder.addFavoriteButton.text = "Save"
         }
     }
 

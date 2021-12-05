@@ -22,9 +22,8 @@ import java.lang.Exception
 import android.content.pm.PackageManager
 
 import android.os.Build
-
-
-
+import androidx.room.Room
+import com.example.wellcome.utils.db.AppDatabase
 
 
 class FavoritesTripAdapter(val context: Context,private val dataSet: List<com.example.wellcome.utils.db.Trip>):
@@ -70,6 +69,24 @@ class FavoritesTripAdapter(val context: Context,private val dataSet: List<com.ex
             context.startActivity(intent)
         }
 
+        val db = Room.databaseBuilder(
+            context,
+            AppDatabase::class.java, "wellcome"
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+
+        var isFavorite = dataSet[position].isFavorite
+        viewHolder.addFavoriteButton.setOnClickListener{
+            if(isFavorite){
+                db.tripDao().update(false, dataSet[position].id)
+                viewHolder.addFavoriteButton.text = "Save"
+                isFavorite = false
+            }
+            else {
+                db.tripDao().update(true, dataSet[position].id)
+                viewHolder.addFavoriteButton.text = "Unsave"
+                isFavorite = true
+            }
+        }
     }
 
     private val READ_STORAGE_PERMISSION_REQUEST_CODE = 41

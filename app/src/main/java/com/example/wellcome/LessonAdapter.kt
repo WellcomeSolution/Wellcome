@@ -80,13 +80,23 @@ class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
             context.startActivity(intent)
         }
 
-        viewHolder.addFavoriteButton.setOnClickListener {
-            val db = Room.databaseBuilder(
-                context,
-                AppDatabase::class.java, "wellcome"
-            ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+        val db = Room.databaseBuilder(
+            context,
+            AppDatabase::class.java, "wellcome"
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
-            db.lessonDao().update(true, dataSet[position].id)
+        var isFavorite = dataSet[position].isFavorite
+        viewHolder.addFavoriteButton.setOnClickListener{
+            if(isFavorite){
+                db.lessonDao().update(false, dataSet[position].id)
+                viewHolder.addFavoriteButton.text = "Save"
+                isFavorite = false
+            }
+            else {
+                db.lessonDao().update(true, dataSet[position].id)
+                viewHolder.addFavoriteButton.text = "Unsave"
+                isFavorite = true
+            }
         }
 
         viewHolder.checkDistanceButton.setOnClickListener{
