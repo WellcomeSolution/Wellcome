@@ -48,19 +48,6 @@ class FavoritesLessonAdapter(private val dataset:List<Lesson>):RecyclerView.Adap
             AppDatabase::class.java, "wellcome"
         ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
-        var isFavorite = dataset[position].isFavorite
-        viewHolder.addFavoriteButton.setOnClickListener{
-            if(isFavorite){
-                db.lessonDao().update(false, dataset[position].id)
-                viewHolder.addFavoriteButton.text = "Save"
-                isFavorite = false
-            }
-            else {
-                db.lessonDao().update(true, dataset[position].id)
-                viewHolder.addFavoriteButton.text = "Unsave"
-                isFavorite = true
-            }
-        }
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
@@ -68,7 +55,6 @@ class FavoritesLessonAdapter(private val dataset:List<Lesson>):RecyclerView.Adap
         val address:TextView=itemView.findViewById(R.id.address_lesson_fav)
         val consultButton:TextView=itemView.findViewById(R.id.consulter_button_lesson_fav)
         val callButton:TextView=itemView.findViewById(R.id.call_button_lesson_fav)
-        val addFavoriteButton: Button = itemView.add_favorites_lesson
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritesLessonAdapter.ViewHolder {

@@ -99,6 +99,13 @@ class LessonAdapter(val context: Context,private val dataSet: List<Lesson>):
             }
         }
 
+        if(dataSet[position].isFavorite) {
+            viewHolder.addFavoriteButton.text = "Unsave"
+        }
+        else {
+            viewHolder.addFavoriteButton.text = "Save"
+        }
+
         viewHolder.checkDistanceButton.setOnClickListener{
             //getLastKnownLocation()
             val geo = Geocoder(context, Locale.getDefault())

@@ -74,6 +74,7 @@ class FavoritesTripAdapter(val context: Context,private val dataSet: List<com.ex
             AppDatabase::class.java, "wellcome"
         ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
+        viewHolder.addFavoriteButton.visibility = View.GONE
         var isFavorite = dataSet[position].isFavorite
         viewHolder.addFavoriteButton.setOnClickListener{
             if(isFavorite){
