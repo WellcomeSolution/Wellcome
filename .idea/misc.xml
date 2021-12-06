@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/DateRangePicker/src/main/res/layout/month.xml" value="0.2558876811594203" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/DateRangePicker/src/main/res/layout/week.xml" value="0.2558876811594203" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_accessibility_new_24.xml" value="0.278125" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/shadow.xml" value="0.22395833333333334" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/activity_assistance_request.xml" value="0.25" />
@@ -26,9 +28,10 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_search_lesson.xml" value="0.25" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_trip.xml" value="0.1" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/modal_bottom_sheet_content.xml" value="0.25" />
-        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/restrictions_bottom_sheet_content.xml" value="0.2296875" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/restrictions_bottom_sheet_content.xml" value="0.1" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/top_app_bar.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/trip_card_view.xml" value="0.24739583333333334" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/menu/top_app_bar.xml" value="0.2630208333333333" />
       </map>
     </option>
   </component>

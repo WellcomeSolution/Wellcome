@@ -1,4 +1,4 @@
-package com.example.wellcome.com.example.wellcome.utils
+package com.example.wellcome.com.example.wellcome.data
 
 class Event<T> {
     private val observers = mutableSetOf<(T) -> Unit>()

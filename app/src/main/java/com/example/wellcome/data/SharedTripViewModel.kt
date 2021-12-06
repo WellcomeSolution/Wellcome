@@ -1,40 +1,25 @@
 package com.example.wellcome.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.wellcome.MainActivity
-import com.example.wellcome.com.example.wellcome.utils.Event
-import com.example.wellcome.models.HostRestrictions
-import com.example.wellcome.models.SlotDate
-import com.example.wellcome.models.TripCity
-import com.example.wellcome.utils.CitiesHelper
+import androidx.databinding.BaseObservable
+import androidx.databinding.Bindable
+import androidx.databinding.Observable
+import androidx.lifecycle.*
+import com.example.wellcome.com.example.wellcome.data.Event
 import com.example.wellcome.utils.City
-import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 class SharedTripViewModel : ViewModel() {
-    companion object {
-        val travelersRemoved = Event<Int>()
-        val travelersAdded = Event<Int>()
-
-        val childsRemoved = Event<Int>()
-        val childsAdded = Event<Int>()
-
-        val petsRemoved = Event<Int>()
-        val petsAdded = Event<Int>()
-
-        val babiesRemoved = Event<Int>()
-        val babiesAdded = Event<Int>()
-
+    companion object{
         var cities : Collection<City> = ArrayList()
     }
 
-    val travelers = MutableLiveData(0)
+    val adults = MutableLiveData(0)
     val childs = MutableLiveData(0)
     val pets = MutableLiveData(0)
     val babies = MutableLiveData(0)
+    val travelers = MutableLiveData(0)
+    val travelersFormat = MutableLiveData(
+        "${adults.value} Adults, ${childs.value} Childrens, ${babies.value} Babies")
 
     val startDate = MutableLiveData<LocalDate>(null)
     val endDate = MutableLiveData<LocalDate>(null)
@@ -43,43 +28,41 @@ class SharedTripViewModel : ViewModel() {
     val city = MutableLiveData(String())
     val postalCode = MutableLiveData(String())
 
-    fun onAddTravelers(){
+    fun onAddAdults(){
+        adults.value = (adults.value ?: 0) + 1
         travelers.value = (travelers.value ?: 0) + 1
-        travelersAdded(1)
     }
 
     fun onAddChilds(){
         childs.value = (childs.value ?: 0) + 1
-        childsAdded(1)
+        travelers.value = (travelers.value ?: 0) + 1
     }
 
     fun onAddPets(){
         pets.value = (pets.value ?: 0) + 1
-        petsAdded(1)
     }
 
     fun onAddBabies(){
         babies.value = (babies.value ?: 0) + 1
-        babiesAdded(1)
+        travelers.value = (travelers.value ?: 0) + 1
     }
 
-    fun onRemoveTravelers(){
+    fun onRemoveAdults(){
+        adults.value = (adults.value ?: 0) - 1
         travelers.value = (travelers.value ?: 0) - 1
-        travelersRemoved(1)
     }
 
     fun onRemoveChilds(){
         childs.value = (childs.value ?: 0) - 1
-        childsRemoved(1)
+        travelers.value = (travelers.value ?: 0) - 1
     }
 
     fun onRemovePets(){
         pets.value = (pets.value ?: 0) - 1
-        petsRemoved(1)
     }
 
     fun onRemoveBabies(){
         babies.value = (babies.value ?: 0) - 1
-        babiesRemoved(1)
+        travelers.value = (travelers.value ?: 0) - 1
     }
 }

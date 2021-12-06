@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/crane_purple_700">
     <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
+            android:id="@+id/top_app_bar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             android:layout_width="match_parent"
             app:navigationIconTint="@color/white"

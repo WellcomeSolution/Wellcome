@@ -34,8 +34,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle"
                         android:padding="15dp"
-                        android:text="@string/host_restrictions"
-                        android:textColor="@color/grey_100"
+                        android:text="@{Integer.toString(viewModel.adults)}"
+                        android:textColor="@{viewModel.travelers > 0 ? @color/white : @color/grey_100}"
                         android:fontFamily="@font/ralewaymedium"
                         android:focusable="false"
                         />

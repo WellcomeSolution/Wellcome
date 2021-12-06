@@ -55,13 +55,13 @@
         <item name="android:insetRight">0dp</item>
     </style>
 
-    <style name="ButtonRemove" parent="ButtonAddRemove">
+    <style name="DisabledButton" parent="ButtonAddRemove">
         <item name="iconTint">@color/grey_100</item>
         <item name="strokeColor">@color/grey_100</item>
         <item name="android:enabled">false</item>
     </style>
 
-    <style name="ButtonAdd" parent="ButtonAddRemove">
+    <style name="ActiveButton" parent="ButtonAddRemove">
         <item name="iconTint">@color/black</item>
         <item name="android:enabled">true</item>
         <item name="strokeColor">@color/black</item>
