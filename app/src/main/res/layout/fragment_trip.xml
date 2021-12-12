@@ -2,11 +2,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
+        <import type="android.text.TextUtils"/>
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
         <LinearLayout
                 android:background="@color/crane_purple_800"
@@ -23,7 +23,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="25dp"
                     app:boxBackgroundMode="filled"
-                    app:startIconTint="@color/grey_100"
+                    app:startIconTint="@{viewModel.travelers > 0 ? @color/white : @color/grey_100}"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
                     android:transitionName="shared_element_container_restrictions"
@@ -34,7 +34,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle"
                         android:padding="15dp"
-                        android:text="@{Integer.toString(viewModel.adults)}"
+                        android:text="@{viewModel.travelers > 0 ? viewModel.travelersFormat : @string/host_restrictions }"
                         android:textColor="@{viewModel.travelers > 0 ? @color/white : @color/grey_100}"
                         android:fontFamily="@font/ralewaymedium"
                         android:focusable="false"
@@ -49,7 +49,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="25dp"
                     app:boxBackgroundMode="filled"
-                    app:startIconTint="@color/grey_100"
+                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/white : @color/grey_100}"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
                     app:startIconDrawable="@drawable/baseline_date_range_24"
@@ -60,8 +60,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle"
                         android:padding="15dp"
-                        android:text="@string/dates"
-                        android:textColor="@color/grey_100"
+                        android:text="@{viewModel.dateFormat ?? @string/dates}"
+                        android:textColor="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/white : @color/grey_100}"
                         android:fontFamily="@font/ralewaymedium"
                         android:focusable="false"
 

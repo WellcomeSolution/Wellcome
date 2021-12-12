@@ -1,5 +1,6 @@
 package com.example.wellcome
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +16,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.fragment_trip.*
 import android.view.WindowManager
 import androidx.fragment.app.viewModels
+import android.R
+
+
+
 
 
 class TripFragment : Fragment() {
@@ -26,6 +31,9 @@ class TripFragment : Fragment() {
     }
 
     private fun initClickListeners(){
+        val colorInt = resources.getColor(R.color.white)
+        textField_restrictions.setStartIconTintList(ColorStateList.valueOf(colorInt))
+
         editText_restrictions.setOnClickListener{
             val modalBottomSheet = RestrictionsBottomSheet()
             modalBottomSheet.show(childFragmentManager, RestrictionsBottomSheet.TAG)
@@ -48,6 +56,7 @@ class TripFragment : Fragment() {
         val binding = FragmentTripBinding.inflate(
             inflater, container, false)
         binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 }

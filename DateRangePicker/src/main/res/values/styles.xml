@@ -30,5 +30,7 @@
         <item name="android:layout_marginTop">40dp</item>
     </style>
 
-
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:backgroundDimAmount">0</item>
+    </style>
 </resources>
