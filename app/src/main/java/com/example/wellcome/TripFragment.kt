@@ -17,9 +17,7 @@ import kotlinx.android.synthetic.main.fragment_trip.*
 import android.view.WindowManager
 import androidx.fragment.app.viewModels
 import android.R
-
-
-
+import com.example.wellcome.com.example.wellcome.LocalisationBottomSheet
 
 
 class TripFragment : Fragment() {
@@ -45,7 +43,8 @@ class TripFragment : Fragment() {
         }
 
         editText_location.setOnClickListener{
-
+            val modalBottomSheet = LocalisationBottomSheet()
+            modalBottomSheet.show(childFragmentManager, LocalisationBottomSheet.TAG)
         }
     }
 

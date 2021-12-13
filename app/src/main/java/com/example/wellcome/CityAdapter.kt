@@ -6,15 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import com.example.wellcome.utils.City
 
-class CityAdapter(countries : Collection<City>) :
-    RecyclerView.Adapter<ViewHolder>(), Filterable {
-    var cities: ArrayList<String> = ArrayList()
-    var filteredCities: ArrayList<String> = ArrayList()
-
-    init {
-        cities = ArrayList(countries.map { it.name }.distinct())
-        filteredCities = cities.take(10) as ArrayList<String>
-    }
+class CityAdapter(private val countries : ArrayList<com.example.wellcome.repository.City>) :
+    RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return SingleLineItemViewHolder.create(parent);
@@ -25,34 +18,9 @@ class CityAdapter(countries : Collection<City>) :
     }
 
     private fun bind(vh: SingleLineItemViewHolder, position: Int) {
-        vh.text.text = filteredCities[position]
+        vh.text.text = countries[position].name
         vh.icon.setImageResource(R.drawable.baseline_share_location_24)
     }
 
-    override fun getItemCount() = filteredCities.size
-
-    override fun getFilter(): Filter {
-        return object : Filter() {
-            override fun publishResults(constraint: CharSequence?, results: FilterResults) {
-                filteredCities = if (results?.values == null)
-                    ArrayList()
-                else
-                    results.values as ArrayList<String>
-                notifyDataSetChanged()
-            }
-
-            override fun performFiltering(constraint: CharSequence): FilterResults? {
-                val results = FilterResults()
-
-                filteredCities = ArrayList(cities.filter {
-                    it.startsWith(constraint, ignoreCase = true) })
-
-                results.count = filteredCities.size
-                results.values = filteredCities
-
-                return results
-            }
-        }
-    }
-
+    override fun getItemCount() = countries.size
 }

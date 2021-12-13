@@ -19,5 +19,7 @@ class CitiesHelper {
 @Serializable
 data class City (
     val country: String,
-    val name: String
+    val name: String,
+    val longitude:Double,
+    val latitude:Double
 )

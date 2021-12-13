@@ -16,6 +16,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.ViewModelProvider
 import com.example.wellcome.data.SharedTripViewModel
+import com.example.wellcome.repository.City
 import com.example.wellcome.utils.CitiesHelper
 import com.example.wellcome.utils.themeColor
 import com.google.android.material.appbar.MaterialToolbar
@@ -33,7 +34,7 @@ class SearchCityActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search_city)
         recyclerView.setBackgroundResource(R.drawable.solid_background)
         recyclerView.doOnPreDraw { startPostponedEnterTransition() }
-        val cityAdapter = CityAdapter(SharedTripViewModel.cities)
+        val cityAdapter = CityAdapter(viewModel.cities.value as ArrayList<City>)
 
         recyclerView.apply {
             layoutManager= LinearLayoutManager(context)
@@ -53,7 +54,7 @@ class SearchCityActivity : AppCompatActivity() {
 
         searchBar.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(cs: CharSequence, arg1: Int, arg2: Int, arg3: Int) {
-                cityAdapter.filter.filter(cs)
+                //cityAdapter.filter.filter(cs)
             }
 
             override fun beforeTextChanged(arg0: CharSequence, arg1: Int, arg2: Int, arg3: Int) {}

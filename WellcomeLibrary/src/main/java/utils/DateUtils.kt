@@ -13,7 +13,6 @@ class DateUtils {
         }
         fun asLocalDate(date:Long) : LocalDate
             = Instant.ofEpochMilli(date).atZone(ZoneId.systemDefault()).toLocalDate()
-
         fun asString(localDate: LocalDate) : String = localDate.format(DateTimeFormatter.ofPattern("d/MM/yyyy"))
     }
 }
