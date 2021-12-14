@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellcome.utils.db.Lesson
+import com.example.wellcome.db.Lesson
 
 class LessonAdapter(private val dataSet: List<Lesson>):
     RecyclerView.Adapter<LessonAdapter.ViewHolder>()

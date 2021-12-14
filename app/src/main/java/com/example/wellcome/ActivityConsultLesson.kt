@@ -4,8 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
-import java.util.*
-import com.example.wellcome.utils.db.AppDatabase
+import com.example.wellcome.db.AppDatabase
 import kotlinx.android.synthetic.main.activity_consult_lesson.*
 
 

@@ -11,7 +11,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellcome.utils.db.Assistance
+import com.example.wellcome.db.Assistance
 
 
 class ConsultAssistanceAdapter(val context: Context, private val dataSet: Assistance):

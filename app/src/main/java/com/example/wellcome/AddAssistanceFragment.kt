@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
-import com.example.wellcome.models.Priority
-import com.example.wellcome.utils.db.Address
-import com.example.wellcome.utils.db.Assistance
+import com.example.services.Priority
+import com.example.wellcome.db.Address
+import com.example.wellcome.db.Assistance
 import kotlinx.android.synthetic.main.fragement_add_assistance.*
 
 

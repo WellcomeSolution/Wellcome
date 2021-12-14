@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.wellcome.utils.db.Address
-import com.example.wellcome.utils.db.Lesson
+import com.example.wellcome.db.Address
+import com.example.wellcome.db.Lesson
 import kotlinx.android.synthetic.main.fragment_add_lesson.*
 
 

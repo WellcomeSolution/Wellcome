@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellcome.utils.db.Assistance
+import com.example.wellcome.db.Assistance
 
 class AssistanceAdapter(private val dataSet: List<Assistance>):
     RecyclerView.Adapter<AssistanceAdapter.ViewHolder>()

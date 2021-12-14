@@ -9,15 +9,10 @@ import android.view.Window
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.wellcome.com.example.wellcome.utils.disable
-import com.example.wellcome.com.example.wellcome.utils.enable
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.ActivityRescrictionsFormBinding
-import com.example.wellcome.utils.scaleDown
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
-import kotlinx.android.synthetic.main.activity_rescrictions_form.*
 
 class RescrictionsFormActivity : AppCompatActivity() {
     private val viewModel: SharedTripViewModel by viewModels()
@@ -36,13 +31,13 @@ class RescrictionsFormActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val bundle = Bundle()
+        /*val bundle = Bundle()
         bundle.putSerializable("Restrictions",
-            com.example.wellcome.models.HostRestrictions(
+            com.example.services.HostTravelers(
                 viewModel.adults.value, viewModel.babies.value,
                 viewModel.pets.value, viewModel.childs.value))
         setResult(Activity.RESULT_OK, intent.putExtras(bundle))
-        super.onBackPressed()
+        super.onBackPressed()*/
     }
 
     private fun initClickListeners() {

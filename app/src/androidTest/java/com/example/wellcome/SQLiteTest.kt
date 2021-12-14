@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.wellcome.models.Equipments
 import com.example.wellcome.models.Priority
-import com.example.wellcome.utils.db.*
+import com.example.wellcome.db.*
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before

@@ -11,7 +11,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wellcome.utils.db.Lesson
+import com.example.wellcome.db.Lesson
 
 class ConsultLessonAdapter(val context: Context, private val dataSet: Lesson):
     RecyclerView.Adapter<ConsultLessonAdapter.ViewHolder>() {

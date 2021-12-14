@@ -1,9 +1,9 @@
 package com.example.wellcome
 
 import android.view.ViewGroup
-import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+import com.example.wellcome.com.example.wellcome.SingleLineItemViewHolder
 
 class CityAdapter(private val data : ArrayList<com.example.wellcome.repository.Address>) :
     RecyclerView.Adapter<ViewHolder>() {
