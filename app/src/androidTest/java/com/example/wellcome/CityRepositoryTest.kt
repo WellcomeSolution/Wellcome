@@ -7,16 +7,16 @@ import org.junit.Test
 
 class CityRepositoryTest {
     private val cityRepository : CityRepository
-        = CityRepository(Executor(), CityResponseParser())
+        = CityRepository(ExecutorTest(), CityResponseParser())
 
     @Test
     fun getCitiesTest(){
-        var data = ArrayList<City>()
-        val r = cityRepository.getCities("Paris") { result ->
+        var data = ArrayList<Cities>()
+        val r = cityRepository.getCities("soisy-Bouy") { result ->
             when(result){
-                is Result.Success<CityResponse> ->  data = result.data.data
+                is Result.Success<ArrayList<Cities>> ->  data = result.data
             }
         }
-        Assert.assertNotEquals(data.size, 0)
+        Assert.assertFalse(data.isEmpty())
     }
 }

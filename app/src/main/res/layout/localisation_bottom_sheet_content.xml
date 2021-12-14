@@ -1,4 +1,5 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
     </data>
@@ -6,16 +7,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".SearchCityActivity"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/white"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <include android:id="@+id/top_app_bar_search_city" layout="@layout/top_app_bar"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+        <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:clipToPadding="false"/>
+                android:fillViewport="true">
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="500dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:clipToPadding="false"/>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 </layout>

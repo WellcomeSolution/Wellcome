@@ -16,7 +16,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.ViewModelProvider
 import com.example.wellcome.data.SharedTripViewModel
-import com.example.wellcome.repository.City
+import com.example.wellcome.repository.Address
 import com.example.wellcome.utils.CitiesHelper
 import com.example.wellcome.utils.themeColor
 import com.google.android.material.appbar.MaterialToolbar
@@ -34,7 +34,7 @@ class SearchCityActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search_city)
         recyclerView.setBackgroundResource(R.drawable.solid_background)
         recyclerView.doOnPreDraw { startPostponedEnterTransition() }
-        val cityAdapter = CityAdapter(viewModel.cities.value as ArrayList<City>)
+        val cityAdapter = CityAdapter(viewModel.cities.value!!)
 
         recyclerView.apply {
             layoutManager= LinearLayoutManager(context)

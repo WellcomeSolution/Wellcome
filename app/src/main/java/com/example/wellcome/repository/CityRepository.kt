@@ -8,11 +8,10 @@ import java.util.concurrent.Executor
 
 class CityRepository(private val executor: Executor,
                     private val responseParser: CityResponseParser) {
-    private val url = "http://geodb-free-service.wirefreethought.com"
-    private val cityEndpoint = "/v1/geo/cities"
+    private val url = "https://nominatim.openstreetmap.org/search"
 
     fun getCities(prefix:String,
-                          callback:(Result<CityResponse>) -> Unit
+                          callback:(Result<ArrayList<Address>>) -> Unit
     ){
         executor.execute{
             try {
@@ -26,9 +25,11 @@ class CityRepository(private val executor: Executor,
         }
     }
 
-    private fun makeCitiesRequest(prefix:String) : Result<CityResponse>{
-        val uri =  URIBuilder("${url}${cityEndpoint}")
-            .addParameter("namePrefix", prefix).build()
+    private fun makeCitiesRequest(prefix:String) : Result<ArrayList<Address>>{
+        val uri =  URIBuilder(url)
+            .addParameter("city", prefix)
+            .addParameter("format", "json")
+            .addParameter("addressdetails", "[0]").build()
 
         val url = URL(uri.toString())
         (url.openConnection() as? HttpURLConnection)?.run {

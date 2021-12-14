@@ -10,10 +10,10 @@ import kotlin.collections.ArrayList
 class SharedTripViewModel: ViewModel() {
     private val cityRepository = CityRepository(Executor(), CityResponseParser())
 
-    val cities = MutableLiveData(ArrayList<City>())
+    val cities = MutableLiveData(ArrayList<Address>())
 
     init {
-        updateCities("Paris")
+        updateCities("C")
     }
 
     val adults = MutableLiveData(0)
@@ -60,9 +60,11 @@ class SharedTripViewModel: ViewModel() {
     val postalCode = MutableLiveData(String())
 
     fun updateCities(prefix:String){
-        cityRepository.getCities("Paris") { result ->
+        cityRepository.getCities(prefix) { result ->
             when(result){
-                is Result.Success<CityResponse> -> cities.postValue(result.data.data)
+                is Result.Success<ArrayList<Address>> -> {
+                    cities.postValue(result.data)
+                }
             }
         }
     }
