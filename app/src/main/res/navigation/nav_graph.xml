@@ -10,6 +10,16 @@
             android:name="com.example.wellcome.ServicesFragment"
             android:label="@string/services"
             tools:layout="@layout/fragment_services" >
+        <action
+                android:id="@+id/navigate_to_hosts"
+                app:destination="@id/hostFragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/hostFragment"
+            android:name="com.example.wellcome.HostFragment"
+            android:label="@string/host_fragment"
+            tools:layout="@layout/fragment_host" >
     </fragment>
 
 </navigation>

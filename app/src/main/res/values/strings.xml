@@ -120,6 +120,9 @@
     <string name="services">Services</string>
     <string name="services_app_bar">services_app_bar</string>
     <string name="trips">Trips</string>
-  <string name="assitance">Assistance</string>
-  <string name="lesson">Lesson</string>
+    <string name="assitance">Assistance</string>
+    <string name="lesson">Lesson</string>
+    <string name="host_fragment">host_fragment</string>
+    <string name="filters">Filters</string>
+  <string name="rooms_and_spaces">Rooms and spaces</string>
 </resources>

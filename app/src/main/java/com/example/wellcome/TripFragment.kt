@@ -17,7 +17,11 @@ import kotlinx.android.synthetic.main.fragment_trip.*
 import android.view.WindowManager
 import androidx.fragment.app.viewModels
 import android.R
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.example.wellcome.com.example.wellcome.LocalisationBottomSheet
+import com.google.android.material.transition.MaterialSharedAxis
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class TripFragment : Fragment() {
@@ -45,6 +49,11 @@ class TripFragment : Fragment() {
         editText_location.setOnClickListener{
             val modalBottomSheet = LocalisationBottomSheet()
             modalBottomSheet.show(childFragmentManager, LocalisationBottomSheet.TAG)
+        }
+
+        search_button.setOnClickListener{
+            val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
+            nav.navigate(com.example.wellcome.R.id.navigate_to_hosts)
         }
     }
 

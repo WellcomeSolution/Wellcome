@@ -13,6 +13,11 @@
         <item name="android:fontFamily">@font/ralewaysemibold</item>
     </style>
 
+    <style name="ChipAppearence" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:fontFamily">@font/ralewaymedium</item>
+        <item name="android:textColor">@color/grey_500</item>
+    </style>
+
     <style name="TextView" parent="Widget.AppCompat.TextView">
         <item name="android:maxLines">1</item>
         <item name="android:textColor">@color/grey_200</item>
