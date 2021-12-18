@@ -36,9 +36,9 @@ class TripAdapter(private val dataSet: List<Host>):
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.title.text = dataSet[position].title
-        viewHolder.phone.text = dataSet[position].phone
+        //viewHolder.phone.text = dataSet[position].phone
         //viewHolder.address.text = dataSet[position].address
-        viewHolder.tags.text = dataSet[position].tags.toString()
+        //viewHolder.tags.text = dataSet[position].tags.toString()
         //viewHolder.nomberOfPeople.text = dataSet[position].per
         //viewHolder.nomberOfPiece.text = dataSet[position].nombrePiece
         val tele = viewHolder.phone.text

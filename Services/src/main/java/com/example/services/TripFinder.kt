@@ -1,6 +1,7 @@
 package com.example.services
 
 class TripFinder {
+    /*
     fun isHostMatching(trip : Trip, host: Host) : Boolean {
         return when{
             isSlotDateMatching(trip.slotDate, host.slotsDate) && isCityMatching(trip.tripCity, host.address)
@@ -27,4 +28,6 @@ class TripFinder {
 
     private fun isHostRestrictionMatching(trip: Trip, host: Host)
         = host.isHostRestrictionValid(trip)
+
+     */
 }

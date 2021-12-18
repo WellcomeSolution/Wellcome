@@ -1,4 +1,4 @@
-package com.example.wellcome.com.example.wellcome
+package com.example.wellcome
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.annotation.NonNull
 import com.example.wellcome.R
+import com.example.wellcome.repository.Address
 
 class SingleLineItemViewHolder(@NonNull view: View?) : RecyclerView.ViewHolder(view!!) {
     val icon: ImageView
@@ -24,6 +25,7 @@ class SingleLineItemViewHolder(@NonNull view: View?) : RecyclerView.ViewHolder(v
     }
 
     init {
+
         icon = itemView.findViewById(R.id.mtrl_list_item_icon)
         text = itemView.findViewById(R.id.mtrl_list_item_text)
     }

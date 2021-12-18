@@ -15,6 +15,17 @@
                 android:paddingTop="15dp"
                 android:orientation="vertical"
                 >
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progress_bar"
+                    android:layout_width="match_parent"
+                    app:indicatorColor="@color/white"
+                    android:layout_marginHorizontal="25dp"
+                    app:indeterminateAnimationType="disjoint"
+                    app:trackColor="@color/crane_purple_700"
+                    app:trackCornerRadius="8dp"
+                    app:showAnimationBehavior="inward"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true" />
             <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textField_restrictions"
                     android:layout_width="match_parent"
@@ -74,7 +85,7 @@
                     android:layout_marginBottom="6dp"
                     android:layout_marginHorizontal="25dp"
                     app:boxBackgroundMode="filled"
-                    app:startIconTint="@color/grey_100"
+                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/white : @color/grey_100}"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
                     app:startIconDrawable="@drawable/baseline_hotel_24">
@@ -86,8 +97,8 @@
                         android:padding="15dp"
                         android:textSize="16sp"
                         android:focusable="false"
-                        android:text="@string/Location"
-                        android:textColor="@color/grey_100"
+                        android:text="@{viewModel.addressFormat ?? @string/Location}"
+                        android:textColor="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/white : @color/grey_100}"
                         android:fontFamily="@font/ralewaymedium"
                         />
             </com.google.android.material.textfield.TextInputLayout>

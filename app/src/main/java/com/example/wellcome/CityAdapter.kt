@@ -1,24 +1,31 @@
 package com.example.wellcome
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-import com.example.wellcome.com.example.wellcome.SingleLineItemViewHolder
+import com.example.wellcome.repository.Address
+import com.example.wellcome.repository.City
 
-class CityAdapter(private val data : ArrayList<com.example.wellcome.repository.Address>) :
+class CityAdapter(private val data : ArrayList<City>) :
     RecyclerView.Adapter<ViewHolder>() {
     val cities = data
+    var onItemClick: ((City) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return SingleLineItemViewHolder.create(parent);
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        return bind((holder as SingleLineItemViewHolder?)!!, position)
+        val view = holder as SingleLineItemViewHolder
+        view.itemView.setOnClickListener {
+            onItemClick?.invoke(cities[position])
+        }
+        bind(view, position)
     }
 
     private fun bind(vh: SingleLineItemViewHolder, position: Int) {
-        vh.text.text = cities[position].city
+        vh.text.text = cities[position].address?.city
         vh.icon.setImageResource(R.drawable.baseline_share_location_24)
     }
 

@@ -21,11 +21,11 @@ class RescrictionsFormActivity : AppCompatActivity() {
         initAnimations()
         super.onCreate(savedInstanceState)
         Log.e("tag", viewModel.adults.value.toString())
-        val binding :ActivityRescrictionsFormBinding = DataBindingUtil.setContentView(
-            this, R.layout.activity_rescrictions_form)
+        //val binding :ActivityRescrictionsFormBinding = DataBindingUtil.setContentView(
+          //  this, R.layout.activity_rescrictions_form)
 
-        binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+        //binding.lifecycleOwner = this
+        //binding.viewModel = viewModel
 
         initClickListeners()
     }

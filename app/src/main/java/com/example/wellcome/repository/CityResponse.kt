@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Cities (
+data class City (
     @SerializedName("place_id"     ) var placeId     : Int?         = null,
     @SerializedName("licence"      ) var licence     : String?      = null,
     @SerializedName("osm_type"     ) var osmType     : String?      = null,

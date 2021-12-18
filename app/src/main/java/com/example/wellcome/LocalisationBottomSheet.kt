@@ -1,18 +1,22 @@
-package com.example.wellcome.com.example.wellcome
+package com.example.wellcome
 
 import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wellcome.CityAdapter
 import com.example.wellcome.R
+import com.example.wellcome.com.example.wellcome.BaseBottomSheet
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.LocalisationBottomSheetContentBinding
 import com.example.wellcome.repository.Address
+import com.example.wellcome.repository.City
 import kotlinx.android.synthetic.main.activity_search_city.recyclerView
+import kotlinx.android.synthetic.main.localisation_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.top_app_bar.*
 
 class LocalisationBottomSheet : BaseBottomSheet() {
@@ -26,7 +30,7 @@ class LocalisationBottomSheet : BaseBottomSheet() {
         initLayout()
         initRecyclerView()
 
-        viewModel.cities.observe(this, { cities : ArrayList<Address> ->
+        viewModel.cities.observe(this, { cities : ArrayList<City> ->
             cityAdapter.cities.clear()
             cityAdapter.cities.addAll(cities)
             cityAdapter.notifyDataSetChanged()
@@ -39,6 +43,11 @@ class LocalisationBottomSheet : BaseBottomSheet() {
         recyclerView.apply {
             layoutManager= LinearLayoutManager(context)
             adapter= cityAdapter
+        }
+
+        cityAdapter.onItemClick = { city ->
+            viewModel.city.value = city
+            dismiss()
         }
     }
 

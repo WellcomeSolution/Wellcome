@@ -3,7 +3,7 @@ package com.example.services
 import utils.DateUtils
 
 class Mockup {
-    fun getHosts() : ArrayList<Host>{
+    /*fun getHosts() : ArrayList<Host>{
         val host1 = Host("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
             getHostSlotsDate(), getHostRestriction(), getHostConfiguration())
         val host2 = Host("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
@@ -42,5 +42,5 @@ class Mockup {
             = HostConfiguration(2, 1, 1, ArrayList())
 
     private fun getTripHostConfiguration() : HostConfiguration
-            = HostConfiguration(2, 1, 1, ArrayList())
+            = HostConfiguration(2, 1, 1, ArrayList())*/
 }

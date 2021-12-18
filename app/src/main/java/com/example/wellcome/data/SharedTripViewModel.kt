@@ -1,21 +1,41 @@
 package com.example.wellcome.data
 
 import androidx.lifecycle.*
-import com.example.wellcome.com.example.wellcome.repository.CityResponseParser
+import com.example.services.Host
+import com.example.services.TripPattern
+import com.example.wellcome.CityResponseParser
+import com.example.wellcome.com.example.wellcome.repository.TripResponseParser
 import com.example.wellcome.repository.*
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.Executor
 import kotlin.collections.ArrayList
 
 class SharedTripViewModel: ViewModel() {
     private val cityRepository = CityRepository(Executor(), CityResponseParser())
+    private val tripRepository = TripRepository(Executor(), TripResponseParser())
 
-    val cities = MutableLiveData(ArrayList<Address>())
+    val cities = MutableLiveData(ArrayList<City>())
 
     init {
         updateCities("C")
     }
 
+    val city = MutableLiveData(City())
+    val addressFormat : LiveData<String> = MediatorLiveData<String>()
+        .apply {
+            fun update() {
+                val address = city.value?.address ?: return
+                if(!address.city.isNullOrEmpty() && !address.country.isNullOrEmpty())
+                    value ="${address.city}, ${address.country}"
+            }
+
+            addSource(city) { update() }
+
+            update()
+        }
+    val hosts = MutableLiveData(ArrayList<Host>())
+    val isLoading = MutableLiveData(false)
     val adults = MutableLiveData(0)
     val childs = MutableLiveData(0)
     val pets = MutableLiveData(0)
@@ -55,15 +75,23 @@ class SharedTripViewModel: ViewModel() {
             update()
         }
 
-    val country = MutableLiveData(String())
-    val city = MutableLiveData(String())
-    val postalCode = MutableLiveData(String())
-
     fun updateCities(prefix:String){
         cityRepository.getCities(prefix) { result ->
             when(result){
-                is Result.Success<ArrayList<Address>> -> {
+                is Result.Success<ArrayList<City>> -> {
                     cities.postValue(result.data)
+                }
+            }
+        }
+    }
+
+    fun loadHosts(pattern:TripPattern){
+        isLoading.postValue(true)
+        tripRepository.getHosts(pattern) { result ->
+            when(result){
+                is Result.Success<ArrayList<Host>> -> {
+                    hosts.postValue(result.data)
+                    isLoading.postValue(false)
                 }
             }
         }

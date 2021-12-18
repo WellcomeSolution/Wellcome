@@ -17,9 +17,11 @@ import kotlinx.android.synthetic.main.fragment_trip.*
 import android.view.WindowManager
 import androidx.fragment.app.viewModels
 import android.R
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
-import com.example.wellcome.com.example.wellcome.LocalisationBottomSheet
+import com.example.services.TripPattern
+import com.example.wellcome.repository.Address
 import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -30,6 +32,13 @@ class TripFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initClickListeners()
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.isLoading.observe(viewLifecycleOwner, { isLoading : Boolean ->
+            if(isLoading)
+                progress_bar.show()
+            else
+                progress_bar.hide()
+        })
     }
 
     private fun initClickListeners(){
@@ -52,8 +61,21 @@ class TripFragment : Fragment() {
         }
 
         search_button.setOnClickListener{
-            val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
-            nav.navigate(com.example.wellcome.R.id.navigate_to_hosts)
+            val pattern = TripPattern(
+                viewModel.adults.value!!,
+                viewModel.babies.value!!,
+                viewModel.pets.value!!,
+                viewModel.childs.value!!,
+                viewModel.city.value?.address?.city!!,
+                viewModel.city.value?.address?.country!!,
+                viewModel.city.value?.address?.postcode!!,
+                viewModel.city.value?.lon!!.toDouble(),
+                viewModel.city.value?.lat!!.toDouble()
+            )
+            viewModel.loadHosts(pattern)
+            System.out.println("ds")
+            //val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
+            //nav.navigate(com.example.wellcome.R.id.navigate_to_hosts)
         }
     }
 
