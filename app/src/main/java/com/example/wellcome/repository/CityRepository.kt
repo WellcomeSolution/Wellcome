@@ -1,6 +1,6 @@
 package com.example.wellcome.repository
 
-import com.example.wellcome.com.example.wellcome.repository.CityResponseParser
+import com.example.wellcome.CityResponseParser
 import org.apache.http.client.utils.URIBuilder
 import java.net.HttpURLConnection
 import java.net.URL

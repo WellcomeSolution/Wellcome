@@ -24,6 +24,14 @@ import com.example.services.TripPattern
 import com.example.wellcome.repository.Address
 import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.android.synthetic.main.activity_main.*
+import android.app.ProgressDialog
+
+import android.text.Spanned
+
+import android.text.SpannableString
+
+
+
 
 
 class TripFragment : Fragment() {
@@ -64,18 +72,13 @@ class TripFragment : Fragment() {
             val pattern = TripPattern(
                 viewModel.adults.value!!,
                 viewModel.babies.value!!,
-                viewModel.pets.value!!,
                 viewModel.childs.value!!,
-                viewModel.city.value?.address?.city!!,
-                viewModel.city.value?.address?.country!!,
-                viewModel.city.value?.address?.postcode!!,
                 viewModel.city.value?.lon!!.toDouble(),
                 viewModel.city.value?.lat!!.toDouble()
             )
             viewModel.loadHosts(pattern)
-            System.out.println("ds")
-            //val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
-            //nav.navigate(com.example.wellcome.R.id.navigate_to_hosts)
+            val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
+            nav.navigate(com.example.wellcome.R.id.navigate_to_hosts)
         }
     }
 

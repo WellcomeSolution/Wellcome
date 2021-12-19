@@ -1,5 +1,8 @@
 package com.example.services
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Address(
     val street: String,
     val city: String,

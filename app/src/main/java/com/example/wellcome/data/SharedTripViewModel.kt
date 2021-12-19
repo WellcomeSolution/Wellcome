@@ -4,7 +4,6 @@ import androidx.lifecycle.*
 import com.example.services.Host
 import com.example.services.TripPattern
 import com.example.wellcome.CityResponseParser
-import com.example.wellcome.com.example.wellcome.repository.TripResponseParser
 import com.example.wellcome.repository.*
 import java.text.SimpleDateFormat
 import java.util.*
