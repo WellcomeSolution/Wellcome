@@ -11,6 +11,7 @@ apply plugin: 'kotlin-android-extensions'
 repositories {
     google()
     jcenter()
+    mavenCentral()
 }
 
 android {
@@ -51,6 +52,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'org.apache.httpcomponents:httpclient-android:4.3.3'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
