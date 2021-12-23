@@ -20,6 +20,14 @@
             android:name="com.example.wellcome.HostsFragment"
             android:label="@string/host_fragment"
             tools:layout="@layout/fragment_hosts" >
+        <action
+                android:id="@+id/navigate_to_host_details"
+                app:destination="@id/hostDetails" />
     </fragment>
-
+    <fragment
+            android:id="@+id/hostDetails"
+            android:name="com.example.wellcome.HostDetailsFragment"
+            android:label="@string/host_details_fragment"
+            tools:layout="@layout/fragment_host_details" >
+    </fragment>
 </navigation>

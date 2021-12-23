@@ -15,11 +15,6 @@ class SharedTripViewModel: ViewModel() {
     private val tripRepository = TripRepository(Executor(), TripResponseParser())
 
     val cities = MutableLiveData(ArrayList<City>())
-
-    init {
-        updateCities("C")
-    }
-
     val city = MutableLiveData(City())
     val addressFormat : LiveData<String> = MediatorLiveData<String>()
         .apply {
@@ -90,7 +85,6 @@ class SharedTripViewModel: ViewModel() {
             when(result){
                 is Result.Success<ArrayList<Host>> -> {
                     hosts.postValue(result.data)
-                    isLoading.postValue(false)
                 }
             }
         }

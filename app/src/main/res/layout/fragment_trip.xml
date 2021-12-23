@@ -23,7 +23,7 @@
                     app:indicatorColor="@color/white"
                     android:layout_marginHorizontal="25dp"
                     app:indeterminateAnimationType="disjoint"
-                    app:trackColor="@color/crane_purple_900"
+                    app:trackColor="@color/crane_purple_700"
                     app:trackCornerRadius="8dp"
                     app:showAnimationBehavior="inward"
                     android:layout_height="wrap_content"

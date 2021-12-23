@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.services.Host
+import com.example.wellcome.repository.City
 
 class HostsAdapter(private val dataSet: ArrayList<Host>) :
     RecyclerView.Adapter<HostsAdapter.ViewHolder>() {
+    var onItemClick: ((View) -> Unit)? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val contactTextView: TextView = view.findViewById(R.id.contact)
@@ -27,6 +29,10 @@ class HostsAdapter(private val dataSet: ArrayList<Host>) :
         viewHolder.contactTextView.text = contact
         val localisation = "${dataSet[position].address.country}, ${dataSet[position].address.city}"
         viewHolder.localisationTextView.text = localisation
+        viewHolder.itemView.transitionName = "transition${position}"
+        viewHolder.itemView.setOnClickListener {
+            onItemClick?.invoke(viewHolder.itemView)
+        }
     }
 
     override fun getItemCount() = dataSet.size

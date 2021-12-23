@@ -1,22 +1,22 @@
 <androidx.cardview.widget.CardView android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         android:layout_margin="20dp"
         android:background="@android:color/white"
         android:layout_gravity="center"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
+        android:transitionName="@{@string/email_card_transition_name(email.id)}"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <!--Card Image-->
         <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/test2"
-                app:riv_corner_radius="10dp"/>
+                app:riv_corner_radius="4dp"/>
 
         <FrameLayout
                 android:layout_width="match_parent"

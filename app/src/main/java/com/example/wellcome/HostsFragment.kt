@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.fragment_hosts.*
 import android.R
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -24,6 +26,8 @@ class HostsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
 
         hostsAdapter = HostsAdapter(viewModel.hosts.value!!)
 
@@ -32,7 +36,12 @@ class HostsFragment : Fragment() {
             adapter = hostsAdapter
         }
 
-        recyclerView.doOnPreDraw { startPostponedEnterTransition() }
+        hostsAdapter.onItemClick = { view ->
+            val extras = FragmentNavigatorExtras(view to "transition")
+            val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
+            val directions = HostsFragmentDirections.navigateToHostDetails()
+            nav.navigate(directions, extras)
+        }
     }
 
     override fun onCreateView(

@@ -40,17 +40,15 @@ class TripFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initClickListeners()
 
-
-
         viewModel.hosts.observe(viewLifecycleOwner, { hosts : ArrayList<Host> ->
             if(viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED){
                 if(!hosts.isNullOrEmpty()){
                     val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
-                    nav.navigate(com.example.wellcome.R.id.navigate_to_hosts)
+                    val directions = ServicesFragmentDirections.navigateToHosts()
+                    nav.navigate(directions)
+                    viewModel.isLoading.value = false
                 }
             }
-
-
         })
 
         super.onViewCreated(view, savedInstanceState)
