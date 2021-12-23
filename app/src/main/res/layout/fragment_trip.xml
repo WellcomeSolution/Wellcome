@@ -3,6 +3,7 @@
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
         <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -16,12 +17,13 @@
                 android:orientation="vertical"
                 >
             <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.INVISIBLE}"
                     android:id="@+id/progress_bar"
                     android:layout_width="match_parent"
                     app:indicatorColor="@color/white"
                     android:layout_marginHorizontal="25dp"
                     app:indeterminateAnimationType="disjoint"
-                    app:trackColor="@color/crane_purple_700"
+                    app:trackColor="@color/crane_purple_900"
                     app:trackCornerRadius="8dp"
                     app:showAnimationBehavior="inward"
                     android:layout_height="wrap_content"
@@ -44,6 +46,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle_purple"
                         android:padding="15dp"
+                        android:inputType="text"
+                        android:maxLines="1"
                         android:textSize="16sp"
                         android:text="@{viewModel.travelers > 0 ? viewModel.travelersFormat : @string/host_restrictions }"
                         android:textColor="@{viewModel.travelers > 0 ? @color/white : @color/grey_100}"
@@ -68,6 +72,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
+                        android:maxLines="1"
+                        android:inputType="text"
                         android:background="@drawable/round_corner_toggle_purple"
                         android:padding="15dp"
                         android:text="@{viewModel.dateFormat ?? @string/dates}"
@@ -95,6 +101,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle_purple"
                         android:padding="15dp"
+                        android:maxLines="1"
+                        android:inputType="text"
                         android:textSize="16sp"
                         android:focusable="false"
                         android:text="@{viewModel.addressFormat ?? @string/Location}"

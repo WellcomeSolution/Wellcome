@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.wellcome.com.example.wellcome.DatesBottomSheet
-import com.example.wellcome.com.example.wellcome.RestrictionsBottomSheet
+import com.example.wellcome.DatesBottomSheet
+import com.example.wellcome.RestrictionsBottomSheet
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.FragmentTripBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -29,24 +29,31 @@ import android.app.ProgressDialog
 import android.text.Spanned
 
 import android.text.SpannableString
-
-
-
+import androidx.lifecycle.Lifecycle
+import com.example.services.Host
+import com.example.wellcome.repository.City
 
 
 class TripFragment : Fragment() {
-    private val viewModel: SharedTripViewModel by viewModels(ownerProducer = { this })
+    private val viewModel: SharedTripViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initClickListeners()
-        super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isLoading.observe(viewLifecycleOwner, { isLoading : Boolean ->
-            if(isLoading)
-                progress_bar.show()
-            else
-                progress_bar.hide()
+
+
+        viewModel.hosts.observe(viewLifecycleOwner, { hosts : ArrayList<Host> ->
+            if(viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED){
+                if(!hosts.isNullOrEmpty()){
+                    val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
+                    nav.navigate(com.example.wellcome.R.id.navigate_to_hosts)
+                }
+            }
+
+
         })
+
+        super.onViewCreated(view, savedInstanceState)
     }
 
     private fun initClickListeners(){
@@ -77,8 +84,6 @@ class TripFragment : Fragment() {
                 viewModel.city.value?.lat!!.toDouble()
             )
             viewModel.loadHosts(pattern)
-            val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
-            nav.navigate(com.example.wellcome.R.id.navigate_to_hosts)
         }
     }
 

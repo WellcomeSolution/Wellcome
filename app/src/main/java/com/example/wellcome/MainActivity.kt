@@ -29,6 +29,7 @@ import kotlinx.coroutines.withContext
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val viewModel: SharedTripViewModel by viewModels()
         setContentView(R.layout.activity_main)
     }
 }

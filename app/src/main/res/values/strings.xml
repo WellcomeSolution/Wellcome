@@ -124,5 +124,5 @@
     <string name="lesson">Lesson</string>
     <string name="host_fragment">host_fragment</string>
     <string name="filters">Filters</string>
-  <string name="rooms_and_spaces">Rooms and spaces</string>
+    <string name="rooms_and_spaces">Rooms and spaces</string>
 </resources>

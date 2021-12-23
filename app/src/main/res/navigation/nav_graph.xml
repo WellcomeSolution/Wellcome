@@ -17,9 +17,9 @@
 
     <fragment
             android:id="@+id/hostFragment"
-            android:name="com.example.wellcome.HostFragment"
+            android:name="com.example.wellcome.HostsFragment"
             android:label="@string/host_fragment"
-            tools:layout="@layout/fragment_host" >
+            tools:layout="@layout/fragment_hosts" >
     </fragment>
 
 </navigation>

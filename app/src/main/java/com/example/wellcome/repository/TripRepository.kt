@@ -48,6 +48,7 @@ class TripRepository(private val executor: Executor,
             setRequestProperty("Accept", "application/json")
             doOutput = true
             Json.encodeToStream(pattern, outputStream)
+            Thread.sleep(4000)
             return Result.Success(responseParser.parse(inputStream))
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))

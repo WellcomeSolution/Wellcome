@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wellcome.CityAdapter
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.localisation_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.top_app_bar.*
 
 class LocalisationBottomSheet : BaseBottomSheet() {
-    private val viewModel: SharedTripViewModel by viewModels(ownerProducer = { requireParentFragment() })
+    private val viewModel: SharedTripViewModel by activityViewModels()
     private lateinit var cityAdapter : CityAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
