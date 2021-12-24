@@ -53,6 +53,7 @@ android {
 }
 
 dependencies {
+    implementation 'de.hdodenhof:circleimageview:1.2.1'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'org.apache.httpcomponents:httpclient-android:4.3.3'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"

@@ -21,12 +21,11 @@ class HostDetailsFragment : Fragment() {
     ): View? {
         sharedElementEnterTransition = MaterialContainerTransform().apply {
             drawingViewId = R.id.nav_host_fragment
-            duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
+            duration = resources.getInteger(R.integer.reply_motion_duration_medium).toLong()
             scrimColor = Color.TRANSPARENT
             setAllContainerColors(requireContext().themeColor(R.attr.colorSurface))
         }
 
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_host_details, container, false)
     }
 }
