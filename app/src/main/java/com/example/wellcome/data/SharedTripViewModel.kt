@@ -1,9 +1,10 @@
 package com.example.wellcome.data
 
+import android.graphics.Bitmap
 import androidx.lifecycle.*
 import com.example.services.Host
+import com.example.services.HostPresenter
 import com.example.services.TripPattern
-import com.example.wellcome.CityResponseParser
 import com.example.wellcome.repository.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,7 +29,7 @@ class SharedTripViewModel: ViewModel() {
 
             update()
         }
-    val hosts = MutableLiveData(ArrayList<Host>())
+    val hostPresenters = MutableLiveData(ArrayList<HostPresenter>())
     val isLoading = MutableLiveData(false)
     val adults = MutableLiveData(0)
     val childs = MutableLiveData(0)
@@ -83,8 +84,8 @@ class SharedTripViewModel: ViewModel() {
         isLoading.postValue(true)
         tripRepository.getHosts(pattern) { result ->
             when(result){
-                is Result.Success<ArrayList<Host>> -> {
-                    hosts.postValue(result.data)
+                is Result.Success<ArrayList<HostPresenter>> -> {
+                    hostPresenters.postValue(result.data)
                 }
             }
         }

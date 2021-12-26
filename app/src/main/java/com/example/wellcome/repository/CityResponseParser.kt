@@ -1,4 +1,4 @@
-package com.example.wellcome
+package com.example.wellcome.repository
 
 import com.example.wellcome.repository.Address
 import com.example.wellcome.repository.City

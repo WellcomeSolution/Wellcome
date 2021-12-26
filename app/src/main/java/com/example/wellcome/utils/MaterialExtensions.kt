@@ -1,4 +1,4 @@
-package com.example.wellcome.com.example.wellcome.utils
+package com.example.wellcome.utils
 
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -11,8 +11,8 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
 fun MaterialButton.enable(){
-    iconTint = ColorStateList.valueOf(Color.BLACK)
-    strokeColor = ColorStateList.valueOf(Color.BLACK)
+    iconTint = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.grey_400))
+    strokeColor = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.grey_400))
     isEnabled = true
 }
 

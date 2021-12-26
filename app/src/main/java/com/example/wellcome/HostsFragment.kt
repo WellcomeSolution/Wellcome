@@ -29,7 +29,7 @@ class HostsFragment : Fragment() {
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
 
-        hostsAdapter = HostsAdapter(viewModel.hosts.value!!)
+        hostsAdapter = HostsAdapter(viewModel.hostPresenters.value!!)
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)

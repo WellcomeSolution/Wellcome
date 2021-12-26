@@ -31,6 +31,7 @@ import android.text.Spanned
 import android.text.SpannableString
 import androidx.lifecycle.Lifecycle
 import com.example.services.Host
+import com.example.services.HostPresenter
 import com.example.wellcome.repository.City
 
 
@@ -40,7 +41,7 @@ class TripFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initClickListeners()
 
-        viewModel.hosts.observe(viewLifecycleOwner, { hosts : ArrayList<Host> ->
+        viewModel.hostPresenters.observe(viewLifecycleOwner, { hosts : ArrayList<HostPresenter> ->
             if(viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED){
                 if(!hosts.isNullOrEmpty()){
                     val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
