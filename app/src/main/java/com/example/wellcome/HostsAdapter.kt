@@ -20,7 +20,7 @@ import java.util.concurrent.Executor
 
 class HostsAdapter(private val dataSet: ArrayList<HostPresenter>) :
     RecyclerView.Adapter<HostsAdapter.ViewHolder>() {
-    private val hostPicture = "http://10.0.2.2:5229/api/hosts/picture"
+    private val hostPicture = "http://10.0.2.2:5229"
     var onItemClick: ((View) -> Unit)? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -41,7 +41,8 @@ class HostsAdapter(private val dataSet: ArrayList<HostPresenter>) :
         viewHolder.contactTextView.text = contact
         val localisation = "${dataSet[position].country}, ${dataSet[position].city}"
         viewHolder.localisationTextView.text = localisation
-        Picasso.get().load("${hostPicture}/${dataSet[position].pictureId}").into(viewHolder.img)
+        val pictureUrl = "${hostPicture}${dataSet[position].pictureUrl}"
+        Picasso.get().load(pictureUrl).into(viewHolder.img)
         viewHolder.itemView.transitionName = "transition${position}"
         viewHolder.itemView.setOnClickListener {
             onItemClick?.invoke(viewHolder.itemView)

@@ -18,6 +18,6 @@ class HostPresenter(
     val longitude: Double,
     @SerializedName("Latitude")
     val latitude: Double,
-    @SerializedName("PictureId")
-    val pictureId: Int
+    @SerializedName("PictureUrl")
+    val pictureUrl: String
 )

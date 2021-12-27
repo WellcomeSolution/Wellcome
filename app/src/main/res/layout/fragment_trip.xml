@@ -23,8 +23,8 @@
                     app:indicatorColor="@color/white"
                     android:layout_marginHorizontal="25dp"
                     app:indeterminateAnimationType="disjoint"
-                    app:trackColor="@color/crane_purple_700"
-                    app:trackCornerRadius="8dp"
+                    app:trackColor="@android:color/transparent"
+                    app:trackCornerRadius="4dp"
                     app:showAnimationBehavior="inward"
                     android:layout_height="wrap_content"
                     android:indeterminate="true" />
@@ -41,6 +41,7 @@
                     android:transitionName="shared_element_container_restrictions"
                     app:startIconDrawable="@drawable/baseline_person_24">
                 <com.google.android.material.textfield.TextInputEditText
+                        android:includeFontPadding="false"
                         android:id="@+id/editText_restrictions"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -72,6 +73,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
+                        android:includeFontPadding="false"
                         android:maxLines="1"
                         android:inputType="text"
                         android:background="@drawable/round_corner_toggle_purple"
@@ -101,6 +103,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_corner_toggle_purple"
                         android:padding="15dp"
+                        android:includeFontPadding="false"
                         android:maxLines="1"
                         android:inputType="text"
                         android:textSize="16sp"

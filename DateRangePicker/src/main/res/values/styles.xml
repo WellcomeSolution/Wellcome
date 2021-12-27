@@ -5,6 +5,7 @@
     </style>
 
     <style name="CalendarCell">
+        <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/ralewaybold</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
@@ -12,17 +13,20 @@
         <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
     </style>
     <style name="CalendarCell.DayHeader">
+        <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/ralewaybold</item>
         <item name="android:textSize">@dimen/calendar_text_small</item>
     </style>
 
     <style name="CalendarCell.CalendarDate">
+        <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/ralewaybold</item>
         <item name="android:textSize">@dimen/calendar_text_medium</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="CalendarCell.SubTitle">
+        <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/ralewaybold</item>
         <item name="android:textSize">@dimen/calendar_text_tiny</item>
         <item name="android:textColor">@color/calendar_text_active</item>

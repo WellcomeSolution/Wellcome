@@ -11,8 +11,8 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
 fun MaterialButton.enable(){
-    iconTint = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.grey_400))
-    strokeColor = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.grey_400))
+    iconTint = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.grey_700))
+    strokeColor = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.grey_700))
     isEnabled = true
 }
 

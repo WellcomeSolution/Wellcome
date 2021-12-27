@@ -68,9 +68,9 @@
     </style>
 
     <style name="ActiveButton" parent="ButtonAddRemove">
-        <item name="iconTint">@color/grey_400</item>
+        <item name="iconTint">@color/grey_700</item>
         <item name="android:enabled">true</item>
-        <item name="strokeColor">@color/grey_400</item>
+        <item name="strokeColor">@color/grey_700</item>
     </style>
 
     <style name="MyCustomTheme" parent="@android:style/Theme.Panel">
@@ -92,5 +92,4 @@
         <item name="android:windowEnterAnimation">@anim/slide_up</item>
         <item name="android:windowExitAnimation">@anim/slide_down</item>
     </style>
-
 </resources>
