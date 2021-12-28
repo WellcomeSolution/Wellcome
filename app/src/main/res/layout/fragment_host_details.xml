@@ -3,6 +3,7 @@
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.HostViewModel"/>
         <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
     </data>
     <ScrollView xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -20,20 +21,37 @@
                         android:layout_height="235dp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/test2" />
-                <LinearLayout
+
+                <TextView
                         android:layout_marginVertical="23dp"
+                        android:layout_marginHorizontal="25dp"
+                        android:includeFontPadding="false"
+                        android:textSize="22dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/ralewaybold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Title"/>
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:layout_marginVertical="23dp"
+                        android:layout_gravity="center"
+                        android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.INVISIBLE}"
+                        android:animateLayoutChanges="true"
+                        android:id="@+id/progress_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                <LinearLayout
+                        android:visibility="@{viewModel.isLoading ? View.INVISIBLE : View.VISIBLE}"
+                        android:animateLayoutChanges="true"
+                        android:id="@+id/host_details"
+                        android:layout_marginBottom="23dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:layout_marginHorizontal="25dp">
-                    <TextView
-                            android:includeFontPadding="false"
-                            android:textSize="22dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaybold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{viewModel.title}"/>
+
                     <TextView
                             android:drawableTint="#fccc57"
                             android:drawablePadding="5dp"
@@ -54,7 +72,7 @@
                             android:fontFamily="@font/ralewaymedium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{viewModel.city + `, ` + viewModel.postalCode + `, ` + viewModel }"/>
+                            android:text="@{viewModel.city + `, ` + viewModel.postalCode + `, ` + viewModel.country }"/>
 
                     <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
                             android:layout_marginVertical="20dp"
@@ -154,7 +172,7 @@
 
                     <TextView
                             android:includeFontPadding="false"
-                            android:textSize="20dp"
+                            android:textSize="19dp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/ralewaybold"
                             android:layout_width="wrap_content"
@@ -164,7 +182,7 @@
                     <TextView
                             android:includeFontPadding="false"
                             android:layout_marginTop="10dp"
-                            android:textSize="16dp"
+                            android:textSize="15dp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/ralewaymedium"
                             android:layout_width="wrap_content"
@@ -174,7 +192,7 @@
                     <TextView
                             android:layout_marginTop="15dp"
                             android:includeFontPadding="false"
-                            android:textSize="20dp"
+                            android:textSize="19dp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/ralewaybold"
                             android:layout_width="wrap_content"
@@ -188,7 +206,7 @@
                             android:drawableLeft="@drawable/baseline_language_24"
                             android:includeFontPadding="false"
                             android:layout_marginTop="10dp"
-                            android:textSize="16dp"
+                            android:textSize="15dp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/ralewaymedium"
                             android:layout_width="wrap_content"

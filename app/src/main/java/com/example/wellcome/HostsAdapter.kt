@@ -1,27 +1,18 @@
 package com.example.wellcome
 
-import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.services.Host
 import com.example.services.HostPresenter
-import com.example.services.Trip
-import com.example.wellcome.repository.City
-import com.example.wellcome.repository.Result
-import com.example.wellcome.repository.TripRepository
-import com.example.wellcome.repository.TripResponseParser
 import com.makeramen.roundedimageview.RoundedImageView
 import com.squareup.picasso.Picasso
-import java.util.concurrent.Executor
 
 class HostsAdapter(private val dataSet: ArrayList<HostPresenter>) :
     RecyclerView.Adapter<HostsAdapter.ViewHolder>() {
     private val hostPicture = "http://10.0.2.2:5229"
-    var onItemClick: ((View) -> Unit)? = null
+    var onItemClick: ((View, HostPresenter) -> Unit)? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val contactTextView: TextView = view.findViewById(R.id.contact)
@@ -45,7 +36,7 @@ class HostsAdapter(private val dataSet: ArrayList<HostPresenter>) :
         Picasso.get().load(pictureUrl).into(viewHolder.img)
         viewHolder.itemView.transitionName = "transition${position}"
         viewHolder.itemView.setOnClickListener {
-            onItemClick?.invoke(viewHolder.itemView)
+            onItemClick?.invoke(viewHolder.itemView, dataSet[position])
         }
     }
 

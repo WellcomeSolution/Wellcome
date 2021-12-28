@@ -24,6 +24,7 @@
                 android:id="@+id/navigate_to_host_details"
                 app:destination="@id/hostDetails" />
     </fragment>
+
     <fragment
             android:id="@+id/hostDetails"
             android:name="com.example.wellcome.HostDetailsFragment"

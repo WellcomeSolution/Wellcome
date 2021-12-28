@@ -7,32 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.wellcome.DatesBottomSheet
-import com.example.wellcome.RestrictionsBottomSheet
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.FragmentTripBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.fragment_trip.*
-import android.view.WindowManager
-import androidx.fragment.app.viewModels
 import android.R
-import android.widget.Toast
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import com.example.services.TripPattern
-import com.example.wellcome.repository.Address
-import com.google.android.material.transition.MaterialSharedAxis
-import kotlinx.android.synthetic.main.activity_main.*
-import android.app.ProgressDialog
 
-import android.text.Spanned
-
-import android.text.SpannableString
 import androidx.lifecycle.Lifecycle
-import com.example.services.Host
 import com.example.services.HostPresenter
-import com.example.wellcome.repository.City
 
 
 class TripFragment : Fragment() {

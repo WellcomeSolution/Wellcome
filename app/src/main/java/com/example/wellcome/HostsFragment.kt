@@ -12,16 +12,18 @@ import com.example.wellcome.databinding.FragmentHostsBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.android.synthetic.main.fragment_hosts.*
-import android.R
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wellcome.data.HostViewModel
 
 
 class HostsFragment : Fragment() {
-    private val viewModel: SharedTripViewModel by activityViewModels()
+    private val sharedTripViewModel: SharedTripViewModel by activityViewModels()
+    private val hostViewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
     private lateinit var hostsAdapter:HostsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,14 +31,16 @@ class HostsFragment : Fragment() {
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
 
-        hostsAdapter = HostsAdapter(viewModel.hostPresenters.value!!)
+        hostsAdapter = HostsAdapter(sharedTripViewModel.hostPresenters.value!!)
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = hostsAdapter
         }
 
-        hostsAdapter.onItemClick = { view ->
+        hostsAdapter.onItemClick = { view, host ->
+            hostViewModel.title.value = host.title
+            hostViewModel.loadHostDetails(host.id)
             val extras = FragmentNavigatorExtras(view to "transition")
             val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
             val directions = HostsFragmentDirections.navigateToHostDetails()
@@ -50,10 +54,9 @@ class HostsFragment : Fragment() {
     ): View? {
         enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
         returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
-        postponeEnterTransition()
         val binding = FragmentHostsBinding
             .inflate(inflater, container, false)
-        binding.viewModel = viewModel
+        binding.viewModel = sharedTripViewModel
         binding.lifecycleOwner = this
         return binding.root
     }

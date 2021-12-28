@@ -1,5 +1,6 @@
 package com.example.wellcome.repository
 
+import com.example.services.HostDetails
 import com.example.services.HostPresenter
 import com.example.services.TripPattern
 import kotlinx.serialization.json.Json
@@ -11,7 +12,8 @@ import java.util.concurrent.Executor
 
 class TripRepository(private val executor: Executor,
                      private val responseParser: TripResponseParser) {
-    private val presentersFilter = "http://10.0.2.2:5229/api/hosts/presenters/filter"
+    private val presentersFilterUrl = "http://10.0.2.2:5229/api/hosts/presenters/filter"
+    private val hostDetailsUrl = "http://10.0.2.2:5229/api/hosts/details"
 
     fun getHostPresenters(pattern:TripPattern,
                           callback:(Result<ArrayList<HostPresenter>>) -> Unit
@@ -28,12 +30,12 @@ class TripRepository(private val executor: Executor,
         }
     }
 
-    fun getHost(pattern:TripPattern,
-                          callback:(Result<ArrayList<Host>>) -> Unit
+    fun getHostDetails(id:Int,
+                          callback:(Result<HostDetails>) -> Unit
     ){
         executor.execute{
             try {
-                val response = makeHostPresentersRequest(pattern)
+                val response = makeHostDetailsRequest(id)
                 callback(response)
             }
             catch (e: java.lang.Exception){
@@ -43,8 +45,21 @@ class TripRepository(private val executor: Executor,
         }
     }
 
+    private fun makeHostDetailsRequest(id:Int) : Result<HostDetails>{
+        val uri =  URIBuilder("${hostDetailsUrl}/$id")
+        val url = URL(uri.toString())
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "GET"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            Thread.sleep(2000)
+            return Result.Success(responseParser.parseToHostDetails(inputStream))
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
     private fun makeHostPresentersRequest(pattern:TripPattern) : Result<ArrayList<HostPresenter>>{
-        val uri =  URIBuilder(presentersFilter)
+        val uri =  URIBuilder(presentersFilterUrl)
         val url = URL(uri.toString())
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "POST"

@@ -20,62 +20,62 @@ class TripFinderTests {
 
     @Test
     fun findTripsInvalidTravelersTest(){
-        val host : Host
-                = Host("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
+        val hostDetails : HostDetails
+                = HostDetails("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
             getHostSlotsDate(), getHostRestriction(), getHostConfiguration())
         val trip : Trip =
             Trip(getTripSlotDate(), TripCity("France", "Soisy", "95230"), 1.0, -1,
                 getTripHostConfiguration(), 3, 0, 1, 0)
 
-        assertFalse(tripFinder.isHostMatching(trip, host))
+        assertFalse(tripFinder.isHostMatching(trip, hostDetails))
     }
 
     @Test
     fun findTripsInvalidDogsTest(){
-        val host : Host
-                = Host("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
+        val hostDetails : HostDetails
+                = HostDetails("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
             getHostSlotsDate(), getHostRestriction(), getHostConfiguration())
         val trip : Trip =
             Trip(getTripSlotDate(), TripCity("France", "Soisy", "95230"), 1.0, -1,
                 getTripHostConfiguration(), 2, 1, 1, 0)
 
-        assertFalse(tripFinder.isHostMatching(trip, host))
+        assertFalse(tripFinder.isHostMatching(trip, hostDetails))
     }
 
     @Test
     fun findTripsInvalidCityTest(){
-        val host : Host
-                = Host("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
+        val hostDetails : HostDetails
+                = HostDetails("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
             getHostSlotsDate(), getHostRestriction(), getHostConfiguration())
         val trip : Trip =
             Trip(getTripSlotDate(), TripCity("Japan", "Tokyo", "163-8001"), 1.0, -1,
                 getTripHostConfiguration(), 2, 0, 1, 0)
 
-        assertFalse(tripFinder.isHostMatching(trip, host))
+        assertFalse(tripFinder.isHostMatching(trip, hostDetails))
     }
 
     @Test
     fun findTripsInvalidChildsTest(){
-        val host : Host
-                = Host("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
+        val hostDetails : HostDetails
+                = HostDetails("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
             getHostSlotsDate(), getHostRestriction(), getHostConfiguration())
         val trip : Trip =
             Trip(getTripSlotDate(), TripCity("France", "Soisy", "95230"), 1.0, -1,
                 getTripHostConfiguration(), 2, 0, 1, 1)
 
-        assertFalse(tripFinder.isHostMatching(trip, host))
+        assertFalse(tripFinder.isHostMatching(trip, hostDetails))
     }
 
     @Test
     fun findTripsValidBabiesTest(){
-        val host : Host
-                = Host("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
+        val hostDetails : HostDetails
+                = HostDetails("MyTitle","MyDescription", getHostAddress(), "0668319800", ArrayList(),
             getHostSlotsDate(), getHostRestriction(), getHostConfiguration())
         val trip : Trip =
             Trip(getTripSlotDate(), TripCity("France", "Soisy", "95230"), 1.0, -1,
                 getTripHostConfiguration(), 2, 0, 0, 0)
 
-        assertTrue(tripFinder.isHostMatching(trip, host))
+        assertTrue(tripFinder.isHostMatching(trip, hostDetails))
     }
 
     private fun getHostAddress() : Address

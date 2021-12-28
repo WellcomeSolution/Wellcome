@@ -14,6 +14,7 @@ import androidx.activity.viewModels
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import com.example.wellcome.data.HostViewModel
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.utils.CitiesHelper
 import com.example.wellcome.utils.City
@@ -29,7 +30,7 @@ import kotlinx.coroutines.withContext
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel: SharedTripViewModel by viewModels()
+        val sharedTripViewModel: SharedTripViewModel by viewModels()
         setContentView(R.layout.activity_main)
     }
 }

@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.services.Host
+import com.example.services.HostDetails
 
-class TripAdapter(private val dataSet: List<Host>):
+class TripAdapter(private val dataSet: List<HostDetails>):
     RecyclerView.Adapter<TripAdapter.ViewHolder>()
 {
     private lateinit var context: Context
