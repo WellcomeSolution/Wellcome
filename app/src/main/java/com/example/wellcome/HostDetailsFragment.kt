@@ -14,13 +14,23 @@ import com.example.wellcome.databinding.FragmentHostsBinding
 import com.example.wellcome.utils.themeColor
 import com.google.android.material.transition.MaterialContainerTransform
 import kotlinx.android.synthetic.main.fragment_host_details.*
+import android.animation.LayoutTransition
+
+import android.widget.LinearLayout
+
+
+
 
 class HostDetailsFragment : Fragment() {
     private val hostViewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        host_details.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(

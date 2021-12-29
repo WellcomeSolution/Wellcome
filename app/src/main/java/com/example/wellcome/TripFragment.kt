@@ -16,6 +16,7 @@ import com.example.services.TripPattern
 
 import androidx.lifecycle.Lifecycle
 import com.example.services.HostPresenter
+import kotlinx.android.synthetic.main.trips_configurations.*
 
 
 class TripFragment : Fragment() {
@@ -77,6 +78,8 @@ class TripFragment : Fragment() {
             inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+        binding.tripsConfigurations.viewModel = viewModel
+        binding.tripsConfigurations.lifecycleOwner = this
         return binding.root
     }
 }
