@@ -3,16 +3,17 @@ package com.example.wellcome
 import android.os.Bundle
 import com.example.daterangepicker.CalendarPickerView
 import com.example.wellcome.R
-import kotlinx.android.synthetic.main.activity_dates_form.calendar_view
 import java.text.SimpleDateFormat
 import java.util.*
 import android.content.DialogInterface
 import android.view.*
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import com.example.wellcome.com.example.wellcome.BaseBottomSheet
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.DatesBottomSheetContentBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlinx.android.synthetic.main.dates_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.top_app_bar.*
 
 

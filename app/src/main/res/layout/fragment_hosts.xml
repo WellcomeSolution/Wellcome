@@ -28,6 +28,7 @@
                     android:layout_height="?attr/actionBarSize"
                     app:menu="@menu/top_app_bar">
                 <LinearLayout
+                        android:id="@+id/trip_descriptions"
                         android:layout_marginVertical="7dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"

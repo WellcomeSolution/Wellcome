@@ -6,7 +6,6 @@ import android.view.View
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_form.*
 import android.content.Intent
 import android.util.Log
 import android.view.Window
@@ -19,7 +18,6 @@ import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.utils.CitiesHelper
 import com.example.wellcome.utils.City
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
-import kotlinx.android.synthetic.main.fragment_form.editText_restrictions
 import kotlinx.android.synthetic.main.fragment_trip.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

@@ -1,4 +1,4 @@
-package com.example.wellcome.com.example.wellcome
+package com.example.wellcome
 
 import android.app.Dialog
 import android.os.Bundle
@@ -13,7 +13,6 @@ open class BaseBottomSheet : BottomSheetDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = BottomSheetDialog(requireContext(), theme)
         dialog.setOnShowListener {
-
             val bottomSheetDialog = it as BottomSheetDialog
             val parentLayout =
                 bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)

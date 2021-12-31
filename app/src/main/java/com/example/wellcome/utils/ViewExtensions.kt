@@ -12,7 +12,6 @@ import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import com.example.wellcome.R
 import com.google.android.material.button.MaterialButton
-import kotlinx.android.synthetic.main.activity_rescrictions_form.*
 
 fun View.disable() {
     background.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_ATOP)

@@ -1,6 +1,7 @@
 package com.example.wellcome
 
 import android.app.Dialog
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
@@ -15,21 +16,28 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wellcome.CityAdapter
 import com.example.wellcome.R
-import com.example.wellcome.com.example.wellcome.BaseBottomSheet
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.LocalisationBottomSheetContentBinding
 import com.example.wellcome.repository.Address
 import com.example.wellcome.repository.City
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.activity_search_city.recyclerView
 import kotlinx.android.synthetic.main.localisation_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.top_app_bar.*
+
+import android.util.DisplayMetrics
+import android.view.WindowManager
+
+
+
+
+
+
 
 class LocalisationBottomSheet : BaseBottomSheet() {
     private val viewModel: SharedTripViewModel by activityViewModels()
     private lateinit var cityAdapter : CityAdapter
-    private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
+
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
@@ -38,7 +46,6 @@ class LocalisationBottomSheet : BaseBottomSheet() {
             val bottomSheet = (it as BottomSheetDialog).findViewById<View>(com.google.android.material.R.id.design_bottom_sheet) as FrameLayout?
             val behavior = BottomSheetBehavior.from(bottomSheet!!)
             behavior.state = BottomSheetBehavior.STATE_EXPANDED
-
             behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
                 override fun onStateChanged(bottomSheet: View, newState: Int) {
                     if (newState == BottomSheetBehavior.STATE_DRAGGING) {
@@ -46,11 +53,11 @@ class LocalisationBottomSheet : BaseBottomSheet() {
                     }
                 }
 
-                override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                }
             })
         }
 
-        // Do something with your dialog like setContentView() or whatever
         return dialog
     }
 
@@ -83,6 +90,10 @@ class LocalisationBottomSheet : BaseBottomSheet() {
     }
 
     private fun initLayout(){
+        val displayMetrics = context?.resources?.displayMetrics
+        val height = displayMetrics?.heightPixels
+        recyclerView.minimumHeight = height!!
+
         searchBar.visibility = View.VISIBLE
         top_app_bar.menu.findItem(R.id.clear).isVisible = true
     }
@@ -133,5 +144,38 @@ class LocalisationBottomSheet : BaseBottomSheet() {
 
     companion object {
         const val TAG = "ModalBottomSheet"
+    }
+}
+
+class ScreenUtils(ctx: Context) {
+    var ctx: Context
+    var metrics: DisplayMetrics
+    val height: Int
+        get() = metrics.heightPixels
+    val width: Int
+        get() = metrics.widthPixels
+    val realHeight: Int
+        get() = metrics.heightPixels / metrics.densityDpi
+    val realWidth: Int
+        get() = metrics.widthPixels / metrics.densityDpi
+    val density: Int
+        get() = metrics.densityDpi
+
+    fun getScale(picWidth: Int): Int {
+        val display = (ctx.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
+            .defaultDisplay
+        val width = display.width
+        var `val` = (width / picWidth).toDouble()
+        `val` = `val` * 100.0
+        return `val`.toInt()
+    }
+
+    init {
+        this.ctx = ctx
+        val wm = ctx
+            .getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val display = wm.defaultDisplay
+        metrics = DisplayMetrics()
+        display.getMetrics(metrics)
     }
 }

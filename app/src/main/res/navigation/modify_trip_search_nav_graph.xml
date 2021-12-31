@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/modify_search_trip_nav_graph"
+        app:startDestination="@id/modify_trip_configuration_fragment">
+
+    <fragment
+            android:id="@+id/modify_trip_configuration_fragment"
+            android:name="com.example.wellcome.ModifyTripConfigurationFragment"
+            android:label="trip_configuration"
+            tools:layout="@layout/fragment_trip_configuration_modify" >
+        <action
+                android:id="@+id/navigate_to_restrictions"
+                app:destination="@id/modify_trip_restrictions_fragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/modify_trip_restrictions_fragment"
+            android:name="com.example.wellcome.ModifyTripRestrictionsFragment"
+            android:label="modify_trip_restrictions"
+            tools:layout="@layout/fragment_modify_trip_restrictions" >
+    </fragment>
+
+</navigation>

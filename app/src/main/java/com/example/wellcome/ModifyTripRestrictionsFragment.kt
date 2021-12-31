@@ -1,27 +1,24 @@
 package com.example.wellcome
 
 import android.os.Bundle
-import android.view.*
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import com.example.wellcome.R
+import androidx.navigation.fragment.NavHostFragment
 import com.example.wellcome.data.SharedTripViewModel
+import com.example.wellcome.databinding.FragmentModifyTripRestrictionsBinding
 import com.example.wellcome.databinding.RestrictionsBottomSheetContentBinding
-import kotlinx.android.synthetic.main.top_app_bar.*
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.transition.MaterialSharedAxis
+import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
 
-class RestrictionsBottomSheet : BaseBottomSheet() {
+class ModifyTripRestrictionsFragment : Fragment() {
     private val viewModel: SharedTripViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dialog?.window?.attributes?.windowAnimations = R.style.DialogAnimation
-        initClickListeners()
-    }
-
-    private fun initClickListeners(){
-        top_app_bar.setOnClickListener{
-            this.dismiss()
-        }
     }
 
     override fun onCreateView(
@@ -29,15 +26,13 @@ class RestrictionsBottomSheet : BaseBottomSheet() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = RestrictionsBottomSheetContentBinding
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
+        val binding = FragmentModifyTripRestrictionsBinding
             .inflate(inflater, container, false)
         binding.tripRestrictionsInputs.viewModel = viewModel
         binding.tripRestrictionsInputs.lifecycleOwner = this
-        setStyle(STYLE_NORMAL, R.style.BottomSheetDialog)
         return binding.root
     }
 
-    companion object {
-        const val TAG = "ModalBottomSheet"
-    }
 }

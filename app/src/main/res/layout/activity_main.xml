@@ -12,7 +12,7 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             app:defaultNavHost="true"
             app:layout_constraintTop_toTopOf="@id/main_container"
-            app:navGraph="@navigation/nav_graph"
+            app:navGraph="@navigation/trips_nav_graph"
             android:layout_height="match_parent"
             android:layout_width="match_parent"/>
 

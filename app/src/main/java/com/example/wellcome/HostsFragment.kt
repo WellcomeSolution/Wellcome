@@ -42,9 +42,14 @@ class HostsFragment : Fragment() {
             hostViewModel.title.value = host.title
             hostViewModel.loadHostDetails(host.id)
             val extras = FragmentNavigatorExtras(view to "transition")
-            val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
+            val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
             val directions = HostsFragmentDirections.navigateToHostDetails()
             nav.navigate(directions, extras)
+        }
+
+        trip_descriptions.setOnClickListener{
+            val modalBottomSheet = ModifyTripSearchBottomSheet()
+            modalBottomSheet.show(childFragmentManager, ModifyTripSearchBottomSheet.TAG)
         }
     }
 

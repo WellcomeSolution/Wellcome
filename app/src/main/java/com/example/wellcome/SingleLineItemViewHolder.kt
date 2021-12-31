@@ -25,7 +25,6 @@ class SingleLineItemViewHolder(@NonNull view: View?) : RecyclerView.ViewHolder(v
     }
 
     init {
-
         icon = itemView.findViewById(R.id.mtrl_list_item_icon)
         text = itemView.findViewById(R.id.mtrl_list_item_text)
     }

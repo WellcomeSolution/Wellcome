@@ -130,8 +130,5 @@
                     android:textColor="@color/crane_purple_900"
                     android:layout_marginHorizontal="25dp"/>
         </LinearLayout>
-
-        <include layout="@layout/content_restrictions"
-                android:id="@+id/bottom_sheet_restrictions"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

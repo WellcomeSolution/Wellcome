@@ -3,7 +3,6 @@ package com.example.wellcome
 import android.content.Context
 import android.location.Geocoder
 import androidx.test.platform.app.InstrumentationRegistry
-import com.example.wellcome.utils.DistanceCalculator
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import junit.framework.Assert.assertEquals
