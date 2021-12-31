@@ -32,8 +32,8 @@ class RestrictionsBottomSheet : BaseBottomSheet() {
     ): View {
         val binding = RestrictionsBottomSheetContentBinding
             .inflate(inflater, container, false)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
+        binding.tripRestrictionsInputs.viewModel = viewModel
+        binding.tripRestrictionsInputs.lifecycleOwner = this
         setStyle(STYLE_NORMAL, R.style.BottomSheetDialog)
         return binding.root
     }

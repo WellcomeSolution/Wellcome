@@ -92,4 +92,20 @@
         <item name="android:windowEnterAnimation">@anim/slide_up</item>
         <item name="android:windowExitAnimation">@anim/slide_down</item>
     </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopEnd">4dp</item>
+        <item name="boxCornerRadiusBottomStart">4dp</item>
+        <item name="boxCornerRadiusBottomEnd">4dp</item>
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxCornerRadiusTopStart">4dp</item>
+        <item name="boxStrokeWidth">2.5dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeWidthFocused">2.5dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:layout_marginHorizontal">25dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

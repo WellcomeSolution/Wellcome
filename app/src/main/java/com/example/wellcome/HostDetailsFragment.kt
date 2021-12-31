@@ -26,7 +26,7 @@ class HostDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        host_details.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
+        //host_details.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

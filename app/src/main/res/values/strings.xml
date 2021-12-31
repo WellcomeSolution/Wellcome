@@ -125,5 +125,6 @@
     <string name="host_fragment">host_fragment</string>
     <string name="filters">Filters</string>
     <string name="rooms_and_spaces">Rooms and spaces</string>
-  <string name="host_details_fragment">hosts_details_fragment</string>
+    <string name="host_details_fragment">hosts_details_fragment</string>
+    <string name="modify_your_search">Modify your search</string>
 </resources>
