@@ -83,6 +83,7 @@ class SharedTripViewModel: ViewModel() {
             when(result){
                 is Result.Success<ArrayList<HostPresenter>> -> {
                     hostPresenters.postValue(result.data)
+                    isLoading.postValue(false)
                 }
             }
         }

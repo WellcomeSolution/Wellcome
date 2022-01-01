@@ -9,6 +9,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+            android:animateLayoutChanges="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".HostsFragment">
@@ -18,7 +19,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:id="@+id/app_bar"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:background="@color/crane_purple_700">
             <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/top_app_bar"
@@ -104,7 +104,19 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/divider"
                 app:dividerColor="@color/divider"/>
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                android:layout_gravity="center"
+                android:layout_marginVertical="20dp"
+                app:indicatorColor="@color/crane_purple_900"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
         <androidx.core.widget.NestedScrollView
+                android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
                 android:id="@+id/scroll_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -115,8 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:minHeight="500dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginVertical="8dp"
                     android:clipToPadding="false"/>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

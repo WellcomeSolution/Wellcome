@@ -27,17 +27,13 @@ import kotlinx.android.synthetic.main.top_app_bar.*
 
 import android.util.DisplayMetrics
 import android.view.WindowManager
-
-
-
-
-
+import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
+import kotlinx.android.synthetic.main.trip_localisation.*
 
 
 class LocalisationBottomSheet : BaseBottomSheet() {
     private val viewModel: SharedTripViewModel by activityViewModels()
     private lateinit var cityAdapter : CityAdapter
-
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
@@ -136,46 +132,13 @@ class LocalisationBottomSheet : BaseBottomSheet() {
     ): View {
         val binding = LocalisationBottomSheetContentBinding
             .inflate(inflater, container, false)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
+        binding.tripLocalisation.viewModel = viewModel
+        binding.tripLocalisation.lifecycleOwner = this
         setStyle(STYLE_NORMAL, R.style.BottomSheetDialog)
         return binding.root
     }
 
     companion object {
         const val TAG = "ModalBottomSheet"
-    }
-}
-
-class ScreenUtils(ctx: Context) {
-    var ctx: Context
-    var metrics: DisplayMetrics
-    val height: Int
-        get() = metrics.heightPixels
-    val width: Int
-        get() = metrics.widthPixels
-    val realHeight: Int
-        get() = metrics.heightPixels / metrics.densityDpi
-    val realWidth: Int
-        get() = metrics.widthPixels / metrics.densityDpi
-    val density: Int
-        get() = metrics.densityDpi
-
-    fun getScale(picWidth: Int): Int {
-        val display = (ctx.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
-            .defaultDisplay
-        val width = display.width
-        var `val` = (width / picWidth).toDouble()
-        `val` = `val` * 100.0
-        return `val`.toInt()
-    }
-
-    init {
-        this.ctx = ctx
-        val wm = ctx
-            .getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val display = wm.defaultDisplay
-        metrics = DisplayMetrics()
-        display.getMetrics(metrics)
     }
 }

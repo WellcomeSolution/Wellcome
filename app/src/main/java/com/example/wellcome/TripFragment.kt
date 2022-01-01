@@ -16,6 +16,7 @@ import com.example.services.TripPattern
 
 import androidx.lifecycle.Lifecycle
 import com.example.services.HostPresenter
+import com.google.android.material.transition.MaterialSharedAxis
 
 
 class TripFragment : Fragment() {
@@ -75,6 +76,8 @@ class TripFragment : Fragment() {
     ): View? {
         val binding = FragmentTripBinding.inflate(
             inflater, container, false)
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root

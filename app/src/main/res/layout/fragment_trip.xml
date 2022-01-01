@@ -35,10 +35,9 @@
                     android:layout_marginBottom="6dp"
                     android:layout_marginHorizontal="25dp"
                     app:boxBackgroundMode="filled"
-                    app:startIconTint="@{viewModel.travelers > 0 ? @color/white : @color/grey_100}"
+                    app:startIconTint="@{viewModel.travelers > 0 ? @color/white : @color/grey_800}"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    android:transitionName="shared_element_container_restrictions"
                     app:startIconDrawable="@drawable/baseline_person_24">
                 <com.google.android.material.textfield.TextInputEditText
                         android:includeFontPadding="false"
@@ -51,7 +50,7 @@
                         android:maxLines="1"
                         android:textSize="16sp"
                         android:text="@{viewModel.travelers > 0 ? viewModel.travelersFormat : @string/host_restrictions }"
-                        android:textColor="@{viewModel.travelers > 0 ? @color/white : @color/grey_100}"
+                        android:textColor="@{viewModel.travelers > 0 ? @color/white : @color/grey_800}"
                         android:fontFamily="@font/ralewaymedium"
                         android:focusable="false"
                         />
@@ -64,7 +63,7 @@
                     android:layout_marginHorizontal="25dp"
                     android:layout_marginBottom="6dp"
                     app:boxBackgroundMode="filled"
-                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/white : @color/grey_100}"
+                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/white : @color/grey_800}"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
                     app:startIconDrawable="@drawable/baseline_date_range_24">
@@ -79,7 +78,7 @@
                         android:background="@drawable/round_corner_toggle_purple"
                         android:padding="15dp"
                         android:text="@{viewModel.dateFormat ?? @string/dates}"
-                        android:textColor="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/white : @color/grey_100}"
+                        android:textColor="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/white : @color/grey_800}"
                         android:fontFamily="@font/ralewaymedium"
                         android:focusable="false"
 
@@ -93,7 +92,7 @@
                     android:layout_marginBottom="6dp"
                     android:layout_marginHorizontal="25dp"
                     app:boxBackgroundMode="filled"
-                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/white : @color/grey_100}"
+                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/white : @color/grey_800}"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
                     app:startIconDrawable="@drawable/baseline_hotel_24">
@@ -109,7 +108,7 @@
                         android:textSize="16sp"
                         android:focusable="false"
                         android:text="@{viewModel.addressFormat ?? @string/Location}"
-                        android:textColor="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/white : @color/grey_100}"
+                        android:textColor="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/white : @color/grey_800}"
                         android:fontFamily="@font/ralewaymedium"
                         />
             </com.google.android.material.textfield.TextInputLayout>

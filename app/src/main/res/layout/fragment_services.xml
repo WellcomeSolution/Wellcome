@@ -5,12 +5,31 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ServicesFragment">
-        <include
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+
+        <LinearLayout
+                android:background="@color/crane_purple_800"
+                android:id="@+id/top_container"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/services_top_bar" layout="@layout/services_top_bar"/>
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                        android:id="@+id/button_nav_drawer"
+                        android:paddingTop="6dp"
+                        android:paddingLeft="-10dp"
+                        android:layout_gravity="center_vertical"
+                        app:tint="@color/white"
+                        android:layout_width="22dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/baseline_menu_24"/>
+
+                <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:id="@+id/services_top_bar" layout="@layout/services_top_bar"/>
+        </LinearLayout>
 
         <androidx.fragment.app.FragmentContainerView
                 android:backgroundTint="@color/crane_purple_800"
@@ -20,7 +39,7 @@
                 app:navGraph="@navigation/services_nav_graph"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintTop_toBottomOf="@+id/services_top_bar"
+                app:layout_constraintTop_toBottomOf="@+id/top_container"
                 app:layout_constraintBottom_toTopOf="@id/bottom_navigation"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

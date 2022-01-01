@@ -1,30 +1,5 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
-    <data>
-        <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
-    </data>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:id="@+id/localisation_bottom_sheet"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-
-        <include android:id="@+id/top_app_bar_search_city" layout="@layout/top_app_bar"/>
-
-        <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fillViewport="true">
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:clipToPadding="false"/>
-        </androidx.core.widget.NestedScrollView>
-    </LinearLayout>
-</layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+    <include layout="@layout/trip_localisation" android:id="@+id/trip_localisation"/>
+</LinearLayout>

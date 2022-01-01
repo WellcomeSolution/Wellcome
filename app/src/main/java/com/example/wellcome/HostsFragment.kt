@@ -19,12 +19,17 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.data.HostViewModel
+import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
 
 
 class HostsFragment : Fragment() {
     private val sharedTripViewModel: SharedTripViewModel by activityViewModels()
     private val hostViewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
     private lateinit var hostsAdapter:HostsAdapter
+
+    companion object{
+        val modalBottomSheet : ModifyTripSearchBottomSheet = ModifyTripSearchBottomSheet()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,7 +53,6 @@ class HostsFragment : Fragment() {
         }
 
         trip_descriptions.setOnClickListener{
-            val modalBottomSheet = ModifyTripSearchBottomSheet()
             modalBottomSheet.show(childFragmentManager, ModifyTripSearchBottomSheet.TAG)
         }
     }

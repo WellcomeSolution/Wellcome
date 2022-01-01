@@ -1,0 +1,16 @@
+<menu>
+    <item android:id="@+id/main_item"
+            android:title="Wellcome"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+        <menu>
+            <item
+                    android:id="@+id/inbox_item"
+                    android:title="Consult"
+                    android:checkable="true"/>
+            <item
+                    android:id="@+id/outbox_item"
+                    android:title="Manage"
+                    android:checkable="true"/>
+        </menu>
+    </item>
+</menu>

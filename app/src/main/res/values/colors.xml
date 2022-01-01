@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#bdbdbd</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#e0e0e0</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -16,6 +16,7 @@
     <color name="grey_200">#757575</color>
     <color name="divider">@color/grey_light</color>
     <color name="grey_300">#bdbdbd</color>
+    <color name="grey_800">#bcbcbc</color>
     <color name="grey_light">#e0e0e0</color>
     <color name="divider_dark">#494949</color>
     <color name="grey_400">#616161</color>

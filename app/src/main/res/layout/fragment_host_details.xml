@@ -6,13 +6,13 @@
         <import type="android.view.View"/>
     </data>
     <ScrollView xmlns:tools="http://schemas.android.com/tools"
+            android:animateLayoutChanges="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".HostDetailsFragment"
             android:transitionName="transition">
 
             <LinearLayout
-                    android:animateLayoutChanges="true"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">

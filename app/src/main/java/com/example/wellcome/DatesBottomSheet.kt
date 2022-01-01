@@ -15,6 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dates_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.top_app_bar.*
+import kotlinx.android.synthetic.main.trip_dates.*
 
 
 class DatesBottomSheet : BaseBottomSheet() {
@@ -40,8 +41,8 @@ class DatesBottomSheet : BaseBottomSheet() {
     ) : View {
         val binding = DatesBottomSheetContentBinding
             .inflate(inflater, container, false)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
+        binding.tripDates.viewModel = viewModel
+        binding.tripDates.lifecycleOwner = this
         setStyle(STYLE_NORMAL, R.style.BottomSheetDialog)
         return binding.root
     }
@@ -56,11 +57,17 @@ class DatesBottomSheet : BaseBottomSheet() {
 
         calendar_view.init(Date(), nextYear.time, SimpleDateFormat("MMMM, YYYY", Locale.getDefault()))
             .inMode(CalendarPickerView.SelectionMode.RANGE)
-    }
 
-    override fun onDismiss(dialog: DialogInterface) {
-        if(calendar_view.selectedDates.isNotEmpty())
-            viewModel.updateDate(calendar_view.selectedDates)
-        super.onDismiss(dialog)
+        calendar_view.setOnDateSelectedListener(object : CalendarPickerView.OnDateSelectedListener {
+            override fun onDateSelected(date: Date?) {
+                if(calendar_view.selectedDates.isNotEmpty())
+                    viewModel.updateDate(calendar_view.selectedDates)
+            }
+
+            override fun onDateUnselected(date: Date?) {
+
+            }
+
+        })
     }
 }

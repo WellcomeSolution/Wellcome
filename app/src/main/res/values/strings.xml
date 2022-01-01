@@ -127,4 +127,7 @@
     <string name="rooms_and_spaces">Rooms and spaces</string>
     <string name="host_details_fragment">hosts_details_fragment</string>
     <string name="modify_your_search">Modify your search</string>
+    <string name="give_it_a_title">Give it a title</string>
+    <string name="give_it_a_description">Give it a description</string>
+    <string name="select_the_travelers">Select the travelers</string>
 </resources>

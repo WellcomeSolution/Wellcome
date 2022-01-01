@@ -90,7 +90,7 @@
         <item name="boxCornerRadiusBottomEnd">4dp</item>
         <item name="boxStrokeColor">#fff</item>
         <item name="boxCornerRadiusTopStart">4dp</item>
-        <item name="boxStrokeWidth">2.5dp</item>
+        <item name="boxStrokeWidth">1.8dp</item>
         <item name="hintEnabled">false</item>
         <item name="boxBackgroundColor">@color/white</item>
         <item name="boxStrokeWidthFocused">2.5dp</item>
@@ -98,5 +98,9 @@
         <item name="android:layout_marginHorizontal">25dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:backgroundDimAmount">0</item>
     </style>
 </resources>
