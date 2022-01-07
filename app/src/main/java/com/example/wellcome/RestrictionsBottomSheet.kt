@@ -14,7 +14,6 @@ class RestrictionsBottomSheet : BaseBottomSheet() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dialog?.window?.attributes?.windowAnimations = R.style.DialogAnimation
         initClickListeners()
     }
 
@@ -33,7 +32,6 @@ class RestrictionsBottomSheet : BaseBottomSheet() {
             .inflate(inflater, container, false)
         binding.tripRestrictionsInputs.viewModel = viewModel
         binding.tripRestrictionsInputs.lifecycleOwner = this
-        setStyle(STYLE_NORMAL, R.style.BottomSheetDialog)
         return binding.root
     }
 

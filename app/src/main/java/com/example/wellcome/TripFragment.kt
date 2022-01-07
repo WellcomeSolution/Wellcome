@@ -11,6 +11,7 @@ import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.FragmentTripBinding
 import kotlinx.android.synthetic.main.fragment_trip.*
 import android.R
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import com.example.services.TripPattern
 
@@ -40,7 +41,7 @@ class TripFragment : Fragment() {
     }
 
     private fun initClickListeners(){
-        val colorInt = resources.getColor(R.color.white)
+        val colorInt = ContextCompat.getColor(requireContext(), R.color.white)
         textField_restrictions.setStartIconTintList(ColorStateList.valueOf(colorInt))
 
         editText_restrictions.setOnClickListener{
@@ -73,7 +74,7 @@ class TripFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentTripBinding.inflate(
             inflater, container, false)
         exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)

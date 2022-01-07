@@ -5,8 +5,9 @@
         <import type="android.text.TextUtils"/>
         <import type="android.view.View"/>
     </data>
-    <ScrollView xmlns:tools="http://schemas.android.com/tools"
-            android:animateLayoutChanges="true"
+    <ScrollView
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/scroll_view_details"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".HostDetailsFragment"
@@ -33,188 +34,200 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.title}"/>
-
-                <com.google.android.material.progressindicator.CircularProgressIndicator
-                        android:layout_gravity="center"
-                        app:indicatorColor="@color/crane_purple_900"
-                        android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:indeterminate="true" />
-
                 <LinearLayout
-                        android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
-                        android:id="@+id/host_details"
-                        android:layout_marginBottom="23dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:animateLayoutChanges="true"
+                        android:id="@+id/container"
                         android:orientation="vertical"
-                        android:layout_marginHorizontal="25dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                            android:drawableTint="#fccc57"
-                            android:drawablePadding="5dp"
-                            android:drawableLeft="@drawable/baseline_start_24_resized"
-                            android:includeFontPadding="false"
-                            android:layout_marginTop="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaymedium"
+                    <LinearLayout
+                            android:layout_gravity="center_horizontal"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="4,45 (29 commentaires)"/>
-                    <TextView
-                            android:includeFontPadding="false"
-                            android:layout_marginTop="5dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaymedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{viewModel.addressFormat }"/>
+                            android:layout_height="wrap_content">
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                                android:layout_gravity="center"
+                                app:indicatorColor="@color/crane_purple_900"
+                                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:indeterminate="true" />
+                    </LinearLayout>
 
-                    <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
-                            android:layout_marginVertical="20dp"
-                            android:layout_height="wrap_content"
-                            app:dividerColor="@color/divider"
-                            android:layout_marginBottom="23dp" />
-
-                    <RelativeLayout
-                            android:orientation="horizontal"
+                    <LinearLayout
+                            android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+                            android:id="@+id/host_details"
+                            android:layout_marginBottom="23dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="25dp">
 
-                        <LinearLayout
+                        <TextView
+                                android:drawableTint="#fccc57"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@drawable/baseline_start_24_resized"
+                                android:includeFontPadding="false"
+                                android:layout_marginTop="5dp"
+                                android:textSize="14dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ralewaymedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4,45 (29 commentaires)"/>
+                        <TextView
+                                android:includeFontPadding="false"
+                                android:layout_marginTop="5dp"
+                                android:textSize="14dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ralewaymedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.addressFormat }"/>
+
+                        <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
+                                android:layout_marginVertical="20dp"
+                                android:layout_height="wrap_content"
+                                app:dividerColor="@color/divider"
+                                android:layout_marginBottom="23dp" />
+
+                        <RelativeLayout
+                                android:orientation="horizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                >
 
-                            <TextView
-                                    android:includeFontPadding="false"
-                                    android:textSize="19dp"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/ralewaybold"
-                                    android:layout_width="wrap_content"
+                            <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@{ viewModel.nameFormat }" />
+                                    android:orientation="vertical">
 
-                            <TextView
-                                    android:includeFontPadding="false"
-                                    android:textSize="19dp"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/ralewaybold"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@{ viewModel.hostDescription }" />
-                        </LinearLayout>
+                                <TextView
+                                        android:includeFontPadding="false"
+                                        android:textSize="19dp"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="@font/ralewaybold"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@{ viewModel.nameFormat }" />
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                                android:layout_gravity="right"
-                                android:layout_alignParentRight="true"
-                                android:id="@+id/profile_image"
-                                android:layout_width="44dp"
-                                android:layout_marginRight="15dp"
-                                android:layout_height="44dp"
-                                android:src="@drawable/profile_picture" />
-                    </RelativeLayout>
-                    <TextView
-                            android:includeFontPadding="false"
-                            android:layout_marginTop="8dp"
-                            android:textSize="14dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaymedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{ viewModel.hostConfigurationFormat}"/>
+                                <TextView
+                                        android:includeFontPadding="false"
+                                        android:textSize="19dp"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="@font/ralewaybold"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@{ viewModel.hostDescription }" />
+                            </LinearLayout>
 
-                    <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
-                            android:layout_marginVertical="20dp"
-                            android:layout_height="wrap_content"
-                            app:dividerColor="@color/divider"
-                            android:layout_marginBottom="23dp" />
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                    android:layout_gravity="right"
+                                    android:layout_alignParentRight="true"
+                                    android:id="@+id/profile_image"
+                                    android:layout_width="44dp"
+                                    android:layout_marginRight="15dp"
+                                    android:layout_height="44dp"
+                                    android:src="@drawable/profile_picture" />
+                        </RelativeLayout>
+                        <TextView
+                                android:includeFontPadding="false"
+                                android:layout_marginTop="8dp"
+                                android:textSize="14dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ralewaymedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{ viewModel.hostConfigurationFormat}"/>
 
-                    <TextView
-                            android:includeFontPadding="false"
-                            android:textSize="19dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaybold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Where is located the host"/>
+                        <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
+                                android:layout_marginVertical="20dp"
+                                android:layout_height="wrap_content"
+                                app:dividerColor="@color/divider"
+                                android:layout_marginBottom="23dp" />
 
-                    <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="230dp"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_marginTop="20dp"
-                            app:cardCornerRadius="12dp"
-                            app:cardElevation="12dp">
-                        <fragment
-                                android:id="@+id/map"
-                                android:name="com.google.android.gms.maps.SupportMapFragment"
+                        <TextView
+                                android:includeFontPadding="false"
+                                android:textSize="19dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ralewaybold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Where is located the host"/>
+
+                        <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-                    </androidx.cardview.widget.CardView>
+                                android:layout_height="230dp"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:layout_marginTop="20dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="12dp">
+                            <fragment
+                                    android:id="@+id/map"
+                                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+                        </androidx.cardview.widget.CardView>
 
-                    <TextView
-                            android:includeFontPadding="false"
-                            android:layout_marginTop="25dp"
-                            android:textSize="17dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaysemibold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{viewModel.addressFormat }"/>
+                        <TextView
+                                android:includeFontPadding="false"
+                                android:layout_marginTop="25dp"
+                                android:textSize="17dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ralewaysemibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.addressFormat }"/>
 
-                    <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
-                            android:layout_marginVertical="20dp"
-                            android:layout_height="wrap_content"
-                            app:dividerColor="@color/divider"
-                            android:layout_marginBottom="23dp" />
+                        <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
+                                android:layout_marginVertical="20dp"
+                                android:layout_height="wrap_content"
+                                app:dividerColor="@color/divider"
+                                android:layout_marginBottom="23dp" />
 
-                    <TextView
-                            android:includeFontPadding="false"
-                            android:textSize="19dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaybold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="About me"/>
+                        <TextView
+                                android:includeFontPadding="false"
+                                android:textSize="19dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ralewaybold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="About me"/>
 
-                    <TextView
-                            android:includeFontPadding="false"
-                            android:layout_marginTop="10dp"
-                            android:textSize="15dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaymedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{ viewModel.userDescription }"/>
+                        <TextView
+                                android:includeFontPadding="false"
+                                android:layout_marginTop="10dp"
+                                android:textSize="15dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ralewaymedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{ viewModel.userDescription }"/>
 
-                    <TextView
-                            android:layout_marginTop="15dp"
-                            android:includeFontPadding="false"
-                            android:textSize="19dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaybold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{ viewModel.genderAgeFormat }"/>
+                        <TextView
+                                android:layout_marginTop="15dp"
+                                android:includeFontPadding="false"
+                                android:textSize="19dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ralewaybold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{ viewModel.genderAgeFormat }"/>
 
-                    <TextView
-                            android:textAlignment="center"
-                            android:gravity="center"
-                            android:drawablePadding="5dp"
-                            android:drawableLeft="@drawable/baseline_language_24"
-                            android:includeFontPadding="false"
-                            android:layout_marginTop="10dp"
-                            android:textSize="15dp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/ralewaymedium"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{ `Fluent in ` + viewModel.language }"/>
+                        <TextView
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                android:drawablePadding="5dp"
+                                android:drawableLeft="@drawable/baseline_language_24"
+                                android:includeFontPadding="false"
+                                android:layout_marginTop="10dp"
+                                android:textSize="15dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/ralewaymedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{ `Fluent in ` + viewModel.language }"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
     </ScrollView>

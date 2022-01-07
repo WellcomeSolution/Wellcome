@@ -1,16 +1,21 @@
-<menu>
-    <item android:id="@+id/main_item"
-            android:title="Wellcome"
-            xmlns:android="http://schemas.android.com/apk/res/android">
-        <menu>
-            <item
-                    android:id="@+id/inbox_item"
-                    android:title="Consult"
-                    android:checkable="true"/>
-            <item
-                    android:id="@+id/outbox_item"
-                    android:title="Manage"
-                    android:checkable="true"/>
-        </menu>
-    </item>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+            android:id="@+id/group2"
+            android:checkableBehavior="single">
+        <item
+                android:id="@+id/trips"
+                android:title="Trips">
+            <menu>
+                <item
+                        android:id="@+id/item4"
+                        android:title="Consult" />
+
+                <item
+                        android:id="@+id/item5"
+                        android:title="Create" />
+
+            </menu>
+        </item>
+    </group>
 </menu>

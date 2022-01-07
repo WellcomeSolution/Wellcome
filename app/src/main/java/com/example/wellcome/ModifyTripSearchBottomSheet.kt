@@ -25,7 +25,6 @@ class ModifyTripSearchBottomSheet : BaseBottomSheet() {
     }
 
     private fun initLayout(){
-        dialog?.window?.attributes?.windowAnimations = R.style.DialogAnimation
         val displayMetrics = context?.resources?.displayMetrics
         val height = displayMetrics?.heightPixels
         bottom_sheet_container.minimumHeight = height!!
@@ -59,7 +58,6 @@ class ModifyTripSearchBottomSheet : BaseBottomSheet() {
     ): View? {
         val binding = ModifyTripSearchBottomSheetContentBinding
             .inflate(inflater, container, false)
-        setStyle(STYLE_NORMAL, R.style.BottomSheetDialog)
         return binding.root
     }
 

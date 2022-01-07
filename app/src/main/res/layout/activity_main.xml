@@ -3,23 +3,26 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/main_container"
+        android:id="@+id/drawer_layout"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start"
         tools:context=".MainActivity">
 
     <com.google.android.material.navigation.NavigationView
+            style="@style/Widget.App.NavigationView"
             android:id="@+id/navigation_view"
-        android:layout_width="wrap_content"
+            android:backgroundTint="@color/crane_purple_800"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
-        android:layout_height="match_parent"
-            app:menu="@menu/navigation_drawer"
-        app:layout_constraintStart_toStartOf="parent" />
+            app:menu="@menu/navigation_drawer"/>
 
     <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             app:defaultNavHost="true"
-            app:layout_constraintTop_toTopOf="@id/main_container"
+            app:layout_constraintTop_toTopOf="@id/drawer_layout"
             app:navGraph="@navigation/trips_nav_graph"
             android:layout_height="match_parent"
             android:layout_width="match_parent"/>

@@ -23,7 +23,6 @@ class DatesBottomSheet : BaseBottomSheet() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dialog?.window?.attributes?.windowAnimations = R.style.DialogAnimation
         initDates()
         initClickListeners()
     }
@@ -43,7 +42,6 @@ class DatesBottomSheet : BaseBottomSheet() {
             .inflate(inflater, container, false)
         binding.tripDates.viewModel = viewModel
         binding.tripDates.lifecycleOwner = this
-        setStyle(STYLE_NORMAL, R.style.BottomSheetDialog)
         return binding.root
     }
 

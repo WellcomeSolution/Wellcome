@@ -16,10 +16,13 @@ import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.data.HostViewModel
+import kotlinx.android.synthetic.main.fragment_hosts.top_app_bar
 import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
+import kotlinx.android.synthetic.main.top_app_bar.*
 
 
 class HostsFragment : Fragment() {
@@ -54,6 +57,11 @@ class HostsFragment : Fragment() {
 
         trip_descriptions.setOnClickListener{
             modalBottomSheet.show(childFragmentManager, ModifyTripSearchBottomSheet.TAG)
+        }
+
+        top_app_bar.setOnClickListener{
+            val nav = findNavController()
+            nav.popBackStack()
         }
     }
 

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.transition.MaterialSharedAxis
@@ -16,8 +17,8 @@ class ServicesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button_nav_drawer.setOnClickListener{
-            val drawer = navigation_view as DrawerLayout
-            drawer.openDrawer(GravityCompat.START)
+            val d = requireActivity().findViewById<DrawerLayout>(R.id.drawer_layout)
+            d.open()
         }
     }
 

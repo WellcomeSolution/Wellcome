@@ -15,14 +15,31 @@ import com.example.wellcome.utils.themeColor
 import com.google.android.material.transition.MaterialContainerTransform
 import kotlinx.android.synthetic.main.fragment_host_details.*
 import android.animation.LayoutTransition
+import android.animation.ObjectAnimator
 
 import android.widget.LinearLayout
+import android.view.animation.AccelerateInterpolator
 
+import android.view.animation.AlphaAnimation
 
+import android.view.animation.Animation
+
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.OvershootInterpolator
+
+import android.animation.PropertyValuesHolder
+
+import android.animation.Animator
+import android.widget.ScrollView
 
 
 class HostDetailsFragment : Fragment() {
     private val hostViewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        container.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

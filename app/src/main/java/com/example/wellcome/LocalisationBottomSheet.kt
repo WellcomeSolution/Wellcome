@@ -59,7 +59,6 @@ class LocalisationBottomSheet : BaseBottomSheet() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dialog?.window?.attributes?.windowAnimations = R.style.DialogAnimation
         initListeners()
         initLayout()
         initRecyclerView()
@@ -134,7 +133,6 @@ class LocalisationBottomSheet : BaseBottomSheet() {
             .inflate(inflater, container, false)
         binding.tripLocalisation.viewModel = viewModel
         binding.tripLocalisation.lifecycleOwner = this
-        setStyle(STYLE_NORMAL, R.style.BottomSheetDialog)
         return binding.root
     }
 

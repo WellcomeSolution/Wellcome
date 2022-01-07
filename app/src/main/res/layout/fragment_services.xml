@@ -16,7 +16,6 @@
                 android:layout_height="wrap_content">
                 <ImageView
                         android:id="@+id/button_nav_drawer"
-                        android:paddingTop="6dp"
                         android:paddingLeft="-10dp"
                         android:layout_gravity="center_vertical"
                         app:tint="@color/white"
