@@ -1,19 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        android:orientation="vertical"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+    </data>
+    <RelativeLayout android:orientation="vertical"
+            xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".AddHostPictureFragment">
-
-    <ImageView
+    <include
+            layout="@layout/top_app_bar"
+            app:titleEnabled="@{true}"
+            app:title='@{@string/add_the_picture}'
+            android:id="@+id/top_bar"/>
+    <LinearLayout
+            android:id="@+id/image_picker"
+            android:layout_below="@id/top_bar"
+            android:background="@drawable/dotted"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="25dp"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:text="Upload" />
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upload" />
+            android:layout_height="250dp">
+        <ImageView
+                android:id="@+id/image_placerholder"
+                android:layout_gravity="center"
+                app:tint="@color/grey_500"
+                android:src="@drawable/outline_image_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+        <ImageView
+                android:id="@+id/selected_image"
+                android:layout_gravity="center"
+                app:tint="@color/grey_500"
+                android:src="@drawable/outline_image_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+    </LinearLayout>
 
-</LinearLayout>
+        <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:id="@+id/bottom"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:gravity="center|bottom"
+                android:layout_height="60dp"
+                android:orientation="vertical">
+            <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:dividerColor="@color/divider" />
+            <LinearLayout
+                    android:minHeight="70dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/search_button"
+                        android:text="@string/complete"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textAllCaps="false"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/crane_purple_700"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_gravity="right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

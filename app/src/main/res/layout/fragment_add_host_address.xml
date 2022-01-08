@@ -5,64 +5,200 @@
         <import type="android.text.TextUtils"/>
         <import type="android.view.View"/>
     </data>
-    <LinearLayout android:orientation="vertical"
+    <RelativeLayout
+            android:id="@+id/container"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".AddHostAddressFragment">
-
-        <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/city"
-                style="@style/TextInputLayoutStyle"
-                android:transitionName="shared_element_container_restrictions">
-            <com.google.android.material.textfield.TextInputEditText
-                    android:includeFontPadding="false"
-                    android:id="@+id/c"
+        <include
+                layout="@layout/top_app_bar"
+                app:titleEnabled="@{true}"
+                app:title='@{@string/add_the_address}'
+                android:id="@+id/top_bar"/>
+        <LinearLayout
+                android:layout_below="@id/top_bar"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_marginVertical="20dp"
+                android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="25dp"
+                    app:hintTextColor="@color/crane_purple_700"
+                    app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                    android:id="@+id/street_input_layout"
+                    app:hintEnabled="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:textSize="16sp"
-                    android:text="@{viewModel.travelers > 0 ? viewModel.travelersFormat : @string/host_restrictions }"
-                    android:textColor="@{viewModel.travelers > 0 ? @color/grey_500 : @color/grey_100}"
-                    android:fontFamily="@font/ralewaymedium" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    android:hint="@string/street"
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    style="@style/TextInputLayoutStyleEditable">
+                <com.google.android.material.textfield.TextInputEditText
+                        android:includeFontPadding="false"
+                        android:id="@+id/street_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="16sp"
+                        android:textColorHint="@color/text_edit_color"
+                        android:hint="@string/thoroughfare"
+                        android:textColor="@color/text_edit_color"
+                        android:fontFamily="@font/ralewaymedium" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/country"
-                style="@style/TextInputLayoutStyle"
-                android:transitionName="shared_element_container_restrictions">
-            <com.google.android.material.textfield.TextInputEditText
-                    android:includeFontPadding="false"
-                    android:id="@+id/editText_country"
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginVertical="5dp"
+                    app:hintTextColor="@color/crane_purple_700"
+                    app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                    android:id="@+id/city_input_layout"
+                    app:hintEnabled="true"
+                    android:layout_marginHorizontal="25dp"
+                    android:hint="@string/city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:textSize="16sp"
-                    android:text="@{viewModel.travelers > 0 ? viewModel.travelersFormat : @string/host_restrictions }"
-                    android:textColor="@{viewModel.travelers > 0 ? @color/grey_500 : @color/grey_100}"
-                    android:fontFamily="@font/ralewaymedium" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    style="@style/TextInputLayoutStyleEditable">
+                <com.google.android.material.textfield.TextInputEditText
+                        android:includeFontPadding="false"
+                        android:id="@+id/city_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="16sp"
+                        android:textColorHint="@color/text_edit_color"
+                        android:hint="@string/city_name"
+                        android:textColor="@color/text_edit_color"
+                        android:fontFamily="@font/ralewaymedium" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField_postalCode"
-                style="@style/TextInputLayoutStyle"
-                android:transitionName="shared_element_container_restrictions">
-            <com.google.android.material.textfield.TextInputEditText
-                    android:includeFontPadding="false"
-                    android:id="@+id/editText_postalCode"
+            <LinearLayout
+                    android:layout_marginVertical="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout
+                        app:hintTextColor="@color/crane_purple_700"
+                        app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                        android:id="@+id/state_input_layout"
+                        app:hintEnabled="true"
+                        android:layout_marginLeft="25dp"
+                        android:layout_width="0dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/state"
+                        app:expandedHintEnabled="false"
+                        app:hintAnimationEnabled="true"
+                        style="@style/TextInputLayoutStyleEditable">
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:includeFontPadding="false"
+                            android:id="@+id/state_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="15dp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textSize="16sp"
+                            android:textColorHint="@color/text_edit_color"
+                            android:hint="@string/state_name"
+                            android:textColor="@color/text_edit_color"
+                            android:fontFamily="@font/ralewaymedium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                        app:hintTextColor="@color/crane_purple_700"
+                        app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                        android:id="@+id/postal_code_input_layout"
+                        app:hintEnabled="true"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/postal_code"
+                        app:expandedHintEnabled="false"
+                        app:hintAnimationEnabled="true"
+                        style="@style/TextInputLayoutStyleEditable">
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:includeFontPadding="false"
+                            android:id="@+id/postal_code_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="15dp"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textSize="16sp"
+                            android:textColorHint="@color/text_edit_color"
+                            android:hint="@string/postal_code"
+                            android:textColor="@color/text_edit_color"
+                            android:fontFamily="@font/ralewaymedium" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginVertical="5dp"
+                    app:hintTextColor="@color/crane_purple_700"
+                    app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                    android:id="@+id/country_input_layout"
+                    app:hintEnabled="true"
+                    android:layout_marginHorizontal="25dp"
+                    android:hint="@string/country"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:textSize="16sp"
-                    android:text="@{viewModel.travelers > 0 ? viewModel.travelersFormat : @string/host_restrictions }"
-                    android:textColor="@{viewModel.travelers > 0 ? @color/grey_500 : @color/grey_100}"
-                    android:fontFamily="@font/ralewaymedium" />
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    style="@style/TextInputLayoutStyleEditable">
+                <com.google.android.material.textfield.TextInputEditText
+                        android:includeFontPadding="false"
+                        android:id="@+id/country_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="16sp"
+                        android:textColorHint="@color/text_edit_color"
+                        android:hint="@string/country_name"
+                        android:textColor="@color/text_edit_color"
+                        android:fontFamily="@font/ralewaymedium" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:id="@+id/bottom"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:gravity="center|bottom"
+                android:layout_height="60dp"
+                android:orientation="vertical">
+            <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:dividerColor="@color/divider" />
+            <LinearLayout
+                    android:minHeight="70dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/search_button"
+                        android:text="@string/complete"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textAllCaps="false"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/crane_purple_700"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_gravity="right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </layout>

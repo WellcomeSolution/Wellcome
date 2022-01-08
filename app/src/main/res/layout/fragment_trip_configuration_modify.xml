@@ -36,7 +36,7 @@
             <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textField_restrictions"
                     style="@style/TextInputLayoutStyle"
-                    app:startIconTint="@{viewModel.travelers > 0 ? @color/grey_500 : @color/grey_100}"
+                    app:startIconTint="@{viewModel.travelers > 0 ? @color/crane_purple_700 : @color/grey_100}"
                     android:transitionName="shared_element_container_restrictions"
                     app:startIconDrawable="@drawable/baseline_person_24">
                 <com.google.android.material.textfield.TextInputEditText
@@ -49,15 +49,15 @@
                         android:maxLines="1"
                         android:textSize="16sp"
                         android:text="@{viewModel.travelers > 0 ? viewModel.travelersFormat : @string/host_restrictions }"
-                        android:textColor="@{viewModel.travelers > 0 ? @color/grey_500 : @color/grey_100}"
-                        android:fontFamily="@font/ralewaymedium"
+                        android:textColor="@{viewModel.travelers > 0 ? @color/crane_purple_700 : @color/grey_100}"
+                        android:fontFamily="@font/ralewaybold"
                         android:focusable="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textField_dates"
                     style="@style/TextInputLayoutStyle"
-                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/grey_500 : @color/grey_100}"
+                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/crane_purple_700 : @color/grey_100}"
                     app:startIconDrawable="@drawable/baseline_date_range_24">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -70,15 +70,15 @@
                         android:inputType="text"
                         android:padding="15dp"
                         android:text="@{viewModel.dateFormat ?? @string/dates}"
-                        android:textColor="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/grey_500 : @color/grey_100}"
-                        android:fontFamily="@font/ralewaymedium"
+                        android:textColor="@{!TextUtils.isEmpty(viewModel.dateFormat) ? @color/crane_purple_700 : @color/grey_100}"
+                        android:fontFamily="@font/ralewaybold"
                         android:focusable="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textField_location"
                     style="@style/TextInputLayoutStyle"
-                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/grey_500 : @color/grey_100}"
+                    app:startIconTint="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/crane_purple_700 : @color/grey_100}"
                     app:startIconDrawable="@drawable/baseline_hotel_24">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -92,8 +92,8 @@
                         android:textSize="16sp"
                         android:focusable="false"
                         android:text="@{viewModel.addressFormat ?? @string/Location}"
-                        android:textColor="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/grey_500 : @color/grey_100}"
-                        android:fontFamily="@font/ralewaymedium" />
+                        android:textColor="@{!TextUtils.isEmpty(viewModel.addressFormat) ? @color/crane_purple_700 : @color/grey_100}"
+                        android:fontFamily="@font/ralewaybold" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 

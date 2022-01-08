@@ -1,5 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
-    <include layout="@layout/trip_localisation" android:id="@+id/trip_localisation"/>
+        android:layout_width="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/trip_localisation"
+            android:id="@+id/trip_localisation"/>
 </LinearLayout>

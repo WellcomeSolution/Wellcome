@@ -42,4 +42,5 @@
             tools:layout="@layout/fragment_modify_trip_localisation" >
     </fragment>
 
+
 </navigation>

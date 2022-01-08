@@ -130,4 +130,19 @@
     <string name="give_it_a_title">Give it a title</string>
     <string name="give_it_a_description">Give it a description</string>
     <string name="select_the_travelers">Select the travelers</string>
+    <string name="add_the_address">Add the address</string>
+    <string name="street">Street</string>
+    <string name="menu">Menu</string>
+    <string name="add_host_address">add_host_address</string>
+  <string name="add_the_picture">Add the picture</string>
+    <string name="thoroughfare">Thoroughfare</string>
+    <string name="city">City</string>
+  <string name="city_name">City name</string>
+  <string name="state_name">State name</string>
+  <string name="postal_code">Postal code</string>
+  <string name="state">State</string>
+  <string name="country_name">Country name</string>
+  <string name="country">Country</string>
+  <string name="complete">Complete</string>
+  <string name="add_host_picture">add_host_picture</string>
 </resources>

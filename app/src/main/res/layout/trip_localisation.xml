@@ -10,7 +10,9 @@
             android:background="@color/white"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-        <include android:id="@+id/top_app_bar_search_city" layout="@layout/top_app_bar"/>
+        <include android:id="@+id/top_app_bar_search_city"
+                app:editTextEnabled="@{true}"
+                layout="@layout/top_app_bar"/>
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"

@@ -14,19 +14,10 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
-                        android:id="@+id/button_nav_drawer"
-                        android:paddingLeft="-10dp"
-                        android:layout_gravity="center_vertical"
-                        app:tint="@color/white"
-                        android:layout_width="22dp"
-                        android:layout_height="34dp"
-                        android:src="@drawable/baseline_menu_24"/>
 
                 <include
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:id="@+id/services_top_bar" layout="@layout/services_top_bar"/>
         </LinearLayout>
 

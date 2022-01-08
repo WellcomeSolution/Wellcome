@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.wellcome.databinding.FragmentAddHostAddressBinding
+import com.example.wellcome.databinding.FragmentTripBinding
+import com.google.android.material.transition.MaterialSharedAxis
 
 class AddHostAddressFragment : Fragment() {
 
@@ -12,7 +15,9 @@ class AddHostAddressFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_host_address, container, false)
+        val binding = FragmentAddHostAddressBinding.inflate(
+            inflater, container, false)
+        binding.lifecycleOwner = this
+        return binding.root
     }
 }

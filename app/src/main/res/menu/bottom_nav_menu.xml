@@ -11,4 +11,11 @@
             android:enabled="true"
             android:icon="@drawable/baseline_favorite_24"
             android:title="@string/saved"/>
+
+    <item
+            android:iconTint="@color/crane_purple_800"
+            android:id="@+id/page_3"
+            android:enabled="true"
+            android:icon="@drawable/baseline_menu_24"
+            android:title="@string/menu"/>
 </menu>

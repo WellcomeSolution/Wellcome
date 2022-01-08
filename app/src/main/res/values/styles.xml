@@ -44,7 +44,7 @@
     </style>
 
     <style name="MaterialButtonStyle" parent="Widget.MaterialComponents.Button.Icon">
-        <item name="backgroundTint">@color/color_states_materialbutton</item>
+        <item name="backgroundTint">@color/color_states_material_button</item>
     </style>
     
     <style name="ButtonAddRemove" parent="Widget.MaterialComponents.Button.OutlinedButton.Icon">
@@ -90,7 +90,7 @@
         <item name="boxCornerRadiusBottomEnd">4dp</item>
         <item name="boxStrokeColor">#fff</item>
         <item name="boxCornerRadiusTopStart">4dp</item>
-        <item name="boxStrokeWidth">1.8dp</item>
+        <item name="boxStrokeWidth">1.7dp</item>
         <item name="hintEnabled">false</item>
         <item name="boxBackgroundColor">@color/white</item>
         <item name="boxStrokeWidthFocused">2.5dp</item>
@@ -98,6 +98,16 @@
         <item name="android:layout_marginHorizontal">25dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextInputLayoutStyleEditable" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopEnd">4dp</item>
+        <item name="boxCornerRadiusBottomStart">4dp</item>
+        <item name="boxCornerRadiusBottomEnd">4dp</item>
+        <item name="boxCornerRadiusTopStart">4dp</item>
+        <item name="boxStrokeWidth">1.8dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
     </style>
 
     <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
@@ -132,4 +142,5 @@
         <item name="itemTextColor">@color/white</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.NavigationView</item>
     </style>
+
 </resources>

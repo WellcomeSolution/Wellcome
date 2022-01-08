@@ -89,7 +89,7 @@ class LocalisationBottomSheet : BaseBottomSheet() {
         val height = displayMetrics?.heightPixels
         recyclerView.minimumHeight = height!!
 
-        searchBar.visibility = View.VISIBLE
+        //searchBar.visibility = View.VISIBLE
         top_app_bar.menu.findItem(R.id.clear).isVisible = true
     }
 

@@ -13,6 +13,12 @@
         <action
                 android:id="@+id/navigate_to_hosts"
                 app:destination="@id/hostFragment" />
+        <action
+                android:id="@+id/navigate_to_add_address"
+                app:destination="@id/address_from" />
+        <action
+                android:id="@+id/navigate_to_add_picture"
+                app:destination="@id/picture_from" />
     </fragment>
 
     <fragment
@@ -30,5 +36,19 @@
             android:name="com.example.wellcome.HostDetailsFragment"
             android:label="@string/host_details_fragment"
             tools:layout="@layout/fragment_host_details" >
+    </fragment>
+
+    <fragment
+            android:id="@+id/address_from"
+            android:name="com.example.wellcome.AddHostAddressFragment"
+            android:label="@string/add_host_address"
+            tools:layout="@layout/fragment_add_host_address" >
+    </fragment>
+
+    <fragment
+            android:id="@+id/picture_from"
+            android:name="com.example.wellcome.AddHostPictureFragment"
+            android:label="@string/add_host_picture"
+            tools:layout="@layout/fragment_add_host_picture" >
     </fragment>
 </navigation>

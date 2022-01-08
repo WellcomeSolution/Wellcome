@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+  <item
+          android:left="5dp"
+          android:right="5dp">
+
+    <bitmap
+            android:src="@drawable/outline_image_24"
+            android:gravity="center" />
+
+  </item>
+
+</layer-list >
