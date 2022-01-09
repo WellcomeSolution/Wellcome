@@ -12,17 +12,11 @@
             android:layout_height="match_parent"
             tools:context=".AddHostRestrictionsFragment">
 
-        <TextView
-                android:id="@+id/configuration_label"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:textColor="@color/white"
-                android:background="@color/crane_purple_700"
-                android:fontFamily="@font/ralewaysemibold"
-                android:textSize="20dp"
-                android:text="@string/select_the_travelers" />
+        <include
+                layout="@layout/top_app_bar"
+                app:titleEnabled="@{true}"
+                app:title='@{@string/add_the_restrictions}'
+                android:id="@+id/top_bar"/>
 
         <LinearLayout
                 android:layout_width="match_parent"

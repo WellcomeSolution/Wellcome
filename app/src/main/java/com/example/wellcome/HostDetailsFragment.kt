@@ -31,14 +31,39 @@ import android.animation.PropertyValuesHolder
 
 import android.animation.Animator
 import android.widget.ScrollView
+import androidx.lifecycle.Lifecycle
+import androidx.navigation.Navigation
+import com.example.services.HostPresenter
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 
 
 class HostDetailsFragment : Fragment() {
-    private val hostViewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
+    private val viewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
+    private val hostPicture = "http://10.0.2.2:5229"
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         container.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
+
+        viewModel.profilePictureUrl.observe(viewLifecycleOwner, { url : String? ->
+            if(!url.isNullOrEmpty()) {
+                val pictureUrl = "${hostPicture}${viewModel.profilePictureUrl.value}"
+                Picasso.get()
+                    .load(pictureUrl)
+                    .into(profile_image, object: com.squareup.picasso.Callback {
+                        override fun onSuccess() {
+                            viewModel.isLoading.value = false
+                        }
+
+                        override fun onError(e: java.lang.Exception?) {
+                            //do smth when there is picture loading error
+                        }
+                    })
+
+            }
+        })
     }
 
     override fun onCreateView(
@@ -54,7 +79,7 @@ class HostDetailsFragment : Fragment() {
 
         val binding = FragmentHostDetailsBinding
             .inflate(inflater, container, false)
-        binding.viewModel = hostViewModel
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }

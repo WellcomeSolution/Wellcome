@@ -19,6 +19,12 @@
         <action
                 android:id="@+id/navigate_to_add_picture"
                 app:destination="@id/picture_from" />
+        <action
+                android:id="@+id/navigate_to_add_restrictions"
+                app:destination="@id/restrictions_from" />
+        <action
+                android:id="@+id/navigate_to_add_descriptions"
+                app:destination="@id/descriptions_from" />
     </fragment>
 
     <fragment
@@ -50,5 +56,19 @@
             android:name="com.example.wellcome.AddHostPictureFragment"
             android:label="@string/add_host_picture"
             tools:layout="@layout/fragment_add_host_picture" >
+    </fragment>
+
+    <fragment
+            android:id="@+id/restrictions_from"
+            android:name="com.example.wellcome.AddHostRestrictionsFragment"
+            android:label="@string/add_host_restrictions"
+            tools:layout="@layout/fragment_add_host_restrictions" >
+    </fragment>
+
+    <fragment
+            android:id="@+id/descriptions_from"
+            android:name="com.example.wellcome.AddHostDescriptionFragment"
+            android:label="@string/add_host_description"
+            tools:layout="@layout/fragment_add_host_address" >
     </fragment>
 </navigation>

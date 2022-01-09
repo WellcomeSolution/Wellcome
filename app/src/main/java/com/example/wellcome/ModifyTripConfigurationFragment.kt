@@ -12,12 +12,14 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.services.TripPattern
 import com.example.wellcome.data.SharedTripViewModel
+import com.example.wellcome.data.UserViewModel
 import com.example.wellcome.databinding.FragmentTripConfigurationModifyBinding
 import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
 
 class ModifyTripConfigurationFragment : Fragment() {
     private val viewModel: SharedTripViewModel by activityViewModels()
+    private val userViewModel: UserViewModel by activityViewModels()
     private lateinit var nav : NavController
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,6 +44,7 @@ class ModifyTripConfigurationFragment : Fragment() {
         search_button.setOnClickListener{
             HostsFragment.modalBottomSheet.dismiss()
             val pattern = TripPattern(
+                userViewModel.email.value!!,
                 viewModel.adults.value!!,
                 viewModel.babies.value!!,
                 viewModel.childs.value!!,

@@ -1,36 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        android:orientation="vertical"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+    </data>
+    <LinearLayout android:orientation="vertical"
+            xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".AddHostDescriptionFragment">
 
-    <TextView
-            android:id="@+id/configuration_label"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:textColor="@color/white"
-            android:background="@color/crane_purple_700"
-            android:fontFamily="@font/ralewaysemibold"
-            android:textSize="20dp"
-            android:text="@string/give_it_a_description" />
+    <include
+            layout="@layout/top_app_bar"
+            app:titleEnabled="@{true}"
+            app:title='@{@string/add_the_descriptions}'
+            android:id="@+id/top_bar"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-            android:inputType="textMultiLine"
-            android:id="@+id/textField"
+    <LinearLayout
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Description">
-
-        <com.google.android.material.textfield.TextInputEditText
+            android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginBottom="15dp"
+                app:hintTextColor="@color/crane_purple_700"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                android:id="@+id/street_input_layout"
+                app:hintEnabled="true"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+                android:layout_height="wrap_content"
+                android:hint="@string/title"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="true"
+                style="@style/TextInputLayoutStyleEditable">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:includeFontPadding="false"
+                    android:id="@+id/street_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="16sp"
+                    android:textColorHint="@color/text_edit_color"
+                    android:hint="@string/beautiful_host_in_monaco"
+                    android:textColor="@color/text_edit_color"
+                    android:fontFamily="@font/ralewaymedium" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyleEditable"
+                android:inputType="textMultiLine"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="true"
+                android:id="@+id/textField"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/crane_purple_700"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:hint="@string/description">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:gravity="top|start"
+                    android:hint="@string/add_one_desription_for_the_host"
+                    android:textColorHint="@color/text_edit_color"
+                    android:textColor="@color/text_edit_color"
+                    android:fontFamily="@font/ralewaymedium"
+                    android:padding="15dp"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+
 
 </LinearLayout>
+</layout>

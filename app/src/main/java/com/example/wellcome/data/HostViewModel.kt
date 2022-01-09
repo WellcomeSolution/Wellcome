@@ -33,6 +33,7 @@ class HostViewModel :ViewModel() {
     val userDescription = MutableLiveData<String>(null)
     val language = MutableLiveData<String>(null)
     val profession = MutableLiveData<String>(null)
+    val profilePictureUrl = MutableLiveData<String>(null)
 
     val genderAgeFormat : LiveData<String> = MediatorLiveData<String>()
         .apply {
@@ -120,6 +121,7 @@ class HostViewModel :ViewModel() {
         tripRepository.getHostDetails(id) { result ->
             when(result){
                 is Result.Success<HostDetails> -> {
+                    profilePictureUrl.postValue(result.data.hoster.pictureUrl)
                     title.postValue(result.data.title)
                     city.postValue(result.data.address.city)
                     postalCode.postValue(result.data.address.postalCode)
@@ -134,7 +136,6 @@ class HostViewModel :ViewModel() {
                     hostDescription.postValue(result.data.description)
                     firstName.postValue(result.data.hoster.firstName)
                     lastName.postValue(result.data.hoster.lastName)
-                    isLoading.postValue(false)
                 }
             }
         }

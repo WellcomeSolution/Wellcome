@@ -35,7 +35,6 @@
                 android:id="@+id/selected_image"
                 android:layout_gravity="center"
                 app:tint="@color/grey_500"
-                android:src="@drawable/outline_image_24"
                 android:layout_width="24dp"
                 android:layout_height="24dp"/>
     </LinearLayout>

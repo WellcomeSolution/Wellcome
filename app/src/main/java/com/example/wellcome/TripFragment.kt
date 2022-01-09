@@ -17,11 +17,13 @@ import com.example.services.TripPattern
 
 import androidx.lifecycle.Lifecycle
 import com.example.services.HostPresenter
+import com.example.wellcome.data.UserViewModel
 import com.google.android.material.transition.MaterialSharedAxis
 
 
 class TripFragment : Fragment() {
     private val viewModel: SharedTripViewModel by activityViewModels()
+    private val userViewModel: UserViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initClickListeners()
@@ -61,6 +63,7 @@ class TripFragment : Fragment() {
 
         search_button.setOnClickListener{
             val pattern = TripPattern(
+                userViewModel.email.value!!,
                 viewModel.adults.value!!,
                 viewModel.babies.value!!,
                 viewModel.childs.value!!,

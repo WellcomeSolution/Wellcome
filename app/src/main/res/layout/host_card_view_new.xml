@@ -51,6 +51,21 @@
             <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView
+                            android:src="@drawable/baseline_favorite_border_24"
+                            android:id="@+id/favorite_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            app:tint="@color/crane_red_700" />
+
+            </FrameLayout>
+            <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/transparent_card"
                     android:layout_gravity="end|bottom"
                     android:clickable="true"

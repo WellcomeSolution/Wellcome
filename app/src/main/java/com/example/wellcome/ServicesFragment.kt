@@ -17,7 +17,7 @@ class ServicesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bottom_navigation.setOnNavigationItemReselectedListener { item ->
+        bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.page_1 -> {
                     // Respond to navigation item 1 reselection
@@ -27,10 +27,11 @@ class ServicesFragment : Fragment() {
                 }
                 R.id.page_3 -> {
                     val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-                    val directions = ServicesFragmentDirections.navigateToAddPicture()
+                    val directions = ServicesFragmentDirections.navigateToAddDescriptions()
                     nav.navigate(directions)
                 }
             }
+            true
         }
     }
 
