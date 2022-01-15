@@ -12,6 +12,7 @@
 
         <include android:id="@+id/top_app_bar_search_city"
                 app:editTextEnabled="@{true}"
+                app:bottomSheetEnabled="@{true}"
                 layout="@layout/top_app_bar"/>
 
         <androidx.recyclerview.widget.RecyclerView

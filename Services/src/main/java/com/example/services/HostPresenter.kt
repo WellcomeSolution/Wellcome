@@ -7,11 +7,11 @@ import com.google.gson.annotations.SerializedName
 @Serializable
 class HostPresenter(
     @SerializedName("IsFavorite")
-    val isFavorite: Boolean,
+    var isFavorite: Boolean,
     @SerializedName("Title")
     val title: String,
-    @SerializedName("Id")
-    val id: Int,
+    @SerializedName("Uuid")
+    val uuid: String,
     @SerializedName("FirstName")
     val firstName: String,
     @SerializedName("LastName")

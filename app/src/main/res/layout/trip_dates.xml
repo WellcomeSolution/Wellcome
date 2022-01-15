@@ -12,7 +12,7 @@
         android:gravity="center_horizontal"
         android:id="@+id/dates_bottom_sheet">
 
-    <include android:id="@+id/top_app_bar_dates" layout="@layout/top_app_bar"/>
+    <include app:bottomSheetEnabled="@{true}" android:id="@+id/top_app_bar_dates" layout="@layout/top_app_bar"/>
 
     <com.example.daterangepicker.CalendarPickerView
             android:layout_marginTop="12dp"

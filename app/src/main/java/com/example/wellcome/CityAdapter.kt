@@ -25,7 +25,7 @@ class CityAdapter(private val data : ArrayList<City>) :
     }
 
     private fun bind(vh: SingleLineItemViewHolder, position: Int) {
-        vh.text.text = cities[position].address?.city
+        vh.text.text = cities[position].address?.town
         vh.icon.setImageResource(R.drawable.baseline_share_location_24)
     }
 

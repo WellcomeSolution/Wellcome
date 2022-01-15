@@ -4,6 +4,7 @@
         <variable name="title" type="java.lang.String"/>
         <variable name="editTextEnabled" type="java.lang.Boolean" android:value="false"/>
         <variable name="titleEnabled" type="java.lang.Boolean" android:value="false"/>
+        <variable name="bottomSheetEnabled" type="java.lang.Boolean" android:value="false"/>
         <import type="android.view.View"/>
     </data>
     <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
@@ -12,7 +13,7 @@
             android:background="@color/crane_purple_700">
     <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/top_app_bar"
-            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:navigationIcon="@{bottomSheetEnabled == true ? @drawable/outline_expand_more_24 : @drawable/baseline_arrow_back_24}"
             android:layout_width="match_parent"
             app:navigationIconTint="@color/white"
             android:layout_height="?attr/actionBarSize"

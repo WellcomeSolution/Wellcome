@@ -116,9 +116,9 @@ class HostViewModel :ViewModel() {
     private fun formatBathrooms(bathrooms: Int) : String
         = if (bathrooms > 1) " bathrooms" else " bathroom"
 
-    fun loadHostDetails(id:Int){
+    fun loadHostDetails(uuid:String){
         isLoading.value = true
-        tripRepository.getHostDetails(id) { result ->
+        tripRepository.getHostDetails(uuid) { result ->
             when(result){
                 is Result.Success<HostDetails> -> {
                     profilePictureUrl.postValue(result.data.hoster.pictureUrl)

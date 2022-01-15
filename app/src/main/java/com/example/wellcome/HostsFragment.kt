@@ -20,6 +20,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellcome.data.HostViewModel
+import com.example.wellcome.data.UserViewModel
 import kotlinx.android.synthetic.main.fragment_hosts.top_app_bar
 import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
 import kotlinx.android.synthetic.main.top_app_bar.*
@@ -27,6 +28,7 @@ import kotlinx.android.synthetic.main.top_app_bar.*
 
 class HostsFragment : Fragment() {
     private val sharedTripViewModel: SharedTripViewModel by activityViewModels()
+    private val userViewModel: UserViewModel by activityViewModels()
     private val hostViewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
     private lateinit var hostsAdapter:HostsAdapter
 
@@ -39,7 +41,11 @@ class HostsFragment : Fragment() {
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
 
-        hostsAdapter = HostsAdapter(sharedTripViewModel.hostPresenters.value!!)
+        hostsAdapter = HostsAdapter(
+            sharedTripViewModel.hostPresenters.value!!,
+            sharedTripViewModel,
+            userViewModel
+        )
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
@@ -48,7 +54,7 @@ class HostsFragment : Fragment() {
 
         hostsAdapter.onItemClick = { view, host ->
             hostViewModel.title.value = host.title
-            hostViewModel.loadHostDetails(host.id)
+            hostViewModel.loadHostDetails(host.uuid)
             val extras = FragmentNavigatorExtras(view to "transition")
             val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
             val directions = HostsFragmentDirections.navigateToHostDetails()

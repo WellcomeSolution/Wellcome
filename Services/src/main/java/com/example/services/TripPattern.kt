@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class TripPattern(
-    val requestEmail:String,
+    val email:String,
     val adults: Int,
     val babies: Int,
     val childs: Int,

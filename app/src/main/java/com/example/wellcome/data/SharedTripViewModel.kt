@@ -1,6 +1,7 @@
 package com.example.wellcome.data
 
 import androidx.lifecycle.*
+import com.example.services.FavoriteRequest
 import com.example.services.HostPresenter
 import com.example.services.TripPattern
 import com.example.wellcome.repository.*
@@ -18,8 +19,8 @@ class SharedTripViewModel: ViewModel() {
         .apply {
             fun update() {
                 val address = city.value?.address ?: return
-                if(!address.city.isNullOrEmpty() && !address.country.isNullOrEmpty())
-                    value ="${address.city}, ${address.country}"
+                if(!address.town.isNullOrEmpty() && !address.country.isNullOrEmpty())
+                    value ="${address.town}, ${address.country}"
             }
 
             addSource(city) { update() }
@@ -87,6 +88,17 @@ class SharedTripViewModel: ViewModel() {
                 }
             }
         }
+    }
+
+    fun setFavoriteHost(request: FavoriteRequest) : Boolean{
+        tripRepository.setFavoriteHost(request) { result ->
+            when(result){
+                is Result.Success<Boolean> -> {
+                    true
+                }
+            }
+        }
+        return false
     }
 
     fun updateDate(dates:List<Date>){

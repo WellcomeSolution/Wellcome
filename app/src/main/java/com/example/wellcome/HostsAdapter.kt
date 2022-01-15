@@ -5,12 +5,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
+import com.example.services.FavoriteRequest
 import com.example.services.HostPresenter
+import com.example.wellcome.data.SharedTripViewModel
+import com.example.wellcome.data.UserViewModel
+import com.example.wellcome.repository.Executor
+import com.example.wellcome.repository.TripRepository
+import com.example.wellcome.repository.TripResponseParser
 import com.makeramen.roundedimageview.RoundedImageView
 import com.squareup.picasso.Picasso
 
-class HostsAdapter(private val dataSet: ArrayList<HostPresenter>) :
+class HostsAdapter(private val dataSet: ArrayList<HostPresenter>,
+                   val sharedTripViewModel: SharedTripViewModel,
+                   val userViewModel: UserViewModel) :
     RecyclerView.Adapter<HostsAdapter.ViewHolder>() {
     private val hostPicture = "http://10.0.2.2:5229"
     var onItemClick: ((View, HostPresenter) -> Unit)? = null
@@ -40,6 +49,14 @@ class HostsAdapter(private val dataSet: ArrayList<HostPresenter>) :
         viewHolder.favoriteButton.setImageResource(getFavoriteUri(dataSet[position]))
         viewHolder.itemView.setOnClickListener {
             onItemClick?.invoke(viewHolder.itemView, dataSet[position])
+        }
+        viewHolder.favoriteButton.setOnClickListener{
+            if(dataSet[position].isFavorite)
+                dataSet[position].isFavorite = sharedTripViewModel
+                .setFavoriteHost(FavoriteRequest(userViewModel.email.value!!, dataSet[position].uuid))
+            else
+
+            viewHolder.favoriteButton.setImageResource(getFavoriteUri(dataSet[position]))
         }
     }
 

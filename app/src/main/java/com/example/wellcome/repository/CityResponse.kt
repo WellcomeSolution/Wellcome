@@ -14,7 +14,7 @@ data class City (
 
 @Serializable
 data class Address (
-    @SerializedName("city"         ) var city         : String? = "",
+    @SerializedName("town"         ) var town         : String? = "",
     @SerializedName("municipality" ) var municipality : String? = "",
     @SerializedName("county"       ) var county       : String? = "",
     @SerializedName("state"        ) var state        : String? = "",

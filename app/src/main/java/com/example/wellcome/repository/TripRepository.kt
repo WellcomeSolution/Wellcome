@@ -1,5 +1,6 @@
 package com.example.wellcome.repository
 
+import com.example.services.FavoriteRequest
 import com.example.services.HostDetails
 import com.example.services.HostPresenter
 import com.example.services.TripPattern
@@ -12,8 +13,10 @@ import java.util.concurrent.Executor
 
 class TripRepository(private val executor: Executor,
                      private val responseParser: TripResponseParser) {
-    private val presentersFilterUrl = "http://10.0.2.2:5229/api/hosts/presenters/filter"
-    private val hostDetailsUrl = "http://10.0.2.2:5229/api/hosts/details"
+    private val baseUrl = "http://10.0.2.2:5229/api/hosts"
+    private val presentersFilterUrl = "$baseUrl/presenters/filter"
+    private val hostDetailsUrl = "$baseUrl/details"
+    private val hostFavoriteUrl = "$baseUrl/favorite"
 
     fun getHostPresenters(pattern:TripPattern,
                           callback:(Result<ArrayList<HostPresenter>>) -> Unit
@@ -30,12 +33,12 @@ class TripRepository(private val executor: Executor,
         }
     }
 
-    fun getHostDetails(id:Int,
+    fun getHostDetails(uuid: String,
                           callback:(Result<HostDetails>) -> Unit
     ){
         executor.execute{
             try {
-                val response = makeHostDetailsRequest(id)
+                val response = makeHostDetailsRequest(uuid)
                 callback(response)
             }
             catch (e: java.lang.Exception){
@@ -45,8 +48,51 @@ class TripRepository(private val executor: Executor,
         }
     }
 
-    private fun makeHostDetailsRequest(id:Int) : Result<HostDetails>{
-        val uri =  URIBuilder("${hostDetailsUrl}/$id")
+    fun setFavoriteHost(request:FavoriteRequest,
+                       callback:(Result<Boolean>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeSetFavoriteRequest(request)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
+    private fun makeRemoveFavoriteRequest(request:FavoriteRequest) : Result<Boolean>{
+        val url = URL(hostFavoriteUrl)
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "POST"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            doOutput = true
+            Json.encodeToStream(request, outputStream)
+            Thread.sleep(2000)
+            return Result.Success(true)
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
+    private fun makeSetFavoriteRequest(request:FavoriteRequest) : Result<Boolean>{
+        val url = URL(hostFavoriteUrl)
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "POST"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            doOutput = true
+            Json.encodeToStream(request, outputStream)
+            Thread.sleep(2000)
+            return Result.Success(true)
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
+    private fun makeHostDetailsRequest(uuid:String) : Result<HostDetails>{
+        val uri =  URIBuilder("${hostDetailsUrl}/$uuid")
         val url = URL(uri.toString())
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "GET"
