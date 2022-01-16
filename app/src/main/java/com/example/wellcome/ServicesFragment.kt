@@ -27,7 +27,7 @@ class ServicesFragment : Fragment() {
                 }
                 R.id.page_3 -> {
                     val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-                    val directions = ServicesFragmentDirections.navigateToAddDescriptions()
+                    val directions = ServicesFragmentDirections.navigateToAddAddress()
                     nav.navigate(directions)
                 }
             }

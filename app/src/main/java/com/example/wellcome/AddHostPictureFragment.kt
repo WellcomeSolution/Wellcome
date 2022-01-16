@@ -10,11 +10,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.navigation.Navigation
+import androidx.navigation.navGraphViewModels
+import com.example.wellcome.data.CreateTripViewModel
 import com.example.wellcome.databinding.FragmentAddHostAddressBinding
 import com.example.wellcome.databinding.FragmentAddHostPictureBinding
+import kotlinx.android.synthetic.main.fragment_add_host_address.*
 import kotlinx.android.synthetic.main.fragment_add_host_picture.*
+import kotlinx.android.synthetic.main.fragment_add_host_picture.next_button
 
 class AddHostPictureFragment : Fragment() {
+    private val viewModel: CreateTripViewModel by navGraphViewModels(R.id.servicesFragment)
+    private val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
     val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -30,6 +37,14 @@ class AddHostPictureFragment : Fragment() {
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startForResult.launch(pickPhoto)
         }
+
+        next_button.setOnClickListener{
+            val directions = ServicesFragmentDirections.navigateToAddDescriptions()
+            nav.navigate(directions)
+        }
+        prev_button_picture.setOnClickListener{
+            nav.popBackStack()
+        }
     }
 
     override fun onCreateView(
@@ -38,6 +53,8 @@ class AddHostPictureFragment : Fragment() {
     ): View? {
         val binding = FragmentAddHostPictureBinding.inflate(
             inflater, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 }

@@ -11,10 +11,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wellcome.data.SharedTripViewModel
-import com.example.wellcome.databinding.DatesBottomSheetContentBinding
-import com.example.wellcome.databinding.LocalisationBottomSheetContentBinding
+import com.example.wellcome.databinding.FragmentModifyTripLocalisationBinding
 import com.example.wellcome.repository.City
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.android.synthetic.main.top_app_bar.*
 import kotlinx.android.synthetic.main.trip_localisation.*
@@ -97,7 +95,7 @@ class ModifyTripLocalisationFragment : Fragment() {
     ): View {
         enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
         returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
-        val binding = LocalisationBottomSheetContentBinding
+        val binding = FragmentModifyTripLocalisationBinding
             .inflate(inflater, container, false)
         binding.tripLocalisation.viewModel = viewModel
         binding.tripLocalisation.lifecycleOwner = this

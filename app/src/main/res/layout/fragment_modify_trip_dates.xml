@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ModifyTripDatesFragment">
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            tools:context=".ModifyTripDatesFragment">
 
-    <include layout="@layout/trip_dates" android:id="@+id/trip_dates"/>
+        <include layout="@layout/trip_dates"
+                app:bottomSheetEnabled="@{false}"
+                android:id="@+id/trip_dates"/>
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

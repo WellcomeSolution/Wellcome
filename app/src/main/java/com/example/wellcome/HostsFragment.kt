@@ -43,7 +43,6 @@ class HostsFragment : Fragment() {
 
         hostsAdapter = HostsAdapter(
             sharedTripViewModel.hostPresenters.value!!,
-            sharedTripViewModel,
             userViewModel
         )
 

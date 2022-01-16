@@ -1,11 +1,16 @@
-<LinearLayout android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/white"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+<layout>
+    <LinearLayout android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include android:id="@+id/trip_restrictions_inputs" layout="@layout/trip_restrictions"/>
-</LinearLayout>
+        <include
+                app:bottomSheetEnabled="@{true}"
+                android:id="@+id/trip_restrictions_inputs"
+                layout="@layout/trip_restrictions"/>
+    </LinearLayout>
+</layout>

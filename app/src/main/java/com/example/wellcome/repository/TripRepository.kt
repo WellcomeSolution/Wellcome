@@ -16,7 +16,8 @@ class TripRepository(private val executor: Executor,
     private val baseUrl = "http://10.0.2.2:5229/api/hosts"
     private val presentersFilterUrl = "$baseUrl/presenters/filter"
     private val hostDetailsUrl = "$baseUrl/details"
-    private val hostFavoriteUrl = "$baseUrl/favorite"
+    private val addFavoriteUrl = "$baseUrl/favorite/add"
+    private val removeFavoriteUrl = "$baseUrl/favorite/remove"
 
     fun getHostPresenters(pattern:TripPattern,
                           callback:(Result<ArrayList<HostPresenter>>) -> Unit
@@ -48,6 +49,21 @@ class TripRepository(private val executor: Executor,
         }
     }
 
+    fun removeFavoriteHost(request:FavoriteRequest,
+                        callback:(Result<Boolean>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeRemoveFavoriteRequest(request)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
     fun setFavoriteHost(request:FavoriteRequest,
                        callback:(Result<Boolean>) -> Unit
     ){
@@ -64,29 +80,27 @@ class TripRepository(private val executor: Executor,
     }
 
     private fun makeRemoveFavoriteRequest(request:FavoriteRequest) : Result<Boolean>{
-        val url = URL(hostFavoriteUrl)
+        val url = URL(removeFavoriteUrl)
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "POST"
             setRequestProperty("Content-Type", "application/json; charset=utf-8")
             setRequestProperty("Accept", "application/json")
             doOutput = true
             Json.encodeToStream(request, outputStream)
-            Thread.sleep(2000)
-            return Result.Success(true)
+            return Result.SuccessNoContent(true)
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))
     }
 
-    private fun makeSetFavoriteRequest(request:FavoriteRequest) : Result<Boolean>{
-        val url = URL(hostFavoriteUrl)
+    private fun makeSetFavoriteRequest(request:FavoriteRequest) : Result<Nothing>{
+        val url = URL(addFavoriteUrl)
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "POST"
             setRequestProperty("Content-Type", "application/json; charset=utf-8")
             setRequestProperty("Accept", "application/json")
             doOutput = true
             Json.encodeToStream(request, outputStream)
-            Thread.sleep(2000)
-            return Result.Success(true)
+            return Result.SuccessNoContent(true)
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))
     }

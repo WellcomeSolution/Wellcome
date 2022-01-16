@@ -1,5 +1,10 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-    <include layout="@layout/trip_dates" android:id="@+id/trip_dates"/>
-</LinearLayout>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+        <include layout="@layout/trip_dates"
+                app:bottomSheetEnabled="@{true}"
+                android:id="@+id/trip_dates"/>
+    </LinearLayout>
+</layout>

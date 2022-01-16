@@ -2,6 +2,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
+        <variable name="bottomSheetEnabled" type="java.lang.Boolean" android:value="false"/>
     </data>
     <LinearLayout android:layout_width="match_parent"
             android:id="@+id/localisation_bottom_sheet"
@@ -12,7 +13,7 @@
 
         <include android:id="@+id/top_app_bar_search_city"
                 app:editTextEnabled="@{true}"
-                app:bottomSheetEnabled="@{true}"
+                app:bottomSheetEnabled="@{bottomSheetEnabled}"
                 layout="@layout/top_app_bar"/>
 
         <androidx.recyclerview.widget.RecyclerView

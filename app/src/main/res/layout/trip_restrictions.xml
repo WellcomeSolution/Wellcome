@@ -2,12 +2,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
+        <variable name="bottomSheetEnabled" type="java.lang.Boolean" android:value="false"/>
     </data>
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
             android:orientation="vertical">
 
-    <include app:bottomSheetEnabled="@{true}" layout="@layout/top_app_bar"/>
+    <include app:bottomSheetEnabled="@{bottomSheetEnabled}"
+            layout="@layout/top_app_bar"/>
 
     <LinearLayout
     android:layout_width="match_parent"

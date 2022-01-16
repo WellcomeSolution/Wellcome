@@ -1,6 +1,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
+        <variable name="bottomSheetEnabled" type="java.lang.Boolean" android:value="false"/>
     </data>
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,7 +13,9 @@
         android:gravity="center_horizontal"
         android:id="@+id/dates_bottom_sheet">
 
-    <include app:bottomSheetEnabled="@{true}" android:id="@+id/top_app_bar_dates" layout="@layout/top_app_bar"/>
+    <include app:bottomSheetEnabled="@{bottomSheetEnabled}"
+            android:id="@+id/top_app_bar_dates"
+            layout="@layout/top_app_bar"/>
 
     <com.example.daterangepicker.CalendarPickerView
             android:layout_marginTop="12dp"

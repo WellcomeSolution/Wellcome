@@ -6,22 +6,30 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.services.FavoriteRequest
 import com.example.services.HostPresenter
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.data.UserViewModel
 import com.example.wellcome.repository.Executor
+import com.example.wellcome.repository.Result
 import com.example.wellcome.repository.TripRepository
 import com.example.wellcome.repository.TripResponseParser
 import com.makeramen.roundedimageview.RoundedImageView
 import com.squareup.picasso.Picasso
+import android.app.Activity
+import android.os.Handler
+import android.os.Looper
+
 
 class HostsAdapter(private val dataSet: ArrayList<HostPresenter>,
-                   val sharedTripViewModel: SharedTripViewModel,
                    val userViewModel: UserViewModel) :
     RecyclerView.Adapter<HostsAdapter.ViewHolder>() {
     private val hostPicture = "http://10.0.2.2:5229"
+    private val tripRepository = TripRepository(Executor(), TripResponseParser())
+    val mainLooper = Looper.getMainLooper()
     var onItemClick: ((View, HostPresenter) -> Unit)? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -51,12 +59,38 @@ class HostsAdapter(private val dataSet: ArrayList<HostPresenter>,
             onItemClick?.invoke(viewHolder.itemView, dataSet[position])
         }
         viewHolder.favoriteButton.setOnClickListener{
-            if(dataSet[position].isFavorite)
-                dataSet[position].isFavorite = sharedTripViewModel
-                .setFavoriteHost(FavoriteRequest(userViewModel.email.value!!, dataSet[position].uuid))
+            if(!dataSet[position].isFavorite)
+                addFromFavorite(viewHolder, position)
             else
+                removeFromFavorite(viewHolder, position)
+        }
+    }
 
-            viewHolder.favoriteButton.setImageResource(getFavoriteUri(dataSet[position]))
+    private fun addFromFavorite(viewHolder: ViewHolder, position: Int){
+        viewHolder.favoriteButton.setImageResource(R.drawable.baseline_favorite_24)
+        tripRepository.setFavoriteHost(FavoriteRequest(userViewModel.email.value!!, dataSet[position].uuid)) { result ->
+            when(result){
+                is Result.SuccessNoContent -> {
+                    Handler(mainLooper).post {
+                        dataSet[position].isFavorite = true
+                        viewHolder.favoriteButton.setImageResource(R.drawable.baseline_favorite_24)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun removeFromFavorite(viewHolder: ViewHolder, position: Int){
+        viewHolder.favoriteButton.setImageResource(R.drawable.baseline_favorite_border_24)
+        tripRepository.removeFavoriteHost(FavoriteRequest(userViewModel.email.value!!, dataSet[position].uuid)) { result ->
+            when(result){
+                is Result.SuccessNoContent -> {
+                    Handler(mainLooper).post {
+                        dataSet[position].isFavorite = false
+                        viewHolder.favoriteButton.setImageResource(R.drawable.baseline_favorite_border_24)
+                    }
+                }
+            }
         }
     }
 

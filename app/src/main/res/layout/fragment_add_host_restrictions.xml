@@ -1,11 +1,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="viewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
-        <import type="android.text.TextUtils"/>
-        <import type="android.view.View"/>
+        <variable name="viewModel" type="com.example.wellcome.data.CreateTripViewModel"/>
     </data>
-    <LinearLayout
+    <RelativeLayout
             android:orientation="vertical"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -19,6 +17,7 @@
                 android:id="@+id/top_bar"/>
 
         <LinearLayout
+                android:layout_below="@id/top_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="23dp"
@@ -268,6 +267,50 @@
                             />
                 </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
+        <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:id="@+id/bottom"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:gravity="center|bottom"
+                android:layout_height="60dp"
+                android:orientation="vertical">
+            <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:dividerColor="@color/divider" />
+            <RelativeLayout
+                    android:minHeight="70dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <TextView
+                        android:id="@+id/prev_button_restrictions"
+                        android:fontFamily="@font/ralewaybold"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentLeft="true"
+                        android:textColor="@color/black"
+                        android:textAllCaps="false"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:text="@string/previous_underline"
+                        android:layout_height="wrap_content"/>
+                <com.google.android.material.button.MaterialButton
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/next_button"
+                        android:text="@string/next"
+                        android:fontFamily="@font/ralewaybold"
+                        android:textAllCaps="false"
+                        android:textSize="18dp"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/crane_purple_700"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </layout>

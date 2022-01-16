@@ -90,8 +90,10 @@ class SharedTripViewModel: ViewModel() {
         }
     }
 
-    fun setFavoriteHost(request: FavoriteRequest) : Boolean{
-        tripRepository.setFavoriteHost(request) { result ->
+
+
+    fun removeFavoriteHost(request: FavoriteRequest) : Boolean{
+        tripRepository.removeFavoriteHost(request) { result ->
             when(result){
                 is Result.Success<Boolean> -> {
                     true
