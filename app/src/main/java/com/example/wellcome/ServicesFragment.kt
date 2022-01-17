@@ -15,32 +15,10 @@ import kotlinx.android.synthetic.main.fragment_services.*
 
 class ServicesFragment : Fragment() {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        bottom_navigation.setOnNavigationItemSelectedListener { item ->
-            when(item.itemId) {
-                R.id.page_1 -> {
-                    // Respond to navigation item 1 reselection
-                }
-                R.id.page_2 -> {
-                    // Respond to navigation item 2 reselection
-                }
-                R.id.page_3 -> {
-                    val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-                    val directions = ServicesFragmentDirections.navigateToAddAddress()
-                    nav.navigate(directions)
-                }
-            }
-            true
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
-        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ false)
         return inflater.inflate(R.layout.fragment_services, container, false)
     }
 }

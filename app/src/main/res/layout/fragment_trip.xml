@@ -8,12 +8,12 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
         <LinearLayout
-                android:background="@color/crane_purple_800"
+                android:background="@drawable/shape"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingTop="15dp"
+                android:paddingBottom="25dp"
                 android:orientation="vertical"
                 >
             <com.google.android.material.progressindicator.LinearProgressIndicator

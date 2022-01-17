@@ -1,15 +1,17 @@
 package com.example.wellcome.repository
 
-import com.example.services.FavoriteRequest
-import com.example.services.HostDetails
-import com.example.services.HostPresenter
-import com.example.services.TripPattern
+import android.R.attr
+import android.graphics.Bitmap
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.encodeToStream
 import org.apache.http.client.utils.URIBuilder
+import java.io.DataOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.concurrent.Executor
+import android.R.attr.bitmap
+import com.example.services.*
+
 
 class TripRepository(private val executor: Executor,
                      private val responseParser: TripResponseParser) {
@@ -18,6 +20,7 @@ class TripRepository(private val executor: Executor,
     private val hostDetailsUrl = "$baseUrl/details"
     private val addFavoriteUrl = "$baseUrl/favorite/add"
     private val removeFavoriteUrl = "$baseUrl/favorite/remove"
+    private val uploadImageUrl = "$baseUrl/image/upload"
 
     fun getHostPresenters(pattern:TripPattern,
                           callback:(Result<ArrayList<HostPresenter>>) -> Unit
@@ -77,6 +80,42 @@ class TripRepository(private val executor: Executor,
                 callback(errorResult)
             }
         }
+    }
+
+    private fun makeUploadImageRequest(bitmap: Bitmap) : Result<FileUploadResult>{
+        val attachmentName = "bitmap"
+        val attachmentFileName = "bitmap.bmp"
+        val crlf = "\r\n"
+        val twoHyphens = "--"
+        val boundary = "*****"
+
+        val url = URL(uploadImageUrl)
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "POST"
+            setRequestProperty(
+                "Content-Type", "multipart/form-data;boundary=" + boundary);
+            doOutput = true
+            val request = DataOutputStream(this.outputStream)
+            request.writeBytes(twoHyphens + boundary + crlf)
+            request.writeBytes("Content-Disposition: form-data; name=\"" +
+                    attachmentName + "\";filename=\"" +
+                    attachmentFileName + "\"" + crlf)
+            request.writeBytes(crlf)
+            val pixels = ByteArray(bitmap.width * bitmap.height)
+            for (i in 0 until bitmap.width) {
+                for (j in 0 until bitmap.height) {
+                    pixels[i + j] = ((bitmap.getPixel(i, j) and 0x80 shr 7).toByte())
+                }
+            }
+            request.write(pixels)
+            request.writeBytes(crlf)
+            request.writeBytes(twoHyphens + boundary +
+                    twoHyphens + crlf)
+            request.flush()
+            request.close()
+            return Result.Success(responseParser.parseToFileUploadResult(inputStream))
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
     }
 
     private fun makeRemoveFavoriteRequest(request:FavoriteRequest) : Result<Boolean>{

@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MenuFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:id="@+id/menu"
+            android:layout_alignParentTop="true"
+            android:layout_marginHorizontal="25dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/ralewaybold"
+            android:textSize="25dp"
+            android:layout_marginVertical="30dp"
+            android:text="@string/Menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-</FrameLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_below="@id/menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_marginHorizontal="25dp"
+                android:textColor="@color/grey_400"
+                android:textAllCaps="true"
+                android:fontFamily="@font/ralewaybold"
+                android:textSize="13dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/welcoming_travelers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <LinearLayout
+                android:id="@+id/create_new_trip"
+                android:layout_marginHorizontal="25dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                    android:layout_weight="0.9"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <ImageView
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/baseline_home_24"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/ralewaysemibold"
+                        android:textSize="17dp"
+                        android:text="@string/create_a_new_ad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <ImageView
+                    android:layout_weight="0.1"
+                    android:layout_gravity="right"
+                    android:rotation="270"
+                    android:gravity="right|center_vertical"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/outline_expand_more_24"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

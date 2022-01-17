@@ -16,13 +16,13 @@ import kotlinx.android.synthetic.main.fragment_add_host_address.next_button
 import kotlinx.android.synthetic.main.fragment_add_host_restrictions.*
 
 class AddHostRestrictionsFragment : Fragment() {
-    private val viewModel: CreateTripViewModel by navGraphViewModels(R.id.servicesFragment)
+    private val viewModel: CreateTripViewModel by navGraphViewModels(R.id.navigationFragment)
     private val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         next_button.setOnClickListener{
-            val directions = ServicesFragmentDirections.navigateToAddPicture()
+            val directions = NavigationFragmentDirections.navigateToAddPicture()
             nav.navigate(directions)
         }
         prev_button_restrictions.setOnClickListener{

@@ -111,8 +111,8 @@
     <string name="first_fragment_label">first_fragment</string>
     <string name="second_fragment_label">second_fragment</string>
     <string name="hello_first_fragment">hello_first_fragment</string>
-  <string name="next_underline"><u>Next</u></string>
-  <string name="previous_underline"><u>Previous</u></string>
+    <string name="next_underline"><u>Next</u></string>
+    <string name="previous_underline"><u>Previous</u></string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -155,4 +155,10 @@
     <string name="add_one_desription_for_the_host">Add one desription for the host</string>
     <string name="add_host_restrictions">add_host_restrictions</string>
     <string name="add_host_description">add_host_descriptions</string>
+    <string name="Menu">Menu</string>
+    <string name="welcoming_travelers">Welcoming travelers</string>
+    <string name="create_a_new_ad">Create a new ad</string>
+    <string name="navigation">navigation</string>
+    <string name="trip_fragment">trip_fragment</string>
+    <string name="fragment_service">fragment_services</string>
 </resources>

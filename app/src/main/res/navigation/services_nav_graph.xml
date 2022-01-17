@@ -11,5 +11,4 @@
             android:label="@string/trips"
             tools:layout="@layout/fragment_trip" >
     </fragment>
-
 </navigation>

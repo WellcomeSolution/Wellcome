@@ -31,9 +31,9 @@ class TripFragment : Fragment() {
         viewModel.hostPresenters.observe(viewLifecycleOwner, { hosts : ArrayList<HostPresenter> ->
             if(viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED){
                 if(!hosts.isNullOrEmpty()){
-                    val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
-                    val directions = ServicesFragmentDirections.navigateToHosts()
-                    nav.navigate(directions)
+                    //val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
+                    //val directions = ServicesFragmentDirections.navigateToHosts()
+                    //nav.navigate(directions)
                     viewModel.isLoading.value = false
                 }
             }

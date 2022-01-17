@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_add_host_picture.*
 import kotlinx.android.synthetic.main.fragment_add_host_picture.next_button
 
 class AddHostPictureFragment : Fragment() {
-    private val viewModel: CreateTripViewModel by navGraphViewModels(R.id.servicesFragment)
+    private val viewModel: CreateTripViewModel by navGraphViewModels(R.id.navigationFragment)
     private val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
     val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
@@ -39,7 +39,7 @@ class AddHostPictureFragment : Fragment() {
         }
 
         next_button.setOnClickListener{
-            val directions = ServicesFragmentDirections.navigateToAddDescriptions()
+            val directions = NavigationFragmentDirections.navigateToAddDescriptions()
             nav.navigate(directions)
         }
         prev_button_picture.setOnClickListener{

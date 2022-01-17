@@ -1,0 +1,16 @@
+<shape
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="rectangle"   >
+
+    <solid
+            android:color="@color/crane_purple_800" >
+    </solid>
+
+
+
+    <corners
+            android:bottomLeftRadius="8dp"
+            android:bottomRightRadius="8dp">
+    </corners>
+
+</shape>

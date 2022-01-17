@@ -10,18 +10,17 @@ import androidx.navigation.navGraphViewModels
 import com.example.wellcome.data.CreateTripViewModel
 import com.example.wellcome.data.HostViewModel
 import com.example.wellcome.databinding.FragmentAddHostAddressBinding
-import com.example.wellcome.databinding.FragmentTripBinding
 import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.android.synthetic.main.fragment_add_host_address.*
 
 class AddHostAddressFragment : Fragment() {
-    private val viewModel: CreateTripViewModel by navGraphViewModels(R.id.servicesFragment)
+    private val viewModel: CreateTripViewModel by navGraphViewModels(R.id.navigationFragment)
     private val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         next_button.setOnClickListener{
-            val directions = ServicesFragmentDirections.navigateToAddRestrictions()
+            val directions = NavigationFragmentDirections.navigateToAddRestrictions()
             nav.navigate(directions)
         }
         prev_button_address.setOnClickListener{

@@ -3,13 +3,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nav_graph"
-        app:startDestination="@id/servicesFragment">
+        app:startDestination="@id/navigationFragment">
 
     <fragment
-            android:id="@+id/servicesFragment"
-            android:name="com.example.wellcome.ServicesFragment"
-            android:label="@string/services"
-            tools:layout="@layout/fragment_services" >
+            android:id="@+id/navigationFragment"
+            android:name="com.example.wellcome.NavigationFragment"
+            android:label="@string/navigation"
+            tools:layout="@layout/fragment_navigation" >
         <action
                 android:id="@+id/navigate_to_hosts"
                 app:destination="@id/hostFragment" />
@@ -71,4 +71,6 @@
             android:label="@string/add_host_description"
             tools:layout="@layout/fragment_add_host_address" >
     </fragment>
+
+
 </navigation>
