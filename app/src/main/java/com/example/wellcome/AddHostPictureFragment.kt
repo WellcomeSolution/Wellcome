@@ -1,5 +1,6 @@
 package com.example.wellcome
 
+import android.R.attr
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -18,15 +19,25 @@ import com.example.wellcome.databinding.FragmentAddHostPictureBinding
 import kotlinx.android.synthetic.main.fragment_add_host_address.*
 import kotlinx.android.synthetic.main.fragment_add_host_picture.*
 import kotlinx.android.synthetic.main.fragment_add_host_picture.next_button
+import android.graphics.Bitmap
+import android.R.attr.bitmap
+import android.graphics.ImageDecoder
+import android.content.ContentResolver
+
+
+
+
 
 class AddHostPictureFragment : Fragment() {
     private val viewModel: CreateTripViewModel by navGraphViewModels(R.id.navigationFragment)
-    private val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
     val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
             val image = result.data?.data
             selected_image.setImageURI(image)
+            val source = ImageDecoder.createSource(requireContext().contentResolver, image!!)
+            val bitmap = ImageDecoder.decodeBitmap(source).copy(Bitmap.Config.RGBA_F16, true)
+            viewModel.uploadImage(bitmap)
         }
     }
 
@@ -37,6 +48,8 @@ class AddHostPictureFragment : Fragment() {
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startForResult.launch(pickPhoto)
         }
+
+        val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
 
         next_button.setOnClickListener{
             val directions = NavigationFragmentDirections.navigateToAddDescriptions()

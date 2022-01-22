@@ -27,6 +27,9 @@ class AddHostDescriptionFragment : Fragment() {
         prev_button_description.setOnClickListener{
             nav.popBackStack()
         }
+        create_host_button.setOnClickListener{
+            view
+        }
     }
 
     override fun onCreateView(

@@ -2,6 +2,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.CreateTripViewModel"/>
+        <import type="android.view.View"/>
     </data>
     <RelativeLayout android:orientation="vertical"
             xmlns:tools="http://schemas.android.com/tools"
@@ -14,15 +15,17 @@
             app:title='@{@string/add_the_picture}'
             android:id="@+id/top_bar"/>
     <LinearLayout
+            android:animateLayoutChanges="true"
             android:id="@+id/image_picker"
             android:layout_below="@id/top_bar"
-            android:background="@drawable/dotted"
+            android:background="@{viewModel.isImageLoaded ? null : @drawable/dotted}"
             android:layout_marginHorizontal="25dp"
             android:layout_marginVertical="25dp"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="250dp">
         <ImageView
+                android:visibility="@{viewModel.isImageLoaded ? View.GONE : View.VISIBLE}"
                 android:id="@+id/image_placerholder"
                 android:layout_gravity="center"
                 app:tint="@color/grey_500"
@@ -30,11 +33,11 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"/>
         <ImageView
+                android:visibility="@{viewModel.isImageLoaded ? View.VISIBLE : View.GONE}"
                 android:id="@+id/selected_image"
-                android:layout_gravity="center"
-                app:tint="@color/grey_500"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
     </LinearLayout>
 
         <LinearLayout

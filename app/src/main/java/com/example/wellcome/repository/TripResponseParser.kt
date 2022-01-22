@@ -14,6 +14,8 @@ class TripResponseParser {
         = Json { ignoreUnknownKeys = true }.decodeFromStream(input)
     fun parseToHostPresenters(input:InputStream) : ArrayList<HostPresenter>
         = Json { ignoreUnknownKeys = true }.decodeFromStream(input)
+    fun parseToHostPresenter(input:InputStream) : HostPresenter
+            = Json { ignoreUnknownKeys = true }.decodeFromStream(input)
     fun parseToFileUploadResult(input:InputStream) : FileUploadResult
             = Json { ignoreUnknownKeys = true }.decodeFromStream(input)
 }

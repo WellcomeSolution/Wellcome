@@ -17,10 +17,9 @@ class TripRepository(private val executor: Executor,
                      private val responseParser: TripResponseParser) {
     private val baseUrl = "http://10.0.2.2:5229/api/hosts"
     private val presentersFilterUrl = "$baseUrl/presenters/filter"
-    private val hostDetailsUrl = "$baseUrl/details"
-    private val addFavoriteUrl = "$baseUrl/favorite/add"
-    private val removeFavoriteUrl = "$baseUrl/favorite/remove"
-    private val uploadImageUrl = "$baseUrl/image/upload"
+    private val hostDetailsUrl = "/details"
+    private val favoriteUrl = "$baseUrl/favorite"
+    private val uploadImageUrl = "$baseUrl/image"
 
     fun getHostPresenters(pattern:TripPattern,
                           callback:(Result<ArrayList<HostPresenter>>) -> Unit
@@ -82,8 +81,51 @@ class TripRepository(private val executor: Executor,
         }
     }
 
+    fun uploadImage(bitmap:Bitmap,
+                        callback:(Result<FileUploadResult>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeUploadImageRequest(bitmap)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
+    fun createHost(request:HostRequest,
+                    callback:(Result<HostPresenter>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeCreateHostRequest(request)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
+    private fun makeCreateHostRequest(request:HostRequest) : Result<HostPresenter>{
+        val url = URL(baseUrl)
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "POST"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            doOutput = true
+            Json.encodeToStream(request, outputStream)
+            return Result.Success(responseParser.parseToHostPresenter(inputStream))
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
     private fun makeUploadImageRequest(bitmap: Bitmap) : Result<FileUploadResult>{
-        val attachmentName = "bitmap"
+        val attachmentName = "File"
         val attachmentFileName = "bitmap.bmp"
         val crlf = "\r\n"
         val twoHyphens = "--"
@@ -119,9 +161,9 @@ class TripRepository(private val executor: Executor,
     }
 
     private fun makeRemoveFavoriteRequest(request:FavoriteRequest) : Result<Boolean>{
-        val url = URL(removeFavoriteUrl)
+        val url = URL(favoriteUrl)
         (url.openConnection() as? HttpURLConnection)?.run {
-            requestMethod = "POST"
+            requestMethod = "DELETE"
             setRequestProperty("Content-Type", "application/json; charset=utf-8")
             setRequestProperty("Accept", "application/json")
             doOutput = true
@@ -132,7 +174,7 @@ class TripRepository(private val executor: Executor,
     }
 
     private fun makeSetFavoriteRequest(request:FavoriteRequest) : Result<Nothing>{
-        val url = URL(addFavoriteUrl)
+        val url = URL(favoriteUrl)
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "POST"
             setRequestProperty("Content-Type", "application/json; charset=utf-8")
@@ -145,7 +187,7 @@ class TripRepository(private val executor: Executor,
     }
 
     private fun makeHostDetailsRequest(uuid:String) : Result<HostDetails>{
-        val uri =  URIBuilder("${hostDetailsUrl}/$uuid")
+        val uri =  URIBuilder("/$uuid${hostDetailsUrl}")
         val url = URL(uri.toString())
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "GET"

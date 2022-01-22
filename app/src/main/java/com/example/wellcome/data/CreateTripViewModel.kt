@@ -1,9 +1,21 @@
 package com.example.wellcome.data
 
+import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.services.FileUploadResult
+import com.example.services.HostPresenter
+import com.example.services.HostRequest
+import com.example.services.TripPattern
+import com.example.wellcome.repository.Executor
+import com.example.wellcome.repository.Result
+import com.example.wellcome.repository.TripRepository
+import com.example.wellcome.repository.TripResponseParser
 
 class CreateTripViewModel : ViewModel() {
+    private val tripRepository = TripRepository(Executor(), TripResponseParser())
+
+    val isImageLoaded = MutableLiveData(false)
     val street = MutableLiveData<String>()
     val city = MutableLiveData<String>()
     val state = MutableLiveData<String>()
@@ -47,5 +59,26 @@ class CreateTripViewModel : ViewModel() {
 
     fun onRemoveBabies(){
         babies.value = (babies.value ?: 0) - 1
+    }
+
+    fun uploadImage(bitmap:Bitmap){
+        tripRepository.uploadImage(bitmap) { result ->
+            when(result){
+                is Result.Success<FileUploadResult> -> {
+                    pictureReceipt.postValue(result.data.fileName)
+                    isImageLoaded.postValue(true)
+                }
+            }
+        }
+    }
+
+    fun createHost(request:HostRequest){
+        tripRepository.createHost(request) { result ->
+            when(result){
+                is Result.Success<HostPresenter> -> {
+
+                }
+            }
+        }
     }
 }

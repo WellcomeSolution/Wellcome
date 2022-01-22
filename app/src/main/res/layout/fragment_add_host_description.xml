@@ -42,6 +42,7 @@
                     android:padding="15dp"
                     android:inputType="text"
                     android:maxLines="1"
+                    android:text="@{viewModel.title}"
                     android:textSize="16sp"
                     android:textColorHint="@color/text_edit_color"
                     android:hint="@string/beautiful_host_in_monaco"
@@ -69,6 +70,7 @@
                     android:textColor="@color/text_edit_color"
                     android:fontFamily="@font/ralewaymedium"
                     android:padding="15dp"
+                    android:text="@{viewModel.description}"
                     android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -108,8 +110,8 @@
                         android:layout_height="wrap_content"/>
                 <com.google.android.material.button.MaterialButton
                         android:layout_alignParentRight="true"
-                        android:id="@+id/next_button"
-                        android:text="@string/next"
+                        android:id="@+id/create_host_button"
+                        android:text="@string/create"
                         android:fontFamily="@font/ralewaybold"
                         android:textAllCaps="false"
                         android:textSize="18dp"

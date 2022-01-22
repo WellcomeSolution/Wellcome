@@ -161,4 +161,5 @@
     <string name="navigation">navigation</string>
     <string name="trip_fragment">trip_fragment</string>
     <string name="fragment_service">fragment_services</string>
+    <string name="create">Create</string>
 </resources>
