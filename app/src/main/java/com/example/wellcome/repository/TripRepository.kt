@@ -112,6 +112,7 @@ class TripRepository(private val executor: Executor,
     }
 
     private fun makeCreateHostRequest(request:HostRequest) : Result<HostPresenter>{
+        System.setProperty("sun.net.http.allowRestrictedHeaders", "true")
         val url = URL(baseUrl)
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "POST"
@@ -119,7 +120,10 @@ class TripRepository(private val executor: Executor,
             setRequestProperty("Accept", "application/json")
             doOutput = true
             Json.encodeToStream(request, outputStream)
-            return Result.Success(responseParser.parseToHostPresenter(inputStream))
+            val re = this.responseMessage
+            val res = this.responseCode
+            val r = responseParser.parseToHostPresenter(inputStream)
+            return Result.Success(r)
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))
     }

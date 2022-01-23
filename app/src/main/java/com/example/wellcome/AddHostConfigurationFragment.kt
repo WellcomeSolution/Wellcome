@@ -8,25 +8,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.navGraphViewModels
-import com.example.wellcome.R
 import com.example.wellcome.data.CreateTripViewModel
-import com.example.wellcome.databinding.FragmentAddHostAddressBinding
-import com.example.wellcome.databinding.FragmentAddHostRestrictionsBinding
-import kotlinx.android.synthetic.main.fragment_add_host_address.*
-import kotlinx.android.synthetic.main.fragment_add_host_restrictions.*
+import com.example.wellcome.databinding.FragmentAddHostConfigurationBinding
+import kotlinx.android.synthetic.main.fragment_add_host_configuration.*
+import kotlinx.android.synthetic.main.fragment_add_host_description.*
+import kotlinx.android.synthetic.main.fragment_add_host_picture.*
 
-class AddHostRestrictionsFragment : Fragment() {
+class AddHostConfigurationFragment : Fragment() {
     private val viewModel: CreateTripViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-        next_button_restrictions.setOnClickListener{
-            val directions = AddHostRestrictionsFragmentDirections.navigateToAddConfiguration()
+        next_button_configuration.setOnClickListener{
+            val directions = AddHostConfigurationFragmentDirections.navigateToAddDescriptions()
             nav.navigate(directions)
         }
-        prev_button_restrictions.setOnClickListener{
+        prev_button_configuration.setOnClickListener{
             nav.popBackStack()
         }
     }
@@ -35,11 +33,10 @@ class AddHostRestrictionsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentAddHostRestrictionsBinding.inflate(
+        val binding = FragmentAddHostConfigurationBinding.inflate(
             inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }
-
 }

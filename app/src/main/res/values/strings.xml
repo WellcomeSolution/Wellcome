@@ -153,6 +153,7 @@
     <string name="beautiful_host_in_monaco">Beautiful host in Monaco</string>
     <string name="description">Description</string>
     <string name="add_one_desription_for_the_host">Add one desription for the host</string>
+    <string name="add_host_configuration">add_host_configuration</string>
     <string name="add_host_restrictions">add_host_restrictions</string>
     <string name="add_host_description">add_host_descriptions</string>
     <string name="Menu">Menu</string>
@@ -162,4 +163,10 @@
     <string name="trip_fragment">trip_fragment</string>
     <string name="fragment_service">fragment_services</string>
     <string name="create">Create</string>
+  <string name="beds">Beds</string>
+  <string name="how_many_beds">How many beds ?</string>
+  <string name="rooms">Rooms</string>
+  <string name="how_many_rooms">How many rooms ?</string>
+  <string name="bathrooms">Bathrooms</string>
+  <string name="how_many_bathrooms">How many Bathrooms ?</string>
 </resources>

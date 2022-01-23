@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import com.example.wellcome.data.CreateTripViewModel
 import com.example.wellcome.data.HostViewModel
 import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.data.UserViewModel
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val sharedTripViewModel: SharedTripViewModel by viewModels()
         val userViewModel: UserViewModel by viewModels()
+        val createTripViewModel: CreateTripViewModel by viewModels()
         setContentView(R.layout.activity_main)
     }
 }

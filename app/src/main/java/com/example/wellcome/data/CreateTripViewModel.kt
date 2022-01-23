@@ -15,19 +15,47 @@ import com.example.wellcome.repository.TripResponseParser
 class CreateTripViewModel : ViewModel() {
     private val tripRepository = TripRepository(Executor(), TripResponseParser())
 
+    val isLoading = MutableLiveData(false)
     val isImageLoaded = MutableLiveData(false)
-    val street = MutableLiveData<String>()
-    val city = MutableLiveData<String>()
-    val state = MutableLiveData<String>()
-    val postalCode = MutableLiveData<String>()
-    val country = MutableLiveData<String>()
-    val title = MutableLiveData<String>()
-    val description = MutableLiveData<String>()
-    val pictureReceipt = MutableLiveData<String>()
-    val adults = MutableLiveData<Int>()
-    val childs = MutableLiveData<Int>()
-    val babies = MutableLiveData<Int>()
-    val pets = MutableLiveData<Int>()
+    val street = MutableLiveData<String>(null)
+    val city = MutableLiveData("")
+    val state = MutableLiveData("")
+    val postalCode = MutableLiveData("")
+    val country = MutableLiveData("")
+    val title = MutableLiveData("")
+    val description = MutableLiveData("")
+    val pictureReceipt = MutableLiveData("")
+    val adults = MutableLiveData(0)
+    val childs = MutableLiveData(0)
+    val babies = MutableLiveData(0)
+    val pets = MutableLiveData(0)
+    val beds = MutableLiveData(0)
+    val bathrooms = MutableLiveData(0)
+    val rooms = MutableLiveData(0)
+
+    fun onAddBeds(){
+        beds.value = (beds.value ?: 0) + 1
+    }
+
+    fun onAddRooms(){
+        rooms.value = (rooms.value ?: 0) + 1
+    }
+
+    fun onAddBathrooms(){
+        bathrooms.value = (bathrooms.value ?: 0) + 1
+    }
+
+    fun onRemoveBeds(){
+        beds.value = (beds.value ?: 0) - 1
+    }
+
+    fun onRemoveRooms(){
+        rooms.value = (rooms.value ?: 0) - 1
+    }
+
+    fun onRemoveBathrooms(){
+        bathrooms.value = (bathrooms.value ?: 0) - 1
+    }
 
     fun onAddAdults(){
         adults.value = (adults.value ?: 0) + 1
@@ -73,10 +101,11 @@ class CreateTripViewModel : ViewModel() {
     }
 
     fun createHost(request:HostRequest){
+        isLoading.postValue(true)
         tripRepository.createHost(request) { result ->
             when(result){
                 is Result.Success<HostPresenter> -> {
-
+                    isLoading.postValue(false)
                 }
             }
         }

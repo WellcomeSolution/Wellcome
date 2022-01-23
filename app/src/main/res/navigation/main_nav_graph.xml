@@ -16,15 +16,6 @@
         <action
                 android:id="@+id/navigate_to_add_address"
                 app:destination="@id/address_from" />
-        <action
-                android:id="@+id/navigate_to_add_picture"
-                app:destination="@id/picture_from" />
-        <action
-                android:id="@+id/navigate_to_add_restrictions"
-                app:destination="@id/restrictions_from" />
-        <action
-                android:id="@+id/navigate_to_add_descriptions"
-                app:destination="@id/descriptions_from" />
     </fragment>
 
     <fragment
@@ -49,6 +40,10 @@
             android:name="com.example.wellcome.AddHostAddressFragment"
             android:label="@string/add_host_address"
             tools:layout="@layout/fragment_add_host_address" >
+        <action
+                android:id="@+id/navigate_to_add_picture"
+                app:destination="@id/picture_from" />
+
     </fragment>
 
     <fragment
@@ -56,6 +51,9 @@
             android:name="com.example.wellcome.AddHostPictureFragment"
             android:label="@string/add_host_picture"
             tools:layout="@layout/fragment_add_host_picture" >
+        <action
+                android:id="@+id/navigate_to_add_restrictions"
+                app:destination="@id/restrictions_from" />
     </fragment>
 
     <fragment
@@ -63,6 +61,19 @@
             android:name="com.example.wellcome.AddHostRestrictionsFragment"
             android:label="@string/add_host_restrictions"
             tools:layout="@layout/fragment_add_host_restrictions" >
+        <action
+                android:id="@+id/navigate_to_add_configuration"
+                app:destination="@id/configuration_from" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/configuration_from"
+            android:name="com.example.wellcome.AddHostConfigurationFragment"
+            android:label="@string/add_host_configuration"
+            tools:layout="@layout/fragment_add_host_configuration" >
+        <action
+                android:id="@+id/navigate_to_add_descriptions"
+                app:destination="@id/descriptions_from" />
     </fragment>
 
     <fragment
@@ -70,6 +81,9 @@
             android:name="com.example.wellcome.AddHostDescriptionFragment"
             android:label="@string/add_host_description"
             tools:layout="@layout/fragment_add_host_address" >
+        <action
+                android:id="@+id/navigate_to_host_details"
+                app:destination="@id/hostDetails" />
     </fragment>
 
 

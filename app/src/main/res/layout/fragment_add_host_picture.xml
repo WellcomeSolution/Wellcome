@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"/>
                 <com.google.android.material.button.MaterialButton
                         android:layout_alignParentRight="true"
-                        android:id="@+id/next_button"
+                        android:id="@+id/next_button_host_picture"
                         android:text="@string/next"
                         android:fontFamily="@font/ralewaybold"
                         android:textAllCaps="false"
