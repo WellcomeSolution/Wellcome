@@ -15,6 +15,7 @@ import com.example.wellcome.repository.TripResponseParser
 class CreateTripViewModel : ViewModel() {
     private val tripRepository = TripRepository(Executor(), TripResponseParser())
 
+    val isCreated = MutableLiveData(false)
     val isLoading = MutableLiveData(false)
     val isImageLoaded = MutableLiveData(false)
     val street = MutableLiveData<String>(null)
@@ -106,8 +107,11 @@ class CreateTripViewModel : ViewModel() {
             when(result){
                 is Result.Success<HostPresenter> -> {
                     isLoading.postValue(false)
+                    isCreated.postValue(true)
                 }
             }
         }
     }
+
+
 }

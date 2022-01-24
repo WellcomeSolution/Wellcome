@@ -80,10 +80,10 @@
             android:id="@+id/descriptions_from"
             android:name="com.example.wellcome.AddHostDescriptionFragment"
             android:label="@string/add_host_description"
-            tools:layout="@layout/fragment_add_host_address" >
+            tools:layout="@layout/fragment_add_host_description" >
         <action
-                android:id="@+id/navigate_to_host_details"
-                app:destination="@id/hostDetails" />
+                android:id="@+id/navigate_to_navigation_fragment"
+                app:destination="@id/navigationFragment" />
     </fragment>
 
 

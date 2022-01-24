@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
 import androidx.navigation.navGraphViewModels
-import com.example.services.Address
-import com.example.services.HostConfiguration
-import com.example.services.HostRequest
-import com.example.services.TravelersConfiguration
+import com.example.services.*
 import com.example.wellcome.data.CreateTripViewModel
 import com.example.wellcome.data.UserViewModel
 import com.example.wellcome.databinding.FragmentAddHostAddressBinding
@@ -38,9 +36,7 @@ class AddHostDescriptionFragment : Fragment() {
                 Address(
                     createTripViewModel.city.value!!,
                     createTripViewModel.country.value!!,
-                    createTripViewModel.postalCode.value!!,
-                    null,
-                    null
+                    createTripViewModel.postalCode.value!!
                 ),
                 HostConfiguration(
                     createTripViewModel.rooms.value!!,
@@ -55,6 +51,15 @@ class AddHostDescriptionFragment : Fragment() {
                 )
             ))
         }
+        createTripViewModel.isCreated.observe(viewLifecycleOwner, {
+            isCreated : Boolean ->
+            if(isCreated){
+                val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
+                val directions = AddHostDescriptionFragmentDirections.navigateToNavigationFragment()
+                nav.navigate(directions)
+                requireActivity().viewModelStore.clear()
+            }
+        })
     }
 
     override fun onCreateView(
