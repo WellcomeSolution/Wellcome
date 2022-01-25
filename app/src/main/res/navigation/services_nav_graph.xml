@@ -2,13 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/nav_graph"
+        android:id="@+id/services_nav_graph"
         app:startDestination="@id/fragmentTrip">
     <fragment
             android:id="@+id/fragmentTrip"
             android:name="com.example.wellcome.TripFragment"
             android:label="@string/trips"
             tools:layout="@layout/fragment_trip" >
+        <action
+            android:id="@+id/navigate_to_lessons"
+            app:destination="@id/lessonFragment" />
+        <action
+            android:id="@+id/navigate_to_trip"
+            app:destination="@id/fragmentTrip" />
     </fragment>
     <fragment
         android:id="@+id/fragmentLesson"
@@ -16,7 +22,7 @@
         android:label="@string/lesson"
         tools:layout="@layout/fragment_lesson" >
         <action
-            android:id="@+id/navigate_to_add_picture"
-            app:destination="@id/picture_from" />
+            android:id="@+id/navigate_to_trip"
+            app:destination="@id/fragmentTrip" />
     </fragment>
 </navigation>
