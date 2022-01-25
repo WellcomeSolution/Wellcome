@@ -15,12 +15,41 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content">
 
-              <include
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/services_top_bar" layout="@layout/services_top_bar"/>
-       </LinearLayout>
+              <com.google.android.material.tabs.TabLayout android:layout_width="match_parent"
 
+                  android:layout_height="?attr/actionBarSize"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:layout_gravity="start"
+                  android:paddingTop="8dp"
+                  android:paddingBottom="1.5dp"
+                  app:tabTextAppearance="@style/TabTextAppearence"
+                  app:tabRippleColor="@null"
+                  app:tabIndicatorColor="@android:color/transparent"
+                  android:id="@+id/topbar_layout"
+                  app:tabTextColor="@color/white"
+                  android:background="@color/crane_purple_800"
+                  xmlns:android="http://schemas.android.com/apk/res/android">
+
+                     <com.google.android.material.tabs.TabItem
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/top_bar_trip"
+                         android:text="Trip"
+                         />
+                     <com.google.android.material.tabs.TabItem
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/top_bar_lesson"
+                         android:text="Lesson"
+                         />
+                     <com.google.android.material.tabs.TabItem
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/top_bar_help"
+                         android:text="Help"
+                         />
+              </com.google.android.material.tabs.TabLayout>
+       </LinearLayout>
        <androidx.fragment.app.FragmentContainerView
                android:backgroundTint="@color/crane_purple_800"
                android:id="@+id/nav_host_fragment"

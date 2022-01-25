@@ -95,6 +95,25 @@
     <string name="cours_added">The assistance has been added succesfuly !</string>
     <string name="yes">OK</string>
     <string name="no">Cancel</string>
+    <!-- menu of lesson -->
+
+    <string name="lesson_type" translatable="false">Select Type of lesson</string>
+    <string name="type_informatique" translatable="false">informatique</string>
+    <string name="type_informatique_details" translatable="false">lesson of informatique</string>
+        <string name="type_marketing" translatable="false">marketing</string>
+    <string name="type_marketing_details" translatable="false">lesson of marketing</string>
+        <string name="type_music" translatable="false">music</string>
+    <string name="type_music_details" translatable="false">lesson of music</string>
+
+        <string name="lesson_duration" translatable="false">Select duration of lesson</string>
+    <string name="duration_3" translatable="false">long</string>
+    <string name="duration_3_details" translatable="false">More than 72 hours</string>
+        <string name="duration_2" translatable="false">normal</string>
+    <string name="duration_2_details" translatable="false">36 - 72 hours</string>
+        <string name="duration_1" translatable="false">short</string>
+    <string name="duration_1_details" translatable="false">less than 36 hours</string>
+     <!-- menu de lesson end-->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="host_restrictions" translatable="false">Select Travelers</string>
     <string name="dates" translatable="false">Select Dates</string>
     <string name="Location" translatable="false">Select Location</string>
@@ -124,6 +143,7 @@
     <string name="trips">Trips</string>
     <string name="assitance">Assistance</string>
     <string name="lesson">Lesson</string>
+    <string name="lesson_fragment">lesson_fragment</string>
     <string name="host_fragment">host_fragment</string>
     <string name="filters">Filters</string>
     <string name="rooms_and_spaces">Rooms and spaces</string>

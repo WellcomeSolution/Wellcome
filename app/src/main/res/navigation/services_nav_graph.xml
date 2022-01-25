@@ -4,11 +4,19 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nav_graph"
         app:startDestination="@id/fragmentTrip">
-
     <fragment
             android:id="@+id/fragmentTrip"
             android:name="com.example.wellcome.TripFragment"
             android:label="@string/trips"
             tools:layout="@layout/fragment_trip" >
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLesson"
+        android:name="com.example.wellcome.LessonFragment"
+        android:label="@string/lesson"
+        tools:layout="@layout/fragment_lesson" >
+        <action
+            android:id="@+id/navigate_to_add_picture"
+            app:destination="@id/picture_from" />
     </fragment>
 </navigation>

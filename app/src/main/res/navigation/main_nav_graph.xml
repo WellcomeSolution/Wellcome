@@ -4,7 +4,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nav_graph"
         app:startDestination="@id/navigationFragment">
-
     <fragment
             android:id="@+id/navigationFragment"
             android:name="com.example.wellcome.NavigationFragment"
@@ -16,6 +15,9 @@
         <action
                 android:id="@+id/navigate_to_add_address"
                 app:destination="@id/address_from" />
+        <action
+            android:id="@+id/navigate_to_lessons"
+            app:destination="@id/lessonFragment" />
     </fragment>
 
     <fragment
@@ -26,6 +28,12 @@
         <action
                 android:id="@+id/navigate_to_host_details"
                 app:destination="@id/hostDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.example.wellcome.LessonFragment"
+        android:label="@string/lesson_fragment"
+        tools:layout="@layout/fragment_lesson" >
     </fragment>
 
     <fragment
