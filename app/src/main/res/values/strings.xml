@@ -163,10 +163,11 @@
     <string name="trip_fragment">trip_fragment</string>
     <string name="fragment_service">fragment_services</string>
     <string name="create">Create</string>
-  <string name="beds">Beds</string>
-  <string name="how_many_beds">How many beds ?</string>
-  <string name="rooms">Rooms</string>
-  <string name="how_many_rooms">How many rooms ?</string>
-  <string name="bathrooms">Bathrooms</string>
-  <string name="how_many_bathrooms">How many Bathrooms ?</string>
+    <string name="beds">Beds</string>
+    <string name="how_many_beds">How many beds ?</string>
+    <string name="rooms">Rooms</string>
+    <string name="how_many_rooms">How many rooms ?</string>
+    <string name="bathrooms">Bathrooms</string>
+    <string name="how_many_bathrooms">How many Bathrooms ?</string>
+    <string name="favorites">Favorites</string>
 </resources>

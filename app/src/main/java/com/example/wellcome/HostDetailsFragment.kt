@@ -42,7 +42,6 @@ class HostDetailsFragment : Fragment() {
     private val viewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
     private val hostPicture = "http://10.0.2.2:5229"
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         container.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
@@ -61,7 +60,6 @@ class HostDetailsFragment : Fragment() {
                             //do smth when there is picture loading error
                         }
                     })
-
             }
         })
     }

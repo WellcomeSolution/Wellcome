@@ -10,12 +10,17 @@ import kotlinx.serialization.json.decodeFromStream
 import java.io.InputStream
 
 class TripResponseParser {
+    private val format = Json {
+        coerceInputValues = true
+        ignoreUnknownKeys = true
+    }
+
     fun parseToHostDetails(input:InputStream) : HostDetails
-        = Json { ignoreUnknownKeys = true }.decodeFromStream(input)
+        = format.decodeFromStream(input)
     fun parseToHostPresenters(input:InputStream) : ArrayList<HostPresenter>
-        = Json { ignoreUnknownKeys = true }.decodeFromStream(input)
+        = format.decodeFromStream(input)
     fun parseToHostPresenter(input:InputStream) : HostPresenter
-            = Json { ignoreUnknownKeys = true }.decodeFromStream(input)
+        = format.decodeFromStream(input)
     fun parseToFileUploadResult(input:InputStream) : FileUploadResult
-            = Json { ignoreUnknownKeys = true }.decodeFromStream(input)
+        = format.decodeFromStream(input)
 }
