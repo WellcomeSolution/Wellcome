@@ -90,19 +90,6 @@ class SharedTripViewModel: ViewModel() {
         }
     }
 
-
-
-    fun removeFavoriteHost(request: FavoriteRequest) : Boolean{
-        tripRepository.removeFavoriteHost(request) { result ->
-            when(result){
-                is Result.Success<Boolean> -> {
-                    true
-                }
-            }
-        }
-        return false
-    }
-
     fun updateDate(dates:List<Date>){
         startDate.value = dates.first()
         endDate.value = dates.last()

@@ -170,4 +170,7 @@
     <string name="bathrooms">Bathrooms</string>
     <string name="how_many_bathrooms">How many Bathrooms ?</string>
     <string name="favorites">Favorites</string>
+    <string name="book">Book</string>
+    <string name="Reserve">Reserve</string>
+    <string name="request_to_stay">Request to stay</string>
 </resources>

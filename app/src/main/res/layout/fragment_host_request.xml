@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="hostRequestViewModel" type="com.example.wellcome.data.HostRequestViewModel"/>
+        <variable name="sharedTripViewModel" type="com.example.wellcome.data.SharedTripViewModel"/>
+        <variable name="hostViewModel" type="com.example.wellcome.data.HostViewModel"/>
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+    </data>
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".HostRequestFragment">
-
+            tools:context=".HostRequestFragment">
     <TextView
             android:layout_marginHorizontal="35dp"
             android:layout_marginVertical="45dp"
@@ -13,13 +18,12 @@
             android:layout_alignParentTop="true"
             android:layout_gravity="center_vertical"
             android:includeFontPadding="false"
-            android:textSize="21dp"
+            android:textSize="25dp"
             android:textColor="@color/black"
             android:fontFamily="@font/ralewaybold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Request to stay" />
-
+            android:text="@string/request_to_stay" />
     <RelativeLayout
             android:layout_marginHorizontal="35dp"
             android:layout_below="@id/request_to_stay"
@@ -153,7 +157,6 @@
                     android:textColor="@color/text_edit_color"
                     android:fontFamily="@font/ralewaymedium"
                     android:padding="15dp"
-                    android:text="@={viewModel.description}"
                     android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -162,6 +165,7 @@
         </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
     <Button
+            android:id="@+id/send_reservation"
             app:backgroundTint="@color/crane_purple_700"
             android:textAllCaps="false"
             android:textSize="17dp"
@@ -174,3 +178,4 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 </RelativeLayout>
+</layout>

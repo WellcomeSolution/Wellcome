@@ -10,6 +10,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.util.concurrent.Executor
 import android.R.attr.bitmap
+import android.R.attr.host
 import com.example.services.*
 
 
@@ -20,6 +21,7 @@ class TripRepository(private val executor: Executor,
     private val hostDetailsUrl = "/details"
     private val AddRemoveFavoriteUrl = "$baseUrl/favorite"
     private val uploadImageUrl = "$baseUrl/image"
+    private val reservationUrl = "$baseUrl/reservation"
 
     fun getHostPresenters(pattern:TripPattern,
                           callback:(Result<ArrayList<HostPresenter>>) -> Unit
@@ -126,6 +128,33 @@ class TripRepository(private val executor: Executor,
         }
     }
 
+    fun sendHostReservation(email:String,hostUuid: String,
+                     callback:(Result<Boolean>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeHostReservationRequest(email, hostUuid)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
+    private fun makeHostReservationRequest(email: String, hostUuid: String) : Result<Nothing>{
+        val uri =  URIBuilder("$reservationUrl/$email/$hostUuid")
+        val url = URL(uri.toString())
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "POST"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            return Result.SuccessNoContent(true)
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
     private fun makeFavoritesRequest(email:String) : Result<ArrayList<HostPresenter>>{
         val uri =  URIBuilder("$baseUrl/$email/favorites")
         val url = URL(uri.toString())
@@ -214,7 +243,7 @@ class TripRepository(private val executor: Executor,
     }
 
     private fun makeHostDetailsRequest(uuid:String) : Result<HostDetails>{
-        val uri =  URIBuilder("/$uuid${hostDetailsUrl}")
+        val uri =  URIBuilder("$baseUrl/$uuid${hostDetailsUrl}")
         val url = URL(uri.toString())
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "GET"

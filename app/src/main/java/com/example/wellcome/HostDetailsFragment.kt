@@ -62,6 +62,11 @@ class HostDetailsFragment : Fragment() {
                     })
             }
         })
+
+        book.setOnClickListener{
+            val modalBottomSheet = HostRequestBottomSheet()
+            modalBottomSheet.show(childFragmentManager, HostRequestBottomSheet.TAG)
+        }
     }
 
     override fun onCreateView(
