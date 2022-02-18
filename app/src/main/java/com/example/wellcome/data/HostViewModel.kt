@@ -34,6 +34,7 @@ class HostViewModel :ViewModel() {
     val language = MutableLiveData<String>(null)
     val profession = MutableLiveData<String>(null)
     val profilePictureUrl = MutableLiveData<String>(null)
+    val hostUuid = MutableLiveData<String>(null)
 
     val genderAgeFormat : LiveData<String> = MediatorLiveData<String>()
         .apply {
@@ -136,6 +137,7 @@ class HostViewModel :ViewModel() {
                     hostDescription.postValue(result.data.description)
                     firstName.postValue(result.data.hoster.firstName)
                     lastName.postValue(result.data.hoster.lastName)
+                    hostUuid.postValue(uuid)
                 }
             }
         }

@@ -18,18 +18,11 @@ import android.animation.LayoutTransition
 import android.animation.ObjectAnimator
 
 import android.widget.LinearLayout
-import android.view.animation.AccelerateInterpolator
-
-import android.view.animation.AlphaAnimation
-
-import android.view.animation.Animation
-
-import android.view.animation.DecelerateInterpolator
-import android.view.animation.OvershootInterpolator
 
 import android.animation.PropertyValuesHolder
 
 import android.animation.Animator
+import android.view.animation.*
 import android.widget.ScrollView
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
@@ -54,6 +47,9 @@ class HostDetailsFragment : Fragment() {
                     .into(profile_image, object: com.squareup.picasso.Callback {
                         override fun onSuccess() {
                             viewModel.isLoading.value = false
+                            val bottomUpAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.bottom_up)
+                            bottom_menu.startAnimation(bottomUpAnimation)
+                            bottom_menu.visibility = View.VISIBLE
                         }
 
                         override fun onError(e: java.lang.Exception?) {

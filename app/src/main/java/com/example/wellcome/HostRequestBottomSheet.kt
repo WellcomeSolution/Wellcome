@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wellcome.CityAdapter
 import com.example.wellcome.R
 import com.example.wellcome.data.SharedTripViewModel
-import com.example.wellcome.databinding.FragmentHostRequestBinding
 import com.example.wellcome.repository.Address
 import com.example.wellcome.repository.City
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -27,17 +26,25 @@ import kotlinx.android.synthetic.main.top_app_bar.*
 
 import android.util.DisplayMetrics
 import android.view.WindowManager
+import androidx.navigation.navGraphViewModels
+import com.example.services.HostReservationRequest
 import com.example.wellcome.data.HostRequestViewModel
+import com.example.wellcome.data.HostViewModel
+import com.example.wellcome.data.UserViewModel
+import com.example.wellcome.databinding.HostRequestBottomSheetContentBinding
 import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
+import kotlinx.android.synthetic.main.host_request_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.trip_localisation.*
 
 
 class HostRequestBottomSheet : BaseBottomSheet() {
-    private val viewModel: HostRequestViewModel by activityViewModels()
+    private val hostViewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
+    private val sharedTripViewModel: SharedTripViewModel by activityViewModels()
+    private val hostRequestViewModel: HostRequestViewModel by activityViewModels()
+    private val userViewModel: UserViewModel by activityViewModels()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
-
         dialog.setOnShowListener {
             val bottomSheet = (it as BottomSheetDialog).findViewById<View>(com.google.android.material.R.id.design_bottom_sheet) as FrameLayout?
             val behavior = BottomSheetBehavior.from(bottomSheet!!)
@@ -60,11 +67,23 @@ class HostRequestBottomSheet : BaseBottomSheet() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initLayout()
+
+        send_reservation_button.setOnClickListener{
+            hostRequestViewModel.sendHostReservation(
+                HostReservationRequest(
+                    userViewModel.email.value!!,
+                    hostRequestViewModel.message.value!!,
+                    userViewModel.phone.value!!,
+                    hostViewModel.hostUuid.value!!
+                )
+            )
+        }
     }
 
     private fun initLayout(){
         val displayMetrics = context?.resources?.displayMetrics
         val height = displayMetrics?.heightPixels
+        content.minimumHeight = height!!
     }
 
     override fun onCreateView(
@@ -72,9 +91,11 @@ class HostRequestBottomSheet : BaseBottomSheet() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentHostRequestBinding
+        val binding = HostRequestBottomSheetContentBinding
             .inflate(inflater, container, false)
-        binding.viewModel = viewModel
+        binding.hostRequestViewModel = hostRequestViewModel
+        binding.sharedTripViewModel = sharedTripViewModel
+        binding.hostViewModel = hostViewModel
         binding.lifecycleOwner = this
         return binding.root
     }

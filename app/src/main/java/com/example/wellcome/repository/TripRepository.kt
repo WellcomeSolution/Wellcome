@@ -21,7 +21,6 @@ class TripRepository(private val executor: Executor,
     private val hostDetailsUrl = "/details"
     private val AddRemoveFavoriteUrl = "$baseUrl/favorite"
     private val uploadImageUrl = "$baseUrl/image"
-    private val reservationUrl = "$baseUrl/reservation"
 
     fun getHostPresenters(pattern:TripPattern,
                           callback:(Result<ArrayList<HostPresenter>>) -> Unit
@@ -128,12 +127,12 @@ class TripRepository(private val executor: Executor,
         }
     }
 
-    fun sendHostReservation(email:String,hostUuid: String,
+    fun sendHostReservation(request:HostReservationRequest,
                      callback:(Result<Boolean>) -> Unit
     ){
         executor.execute{
             try {
-                val response = makeHostReservationRequest(email, hostUuid)
+                val response = makeHostReservationRequest(request)
                 callback(response)
             }
             catch (e: java.lang.Exception){
@@ -143,13 +142,15 @@ class TripRepository(private val executor: Executor,
         }
     }
 
-    private fun makeHostReservationRequest(email: String, hostUuid: String) : Result<Nothing>{
-        val uri =  URIBuilder("$reservationUrl/$email/$hostUuid")
+    private fun makeHostReservationRequest(request: HostReservationRequest) : Result<Nothing>{
+        val uri =  URIBuilder("$baseUrl/reservation")
         val url = URL(uri.toString())
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "POST"
             setRequestProperty("Content-Type", "application/json; charset=utf-8")
             setRequestProperty("Accept", "application/json")
+            doOutput = true
+            Json.encodeToStream(request, outputStream)
             return Result.SuccessNoContent(true)
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))
