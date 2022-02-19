@@ -174,4 +174,22 @@
     <string name="Reserve">Reserve</string>
     <string name="request_to_stay">Request to stay</string>
     <string name="send">Send</string>
+    <string name="login">Login</string>
+  <string name="YourProfile">Your profile</string>
+  <string name="SignInMessage">Sign in to manage your trips and start planning them.</string>
+  <string name="LogIn">Log In</string>
+  <string name="NoAccount">Don\'t have an account?</string>
+  <string name="SignUp"><u>Sign up</u></string>
+  <string name="FirstName"><u>First name</u></string>
+  <string name="LastName"><u>Last name</u></string>
+  <string name="birthdate">Birthday (dd/mm/yy)</string>
+  <string name="Email">Email</string>
+  <string name="Password">Password</string>
+  <string name="Birthdate_info">To sign up, you need to be at least 18. Your birthday won\'t be shared with other people who use Wellcome</string>
+  <string name="Name_info">Make sure it matches the name on your government ID</string>
+  <string name="Credentials_Info">Make sure the email is valid and password is enough complex</string>
+  <string name="Continue">Continue</string>
+  <string name="LogIn_Info">To Log In make sure you have already created an account</string>
+  <string name="Phone_Info">Make sure the phone number is valid in your country</string>
+  <string name="phone">Phone</string>
 </resources>

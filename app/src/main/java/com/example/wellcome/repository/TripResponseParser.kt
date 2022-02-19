@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import com.example.services.FileUploadResult
 import com.example.services.HostDetails
 import com.example.services.HostPresenter
+import com.example.services.HostReservationDto
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
 import java.io.InputStream
@@ -23,4 +24,6 @@ class TripResponseParser {
         = format.decodeFromStream(input)
     fun parseToFileUploadResult(input:InputStream) : FileUploadResult
         = format.decodeFromStream(input)
+    fun parseToHostRequest(input:InputStream) : HostReservationDto
+            = format.decodeFromStream(input)
 }

@@ -18,4 +18,12 @@
             android:enabled="true"
             android:icon="@drawable/baseline_menu_24"
             android:title="@string/menu"/>
+
+    <item
+            android:visible="false"
+            android:iconTint="@color/crane_purple_800"
+            android:id="@+id/page_4"
+            android:enabled="true"
+            android:icon="@drawable/outline_account_circle_24"
+            android:title="@string/login"/>
 </menu>

@@ -1,6 +1,5 @@
 package com.example.wellcome.repository
 
-import android.R.attr
 import android.graphics.Bitmap
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.encodeToStream
@@ -9,8 +8,6 @@ import java.io.DataOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.concurrent.Executor
-import android.R.attr.bitmap
-import android.R.attr.host
 import com.example.services.*
 
 
@@ -127,12 +124,12 @@ class TripRepository(private val executor: Executor,
         }
     }
 
-    fun sendHostReservation(request:HostReservationRequest,
-                     callback:(Result<Boolean>) -> Unit
+    fun sendHostReservation(dto:HostReservationDto,
+                            callback:(Result<HostReservationDto>) -> Unit
     ){
         executor.execute{
             try {
-                val response = makeHostReservationRequest(request)
+                val response = makeHostReservationRequest(dto)
                 callback(response)
             }
             catch (e: java.lang.Exception){
@@ -142,7 +139,7 @@ class TripRepository(private val executor: Executor,
         }
     }
 
-    private fun makeHostReservationRequest(request: HostReservationRequest) : Result<Nothing>{
+    private fun makeHostReservationRequest(dto: HostReservationDto) : Result<HostReservationDto>{
         val uri =  URIBuilder("$baseUrl/reservation")
         val url = URL(uri.toString())
         (url.openConnection() as? HttpURLConnection)?.run {
@@ -150,8 +147,8 @@ class TripRepository(private val executor: Executor,
             setRequestProperty("Content-Type", "application/json; charset=utf-8")
             setRequestProperty("Accept", "application/json")
             doOutput = true
-            Json.encodeToStream(request, outputStream)
-            return Result.SuccessNoContent(true)
+            Json.encodeToStream(dto, outputStream)
+            return Result.Success(responseParser.parseToHostRequest(inputStream))
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))
     }

@@ -4,13 +4,15 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 @Serializable
-class HostReservationRequest(
+class HostReservationDto(
     @SerializedName("Email")
-    var email: String,
+    var email: String? = null,
     @SerializedName("Message")
-    var message: String,
+    var message: String? = null,
     @SerializedName("Phone")
-    var phone: String,
+    var phone: String? = null,
     @SerializedName("HostUuid")
-    var hostUuid: String,
+    var hostUuid: String? = null,
+    @SerializedName("Uuid")
+    var uuid: String? = null,
 )

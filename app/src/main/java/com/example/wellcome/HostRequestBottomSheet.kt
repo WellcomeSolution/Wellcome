@@ -1,40 +1,21 @@
 package com.example.wellcome
 
 import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.*
 import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wellcome.CityAdapter
-import com.example.wellcome.R
 import com.example.wellcome.data.SharedTripViewModel
-import com.example.wellcome.repository.Address
-import com.example.wellcome.repository.City
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.localisation_bottom_sheet_content.*
-import kotlinx.android.synthetic.main.top_app_bar.*
 
-import android.util.DisplayMetrics
-import android.view.WindowManager
 import androidx.navigation.navGraphViewModels
-import com.example.services.HostReservationRequest
+import com.example.services.HostReservationDto
 import com.example.wellcome.data.HostRequestViewModel
 import com.example.wellcome.data.HostViewModel
 import com.example.wellcome.data.UserViewModel
 import com.example.wellcome.databinding.HostRequestBottomSheetContentBinding
-import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
 import kotlinx.android.synthetic.main.host_request_bottom_sheet_content.*
-import kotlinx.android.synthetic.main.trip_localisation.*
 
 
 class HostRequestBottomSheet : BaseBottomSheet() {
@@ -70,13 +51,15 @@ class HostRequestBottomSheet : BaseBottomSheet() {
 
         send_reservation_button.setOnClickListener{
             hostRequestViewModel.sendHostReservation(
-                HostReservationRequest(
+                HostReservationDto(
                     userViewModel.email.value!!,
                     hostRequestViewModel.message.value!!,
                     userViewModel.phone.value!!,
-                    hostViewModel.hostUuid.value!!
+                    hostViewModel.hostUuid.value!!,
+                    null
                 )
             )
+            this.dismiss()
         }
     }
 
