@@ -25,4 +25,11 @@
             android:label="@string/menu"
             tools:layout="@layout/fragment_menu" >
     </fragment>
+
+    <fragment
+            android:id="@+id/fragment_login_menu"
+            android:name="com.example.wellcome.LogInMenuFragment"
+            android:label="@string/LoginMenu"
+            tools:layout="@layout/fragment_log_in_menu" >
+    </fragment>
 </navigation>

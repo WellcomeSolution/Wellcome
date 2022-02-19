@@ -18,7 +18,7 @@ class NavigationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val nav = Navigation.findNavController(requireActivity(), R.id.nav_fragment)
 
-        if(userViewModel.isLogin.value!!) {
+        if(userViewModel.isLogIn.value!!) {
             bottom_navigation.menu.findItem(R.id.page_3).isVisible = true
             bottom_navigation.menu.findItem(R.id.page_4).isVisible = false
         }
@@ -39,7 +39,7 @@ class NavigationFragment : Fragment() {
                     nav.navigate(R.id.fragment_menu)
                 }
                 R.id.page_4 -> {
-
+                    nav.navigate(R.id.fragment_login_menu)
                 }
             }
             true

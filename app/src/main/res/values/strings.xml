@@ -180,8 +180,8 @@
   <string name="LogIn">Log In</string>
   <string name="NoAccount">Don\'t have an account?</string>
   <string name="SignUp"><u>Sign up</u></string>
-  <string name="FirstName"><u>First name</u></string>
-  <string name="LastName"><u>Last name</u></string>
+  <string name="FirstName">First name</string>
+  <string name="LastName">Last name</string>
   <string name="birthdate">Birthday (dd/mm/yy)</string>
   <string name="Email">Email</string>
   <string name="Password">Password</string>
@@ -192,4 +192,6 @@
   <string name="LogIn_Info">To Log In make sure you have already created an account</string>
   <string name="Phone_Info">Make sure the phone number is valid in your country</string>
   <string name="phone">Phone</string>
+    <string name="LoginMenu">LogInMenu</string>
+  <string name="birthday">Birthday</string>
 </resources>

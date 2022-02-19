@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
-    <include
-            layout="@layout/top_app_bar"
-            app:titleEnabled="@{true}"
-            app:title='@{@string/LogIn}'
-            android:id="@+id/top_bar"/>
-
+    <data>
+        <variable name="viewModel" type="com.example.wellcome.data.UserViewModel"/>
+    </data>
+    <RelativeLayout
+            android:id="@+id/login_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+         >
+        <include
+                layout="@layout/top_app_bar"
+                app:titleEnabled="@{true}"
+                app:bottomSheetEnabled="@{true}"
+                app:title='@{@string/LogIn}'
+                android:id="@+id/top_bar"/>
     <LinearLayout
             android:layout_marginVertical="30dp"
             android:layout_marginBottom="30dp"
@@ -23,11 +28,9 @@
                 app:hintTextColor="@color/crane_purple_700"
                 app:boxStrokeColor="@color/text_input_layout_stroke_color"
                 android:id="@+id/email_input_layout"
-                app:hintEnabled="false"
+                app:hintEnabled="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/FirstName"
-                app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="true"
                 style="@style/TextInputLayoutStyleEditable">
             <com.google.android.material.textfield.TextInputEditText
@@ -38,7 +41,7 @@
                     android:padding="15dp"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:text="@={viewModel.title}"
+                    android:text="@={viewModel.email}"
                     android:textSize="16sp"
                     android:textColorHint="@color/text_edit_color"
                     android:hint="@string/Email"
@@ -53,11 +56,8 @@
                 app:hintTextColor="@color/crane_purple_700"
                 app:boxStrokeColor="@color/text_input_layout_stroke_color"
                 android:id="@+id/password_input_layout"
-                app:hintEnabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/FirstName"
-                app:expandedHintEnabled="false"
                 app:hintAnimationEnabled="true"
                 style="@style/TextInputLayoutStyleEditable">
             <com.google.android.material.textfield.TextInputEditText
@@ -68,7 +68,7 @@
                     android:padding="15dp"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:text="@={viewModel.title}"
+                    android:text="@={viewModel.password}"
                     android:textSize="16sp"
                     android:textColorHint="@color/text_edit_color"
                     android:hint="@string/Password"
@@ -99,3 +99,4 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 </RelativeLayout>
+</layout>
