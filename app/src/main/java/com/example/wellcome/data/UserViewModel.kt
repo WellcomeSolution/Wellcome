@@ -14,7 +14,7 @@ class UserViewModel:ViewModel() {
     val firstName = MutableLiveData<String>(null)
     val lastName = MutableLiveData<String>(null)
     val password = MutableLiveData<String>(null)
-    val isLogIn = MutableLiveData(false)
+    val isLogIn = MutableLiveData(true)
     val isLoading = MutableLiveData(false)
 
     fun register(){

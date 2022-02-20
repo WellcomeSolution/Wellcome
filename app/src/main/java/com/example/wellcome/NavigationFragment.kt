@@ -36,7 +36,7 @@ class NavigationFragment : Fragment() {
                     nav.navigate(R.id.fragment_favorites)
                 }
                 R.id.page_3 -> {
-                    nav.navigate(R.id.fragment_menu)
+                    nav.navigate(R.id.fragment_profile)
                 }
                 R.id.page_4 -> {
                     nav.navigate(R.id.fragment_login_menu)

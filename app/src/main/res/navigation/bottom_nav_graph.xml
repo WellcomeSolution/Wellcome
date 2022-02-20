@@ -20,10 +20,10 @@
     </fragment>
 
     <fragment
-            android:id="@+id/fragment_menu"
-            android:name="com.example.wellcome.MenuFragment"
-            android:label="@string/menu"
-            tools:layout="@layout/fragment_menu" >
+            android:id="@+id/fragment_profile"
+            android:name="com.example.wellcome.ProfileFragment"
+            android:label="@string/profile"
+            tools:layout="@layout/fragment_profile" >
     </fragment>
 
     <fragment
