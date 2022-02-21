@@ -17,11 +17,24 @@ class ServicesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var tab1 = topbar_layout.getTabAt(0)
         var tab2 = topbar_layout.getTabAt(1)
+        var tab3 = topbar_layout.getTabAt(2)
+        val manager = childFragmentManager
+        val transition = manager.beginTransaction()
+        transition.add(R.id.nav_service_fragment,TripFragment()).commit()
         tab1?.view?.setOnClickListener{
-            launchTripFragment()
+            val manager = childFragmentManager
+            val transition = manager.beginTransaction()
+            transition.replace(R.id.nav_service_fragment,TripFragment()).commit()
         }
         tab2?.view?.setOnClickListener{
-            launchLessonFragment()
+            val manager = childFragmentManager
+            val transition = manager.beginTransaction()
+            transition.replace(R.id.nav_service_fragment,LessonFragment()).commit()
+        }
+        tab3?.view?.setOnClickListener{
+            val manager = childFragmentManager
+            val transition = manager.beginTransaction()
+            transition.replace(R.id.nav_service_fragment,HelpFragment()).commit()
         }
     }
     override fun onCreateView(
@@ -31,16 +44,5 @@ class ServicesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_services, container, false)
 
     }
-    private fun launchTripFragment(){
-        val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-        val directions = NavigationFragmentDirections.navigateToTrips()
-        nav.navigate(directions)
-    }
-    private fun launchLessonFragment(){
-        val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-        val directions = NavigationFragmentDirections.navigateToLessons()
-        nav.navigate(directions)
-    }
-
 
 }

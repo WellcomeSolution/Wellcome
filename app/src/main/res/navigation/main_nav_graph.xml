@@ -21,6 +21,9 @@
         <action
             android:id="@+id/navigate_to_trips"
             app:destination="@id/TripFragment" />
+        <action
+            android:id="@+id/navigate_to_helps"
+            app:destination="@id/HelpFragment" />
     </fragment>
 
     <fragment
@@ -37,6 +40,12 @@
         android:name="com.example.wellcome.LessonFragment"
         android:label="@string/lesson_fragment"
         tools:layout="@layout/fragment_lesson" >
+    </fragment>
+    <fragment
+        android:id="@+id/HelpFragment"
+        android:name="com.example.wellcome.HelpFragment"
+        android:label="help_fragment"
+        tools:layout="@layout/fragment_help" >
     </fragment>
     <fragment
         android:id="@+id/TripFragment"

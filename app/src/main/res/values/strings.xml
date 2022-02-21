@@ -96,7 +96,7 @@
     <string name="yes">OK</string>
     <string name="no">Cancel</string>
     <!-- menu of lesson -->
-
+  <string name="help_type" translatable="false">Select Type of help</string>
     <string name="lesson_type" translatable="false">Select Type of lesson</string>
     <string name="type_informatique" translatable="false">informatique</string>
     <string name="type_informatique_details" translatable="false">lesson of informatique</string>
