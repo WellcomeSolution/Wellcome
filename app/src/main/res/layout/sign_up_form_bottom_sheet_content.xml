@@ -4,7 +4,6 @@
         <variable name="viewModel" type="com.example.wellcome.data.UserViewModel"/>
     </data>
     <RelativeLayout
-            android:paddingBottom="30dp"
             android:id="@+id/sign_up_container"
             android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -261,6 +260,7 @@
             </LinearLayout>
 
             <Button
+                    android:layout_marginBottom="30dp"
                     android:layout_below="@id/credentials"
                     android:textColor="@color/white"
                     android:layout_marginHorizontal="25dp"

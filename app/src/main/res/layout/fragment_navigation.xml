@@ -19,6 +19,7 @@
             />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:itemTextAppearanceActive="@style/BottomNavigation.ActiveItemTextAppearance"
             app:itemTextColor="@color/white"
             app:itemIconTint="@color/white"
             app:elevation="50dp"

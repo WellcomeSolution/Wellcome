@@ -9,20 +9,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.example.wellcome.data.UserViewModel
 import com.example.wellcome.databinding.LocalisationBottomSheetContentBinding
 import com.example.wellcome.databinding.SignUpFormBottomSheetContentBinding
+import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.datepicker.MaterialDatePicker
 import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
 import kotlinx.android.synthetic.main.localisation_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.modify_trip_search_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.sign_up_form_bottom_sheet_content.*
 import java.util.*
+import kotlin.time.Duration.Companion.days
 
 class SignUpFormBottomSheet : BaseBottomSheet() {
     private val userViewModel: UserViewModel by activityViewModels()
@@ -32,18 +36,25 @@ class SignUpFormBottomSheet : BaseBottomSheet() {
         initLayout()
 
         birthdate_edit_text.setOnClickListener{
-            val calendar = Calendar.getInstance()
-            val year = calendar.get(Calendar.YEAR)
-            val month = calendar.get(Calendar.MONTH)
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-            val datePicker = DatePickerDialog(requireContext(),
-                android.R.style.Theme_Holo_Light_Dialog_NoActionBar,
-                { view, year, monthOfYear, dayOfMonth ->
-                    userViewModel.birthDate.postValue("$day-$month-$year")
-                }, year, month, day)
-            datePicker.show()
+            showDatePicker()
         }
+    }
+
+    private fun showDatePicker(){
+        val datePicker =
+            MaterialDatePicker.Builder.datePicker()
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .setTheme(R.style.ThemeOverlay_App_DatePicker)
+                .build()
+
+        datePicker.addOnPositiveButtonClickListener {
+            val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+            calendar.time = Date(it)
+            userViewModel.birthDate.value = "${calendar.get(Calendar.DAY_OF_MONTH)}- " +
+                    "${calendar.get(Calendar.MONTH) + 1}-${calendar.get(Calendar.YEAR)}"
+        }
+
+        datePicker.show(childFragmentManager, datePicker.tag)
     }
 
     private fun initLayout(){
@@ -81,6 +92,7 @@ class SignUpFormBottomSheet : BaseBottomSheet() {
         val binding = SignUpFormBottomSheetContentBinding
             .inflate(inflater, container, false)
         binding.viewModel = userViewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 

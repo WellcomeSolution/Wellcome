@@ -53,6 +53,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.github.florent37:singledateandtimepicker:2.2.7'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'de.hdodenhof:circleimageview:1.2.1'
     implementation 'com.makeramen:roundedimageview:2.3.0'
