@@ -5,15 +5,20 @@
         <import type="android.text.TextUtils"/>
         <import type="android.view.View"/>
     </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <ScrollView
+            android:layout_above="@id/bottom_menu"
+            android:layout_alignParentTop="true"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/scroll_view_details"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             tools:context=".HostDetailsFragment"
             android:transitionName="transition">
-
             <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -233,4 +238,39 @@
                 </LinearLayout>
             </LinearLayout>
     </ScrollView>
+        <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/bottom_menu"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+        <com.google.android.material.divider.MaterialDivider
+                android:layout_above="@id/bottom_menu"
+                app:dividerThickness="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dividerColor="@color/divider" />
+        <RelativeLayout
+                android:minHeight="70dp"
+                android:background="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/book"
+                    android:text="@string/Reserve"
+                    android:fontFamily="@font/ralewaybold"
+                    android:textAllCaps="false"
+                    android:textSize="18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/crane_purple_700"
+                    android:layout_marginHorizontal="25dp" />
+        </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </layout>

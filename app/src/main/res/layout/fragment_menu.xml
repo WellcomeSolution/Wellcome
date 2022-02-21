@@ -8,14 +8,14 @@
     <TextView
             android:id="@+id/menu"
             android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="25dp"
+            android:layout_marginHorizontal="30dp"
             android:textColor="@color/black"
             android:fontFamily="@font/ralewaybold"
             android:textSize="25dp"
             android:layout_marginVertical="30dp"
             android:text="@string/Menu"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     <LinearLayout
             android:orientation="vertical"
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <TextView
-                android:layout_marginHorizontal="25dp"
+                android:layout_marginHorizontal="30dp"
                 android:textColor="@color/grey_400"
                 android:textAllCaps="true"
                 android:fontFamily="@font/ralewaybold"

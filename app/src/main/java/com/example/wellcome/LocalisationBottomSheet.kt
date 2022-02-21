@@ -131,8 +131,8 @@ class LocalisationBottomSheet : BaseBottomSheet() {
     ): View {
         val binding = LocalisationBottomSheetContentBinding
             .inflate(inflater, container, false)
-        binding.tripLocalisation.viewModel = viewModel
-        binding.tripLocalisation.lifecycleOwner = this
+        //binding.tripLocalisation.viewModel = viewModel
+        //binding.tripLocalisation.lifecycleOwner = this
         return binding.root
     }
 

@@ -1,6 +1,5 @@
 package com.example.wellcome.repository
 
-import android.R.attr
 import android.graphics.Bitmap
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.encodeToStream
@@ -9,7 +8,6 @@ import java.io.DataOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.concurrent.Executor
-import android.R.attr.bitmap
 import com.example.services.*
 
 
@@ -18,7 +16,7 @@ class TripRepository(private val executor: Executor,
     private val baseUrl = "http://192.168.1.12:5229/api/hosts"
     private val presentersFilterUrl = "$baseUrl/presenters/filter"
     private val hostDetailsUrl = "/details"
-    private val favoriteUrl = "$baseUrl/favorite"
+    private val AddRemoveFavoriteUrl = "$baseUrl/favorite"
     private val uploadImageUrl = "$baseUrl/image"
 
     fun getHostPresenters(pattern:TripPattern,
@@ -111,6 +109,62 @@ class TripRepository(private val executor: Executor,
         }
     }
 
+    fun getFavorites(email:String,
+                   callback:(Result<ArrayList<HostPresenter>>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeFavoritesRequest(email)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
+    fun sendHostReservation(dto:HostReservationDto,
+                            callback:(Result<HostReservationDto>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeHostReservationRequest(dto)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
+    private fun makeHostReservationRequest(dto: HostReservationDto) : Result<HostReservationDto>{
+        val uri =  URIBuilder("$baseUrl/reservation")
+        val url = URL(uri.toString())
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "POST"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            doOutput = true
+            Json.encodeToStream(dto, outputStream)
+            return Result.Success(responseParser.parseToHostRequest(inputStream))
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
+    private fun makeFavoritesRequest(email:String) : Result<ArrayList<HostPresenter>>{
+        val uri =  URIBuilder("$baseUrl/$email/favorites")
+        val url = URL(uri.toString())
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "GET"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            return Result.Success(responseParser.parseToHostPresenters(inputStream))
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
     private fun makeCreateHostRequest(request:HostRequest) : Result<HostPresenter>{
         val url = URL(baseUrl)
         (url.openConnection() as? HttpURLConnection)?.run {
@@ -161,7 +215,7 @@ class TripRepository(private val executor: Executor,
     }
 
     private fun makeRemoveFavoriteRequest(request:FavoriteRequest) : Result<Boolean>{
-        val url = URL(favoriteUrl)
+        val url = URL(AddRemoveFavoriteUrl)
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "DELETE"
             setRequestProperty("Content-Type", "application/json; charset=utf-8")
@@ -174,7 +228,7 @@ class TripRepository(private val executor: Executor,
     }
 
     private fun makeSetFavoriteRequest(request:FavoriteRequest) : Result<Nothing>{
-        val url = URL(favoriteUrl)
+        val url = URL(AddRemoveFavoriteUrl)
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "POST"
             setRequestProperty("Content-Type", "application/json; charset=utf-8")
@@ -187,7 +241,7 @@ class TripRepository(private val executor: Executor,
     }
 
     private fun makeHostDetailsRequest(uuid:String) : Result<HostDetails>{
-        val uri =  URIBuilder("/$uuid${hostDetailsUrl}")
+        val uri =  URIBuilder("$baseUrl/$uuid${hostDetailsUrl}")
         val url = URL(uri.toString())
         (url.openConnection() as? HttpURLConnection)?.run {
             requestMethod = "GET"

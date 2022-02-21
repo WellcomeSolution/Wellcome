@@ -10,18 +10,26 @@
             android:name="com.example.wellcome.ServicesFragment"
             android:label="@string/services"
             tools:layout="@layout/fragment_services" >
-        <action
-                android:id="@+id/navigate_to_menu"
-                app:destination="@id/menu" />
     </fragment>
 
     <fragment
-            android:id="@+id/menu"
-            android:name="com.example.wellcome.MenuFragment"
-            android:label="@string/menu"
-            tools:layout="@layout/fragment_menu" >
-        <action
-                android:id="@+id/navigate_to_services"
-                app:destination="@id/fragment_services" />
+            android:id="@+id/fragment_favorites"
+            android:name="com.example.wellcome.FavoritesHostFragment"
+            android:label="@string/favorites"
+            tools:layout="@layout/fragment_favorites_host" >
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_profile"
+            android:name="com.example.wellcome.ProfileFragment"
+            android:label="@string/profile"
+            tools:layout="@layout/fragment_profile" >
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_login_menu"
+            android:name="com.example.wellcome.LogInMenuFragment"
+            android:label="@string/LoginMenu"
+            tools:layout="@layout/fragment_log_in_menu" >
     </fragment>
 </navigation>

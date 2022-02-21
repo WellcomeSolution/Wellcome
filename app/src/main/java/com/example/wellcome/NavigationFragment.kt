@@ -5,26 +5,41 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import com.example.wellcome.data.UserViewModel
 import kotlinx.android.synthetic.main.fragment_navigation.*
 
 class NavigationFragment : Fragment() {
+    private val userViewModel: UserViewModel by activityViewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val nav = Navigation.findNavController(requireActivity(), R.id.nav_fragment)
+
+        if(userViewModel.isLogIn.value!!) {
+            bottom_navigation.menu.findItem(R.id.page_3).isVisible = true
+            bottom_navigation.menu.findItem(R.id.page_4).isVisible = false
+        }
+        else {
+            bottom_navigation.menu.findItem(R.id.page_3).isVisible = false
+            bottom_navigation.menu.findItem(R.id.page_4).isVisible = true
+        }
+
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.page_1 -> {
-                    val nav = Navigation.findNavController(requireActivity(), R.id.nav_services_fragment)
-                    val directions = ServicesFragmentDirections.navigateToMenu()
-                    nav.navigate(directions)
+                    nav.navigate(R.id.fragment_services)
                 }
                 R.id.page_2 -> {
-                    // Respond to navigation item 2 reselection
+                    nav.navigate(R.id.fragment_favorites)
                 }
                 R.id.page_3 -> {
-                    val nav = Navigation.findNavController(requireActivity(), R.id.nav_services_fragment)
-                    val directions = ServicesFragmentDirections.navigateToMenu()
-                    nav.navigate(directions)
+                    nav.navigate(R.id.fragment_profile)
+                }
+                R.id.page_4 -> {
+                    nav.navigate(R.id.fragment_login_menu)
                 }
             }
             true

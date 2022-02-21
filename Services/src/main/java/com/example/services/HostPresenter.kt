@@ -3,6 +3,7 @@ package com.example.services
 import android.graphics.Bitmap
 import kotlinx.serialization.Serializable
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.json.Json
 
 @Serializable
 class HostPresenter(
@@ -13,17 +14,17 @@ class HostPresenter(
     @SerializedName("Uuid")
     val uuid: String,
     @SerializedName("FirstName")
-    val firstName: String,
+    val firstName: String? = null,
     @SerializedName("LastName")
-    val lastName: String,
+    val lastName: String? = null,
     @SerializedName("City")
-    val city: String,
+    val city: String? = null,
     @SerializedName("Country")
-    val country: String,
+    val country: String? = null,
     @SerializedName("Longitude")
-    val longitude: Double,
+    val longitude: Double? = null,
     @SerializedName("Latitude")
-    val latitude: Double,
+    val latitude: Double? = null,
     @SerializedName("PictureUrl")
     val pictureUrl: String
 )
