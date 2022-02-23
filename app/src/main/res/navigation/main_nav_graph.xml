@@ -4,7 +4,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nav_graph"
         app:startDestination="@id/navigationFragment">
-
     <fragment
             android:id="@+id/navigationFragment"
             android:name="com.example.wellcome.NavigationFragment"
@@ -16,6 +15,15 @@
         <action
                 android:id="@+id/navigate_to_add_address"
                 app:destination="@id/address_from" />
+        <action
+            android:id="@+id/navigate_to_lessons"
+            app:destination="@id/lessonFragment" />
+        <action
+            android:id="@+id/navigate_to_trips"
+            app:destination="@id/TripFragment" />
+        <action
+            android:id="@+id/navigate_to_helps"
+            app:destination="@id/HelpFragment" />
     </fragment>
 
     <fragment
@@ -27,7 +35,24 @@
                 android:id="@+id/navigate_to_host_details"
                 app:destination="@id/hostDetails" />
     </fragment>
-
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.example.wellcome.LessonFragment"
+        android:label="@string/lesson_fragment"
+        tools:layout="@layout/fragment_lesson" >
+    </fragment>
+    <fragment
+        android:id="@+id/HelpFragment"
+        android:name="com.example.wellcome.HelpFragment"
+        android:label="help_fragment"
+        tools:layout="@layout/fragment_help" >
+    </fragment>
+    <fragment
+        android:id="@+id/TripFragment"
+        android:name="com.example.wellcome.TripFragment"
+        android:label="@string/trip_fragment"
+        tools:layout="@layout/fragment_trip" >
+    </fragment>
     <fragment
             android:id="@+id/hostDetails"
             android:name="com.example.wellcome.HostDetailsFragment"

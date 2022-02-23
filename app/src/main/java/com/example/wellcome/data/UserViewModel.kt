@@ -16,7 +16,6 @@ class UserViewModel:ViewModel() {
     val password = MutableLiveData<String>(null)
     val isLogIn = MutableLiveData(false)
     val isLoading = MutableLiveData(false)
-
     fun register(){
         isLoading.postValue(true)
         accountRepository.registerAccount(
