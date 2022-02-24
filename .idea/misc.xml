@@ -3,6 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/activity_main.xml" value="0.14629629629629629" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/divider.xml" value="0.109375" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/fragment_help.xml" value="0.215625" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/fragment_host_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/fragment_lesson.xml" value="0.2421875" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/fragment_manage_account.xml" value="0.4" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/fragment_menu.xml" value="0.109375" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/fragment_navigation.xml" value="0.1" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/fragment_services.xml" value="0.2421875" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/fragment_trip.xml" value="0.2421875" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/localisation_bottom_sheet_content.xml" value="0.109375" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/services_top_bar.xml" value="0.264" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/sign_up_form_bottom_sheet_content.xml" value="0.536" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/top_app_bar.xml" value="0.4" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/layout/trip_dates.xml" value="0.1" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/menu/bottom_nav_menu.xml" value="0.264" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/menu/navigation_drawer.xml" value="0.1" />
+        <entry key="..\:/Etude/S2/projet/Wellcome/app/src/main/res/menu/top_app_bar.xml" value="0.1" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_add_20.xml" value="0.14351851851851852" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_add_24.xml" value="0.14351851851851852" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_add_circle_outline_24.xml" value="0.14351851851851852" />
@@ -92,5 +110,5 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="17" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="17" project-jdk-type="JavaSDK" />
 </project>

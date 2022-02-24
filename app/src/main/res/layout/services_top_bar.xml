@@ -1,32 +1,34 @@
 <com.google.android.material.tabs.TabLayout android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_gravity="start"
-        android:paddingTop="8dp"
-        android:paddingBottom="1.5dp"
-        app:tabTextAppearance="@style/TabTextAppearence"
-        app:tabRippleColor="@null"
-        app:tabIndicatorColor="@android:color/transparent"
-        app:tabTextColor="@color/white"
-        android:background="@color/crane_purple_800"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    android:layout_height="?attr/actionBarSize"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="start"
+    android:paddingTop="8dp"
+    android:paddingBottom="1.5dp"
+    app:tabTextAppearance="@style/TabTextAppearence"
+    app:tabRippleColor="@null"
+    app:tabIndicatorColor="@android:color/transparent"
+    android:id="@+id/top_layout"
+    app:tabTextColor="@color/white"
+    android:background="@color/crane_purple_800"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Trip"
-            />
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_bar_trip"
+        android:text="Trip"
+        />
     <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lesson"
-            />
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_bar_lesson"
+        android:text="Lesson"
+        />
     <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Help"
-            />
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_bar_help"
+        android:text="Help"
+        />
 </com.google.android.material.tabs.TabLayout>
