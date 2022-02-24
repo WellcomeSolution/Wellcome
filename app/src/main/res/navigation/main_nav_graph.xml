@@ -16,6 +16,9 @@
         <action
                 android:id="@+id/navigate_to_add_address"
                 app:destination="@id/address_from" />
+        <action
+                android:id="@+id/navigate_to_manage_account"
+                app:destination="@id/manage_account_from" />
     </fragment>
 
     <fragment
@@ -84,6 +87,13 @@
         <action
                 android:id="@+id/navigate_to_navigation_fragment"
                 app:destination="@id/navigationFragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/manage_account_from"
+            android:name="com.example.wellcome.ManageAccountFragment"
+            android:label="@string/manage_account"
+            tools:layout="@layout/fragment_manage_account" >
     </fragment>
 
 

@@ -222,7 +222,7 @@ class TripRepository(private val executor: Executor,
             setRequestProperty("Accept", "application/json")
             doOutput = true
             Json.encodeToStream(request, outputStream)
-            return Result.SuccessNoContent(true)
+            return Result.SuccessNoContent(this.responseCode)
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))
     }
@@ -235,7 +235,7 @@ class TripRepository(private val executor: Executor,
             setRequestProperty("Accept", "application/json")
             doOutput = true
             Json.encodeToStream(request, outputStream)
-            return Result.SuccessNoContent(true)
+            return Result.SuccessNoContent(this.responseCode)
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))
     }

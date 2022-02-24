@@ -2,6 +2,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="viewModel" type="com.example.wellcome.data.UserViewModel"/>
+        <import type="android.view.View"/>
     </data>
     <RelativeLayout
             android:id="@+id/sign_up_container"
@@ -14,8 +15,21 @@
             app:title='@{@string/SignUp}'
             android:id="@+id/top_bar"/>
 
-        <ScrollView
+        <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:layout_below="@id/top_bar"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.INVISIBLE}"
+                android:id="@+id/progress_bar"
+                android:layout_width="match_parent"
+                app:indicatorColor="@color/crane_purple_700"
+                app:indeterminateAnimationType="disjoint"
+                app:trackColor="@android:color/transparent"
+                app:trackCornerRadius="4dp"
+                app:showAnimationBehavior="inward"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
+
+        <ScrollView
+                android:layout_below="@id/progress_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <LinearLayout
@@ -264,9 +278,10 @@
                     android:layout_below="@id/credentials"
                     android:textColor="@color/white"
                     android:layout_marginHorizontal="25dp"
-                    android:id="@+id/send_reservation_button"
+                    android:id="@+id/sign_up_button"
                     app:backgroundTint="@color/crane_purple_700"
                     android:textAllCaps="false"
+                    android:onClick="@{() -> viewModel.register()}"
                     android:textSize="17dp"
                     android:fontFamily="@font/ralewaybold"
                     android:text="@string/Continue"

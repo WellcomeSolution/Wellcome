@@ -13,11 +13,7 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-        create_new_trip.setOnClickListener{
-            val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-            val directions = NavigationFragmentDirections.navigateToAddAddress()
-            nav.navigate(directions)
-        }
+
     }
 
     override fun onCreateView(

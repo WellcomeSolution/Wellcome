@@ -25,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_trip_configuration_modify.*
 import kotlinx.android.synthetic.main.localisation_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.modify_trip_search_bottom_sheet_content.*
 import kotlinx.android.synthetic.main.sign_up_form_bottom_sheet_content.*
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.time.Duration.Companion.days
 
@@ -38,6 +39,14 @@ class SignUpFormBottomSheet : BaseBottomSheet() {
         birthdate_edit_text.setOnClickListener{
             showDatePicker()
         }
+
+        userViewModel.isLoading.observe(viewLifecycleOwner, { isLoading : Boolean ->
+            if(userViewModel.isLogIn.value!!) {
+                val nav = Navigation.findNavController(requireActivity(), R.id.nav_fragment)
+                nav.navigate(R.id.fragment_login_menu)
+                this.dismiss()
+            }
+        })
     }
 
     private fun showDatePicker(){
@@ -50,8 +59,8 @@ class SignUpFormBottomSheet : BaseBottomSheet() {
         datePicker.addOnPositiveButtonClickListener {
             val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
             calendar.time = Date(it)
-            userViewModel.birthDate.value = "${calendar.get(Calendar.DAY_OF_MONTH)}- " +
-                    "${calendar.get(Calendar.MONTH) + 1}-${calendar.get(Calendar.YEAR)}"
+            val simpleFormat = SimpleDateFormat("dd/MM/yyyy")
+            userViewModel.birthDate.value = simpleFormat.format(calendar.time)
         }
 
         datePicker.show(childFragmentManager, datePicker.tag)

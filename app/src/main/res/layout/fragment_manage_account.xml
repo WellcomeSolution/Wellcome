@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable name="viewModel" type="com.example.wellcome.data.UserViewModel"/>
+        <import type="android.view.View"/>
+    </data>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -43,7 +47,8 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/ralewaymedium"
                         android:textSize="17dp"
-                        android:text="Rayhane"
+                        android:hint="Enter first name"
+                        android:text="@={viewModel.firstName}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -68,7 +73,8 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/ralewaymedium"
                         android:textSize="17dp"
-                        android:text="JEBBARI"
+                        android:hint="Enter last name"
+                        android:text="@={viewModel.lastName}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -89,11 +95,14 @@
                         android:layout_height="wrap_content" />
 
                 <EditText
+                        android:focusableInTouchMode="false"
+                        android:id="@+id/edit_text_gender"
                         android:background="@null"
                         android:textColor="@color/black"
                         android:fontFamily="@font/ralewaymedium"
                         android:textSize="17dp"
-                        android:text="JEBBARI"
+                        android:hint="Select gender"
+                        android:text="@={viewModel.gender}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -118,7 +127,8 @@
                         android:textColor="@color/black"
                         android:fontFamily="@font/ralewaymedium"
                         android:textSize="17dp"
-                        android:text="jeb@gmail.com"
+                        android:hint="Select email"
+                        android:text="@={viewModel.email}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -139,11 +149,12 @@
                         android:layout_height="wrap_content" />
 
                 <EditText
+                        android:hint="Select phone numbers"
                         android:background="@null"
                         android:textColor="@color/black"
                         android:fontFamily="@font/ralewaymedium"
                         android:textSize="17dp"
-                        android:text="06683189800"
+                        android:text="@={viewModel.phone}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
             </LinearLayout>

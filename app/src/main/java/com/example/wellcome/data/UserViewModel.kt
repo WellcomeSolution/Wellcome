@@ -8,30 +8,53 @@ import com.example.wellcome.repository.*
 class UserViewModel:ViewModel() {
     private val accountRepository = AccountRepository(Executor(), AccountResponseParser())
 
-    val email = MutableLiveData("jebray@gmail.com")
-    val phone = MutableLiveData("0668319800")
-    val birthDate = MutableLiveData<String>(null)
-    val firstName = MutableLiveData<String>(null)
-    val lastName = MutableLiveData<String>(null)
-    val password = MutableLiveData<String>(null)
+    val uuid = MutableLiveData("")
+    val email = MutableLiveData("")
+    val phone = MutableLiveData("")
+    val birthDate = MutableLiveData<String>("")
+    val firstName = MutableLiveData<String>("")
+    val lastName = MutableLiveData<String>("")
+    val password = MutableLiveData<String>("")
+    val gender = MutableLiveData<String>(null)
     val isLogIn = MutableLiveData(false)
     val isLoading = MutableLiveData(false)
+
+    fun update(){
+        isLoading.postValue(true)
+        accountRepository.updateAccount(
+            AccountDto(
+                email.value!!,
+                password.value!!,
+                firstName.value!!,
+                lastName.value!!,
+                gender.value!!,
+                birthDate.value!!,
+                phone.value!!
+            )) { result ->
+            when(result){
+                is Result.Success<String> -> {
+                    isLogIn.postValue(true)
+                    isLoading.postValue(false)
+                }
+            }
+        }
+    }
 
     fun register(){
         isLoading.postValue(true)
         accountRepository.registerAccount(
             AccountDto(
                 email.value!!,
+                password.value!!,
                 firstName.value!!,
                 lastName.value!!,
-                password.value!!,
                 birthDate.value!!,
                 phone.value!!
             )) { result ->
             when(result){
                 is Result.Success<String> -> {
-                    isLoading.postValue(false)
                     isLogIn.postValue(true)
+                    isLoading.postValue(false)
                 }
             }
         }
@@ -40,21 +63,16 @@ class UserViewModel:ViewModel() {
     fun logIn(){
         isLoading.postValue(true)
         accountRepository.logIn(
-            AccountDto(
-                email.value!!,
-                null,
-                null,
-                password.value!!,
-                null,
-                null)) { result ->
+            AccountDto(email.value!!, password.value!!)) { result ->
             when(result){
                 is Result.Success<AccountDto> -> {
                     firstName.postValue(result.data.firstName)
                     lastName.postValue(result.data.lastName)
                     birthDate.postValue(result.data.birthDate)
                     phone.postValue(result.data.phone)
-                    isLoading.postValue(false)
+                    gender.postValue(result.data.gender)
                     isLogIn.postValue(true)
+                    isLoading.postValue(false)
                 }
             }
         }

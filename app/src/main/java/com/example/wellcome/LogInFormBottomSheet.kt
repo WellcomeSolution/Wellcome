@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.FrameLayout
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
+import com.example.services.HostPresenter
 import com.example.wellcome.data.UserViewModel
 import com.example.wellcome.databinding.LocalisationBottomSheetContentBinding
 import com.example.wellcome.databinding.LogInFormBottomSheetContentBinding
@@ -31,6 +33,14 @@ class LogInFormBottomSheet : BaseBottomSheet() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initLayout()
+
+        userViewModel.isLoading.observe(viewLifecycleOwner, { isLoading : Boolean ->
+            if(userViewModel.isLogIn.value!!) {
+                val nav = Navigation.findNavController(requireActivity(), R.id.nav_fragment)
+                nav.navigate(R.id.fragment_profile)
+                this.dismiss()
+            }
+        })
     }
 
     private fun initLayout(){
@@ -68,6 +78,7 @@ class LogInFormBottomSheet : BaseBottomSheet() {
         val binding = LogInFormBottomSheetContentBinding
             .inflate(inflater, container, false)
         binding.viewModel = userViewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 
