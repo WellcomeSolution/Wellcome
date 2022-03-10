@@ -92,4 +92,26 @@ class UserViewModel:ViewModel() {
             }
         }
     }
+
+    fun declineReservation(uuid:String){
+        isLoading.postValue(true)
+        tripRepository.deleteReservation(uuid!!) { result ->
+            when(result){
+                is Result.Success<Boolean> -> {
+                    isLoading.postValue(false)
+                }
+            }
+        }
+    }
+
+    fun acceptReservation(uuid:String){
+        isLoading.postValue(true)
+        tripRepository.acceptReservation(uuid!!) { result ->
+            when(result){
+                is Result.Success<Boolean> -> {
+                    isLoading.postValue(false)
+                }
+            }
+        }
+    }
 }

@@ -24,13 +24,13 @@ import android.os.Handler
 import android.os.Looper
 import com.example.services.HostReservationPresenterDto
 import com.example.wellcome.data.FavoritesHostViewModel
+import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.fragment_host_details.*
 
 
-class ReservationsAdapter(private val dataSet: ArrayList<HostReservationPresenterDto>) :
+class ReservationsAdapter(private val dataSet: ArrayList<HostReservationPresenterDto>, private val userViewModel: UserViewModel) :
     RecyclerView.Adapter<ReservationsAdapter.ViewHolder>() {
     private val hostPicture = "http://10.0.2.2:5229"
-    var onItemClick: ((View, HostPresenter) -> Unit)? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val firstName: TextView = view.findViewById(R.id.first_name)
@@ -38,6 +38,8 @@ class ReservationsAdapter(private val dataSet: ArrayList<HostReservationPresente
         val date: TextView = view.findViewById(R.id.date)
         val hostTitle:TextView = view.findViewById(R.id.hostTitle)
         val profilePhoto:ImageView = view.findViewById(R.id.profile_image)
+        val acceptButton:MaterialButton = view.findViewById(R.id.accept)
+        val declineButton:MaterialButton = view.findViewById(R.id.decline)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -55,6 +57,18 @@ class ReservationsAdapter(private val dataSet: ArrayList<HostReservationPresente
         viewHolder.hostTitle.text = dataSet[position].hostTitle
         val pictureUrl = "${hostPicture}${dataSet[position].applicantPhoto}"
         Picasso.get().load(pictureUrl).into(viewHolder.profilePhoto)
+
+        viewHolder.acceptButton.setOnClickListener{
+            userViewModel.acceptReservation(dataSet[position].uuid!!)
+            dataSet.remove(dataSet[position])
+            this.notifyDataSetChanged()
+        }
+
+        viewHolder.declineButton.setOnClickListener{
+            userViewModel.declineReservation(dataSet[position].uuid!!)
+            dataSet.remove(dataSet[position])
+            this.notifyDataSetChanged()
+        }
     }
 
     override fun getItemCount() = dataSet.size

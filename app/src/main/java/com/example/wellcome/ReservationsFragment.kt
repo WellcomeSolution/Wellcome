@@ -38,7 +38,7 @@ class ReservationsFragment : Fragment() {
         userViewModel.loadReservations()
 
         userViewModel.reservations.observe(viewLifecycleOwner, { reservations : ArrayList<HostReservationPresenterDto> ->
-            reservationsAdapter = ReservationsAdapter(userViewModel.reservations.value!!)
+            reservationsAdapter = ReservationsAdapter(userViewModel.reservations.value!!, userViewModel)
 
             recyclerView.apply {
                 layoutManager = LinearLayoutManager(context)

@@ -154,6 +154,36 @@ class TripRepository(private val executor: Executor,
         }
     }
 
+    fun acceptReservation(uuid: String,
+                          callback:(Result<Boolean>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeAcceptReservationRequest(uuid)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
+    fun deleteReservation(uuid: String,
+                        callback:(Result<Boolean>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeRemoveReservationRequest(uuid)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
     private fun makeHostReservationRequest(dto: HostReservationDto) : Result<HostReservationDto>{
         val uri =  URIBuilder("$baseUrl/reservation")
         val url = URL(uri.toString())
@@ -225,6 +255,28 @@ class TripRepository(private val executor: Executor,
             request.flush()
             request.close()
             return Result.Success(responseParser.parseToFileUploadResult(inputStream))
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
+    private fun makeAcceptReservationRequest(uuid: String) : Result<Boolean>{
+        val url = URL("$baseUrl/$uuid/reservation/accept")
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "PUT"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            return Result.SuccessNoContent(this.responseCode)
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
+    private fun makeRemoveReservationRequest(uuid: String) : Result<Boolean>{
+        val url = URL("$baseUrl/$uuid/reservation/delete")
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "REMOVE"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            return Result.SuccessNoContent(this.responseCode)
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))
     }

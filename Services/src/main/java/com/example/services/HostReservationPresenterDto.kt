@@ -16,5 +16,7 @@ class HostReservationPresenterDto(
     @SerializedName("HostTitle")
     var hostTitle: String? = null,
     @SerializedName("ApplicantPhoto")
-    var applicantPhoto: String? = null
+    var applicantPhoto: String? = null,
+    @SerializedName("Uuid")
+    var uuid: String? = null
 )

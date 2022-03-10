@@ -60,6 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                 <Button
+                        android:id="@+id/accept"
                         android:backgroundTint="@color/crane_purple_700"
                         android:includeFontPadding="false"
                         android:fontFamily="@font/ralewaysemibold"
@@ -70,6 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"/>
                 <com.google.android.material.button.MaterialButton
+                        android:id="@+id/decline"
                         app:strokeWidth="1dp"
                         app:strokeColor="@color/crane_purple_700"
                         android:textColor="@color/crane_purple_700"
