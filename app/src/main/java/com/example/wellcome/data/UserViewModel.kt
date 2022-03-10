@@ -3,10 +3,12 @@ package com.example.wellcome.data
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.services.AccountDto
+import com.example.services.HostReservationPresenterDto
 import com.example.wellcome.repository.*
 
 class UserViewModel:ViewModel() {
     private val accountRepository = AccountRepository(Executor(), AccountResponseParser())
+    private val tripRepository = TripRepository(Executor(), TripResponseParser())
 
     val uuid = MutableLiveData("")
     val email = MutableLiveData("")
@@ -18,6 +20,7 @@ class UserViewModel:ViewModel() {
     val gender = MutableLiveData<String>(null)
     val isLogIn = MutableLiveData(false)
     val isLoading = MutableLiveData(false)
+    val reservations = MutableLiveData(ArrayList<HostReservationPresenterDto>())
 
     fun update(){
         isLoading.postValue(true)
@@ -72,6 +75,18 @@ class UserViewModel:ViewModel() {
                     phone.postValue(result.data.phone)
                     gender.postValue(result.data.gender)
                     isLogIn.postValue(true)
+                    isLoading.postValue(false)
+                }
+            }
+        }
+    }
+
+    fun loadReservations(){
+        isLoading.postValue(true)
+        tripRepository.getReservations(email.value!!) { result ->
+            when(result){
+                is Result.Success<ArrayList<HostReservationPresenterDto>> -> {
+                    reservations.postValue(result.data)
                     isLoading.postValue(false)
                 }
             }

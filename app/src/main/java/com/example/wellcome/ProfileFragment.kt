@@ -25,6 +25,12 @@ class ProfileFragment : Fragment() {
             val directions = NavigationFragmentDirections.navigateToAddAddress()
             nav.navigate(directions)
         }
+
+        view_reservations.setOnClickListener{
+            val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+            val directions = NavigationFragmentDirections.navigateToViewReservations()
+            nav.navigate(directions)
+        }
     }
 
     override fun onCreateView(

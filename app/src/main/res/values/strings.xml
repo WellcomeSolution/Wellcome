@@ -96,23 +96,23 @@
     <string name="yes">OK</string>
     <string name="no">Cancel</string>
     <!-- menu of lesson -->
-  <string name="help_type" translatable="false">Select Type of help</string>
+    <string name="help_type" translatable="false">Select Type of help</string>
     <string name="lesson_type" translatable="false">Select Type of lesson</string>
     <string name="type_informatique" translatable="false">informatique</string>
     <string name="type_informatique_details" translatable="false">lesson of informatique</string>
-        <string name="type_marketing" translatable="false">marketing</string>
+    <string name="type_marketing" translatable="false">marketing</string>
     <string name="type_marketing_details" translatable="false">lesson of marketing</string>
-        <string name="type_music" translatable="false">music</string>
+    <string name="type_music" translatable="false">music</string>
     <string name="type_music_details" translatable="false">lesson of music</string>
 
-        <string name="lesson_duration" translatable="false">Select duration of lesson</string>
+    <string name="lesson_duration" translatable="false">Select duration of lesson</string>
     <string name="duration_3" translatable="false">long</string>
     <string name="duration_3_details" translatable="false">More than 72 hours</string>
-        <string name="duration_2" translatable="false">normal</string>
+    <string name="duration_2" translatable="false">normal</string>
     <string name="duration_2_details" translatable="false">36 - 72 hours</string>
-        <string name="duration_1" translatable="false">short</string>
+    <string name="duration_1" translatable="false">short</string>
     <string name="duration_1_details" translatable="false">less than 36 hours</string>
-     <!-- menu de lesson end-->
+    <!-- menu de lesson end-->
     <!-- TODO: Remove or change this placeholder text -->
     <string name="host_restrictions" translatable="false">Select Travelers</string>
     <string name="dates" translatable="false">Select Dates</string>
@@ -222,6 +222,8 @@
     <string name="language">Language</string>
     <string name="save">Save</string>
     <string name="personal_information">Personal information</string>
-  <string name="manage_profile"><u>Manage profile</u></string>
+    <string name="manage_profile"><u>Manage profile</u></string>
     <string name="profile">Profile</string>
+    <string name="reservations">Reservations</string>
+  <string name="view_reservations">View reservations</string>
 </resources>

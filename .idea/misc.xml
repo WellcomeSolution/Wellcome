@@ -29,6 +29,7 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_flight_24.xml" value="0.14351851851851852" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_home_20.xml" value="0.2994791666666667" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/baseline_mark_email_read_24_resized.xml" value="0.2734375" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/button_border.xml" value="0.2708333333333333" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/dotted.xml" value="0.2361111111111111" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/edit_text_corners.xml" value="0.2453125" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/drawable/outline_accessibility_new_24.xml" value="0.278125" />
@@ -69,7 +70,7 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_favorites_host.xml" value="0.18" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_host_details.xml" value="0.176" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_host_request.xml" value="0.25" />
-        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_hosts.xml" value="0.1" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_hosts.xml" value="0.264" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_log_in_menu.xml" value="0.264" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_manage_account.xml" value="0.264" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_menu.xml" value="0.33" />
@@ -77,6 +78,7 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_modify_trip_restrictions.xml" value="0.1644021739130435" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_navigation.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_reservations.xml" value="0.1" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_search_assistance.xml" value="0.1601123595505618" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_search_lesson.xml" value="0.25" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/fragment_services.xml" value="0.25" />
@@ -91,6 +93,7 @@
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/modal_bottom_sheet_content.xml" value="0.25" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/modify_trip_search_bottom_sheet_content.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/request_list_item_single_line.xml" value="0.4" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/restrictions_bottom_sheet_content.xml" value="0.2296875" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/services_top_bar.xml" value="0.18" />
         <entry key="..\:/Users/Rayhane/Documents/Java projects/Wellcome/app/src/main/res/layout/sign_up_form_bottom_sheet_content.xml" value="0.264" />

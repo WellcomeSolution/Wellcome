@@ -139,6 +139,21 @@ class TripRepository(private val executor: Executor,
         }
     }
 
+    fun getReservations(email: String,
+                            callback:(Result<ArrayList<HostReservationPresenterDto>>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeGetReservationsRequest(email)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
     private fun makeHostReservationRequest(dto: HostReservationDto) : Result<HostReservationDto>{
         val uri =  URIBuilder("$baseUrl/reservation")
         val url = URL(uri.toString())
@@ -210,6 +225,17 @@ class TripRepository(private val executor: Executor,
             request.flush()
             request.close()
             return Result.Success(responseParser.parseToFileUploadResult(inputStream))
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
+    private fun makeGetReservationsRequest(email:String) : Result<ArrayList<HostReservationPresenterDto>>{
+        val url = URL("$baseUrl/$email/reservation")
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "GET"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            return Result.Success(responseParser.parseToHostReservationPresenter(inputStream))
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))
     }
