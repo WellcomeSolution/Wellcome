@@ -13,6 +13,13 @@
             android:icon="@drawable/baseline_favorite_24"
             android:title="@string/saved"/>
 
+     <item
+             android:iconTint="@color/crane_purple_800"
+             android:id="@+id/page_5"
+             android:enabled="true"
+             android:icon="@drawable/baseline_luggage_24"
+             android:title="@string/trips"/>
+
     <item
             android:iconTint="@color/crane_purple_800"
             android:id="@+id/page_3"

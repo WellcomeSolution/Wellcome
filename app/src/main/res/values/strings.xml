@@ -225,5 +225,6 @@
     <string name="manage_profile"><u>Manage profile</u></string>
     <string name="profile">Profile</string>
     <string name="reservations">Reservations</string>
-  <string name="view_reservations">View reservations</string>
+    <string name="view_reservations">View reservations</string>
+    <string name="IncomingTrips">My Trips</string>
 </resources>

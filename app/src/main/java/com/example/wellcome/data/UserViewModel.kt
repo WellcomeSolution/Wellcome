@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.services.AccountDto
 import com.example.services.HostReservationPresenterDto
+import com.example.services.IncomingTripDto
 import com.example.wellcome.repository.*
 
 class UserViewModel:ViewModel() {
@@ -11,16 +12,17 @@ class UserViewModel:ViewModel() {
     private val tripRepository = TripRepository(Executor(), TripResponseParser())
 
     val uuid = MutableLiveData("")
-    val email = MutableLiveData("")
+    val email = MutableLiveData("jebray@gmail.com")
     val phone = MutableLiveData("")
     val birthDate = MutableLiveData<String>("")
     val firstName = MutableLiveData<String>("")
     val lastName = MutableLiveData<String>("")
     val password = MutableLiveData<String>("")
     val gender = MutableLiveData<String>(null)
-    val isLogIn = MutableLiveData(false)
+    val isLogIn = MutableLiveData(true)
     val isLoading = MutableLiveData(false)
     val reservations = MutableLiveData(ArrayList<HostReservationPresenterDto>())
+    val incomingTrips = MutableLiveData(ArrayList<IncomingTripDto>())
 
     fun update(){
         isLoading.postValue(true)
@@ -109,6 +111,18 @@ class UserViewModel:ViewModel() {
         tripRepository.acceptReservation(uuid!!) { result ->
             when(result){
                 is Result.Success<Boolean> -> {
+                    isLoading.postValue(false)
+                }
+            }
+        }
+    }
+
+    fun getIncomingTrip(email:String){
+        isLoading.postValue(true)
+        tripRepository.getIncomingTrips(email) { result ->
+            when(result){
+                is Result.Success<ArrayList<IncomingTripDto>> -> {
+                    incomingTrips.postValue(result.data)
                     isLoading.postValue(false)
                 }
             }

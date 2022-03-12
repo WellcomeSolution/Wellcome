@@ -184,6 +184,33 @@ class TripRepository(private val executor: Executor,
         }
     }
 
+    fun getIncomingTrips(email: String,
+                          callback:(Result<ArrayList<IncomingTripDto>>) -> Unit
+    ){
+        executor.execute{
+            try {
+                val response = makeGetIncomingTripRequest(email)
+                callback(response)
+            }
+            catch (e: java.lang.Exception){
+                val errorResult = Result.Error(e)
+                callback(errorResult)
+            }
+        }
+    }
+
+    private fun makeGetIncomingTripRequest(email: String) : Result<ArrayList<IncomingTripDto>>{
+        val uri =  URIBuilder("$baseUrl/${email}/reservation/incoming")
+        val url = URL(uri.toString())
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "GET"
+            setRequestProperty("Content-Type", "application/json; charset=utf-8")
+            setRequestProperty("Accept", "application/json")
+            return Result.Success(responseParser.parseToIncomingTrip(inputStream))
+        }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
+    }
+
     private fun makeHostReservationRequest(dto: HostReservationDto) : Result<HostReservationDto>{
         val uri =  URIBuilder("$baseUrl/reservation")
         val url = URL(uri.toString())
@@ -273,7 +300,7 @@ class TripRepository(private val executor: Executor,
     private fun makeRemoveReservationRequest(uuid: String) : Result<Boolean>{
         val url = URL("$baseUrl/$uuid/reservation/delete")
         (url.openConnection() as? HttpURLConnection)?.run {
-            requestMethod = "REMOVE"
+            requestMethod = "DELETE"
             setRequestProperty("Content-Type", "application/json; charset=utf-8")
             setRequestProperty("Accept", "application/json")
             return Result.SuccessNoContent(this.responseCode)

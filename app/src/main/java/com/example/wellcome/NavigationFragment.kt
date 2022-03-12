@@ -41,6 +41,9 @@ class NavigationFragment : Fragment() {
                 R.id.page_4 -> {
                     nav.navigate(R.id.fragment_login_menu)
                 }
+                R.id.page_5 -> {
+                    nav.navigate(R.id.fragment_trips)
+                }
             }
             true
         }

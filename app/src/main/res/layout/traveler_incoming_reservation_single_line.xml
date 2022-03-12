@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical">
+    <LinearLayout
+            android:layout_marginVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:minHeight="70dp">
+        <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/host_picture"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="8dp" />
+        <LinearLayout
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_marginHorizontal="15dp"
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="Masu Restaurant"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/ralewaysemibold" />
+            <TextView
+                    android:layout_marginHorizontal="15dp"
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="86 St Louis Ave, Gallian"
+                    android:textColor="@color/grey_400"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/ralewaymedium" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

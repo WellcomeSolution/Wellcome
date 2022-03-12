@@ -32,4 +32,11 @@
             android:label="@string/LoginMenu"
             tools:layout="@layout/fragment_log_in_menu" >
     </fragment>
+
+    <fragment
+            android:id="@+id/fragment_trips"
+            android:name="com.example.wellcome.IncomingReservationsTravelersFragment"
+            android:label="@string/trips"
+            tools:layout="@layout/fragment_incoming_reservations_travelers" >
+    </fragment>
 </navigation>

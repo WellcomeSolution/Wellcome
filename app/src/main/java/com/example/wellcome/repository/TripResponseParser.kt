@@ -25,4 +25,6 @@ class TripResponseParser {
             = format.decodeFromStream(input)
     fun parseToHostReservationPresenter(input:InputStream) : ArrayList<HostReservationPresenterDto>
             = format.decodeFromStream(input)
+    fun parseToIncomingTrip(input:InputStream) : ArrayList<IncomingTripDto>
+            = format.decodeFromStream(input)
 }
