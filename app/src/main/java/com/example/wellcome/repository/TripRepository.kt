@@ -1,6 +1,8 @@
 package com.example.wellcome.repository
 
 import android.graphics.Bitmap
+import android.util.Log
+import android.widget.Toast
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.encodeToStream
 import org.apache.http.client.utils.URIBuilder
@@ -13,17 +15,18 @@ import com.example.services.*
 
 class TripRepository(private val executor: Executor,
                      private val responseParser: TripResponseParser) {
-    private val baseUrl = "http://192.168.1.12:5229/api/hosts"
+    private val baseUrl = "http://192.168.1.81:5229/api/hosts"
     private val presentersFilterUrl = "$baseUrl/presenters/filter"
     private val hostDetailsUrl = "/details"
     private val AddRemoveFavoriteUrl = "$baseUrl/favorite"
     private val uploadImageUrl = "$baseUrl/image"
-
+    private val tag = "test"
     fun getHostPresenters(pattern:TripPattern,
                           callback:(Result<ArrayList<HostPresenter>>) -> Unit
     ){
         executor.execute{
             try {
+                Log.w(tag,pattern.toString())
                 val response = makeHostPresentersRequest(pattern)
                 callback(response)
             }
@@ -41,6 +44,7 @@ class TripRepository(private val executor: Executor,
             try {
                 val response = makeHostDetailsRequest(uuid)
                 callback(response)
+
             }
             catch (e: java.lang.Exception){
                 val errorResult = Result.Error(e)
@@ -115,9 +119,12 @@ class TripRepository(private val executor: Executor,
         executor.execute{
             try {
                 val response = makeFavoritesRequest(email)
+
                 callback(response)
+                Log.w(tag,email)
+                Log.w(tag,response.toString())
             }
-            catch (e: java.lang.Exception){
+           catch (e: java.lang.Exception){
                 val errorResult = Result.Error(e)
                 callback(errorResult)
             }

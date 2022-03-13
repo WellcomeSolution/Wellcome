@@ -11,7 +11,7 @@ import java.net.URL
 class AccountRepository(
     private val executor:Executor,
     private val responseParser:AccountResponseParser) {
-    private val baseUrl = "http://192.168.1.12:5229/api/account"
+    private val baseUrl = "http://192.168.1.81:5229/api/account"
 
     fun updateAccount(dto:AccountDto,
                         callback:(Result<String>) -> Unit

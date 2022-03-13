@@ -14,13 +14,16 @@ import com.example.wellcome.data.CreateTripViewModel
 import com.example.wellcome.data.UserViewModel
 import com.example.wellcome.databinding.FragmentAddHostAddressBinding
 import com.example.wellcome.databinding.FragmentAddHostDescriptionBinding
+import com.example.wellcome.utils.PopError
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_add_host_address.*
 import kotlinx.android.synthetic.main.fragment_add_host_description.*
 import kotlinx.android.synthetic.main.fragment_add_host_picture.*
 
 class AddHostDescriptionFragment : Fragment() {
     private val createTripViewModel: CreateTripViewModel by activityViewModels()
     private val userViewModel: UserViewModel by activityViewModels()
-
+    private val popError: PopError = PopError()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
@@ -52,13 +55,27 @@ class AddHostDescriptionFragment : Fragment() {
             ))
         }
         createTripViewModel.isCreated.observe(viewLifecycleOwner, {
+
             isCreated : Boolean ->
-            if(isCreated){
-                val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
-                val directions = AddHostDescriptionFragmentDirections.navigateToNavigationFragment()
-                nav.navigate(directions)
-                requireActivity().viewModelStore.clear()
+            when{
+                createTripViewModel.title.value?.let { it1 -> popError.stringTypeTest(it1) } == true -> {
+                    Snackbar.make(prev_button_description,"Please enter your post title!", Snackbar.LENGTH_LONG)
+                        .show()
+                }
+                createTripViewModel.description.value?.let { it1 -> popError.stringTypeTest(it1) } == true -> {
+                    Snackbar.make(prev_button_description,"Please enter your post description!", Snackbar.LENGTH_LONG)
+                        .show()
+                }
+                else->{
+                    if(isCreated){
+                        val nav = Navigation.findNavController(requireActivity(), com.example.wellcome.R.id.nav_host_fragment)
+                        val directions = AddHostDescriptionFragmentDirections.navigateToNavigationFragment()
+                        nav.navigate(directions)
+                        requireActivity().viewModelStore.clear()
+                    }
+                }
             }
+
         })
     }
 

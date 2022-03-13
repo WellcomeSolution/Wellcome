@@ -11,7 +11,6 @@ import com.example.wellcome.data.SharedTripViewModel
 import com.example.wellcome.databinding.FragmentTripBinding
 import kotlinx.android.synthetic.main.fragment_trip.*
 import android.R
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import com.example.services.TripPattern
@@ -19,6 +18,7 @@ import com.example.services.TripPattern
 import androidx.lifecycle.Lifecycle
 import com.example.services.HostPresenter
 import com.example.wellcome.data.UserViewModel
+import com.example.wellcome.utils.PopError
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialSharedAxis
 
@@ -26,6 +26,7 @@ import com.google.android.material.transition.MaterialSharedAxis
 class TripFragment : Fragment() {
     private val viewModel: SharedTripViewModel by activityViewModels()
     private val userViewModel: UserViewModel by activityViewModels()
+    private val popError: PopError = PopError()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initClickListeners()
@@ -68,23 +69,15 @@ class TripFragment : Fragment() {
             var babies = viewModel.babies.value!!
             var childs = viewModel.childs.value!!
             var lon  = viewModel.city.value?.lon!!
-            if((adults == 0 && babies == 0 && childs == 0)||adults == null || babies == null || childs == null){
+
+            if(popError.intTypeTest(adults)&&popError.intTypeTest(babies)&&popError.intTypeTest(childs)){
                 Snackbar.make(search_button,"Please select travelers!",Snackbar.LENGTH_LONG)
                     .show()
             }
-            else if(lon.equals(null) || lon == ""){
-                Snackbar.make(search_button,"Please select your location!",Snackbar.LENGTH_LONG)
-                    /*message dans R.id.string pour dire que search fonctionne pas */
-                /*  .setAction("undo"){
-                   Toast.makeText(context,"Please select your location!",Toast.LENGTH_SHORT)
-                il faut une fonction de initialiser les 3 champs
-                    }*/
-                    .show()
+            else if(popError.stringTypeTest(lon)){
+                Snackbar.make(search_button,"Please select your location!",Snackbar.LENGTH_LONG).show()
             }
-            /*else if((adults == 0 && babies == 0 && childs == 0)||adults == null || babies == null || childs == null){
-                Snackbar.make(search_button,"Please select travelers!",Snackbar.LENGTH_LONG)
-                    .show()
-            }*/
+            //manque le date
             else{
                 val pattern = TripPattern(
                     userViewModel.email.value!!,

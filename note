@@ -1,0 +1,4 @@
+search button -> 
+viewModel(SharedTripViewModel).loadHosts(pattern:TripPattrn) ->
+loadHosts(pattern:TripPattrn) ->
+tripRepository.getHostPresenters(pattern:TripPattrn)->

@@ -1,16 +1,20 @@
 package com.example.wellcome.data
 
+import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.services.AccountDto
 import com.example.services.HostReservationPresenterDto
 import com.example.services.IncomingTripDto
 import com.example.wellcome.repository.*
-
+import com.example.wellcome.utils.PopError
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_manage_account.*
 class UserViewModel:ViewModel() {
     private val accountRepository = AccountRepository(Executor(), AccountResponseParser())
     private val tripRepository = TripRepository(Executor(), TripResponseParser())
-
+    private val popError: PopError = PopError()
     val uuid = MutableLiveData("")
     val email = MutableLiveData("jebray@gmail.com")
     val phone = MutableLiveData("")
@@ -24,7 +28,7 @@ class UserViewModel:ViewModel() {
     val reservations = MutableLiveData(ArrayList<HostReservationPresenterDto>())
     val incomingTrips = MutableLiveData(ArrayList<IncomingTripDto>())
 
-    fun update(){
+    fun update() {
         isLoading.postValue(true)
         accountRepository.updateAccount(
             AccountDto(
