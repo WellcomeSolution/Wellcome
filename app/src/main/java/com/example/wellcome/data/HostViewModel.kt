@@ -127,7 +127,7 @@ class HostViewModel :ViewModel() {
                     city.postValue(result.data.address.city)
                     postalCode.postValue(result.data.address.postalCode)
                     country.postValue(result.data.address.country)
-                    language.postValue(result.data.hoster.language)
+                    language.postValue(result.data.hoster.languages.first())
                     gender.postValue(Gender.valueOf(result.data.hoster.gender))
                     age.postValue(result.data.hoster.age)
                     userDescription.postValue(result.data.hoster.description)

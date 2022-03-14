@@ -20,3 +20,4 @@ class HostDetails(
     @SerializedName("Hoster")
     val hoster: Hoster)
 
+

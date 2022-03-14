@@ -65,8 +65,11 @@ class HostsFragment : Fragment() {
         }
 
         top_app_bar.setOnClickListener{
-            val nav = findNavController()
-            nav.popBackStack()
+            //val nav = findNavController()
+            val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+            val directions = HostsFragmentDirections.navigateToMain()
+            nav.navigate(directions)
+           // nav.popBackStack()
         }
     }
 

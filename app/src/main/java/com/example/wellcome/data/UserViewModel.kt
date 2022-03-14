@@ -16,7 +16,7 @@ class UserViewModel:ViewModel() {
     private val tripRepository = TripRepository(Executor(), TripResponseParser())
     private val popError: PopError = PopError()
     val uuid = MutableLiveData("")
-    val email = MutableLiveData("jebray@gmail.com")
+    val email = MutableLiveData("sunjia@gmail.com")
     val phone = MutableLiveData("")
     val birthDate = MutableLiveData<String>("")
     val firstName = MutableLiveData<String>("")

@@ -17,8 +17,8 @@ class Hoster(
     val description: String,
     @SerializedName("Profession")
     val profession: String,
-    @SerializedName("Language")
-    val language: String,
+    @SerializedName("Languages")
+    val languages: ArrayList<String>,
     @SerializedName("PictureUrl")
     val pictureUrl: String
 )

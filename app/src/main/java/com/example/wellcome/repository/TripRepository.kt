@@ -15,7 +15,7 @@ import com.example.services.*
 
 class TripRepository(private val executor: Executor,
                      private val responseParser: TripResponseParser) {
-    private val baseUrl = "http://192.168.1.81:5229/api/hosts"
+    private val baseUrl = "http://172.17.46.234:5229/api/hosts"
     private val presentersFilterUrl = "$baseUrl/presenters/filter"
     private val hostDetailsUrl = "/details"
     private val AddRemoveFavoriteUrl = "$baseUrl/favorite"
@@ -374,7 +374,7 @@ class TripRepository(private val executor: Executor,
             setRequestProperty("Accept", "application/json")
             doOutput = true
             Json.encodeToStream(pattern, outputStream)
-            Thread.sleep(2000)
+            //Thread.sleep(2000)
             return Result.Success(responseParser.parseToHostPresenters(inputStream))
         }
         return Result.Error(Exception("Cannot open HttpURLConnection"))

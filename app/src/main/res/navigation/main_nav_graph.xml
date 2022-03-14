@@ -39,6 +39,9 @@
         <action
                 android:id="@+id/navigate_to_host_details"
                 app:destination="@id/hostDetails" />
+        <action
+            android:id="@+id/navigate_to_main"
+            app:destination="@id/navigationFragment" />
     </fragment>
     <fragment
         android:id="@+id/lessonFragment"
