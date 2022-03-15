@@ -33,14 +33,14 @@ class LogInFormBottomSheet : BaseBottomSheet() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initLayout()
-
-        userViewModel.isLoading.observe(viewLifecycleOwner, { isLoading : Boolean ->
+/*
+        userViewModel.isLoading.observe(viewLifecycleOwner, {
             if(userViewModel.isLogIn.value!!) {
                 val nav = Navigation.findNavController(requireActivity(), R.id.nav_fragment)
                 nav.navigate(R.id.fragment_profile)
                 this.dismiss()
             }
-        })
+        })*/
     }
 
     private fun initLayout(){

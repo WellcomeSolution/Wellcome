@@ -31,6 +31,11 @@ class ProfileFragment : Fragment() {
             val directions = NavigationFragmentDirections.navigateToViewReservations()
             nav.navigate(directions)
         }
+        log_in_button_profile.setOnClickListener{
+            val nav = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+            val directions = NavigationFragmentDirections.navigateToLoginMenu()
+            nav.navigate(directions)
+        }
     }
 
     override fun onCreateView(
@@ -41,3 +46,4 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 }
+

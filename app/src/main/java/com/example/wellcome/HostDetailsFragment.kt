@@ -16,17 +16,21 @@ import com.google.android.material.transition.MaterialContainerTransform
 import kotlinx.android.synthetic.main.fragment_host_details.*
 import android.animation.LayoutTransition
 import android.animation.ObjectAnimator
-
 import android.widget.LinearLayout
-
 import android.animation.PropertyValuesHolder
-
 import android.animation.Animator
 import android.view.animation.*
 import android.widget.ScrollView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
 import com.example.services.HostPresenter
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
@@ -34,7 +38,6 @@ import com.squareup.picasso.Picasso
 class HostDetailsFragment : Fragment() {
     private val viewModel: HostViewModel by navGraphViewModels(R.id.hostFragment)
     private val hostPicture = "http://10.0.2.2:5229"
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         container.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
@@ -76,10 +79,22 @@ class HostDetailsFragment : Fragment() {
             setAllContainerColors(requireContext().themeColor(R.attr.colorSurface))
         }
 
+   /*     val mapFragment = childFragmentManager.findFragmentById(R.id.maptrip) as SupportMapFragment
+        mapFragment.getMapAsync(this)*/
+
         val binding = FragmentHostDetailsBinding
             .inflate(inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }
+   /* override fun onMapReady(googleMap: GoogleMap) {
+        val appointLoc = LatLng(lat, lng)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(appointLoc))
+        googleMap.addMarker(
+            MarkerOptions().position(appointLoc).title("Marker")
+        )
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(appointLoc,15f))
+    }*/
 }
+

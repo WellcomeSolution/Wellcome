@@ -10,6 +10,7 @@
             android:name="com.example.wellcome.ServicesFragment"
             android:label="@string/services"
             tools:layout="@layout/fragment_services" >
+
     </fragment>
 
     <fragment
@@ -31,6 +32,7 @@
             android:name="com.example.wellcome.LogInMenuFragment"
             android:label="@string/LoginMenu"
             tools:layout="@layout/fragment_log_in_menu" >
+
     </fragment>
 
     <fragment
